@@ -4,6 +4,7 @@ import asyncio
 import hashlib
 import io
 import os
+import threading
 import time
 import uuid
 from collections import OrderedDict
@@ -84,65 +85,139 @@ class ModelA3InferenceEngine:
         self._models: Dict[str, Any] = {}
         self.is_warmed = False
         self.startup_error: Optional[str] = None
+        self._is_initializing = False
+        self._init_task: Optional[asyncio.Task] = None
+        self._init_lock = threading.Lock()
+        self._ready_event = threading.Event()
+
+    def start_background_init(self) -> Optional[asyncio.Task]:
+        """Schedules model loading and warmup in a background worker thread.
+
+        Ensures that FastAPI/Uvicorn can immediately bind the port and serve /health
+        without waiting for CPU warmup or file downloads.
+        """
+        if self.is_warmed and self.model is not None:
+            return None
+
+        if self._init_task is not None and not self._init_task.done():
+            logger.info("Model A3 background initialization is already running.")
+            return self._init_task
+
+        self._ready_event.clear()
+        self._is_initializing = True
+
+        async def _init_runner():
+            try:
+                logger.info(f"Background worker starting Model A3 loading on {self.device}...")
+                await asyncio.to_thread(self.load_and_warmup)
+            except asyncio.CancelledError:
+                logger.info("Model A3 background initialization task was cancelled.")
+                raise
+            except Exception as exc:
+                logger.error(f"Model A3 background initialization failed: {exc}", exc_info=True)
+                self.startup_error = str(exc)
+            finally:
+                self._is_initializing = False
+                self._ready_event.set()
+
+        try:
+            loop = asyncio.get_running_loop()
+            self._init_task = loop.create_task(_init_runner())
+            return self._init_task
+        except RuntimeError:
+            logger.warning("No active asyncio event loop; executing load_and_warmup synchronously.")
+            try:
+                self.load_and_warmup()
+            except Exception:
+                pass
+            return None
+
+    async def cancel_background_init(self) -> None:
+        """Cancels background initialization task during application shutdown."""
+        if self._init_task is not None and not self._init_task.done():
+            logger.info("Cancelling Model A3 background initialization task...")
+            self._init_task.cancel()
+            try:
+                await self._init_task
+            except asyncio.CancelledError:
+                logger.info("Model A3 background initialization task cancelled cleanly.")
+            except Exception as exc:
+                logger.warning(f"Exception during background task cancellation: {exc}")
+            finally:
+                self._init_task = None
+                self._is_initializing = False
+
+    def wait_until_ready(self, timeout: float = 30.0) -> bool:
+        """Blocks until initialization completes or fails, or until timeout."""
+        finished = self._ready_event.wait(timeout=timeout)
+        return finished and self.is_warmed and self.startup_error is None
 
     def load_and_warmup(self) -> None:
         """Loads Model A3 onto target device and runs 1 warmup inference pass."""
-        if self.model is not None and self.is_warmed:
-            return
+        with self._init_lock:
+            if self.model is not None and self.is_warmed:
+                return
 
-        t0 = time.perf_counter()
-        optimal = get_optimal_device()
-        self.device = "cuda:0" if optimal == "cuda" else "cpu"
+            t0 = time.perf_counter()
+            optimal = get_optimal_device()
+            self.device = "cuda:0" if optimal == "cuda" else "cpu"
 
-        # Resolve and ensure checkpoint presence with integrity check
-        from utils.model_downloader import (
-            ChecksumMismatchError,
-            ModelDownloadError,
-            ensure_model_checkpoint,
-        )
-
-        try:
-            resolved_ckpt = ensure_model_checkpoint(self.checkpoint_path)
-        except (ChecksumMismatchError, ModelDownloadError, FileNotFoundError) as exc:
-            err_msg = f"Model A3 checkpoint unavailable: {exc}"
-            logger.error(err_msg)
-            self.startup_error = err_msg
-            raise FileNotFoundError(err_msg) from exc
-        except Exception as exc:
-            err_msg = f"Unexpected error while ensuring Model A3 checkpoint: {exc}"
-            logger.error(err_msg, exc_info=True)
-            self.startup_error = err_msg
-            raise RuntimeError(err_msg) from exc
-
-        logger.info(f"Initializing Model A3 on {self.device} from {resolved_ckpt}...")
-        from ultralytics import YOLO
-
-        self.model = YOLO(str(resolved_ckpt))
-        self._models[self.model_name] = self.model
-        load_ms = round((time.perf_counter() - t0) * 1000.0, 2)
-        logger.info(f"Model A3 weights loaded in {load_ms}ms")
-
-        # Run startup warmup pass
-        try:
-            logger.info(f"Executing warmup pass for Model A3 on {self.device}...")
-            dummy_img = Image.new("RGB", (self.imgsz, self.imgsz), (128, 128, 128))
-            use_half = self.device.startswith("cuda")
-            _ = self.model.predict(
-                source=dummy_img,
-                imgsz=self.imgsz,
-                conf=0.25,
-                device=self.device,
-                half=use_half,
-                verbose=False,
+            # Resolve and ensure checkpoint presence with integrity check
+            from utils.model_downloader import (
+                ChecksumMismatchError,
+                ModelDownloadError,
+                ensure_model_checkpoint,
             )
-            self.is_warmed = True
-            self.startup_error = None
-            warmup_ms = round((time.perf_counter() - t0) * 1000.0 - load_ms, 2)
-            logger.info(f"Model A3 warmup complete in {warmup_ms}ms. Service is READY.")
-        except Exception as exc:
-            logger.error(f"Warmup pass failed: {exc}", exc_info=True)
-            self.startup_error = str(exc)
-            raise RuntimeError(f"Failed during Model A3 warmup: {exc}")
+
+            try:
+                resolved_ckpt = ensure_model_checkpoint(self.checkpoint_path)
+            except (ChecksumMismatchError, ModelDownloadError, FileNotFoundError) as exc:
+                err_msg = f"Model A3 checkpoint unavailable: {exc}"
+                logger.error(err_msg)
+                self.startup_error = err_msg
+                self.is_warmed = False
+                self._ready_event.set()
+                raise FileNotFoundError(err_msg) from exc
+            except Exception as exc:
+                err_msg = f"Unexpected error while ensuring Model A3 checkpoint: {exc}"
+                logger.error(err_msg, exc_info=True)
+                self.startup_error = err_msg
+                self.is_warmed = False
+                self._ready_event.set()
+                raise RuntimeError(err_msg) from exc
+
+            logger.info(f"Initializing Model A3 on {self.device} from {resolved_ckpt}...")
+            from ultralytics import YOLO
+
+            try:
+                self.model = YOLO(str(resolved_ckpt))
+                self._models[self.model_name] = self.model
+                load_ms = round((time.perf_counter() - t0) * 1000.0, 2)
+                logger.info(f"Model A3 weights loaded in {load_ms}ms")
+
+                # Run startup warmup pass
+                logger.info(f"Executing warmup pass for Model A3 on {self.device}...")
+                dummy_img = Image.new("RGB", (self.imgsz, self.imgsz), (128, 128, 128))
+                use_half = self.device.startswith("cuda")
+                _ = self.model.predict(
+                    source=dummy_img,
+                    imgsz=self.imgsz,
+                    conf=0.25,
+                    device=self.device,
+                    half=use_half,
+                    verbose=False,
+                )
+                self.is_warmed = True
+                self.startup_error = None
+                warmup_ms = round((time.perf_counter() - t0) * 1000.0 - load_ms, 2)
+                logger.info(f"Model A3 warmup complete in {warmup_ms}ms. Service is READY.")
+            except Exception as exc:
+                logger.error(f"Warmup pass failed: {exc}", exc_info=True)
+                self.startup_error = str(exc)
+                self.is_warmed = False
+                raise RuntimeError(f"Failed during Model A3 warmup: {exc}") from exc
+            finally:
+                self._ready_event.set()
 
     def resolve_model(self, requested_id: Optional[str] = None):
         """Resolves target model, loading on-demand if necessary."""
@@ -214,10 +289,13 @@ class ModelA3InferenceEngine:
         Returns:
             Tuple of (detections, infer_ms, is_cached, queue_wait_ms, canonical_model_name)
         """
-        if self.model is None:
+        if self.model is None or not self.is_warmed:
             if self.startup_error is not None:
-                raise FileNotFoundError(self.startup_error)
-            self.load_and_warmup()
+                raise FileNotFoundError(f"Model A3 unavailable due to startup error: {self.startup_error}")
+            if self._is_initializing:
+                raise FileNotFoundError("Model A3 is currently initializing. Model loading and warmup in progress.")
+            self.start_background_init()
+            raise FileNotFoundError("Model A3 is starting up. Model loading and warmup in progress.")
 
         canonical_name, active_model, active_imgsz = self.resolve_model(model_id)
 

@@ -16,14 +16,14 @@ logger = get_logger("RoomAI_API")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Application lifespan manager: preloads and warms up Model A3 before serving."""
+    """Application lifespan manager: starts non-blocking background initialization for Model A3."""
+    logger.info("Scheduling Model A3 background initialization at application startup...")
+    detect.GLOBAL_MODEL_A3_ENGINE.start_background_init()
     try:
-        logger.info("Initializing Model A3 inference engine at application startup...")
-        detect.GLOBAL_MODEL_A3_ENGINE.load_and_warmup()
-    except Exception as exc:
-        logger.error(f"CRITICAL: Model A3 failed to initialize at startup: {exc}", exc_info=True)
-        detect.GLOBAL_MODEL_A3_ENGINE.startup_error = str(exc)
-    yield
+        yield
+    finally:
+        logger.info("Application shutdown: cancelling background initialization tasks...")
+        await detect.GLOBAL_MODEL_A3_ENGINE.cancel_background_init()
 
 
 app = FastAPI(

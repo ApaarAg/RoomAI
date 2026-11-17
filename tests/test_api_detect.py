@@ -13,6 +13,8 @@ from api.schemas import DetectionResponse
 def client():
     """Module-level TestClient ensuring startup and teardown lifecycles run once."""
     with TestClient(app) as c:
+        from api.routers.detect import GLOBAL_MODEL_A3_ENGINE
+        GLOBAL_MODEL_A3_ENGINE.wait_until_ready(timeout=30.0)
         yield c
 
 

@@ -198,10 +198,13 @@ def test_invalid_checksum_startup_fails_safely(monkeypatch, tmp_path):
 
     # Startup lifespan should capture startup error safely
     with TestClient(app) as client:
-        # 1. Health liveness remains 200 healthy
+        # 1. Health liveness remains 200 healthy immediately
         h_res = client.get("/health")
         assert h_res.status_code == 200
         assert h_res.json()["status"] == "healthy"
+
+        # Wait for background initialization to attempt and fail
+        engine._ready_event.wait(timeout=10.0)
 
         # 2. Readiness reflects degraded state and surfaces startup error
         r_res = client.get("/ready")
@@ -245,6 +248,10 @@ def test_clean_startup_absent_checkpoint_downloads_and_reaches_readiness(monkeyp
 
     # Boot FastAPI application
     with TestClient(app) as client:
+        # Wait for background download and warmup to complete
+        is_ready = engine.wait_until_ready(timeout=60.0)
+        assert is_ready is True
+
         # 1. Probe readiness: model should be fully initialized, warmed up, and ready
         r_res = client.get("/ready")
         assert r_res.status_code == 200
