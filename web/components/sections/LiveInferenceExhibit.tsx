@@ -21,6 +21,7 @@ export function LiveInferenceExhibit() {
   const [imageDims, setImageDims] = useState<{ width: number; height: number }>({ width: 1920, height: 1080 });
   const [confidence, setConfidence] = useState<number>(0.35);
   const [lifecycle, setLifecycle] = useState<LifecycleState>({ status: "IDLE" });
+  const [statusMessage, setStatusMessage] = useState<string>("INITIALIZING AI MODEL...");
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [showSpatial3D, setShowSpatial3D] = useState<boolean>(false);
 
@@ -47,6 +48,7 @@ export function LiveInferenceExhibit() {
     abortControllerRef.current = controller;
 
     const currentReqId = ++activeRequestIdRef.current;
+    setStatusMessage("INITIALIZING AI MODEL...");
     setLifecycle({ status: "UPLOADING" });
 
     const inferStartTimer = setTimeout(() => {
@@ -59,6 +61,8 @@ export function LiveInferenceExhibit() {
       const { data, clientLatency } = await apiClient.detectImage(targetFile, {
         confidenceThreshold: targetConf,
         signal: controller.signal,
+        imageDimensions: imageDims,
+        onStatusUpdate: (msg) => setStatusMessage(msg),
       });
 
       clearTimeout(inferStartTimer);
@@ -379,9 +383,7 @@ export function LiveInferenceExhibit() {
             <div className="inference-hud-overlay">
               <div className="hud-spinner" />
               <p className="hud-status">
-                {lifecycle.status === "UPLOADING"
-                  ? "UPLOADING IMAGE PAYLOAD..."
-                  : "RUNNING MODEL A3 INFERENCE ON GPU..."}
+                {statusMessage.toUpperCase()}
               </p>
             </div>
           )}

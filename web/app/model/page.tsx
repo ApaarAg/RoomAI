@@ -84,6 +84,7 @@ export default function ModelStudioPage() {
   const [imageDims, setImageDims] = useState<{ width: number; height: number }>({ width: 1280, height: 960 });
   const [confidence, setConfidence] = useState<number>(0.25);
   const [lifecycle, setLifecycle] = useState<LifecycleState>({ status: "IDLE" });
+  const [statusMessage, setStatusMessage] = useState<string>("INITIALIZING AI MODEL...");
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [showSpatial3D, setShowSpatial3D] = useState<boolean>(true);
   const [readiness, setReadiness] = useState<ReadinessResponse | null>(null);
@@ -131,6 +132,7 @@ export default function ModelStudioPage() {
     abortControllerRef.current = controller;
 
     const currentReqId = ++activeRequestIdRef.current;
+    setStatusMessage("INITIALIZING AI MODEL...");
     setLifecycle({ status: "UPLOADING" });
 
     const inferTimer = setTimeout(() => {
@@ -144,6 +146,8 @@ export default function ModelStudioPage() {
         confidenceThreshold: targetConf,
         modelId: targetModel,
         signal: controller.signal,
+        imageDimensions: imageDims,
+        onStatusUpdate: (msg) => setStatusMessage(msg),
       });
 
       clearTimeout(inferTimer);
@@ -702,9 +706,7 @@ export default function ModelStudioPage() {
                   <div className="studio-hud-overlay">
                     <div className="hud-spinner" />
                     <p className="hud-status">
-                      {lifecycle.status === "UPLOADING"
-                        ? "STREAMING IMAGE PAYLOAD..."
-                        : `RUNNING ${selectedModel.toUpperCase()} INFERENCE ON NVIDIA RTX 4060 GPU...`}
+                      {statusMessage.toUpperCase()}
                     </p>
                   </div>
                 )}

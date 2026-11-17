@@ -10,6 +10,7 @@ import {
   ReadinessResponse,
   UploadResponse,
 } from "./types";
+import { zeroGpuClient, ZeroGpuDetectOptions } from "../detectionClient";
 
 export class ApiError extends Error {
   public readonly code: string;
@@ -147,9 +148,48 @@ class RoomApiClient {
 
   /**
    * Sends an image to Model A3 / specialist models for object detection.
-   * Uses multipart/form-data for optimal binary streaming without Base64 overhead.
+   * By default, Model A3 routes to Hugging Face ZeroGPU for GPU-accelerated inference.
+   * Specialist models (B2 Exterior, C2 Parking) or local mode route to the local backend.
    */
-  async detectImage(file: File | Blob, options: DetectOptions = {}): Promise<DetectResult> {
+  async detectImage(file: File | Blob, options: ZeroGpuDetectOptions = {}): Promise<DetectResult> {
+    const isA3Model = !options.modelId ||
+      options.modelId === "indoor_detector_a3_yolo11s_800px" ||
+      options.modelId === "roomai-a3";
+
+    const useZeroGpu = isA3Model && process.env.NEXT_PUBLIC_ROOMAI_INFERENCE_URL !== "local";
+
+    if (useZeroGpu) {
+      try {
+        return await zeroGpuClient.detect(file, options);
+      } catch (zeroGpuErr: unknown) {
+        if (options.signal?.aborted) {
+          throw zeroGpuErr;
+        }
+
+        // If local fallback is explicitly disabled, propagate the ZeroGPU error
+        if (options.fallbackToLocal === false) {
+          throw zeroGpuErr;
+        }
+
+        console.warn("ZeroGPU inference unavailable or quota-limited, attempting local fallback:", zeroGpuErr);
+
+        // Fallback to local FastAPI backend if reachable
+        try {
+          return await this.detectImageLocal(file, options);
+        } catch {
+          // If local backend also fails, raise the original ZeroGPU error with its actionable context
+          throw zeroGpuErr;
+        }
+      }
+    }
+
+    return await this.detectImageLocal(file, options);
+  }
+
+  /**
+   * Local backend detection implementation via FastAPI (/api/v1/detect).
+   */
+  async detectImageLocal(file: File | Blob, options: DetectOptions = {}): Promise<DetectResult> {
     let url = `${this.baseUrl}/api/v1/detect`;
     const t0 = performance.now();
 
