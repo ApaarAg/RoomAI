@@ -3,6 +3,7 @@
 import asyncio
 import hashlib
 import io
+import os
 import time
 import uuid
 from collections import OrderedDict
@@ -40,7 +41,7 @@ MAX_CACHE_ENTRIES = 64
 SUPPORTED_DETECTOR_MODELS: Dict[str, Dict[str, Any]] = {
     "indoor_detector_a3_yolo11s_800px": {
         "canonical_name": "indoor_detector_a3_yolo11s_800px",
-        "checkpoint": Path("checkpoints/indoor_detector_a3_yolo11s_800px_best.pt"),
+        "checkpoint": Path(os.getenv("ROOMAI_MODEL_PATH", "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt")),
         "imgsz": 800,
         "aliases": ["indoor_detector_a3_yolo11s_800px", "indoor_a3", "model_a3", "indoor", "a3"],
     },
@@ -73,7 +74,9 @@ class ModelA3InferenceEngine:
     def __init__(self):
         self.model = None
         self.model_name = "indoor_detector_a3_yolo11s_800px"
-        self.checkpoint_path = Path("checkpoints/indoor_detector_a3_yolo11s_800px_best.pt")
+        self.checkpoint_path = Path(
+            os.getenv("ROOMAI_MODEL_PATH", "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt")
+        )
         self.device = "cpu"
         self.imgsz = 800
         self.lock = asyncio.Lock()
@@ -91,17 +94,25 @@ class ModelA3InferenceEngine:
         optimal = get_optimal_device()
         self.device = "cuda:0" if optimal == "cuda" else "cpu"
 
-        # Resolve checkpoint path
-        resolved_ckpt = self.checkpoint_path
-        if not resolved_ckpt.exists():
-            repo_root = Path(__file__).resolve().parent.parent.parent
-            resolved_ckpt = repo_root / self.checkpoint_path
+        # Resolve and ensure checkpoint presence with integrity check
+        from utils.model_downloader import (
+            ChecksumMismatchError,
+            ModelDownloadError,
+            ensure_model_checkpoint,
+        )
 
-        if not resolved_ckpt.exists():
-            err_msg = f"Model A3 checkpoint not found at {resolved_ckpt}"
-            logger.error(f"Model A3 checkpoint missing at {resolved_ckpt}")
+        try:
+            resolved_ckpt = ensure_model_checkpoint(self.checkpoint_path)
+        except (ChecksumMismatchError, ModelDownloadError, FileNotFoundError) as exc:
+            err_msg = f"Model A3 checkpoint unavailable: {exc}"
+            logger.error(err_msg)
             self.startup_error = err_msg
-            raise FileNotFoundError(err_msg)
+            raise FileNotFoundError(err_msg) from exc
+        except Exception as exc:
+            err_msg = f"Unexpected error while ensuring Model A3 checkpoint: {exc}"
+            logger.error(err_msg, exc_info=True)
+            self.startup_error = err_msg
+            raise RuntimeError(err_msg) from exc
 
         logger.info(f"Initializing Model A3 on {self.device} from {resolved_ckpt}...")
         from ultralytics import YOLO

@@ -112,7 +112,45 @@ curl -s http://localhost:8000/api/v1/models
 
 ---
 
-## 6. Docker Evaluation & Cloud Notes
+## 6. Render Cloud Deployment Guide (FastAPI Web Service)
+
+RoomAI's FastAPI backend is turnkey deployable as a Python Web Service on [Render](https://render.com).
+
+### 6.1 Service Configuration
+When creating a **New Web Service** on Render, configure the following settings:
+
+| Setting | Value |
+| :--- | :--- |
+| **Runtime** | `Python 3` |
+| **Branch** | `main` |
+| **Root Directory** | `.` (repository root) |
+| **Build Command** | `pip install -r requirements.txt` |
+| **Start Command** | `uvicorn api.main:app --host 0.0.0.0 --port $PORT` |
+| **Health Check Path** | `/health` |
+
+### 6.2 Environment Variables
+
+Set the following environment variables in the Render Dashboard (**Environment** tab):
+
+| Variable | Description | Recommended Production Value |
+| :--- | :--- | :--- |
+| `PYTHONPATH` | Python module lookup path | `.` |
+| `PORT` | Dynamic HTTP port injected by Render | *(Injected automatically by Render, defaults to 10000)* |
+| `ROOMAI_CORS_ORIGINS` | Comma-delimited list of allowed frontend origins (no wildcard `*` with credentials) | `https://your-frontend.vercel.app,https://your-domain.com` |
+| `DEVICE` | Compute target for PyTorch inference | `cpu` *(or `cuda:0` if deploying on a Render GPU instance)* |
+| `ENVIRONMENT` | Application operational environment | `production` |
+| `LOG_LEVEL` | Application logging verbosity | `INFO` |
+
+> [!IMPORTANT]
+> - **CORS Origin Matching:** In production, specify exact frontend domains (e.g. `https://roomai.vercel.app`) in `ROOMAI_CORS_ORIGINS`. Never supply `*` alongside cookie/credential authentication.
+> - **Zero-Crash CPU Startup:** If deployed on Render CPU instances (Free / Starter / Standard), the backend will automatically initialize Model A3 on CPU without CUDA dependencies and serve predictions safely.
+> - **Health vs. Readiness Probes:**
+>   - Use `/health` for Render's liveness health check (always returns HTTP 200 `healthy` when the web process is running).
+>   - Use `/ready` for diagnostics and frontend readiness verification (reports whether weights are loaded and whether CUDA is active).
+
+---
+
+## 7. Docker Evaluation & Cloud Notes
 
 Docker deployment on Windows requires WSL2 with NVIDIA Container Toolkit. Given the local 8 GB RTX 4060 Laptop hardware and PyTorch CUDA 12.8 drivers, bare-metal Conda execution provides optimal latency, zero virtualization overhead, and direct access to GPU memory telemetry.
 

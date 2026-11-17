@@ -1,6 +1,7 @@
 """RoomAI Composite Model Adapter — Wraps Production YOLO11s + Depth Anything V2 + SIFT/Kabsch."""
 
 import gc
+import os
 from pathlib import Path
 import time
 from typing import Any, Callable, Dict, List, Optional, Tuple
@@ -76,8 +77,12 @@ class RoomAICompositeAdapter(ReconstructionModelAdapter):
         if self.mock_mode:
             return True, None
 
+        a3_path = Path(os.getenv("ROOMAI_MODEL_PATH", "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt"))
+        if not a3_path.is_absolute():
+            a3_path = REPO_ROOT / a3_path
+
         required_checkpoints = [
-            REPO_ROOT / "checkpoints" / "indoor_detector_a3_yolo11s_800px_best.pt",
+            a3_path,
             REPO_ROOT / "checkpoints" / "yolo11n-seg.pt",
             REPO_ROOT / "checkpoints" / "depth_anything_v2_metric_indoor_small",
         ]
