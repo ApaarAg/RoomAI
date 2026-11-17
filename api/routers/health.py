@@ -28,7 +28,15 @@ def get_readiness() -> ReadinessResponse:
     """Hardware readiness and model availability probe."""
     dev_info = get_device_info()
     models = RECONSTRUCTION_REGISTRY.list_models()
-    ready_models = [m.model_id for m in models if m.status == "PRODUCTION_READY"]
+    ready_models: list[str] = []
+    for m in models:
+        try:
+            adapter = RECONSTRUCTION_REGISTRY.get_adapter(m.model_id)
+            avail, _ = adapter.is_available()
+            if avail and m.status == "PRODUCTION_READY":
+                ready_models.append(m.model_id)
+        except Exception:
+            pass
 
     # Check Model A3 engine status and surface any startup failure
     a3_engine = detect.GLOBAL_MODEL_A3_ENGINE

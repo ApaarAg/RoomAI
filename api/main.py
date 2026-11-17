@@ -43,20 +43,23 @@ app = FastAPI(
 _cors_env = os.getenv("ROOMAI_CORS_ORIGINS", "").strip()
 if _cors_env:
     allowed_origins = [orig.strip() for orig in _cors_env.split(",") if orig.strip()]
+    allow_origin_regex = None
+    allow_credentials = False if "*" in allowed_origins else True
 else:
     allowed_origins = [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:8000",
         "http://127.0.0.1:8000",
-        "*",
     ]
+    allow_origin_regex = r"https?://(localhost|127\.0\.0\.1)(:\d+)?"
+    allow_credentials = True
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
-    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
-    allow_credentials=True,
+    allow_origin_regex=allow_origin_regex,
+    allow_credentials=allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -139,4 +142,11 @@ def root():
             "models": "/api/v1/models",
         },
     }
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    port = int(os.getenv("PORT", "8000"))
+    uvicorn.run("api.main:app", host="0.0.0.0", port=port, reload=False)
 

@@ -113,7 +113,7 @@ class ModelA3InferenceEngine:
 
         # Run startup warmup pass
         try:
-            logger.info("Executing GPU warmup pass for Model A3...")
+            logger.info(f"Executing warmup pass for Model A3 on {self.device}...")
             dummy_img = Image.new("RGB", (self.imgsz, self.imgsz), (128, 128, 128))
             use_half = self.device.startswith("cuda")
             _ = self.model.predict(
@@ -204,6 +204,8 @@ class ModelA3InferenceEngine:
             Tuple of (detections, infer_ms, is_cached, queue_wait_ms, canonical_model_name)
         """
         if self.model is None:
+            if self.startup_error is not None:
+                raise FileNotFoundError(self.startup_error)
             self.load_and_warmup()
 
         canonical_name, active_model, active_imgsz = self.resolve_model(model_id)
