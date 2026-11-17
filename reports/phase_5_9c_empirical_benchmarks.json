@@ -1,0 +1,68 @@
+{
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_total_mb": 8187.5,
+    "sys_ram_total_mb": 24299.87,
+    "python": "3.10.20",
+    "pytorch": "2.11.0+cu128",
+    "cuda_available": true
+  },
+  "baseline_models": {
+    "a3_detector": {
+      "load_time_s": 0.1049,
+      "static_vram_mb": 0.0
+    },
+    "fastsam": {
+      "load_time_s": 0.0716,
+      "static_vram_mb": 0.0
+    },
+    "depth_anything_v2": {
+      "load_time_s": 0.4606,
+      "static_vram_mb": 94.56
+    },
+    "combined_perception_static_vram_mb": 94.56,
+    "combined_perception_reserved_vram_mb": 116.0
+  },
+  "sequential_execution_profile": {},
+  "input_pipeline_metrics": {},
+  "perception_inference_benchmark": {
+    "detection_latency_ms": 773.54,
+    "fastsam_latency_ms": 453.68,
+    "depth_latency_ms": 185.87,
+    "total_perception_latency_ms": 1413.45,
+    "peak_vram_allocated_mb": 1497.62,
+    "peak_vram_reserved_mb": 2228.0,
+    "headroom_allocated_mb": 6689.88,
+    "headroom_reserved_mb": 5959.5
+  },
+  "vram_budget_analysis": {
+    "triposr_estimated_peak_mb": 5200.0,
+    "concurrent_mode": {
+      "peak_projected_mb": 7428.0,
+      "total_vram_mb": 8187.5,
+      "fits_in_8gb": true,
+      "margin_mb": 759.5,
+      "risk_assessment": "MARGINAL / HIGH RISK OF OOM under Windows WDDM shared memory spikes if resolution > 512"
+    },
+    "sequential_staged_mode": {
+      "peak_projected_mb": 5200.0,
+      "total_vram_mb": 8187.5,
+      "fits_in_8gb": true,
+      "margin_mb": 2987.5,
+      "risk_assessment": "SAFE (2.8+ GB headroom for WDDM OS desktop composition and texture processing)"
+    }
+  },
+  "input_pipeline_analysis": {
+    "num_evaluated_crops": 15,
+    "min_aspect_ratio": 0.357,
+    "max_aspect_ratio": 1.682,
+    "mean_aspect_ratio": 1.075,
+    "key_findings": [
+      "Furniture aspect ratios range from 0.357 (tall slender cabinets) to 1.682 (wide double beds).",
+      "Direct resizing to 512x512 without aspect-ratio preservation introduces severe geometric distortion (compressing beds horizontally or squishing tall cabinets vertically).",
+      "Uniform padding into a centered square RGBA canvas with 15-20% margin is mandatory before feeding into feed-forward 3D reconstructors.",
+      "Raw bounding-box crops include background walls and adjacent flooring, causing Triplane NeRF generators to reconstruct room walls as attached geometric 'wings' on the furniture.",
+      "FastSAM foreground masking eliminates background wall/floor contamination but requires smooth alpha feathering to prevent stair-stepped polygonal edge artifacts in the extracted mesh."
+    ]
+  }
+}

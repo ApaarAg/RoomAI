@@ -1,0 +1,39 @@
+{
+  "source": {
+    "upload_id": "upl_cee8234c7f93",
+    "model": "worldmirror1_baseline",
+    "job": "job_1794499397_4aa219ea",
+    "artifact": "depth/view_00_raw.npy",
+    "sha256": "529c2d21b6a8cfce4ea0d2a0f6ca63d03485dcbff2b4810c4780cc3774cbf266"
+  },
+  "browser_asset": {
+    "path": "depth/view_00_raw.f32",
+    "format": "row-major little-endian Float32",
+    "dimensions": [
+      518,
+      518
+    ],
+    "byte_length": 1073296,
+    "sha256": "a3fd4265d92135a8ea052de2de72baf25e0d6cd0cdf09d996a189574f273e1e5"
+  },
+  "conversion": {
+    "operation": "identity Float32 sample export from NumPy NPY payload",
+    "normalization": "none; rendering normalization is performed in the GPU shader",
+    "vertical_orientation": "DataTexture flipY=true aligns NPY row zero with RGB texture top row"
+  },
+  "depth": {
+    "dtype": "float32",
+    "range": [
+      0.8537687063217163,
+      1.0215181112289429
+    ],
+    "semantics": "raw model-native depth",
+    "units": "UNKNOWN"
+  },
+  "display_variant": {
+    "path": "../roomai-bedroom-editorial.jpeg",
+    "sha256": "4b5716ab31986d55ab44d259a770c7857c26e02b7a8c389f2e77df19dc661962",
+    "provenance": "AI editorial edit of the original room photograph; camera framing and major room layout intentionally preserved.",
+    "depth_relationship": "The raw depth artifact remains the HunyuanWorld-Mirror inference from the original pre-edit photo listed under source. It was not recomputed for the edited pixels; exact pixel-to-depth correspondence is not verified."
+  }
+}

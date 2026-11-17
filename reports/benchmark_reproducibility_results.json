@@ -1,0 +1,150 @@
+{
+  "timestamp": "2026-10-31 01:25:07",
+  "eval_image_count": 50,
+  "eval_images": [
+    "ADE_val_00000077",
+    "ADE_val_00000078",
+    "ADE_val_00000079",
+    "ADE_val_00000080",
+    "ADE_val_00000081",
+    "ADE_val_00000082",
+    "ADE_val_00000083",
+    "ADE_val_00000084",
+    "ADE_val_00000085",
+    "ADE_val_00000086",
+    "ADE_val_00000117",
+    "ADE_val_00000118",
+    "ADE_val_00000119",
+    "ADE_val_00000120",
+    "ADE_val_00000121",
+    "ADE_val_00000122",
+    "ADE_val_00000123",
+    "ADE_val_00000124",
+    "ADE_val_00000125",
+    "ADE_val_00000126",
+    "ADE_val_00000307",
+    "ADE_val_00000308",
+    "ADE_val_00000309",
+    "ADE_val_00000310",
+    "ADE_val_00000311",
+    "ADE_val_00000312",
+    "ADE_val_00000313",
+    "ADE_val_00000314",
+    "ADE_val_00000315",
+    "ADE_val_00000316",
+    "ADE_val_00000458",
+    "ADE_val_00000459",
+    "ADE_val_00000460",
+    "ADE_val_00000461",
+    "ADE_val_00000462",
+    "ADE_val_00000463",
+    "ADE_val_00000464",
+    "ADE_val_00000465",
+    "ADE_val_00000466",
+    "ADE_val_00000467",
+    "ADE_val_00000505",
+    "ADE_val_00000506",
+    "ADE_val_00000507",
+    "ADE_val_00000508",
+    "ADE_val_00000509",
+    "ADE_val_00000510",
+    "ADE_val_00000511",
+    "ADE_val_00000512",
+    "ADE_val_00000513",
+    "ADE_val_00000514"
+  ],
+  "semantic_audit": {
+    "reproduced_adhoc_miou": 0.5432,
+    "standard_10_class_dataset_miou": 0.6807,
+    "standard_all_present_classes_miou": 0.36,
+    "target_10_per_class_iou": {
+      "wall": 0.7636,
+      "floor": 0.8327,
+      "ceiling": 0.8346,
+      "windowpane": 0.6135,
+      "door": 0.3948,
+      "bed": 0.8878,
+      "sofa": 0.716,
+      "chair": 0.6302,
+      "table": 0.4751,
+      "cabinet": 0.6592
+    }
+  },
+  "instance_audit": {
+    "total_boxes": 308,
+    "total_masks": 284,
+    "mask_in_box_containment_ratio": 0.2306,
+    "empty_masks": 0,
+    "class_box_counts": {
+      "cabinet#shelf": 26,
+      "table": 40,
+      "chair#stool": 43,
+      "lamp": 40,
+      "door": 20,
+      "bed": 3,
+      "sofa": 22,
+      "plant": 40,
+      "decoration": 31,
+      "curtain": 0,
+      "home-appliance": 7,
+      "window": 36
+    }
+  },
+  "pipeline_audit": {
+    "latency_stats": {
+      "preprocess": {
+        "mean_ms": 2.72,
+        "std_ms": 1.07,
+        "p50_ms": 2.85,
+        "p95_ms": 4.57,
+        "p99_ms": 4.89
+      },
+      "a3_detect": {
+        "mean_ms": 16.85,
+        "std_ms": 4.31,
+        "p50_ms": 16.13,
+        "p95_ms": 24.34,
+        "p99_ms": 25.92
+      },
+      "fastsam_mask": {
+        "mean_ms": 22.29,
+        "std_ms": 9.5,
+        "p50_ms": 22.93,
+        "p95_ms": 36.37,
+        "p99_ms": 40.88
+      },
+      "segformer_sem": {
+        "mean_ms": 28.45,
+        "std_ms": 5.86,
+        "p50_ms": 27.47,
+        "p95_ms": 37.57,
+        "p99_ms": 38.78
+      },
+      "depth_metric": {
+        "mean_ms": 60.32,
+        "std_ms": 14.32,
+        "p50_ms": 60.79,
+        "p95_ms": 80.86,
+        "p99_ms": 92.66
+      },
+      "fusion_postproc": {
+        "mean_ms": 4.34,
+        "std_ms": 2.39,
+        "p50_ms": 4.49,
+        "p95_ms": 7.85,
+        "p99_ms": 12.61
+      },
+      "total_e2e": {
+        "mean_ms": 134.97,
+        "std_ms": 28.23,
+        "p50_ms": 137.65,
+        "p95_ms": 184.43,
+        "p99_ms": 199.3
+      }
+    },
+    "peak_vram_allocated_mb": 972.8,
+    "peak_vram_reserved_mb": 2442.0,
+    "static_vram_allocated_mb": 216.2,
+    "static_vram_reserved_mb": 226.0
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "generator": "scripts/generate_rfs_dataset.py",
+  "threshold": 0.03,
+  "max_repeat": 5,
+  "total_base_train_images": 8000,
+  "total_rfs_train_samples": 9176,
+  "expansion_percentage": 14.7,
+  "repeat_distribution": {
+    "1": 7047,
+    "2": 730,
+    "3": 223
+  },
+  "class_statistics": {
+    "Building": {
+      "train_images": 1535,
+      "train_boxes": 2789,
+      "frequency": 0.1919,
+      "repeat_factor": 1
+    },
+    "House": {
+      "train_images": 808,
+      "train_boxes": 1776,
+      "frequency": 0.101,
+      "repeat_factor": 1
+    },
+    "Door": {
+      "train_images": 165,
+      "train_boxes": 247,
+      "frequency": 0.0206,
+      "repeat_factor": 2
+    },
+    "Window": {
+      "train_images": 813,
+      "train_boxes": 7222,
+      "frequency": 0.1016,
+      "repeat_factor": 1
+    },
+    "Stairs": {
+      "train_images": 65,
+      "train_boxes": 76,
+      "frequency": 0.0081,
+      "repeat_factor": 2
+    },
+    "Chair": {
+      "train_images": 341,
+      "train_boxes": 1709,
+      "frequency": 0.0426,
+      "repeat_factor": 1
+    },
+    "Couch": {
+      "train_images": 55,
+      "train_boxes": 77,
+      "frequency": 0.0069,
+      "repeat_factor": 3
+    },
+    "Table": {
+      "train_images": 649,
+      "train_boxes": 1198,
+      "frequency": 0.0811,
+      "repeat_factor": 1
+    },
+    "Bed": {
+      "train_images": 41,
+      "train_boxes": 56,
+      "frequency": 0.0051,
+      "repeat_factor": 3
+    },
+    "Bookcase": {
+      "train_images": 50,
+      "train_boxes": 87,
+      "frequency": 0.0063,
+      "repeat_factor": 3
+    },
+    "Cabinetry": {
+      "train_images": 33,
+      "train_boxes": 92,
+      "frequency": 0.0041,
+      "repeat_factor": 3
+    },
+    "Bench": {
+      "train_images": 49,
+      "train_boxes": 92,
+      "frequency": 0.0061,
+      "repeat_factor": 3
+    },
+    "Car": {
+      "train_images": 1271,
+      "train_boxes": 3369,
+      "frequency": 0.1589,
+      "repeat_factor": 1
+    },
+    "Truck": {
+      "train_images": 103,
+      "train_boxes": 140,
+      "frequency": 0.0129,
+      "repeat_factor": 2
+    },
+    "Bus": {
+      "train_images": 107,
+      "train_boxes": 172,
+      "frequency": 0.0134,
+      "repeat_factor": 2
+    },
+    "Tree": {
+      "train_images": 3972,
+      "train_boxes": 14610,
+      "frequency": 0.4965,
+      "repeat_factor": 1
+    },
+    "Motorcycle": {
+      "train_images": 95,
+      "train_boxes": 190,
+      "frequency": 0.0119,
+      "repeat_factor": 2
+    },
+    "Bicycle": {
+      "train_images": 213,
+      "train_boxes": 467,
+      "frequency": 0.0266,
+      "repeat_factor": 2
+    }
+  },
+  "artifacts": {
+    "train_rfs_txt": "F:\\RoomAI_Data\\yolo_open_images_pilot\\train_rfs.txt",
+    "data_rfs_yaml": "F:\\RoomAI_Data\\yolo_open_images_pilot\\data_rfs.yaml"
+  }
+}

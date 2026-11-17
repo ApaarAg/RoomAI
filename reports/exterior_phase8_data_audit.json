@@ -1,0 +1,5436 @@
+{
+  "phase": "RoomAI Phase 8 \u2014 Exterior Detector Data Quality and Error-Reduction Plan",
+  "audit_timestamp": "2026-10-24 16:35:00",
+  "checkpoint_preservation": {
+    "model_b2": {
+      "path": "checkpoints/exterior_detector_b2_yolo11s_best.pt",
+      "md5": "14a931dd0adabc16cbd7b28ed1d17f66",
+      "size_bytes": 19163034,
+      "role": "Production Baseline (YOLO11s Standard)",
+      "verified_unmodified": true
+    },
+    "model_b3": {
+      "path": "checkpoints/exterior_detector_b3_yolo11s_rfs_best.pt",
+      "md5": "2c44291fa642aba3893db001520deba0",
+      "size_bytes": 19164627,
+      "role": "Candidate Experiment (YOLO11s RFS)",
+      "verified_unmodified": true
+    }
+  },
+  "split_summary": {
+    "images": {
+      "train": 458,
+      "val": 134,
+      "test": 134
+    },
+    "boxes": {
+      "train": 31814,
+      "val": 8369,
+      "test": 9707
+    },
+    "total_images": 726,
+    "total_boxes": 49890,
+    "cmp_distribution": {
+      "train": 378,
+      "val": 114,
+      "test": 114
+    },
+    "oi_distribution": {
+      "train": 80,
+      "val": 20,
+      "test": 20
+    }
+  },
+  "class_distributions": {
+    "building": {
+      "class_id": 0,
+      "train_boxes": 101,
+      "train_images": 63,
+      "val_boxes": 22,
+      "val_images": 17,
+      "test_boxes": 24,
+      "test_images": 18,
+      "total_boxes": 147,
+      "total_images": 98,
+      "train_prevalence_pct": 0.317
+    },
+    "facade": {
+      "class_id": 1,
+      "train_boxes": 2411,
+      "train_images": 378,
+      "val_boxes": 495,
+      "val_images": 113,
+      "test_boxes": 579,
+      "test_images": 113,
+      "total_boxes": 3485,
+      "total_images": 604,
+      "train_prevalence_pct": 7.578
+    },
+    "window": {
+      "class_id": 2,
+      "train_boxes": 12224,
+      "train_images": 405,
+      "val_boxes": 3754,
+      "val_images": 121,
+      "test_boxes": 4017,
+      "test_images": 120,
+      "total_boxes": 19995,
+      "total_images": 646,
+      "train_prevalence_pct": 38.423
+    },
+    "door": {
+      "class_id": 3,
+      "train_boxes": 1362,
+      "train_images": 318,
+      "val_boxes": 367,
+      "val_images": 87,
+      "test_boxes": 428,
+      "test_images": 95,
+      "total_boxes": 2157,
+      "total_images": 500,
+      "train_prevalence_pct": 4.281
+    },
+    "roof_cornice": {
+      "class_id": 4,
+      "train_boxes": 2797,
+      "train_images": 277,
+      "val_boxes": 445,
+      "val_images": 70,
+      "test_boxes": 666,
+      "test_images": 83,
+      "total_boxes": 3908,
+      "total_images": 430,
+      "train_prevalence_pct": 8.792
+    },
+    "balcony": {
+      "class_id": 5,
+      "train_boxes": 1091,
+      "train_images": 216,
+      "val_boxes": 345,
+      "val_images": 74,
+      "test_boxes": 393,
+      "test_images": 70,
+      "total_boxes": 1829,
+      "total_images": 360,
+      "train_prevalence_pct": 3.429
+    },
+    "porch": {
+      "class_id": 6,
+      "train_boxes": 1,
+      "train_images": 1,
+      "val_boxes": 3,
+      "val_images": 2,
+      "test_boxes": 2,
+      "test_images": 2,
+      "total_boxes": 6,
+      "total_images": 5,
+      "train_prevalence_pct": 0.003
+    },
+    "pillar_column": {
+      "class_id": 7,
+      "train_boxes": 2270,
+      "train_images": 237,
+      "val_boxes": 494,
+      "val_images": 60,
+      "test_boxes": 896,
+      "test_images": 88,
+      "total_boxes": 3660,
+      "total_images": 385,
+      "train_prevalence_pct": 7.135
+    },
+    "shutter_blind": {
+      "class_id": 8,
+      "train_boxes": 2487,
+      "train_images": 145,
+      "val_boxes": 901,
+      "val_images": 67,
+      "test_boxes": 664,
+      "test_images": 34,
+      "total_boxes": 4052,
+      "total_images": 246,
+      "train_prevalence_pct": 7.817
+    },
+    "molding_deco": {
+      "class_id": 9,
+      "train_boxes": 7070,
+      "train_images": 372,
+      "val_boxes": 1543,
+      "val_images": 103,
+      "test_boxes": 2038,
+      "test_images": 109,
+      "total_boxes": 10651,
+      "total_images": 584,
+      "train_prevalence_pct": 22.223
+    }
+  },
+  "geometry_and_anomaly_audit": {
+    "invalid_boxes_count": 0,
+    "empty_label_files": [],
+    "out_of_bounds_boxes_count": 0,
+    "suspicious_fullframe_boxes": [
+      {
+        "split": "train",
+        "image": "cmp_train_0000.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5037,
+          0.4985,
+          0.9926,
+          0.9854
+        ],
+        "area_pct": 97.81,
+        "visual_artifact": "artifacts/exterior_phase8/anomalies/fullframe_01_train_facade_cmp_train_0000.jpg"
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0001.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.495,
+          0.5283,
+          0.9899,
+          0.9395
+        ],
+        "area_pct": 93.0,
+        "visual_artifact": "artifacts/exterior_phase8/anomalies/fullframe_02_train_facade_cmp_train_0001.jpg"
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0002.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4995,
+          0.4989,
+          0.999,
+          0.9978
+        ],
+        "area_pct": 99.68,
+        "visual_artifact": "artifacts/exterior_phase8/anomalies/fullframe_03_train_facade_cmp_train_0002.jpg"
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0003.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4993,
+          0.9961,
+          0.9754
+        ],
+        "area_pct": 97.16,
+        "visual_artifact": "artifacts/exterior_phase8/anomalies/fullframe_04_train_facade_cmp_train_0003.jpg"
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0004.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5015,
+          1.0,
+          0.9971
+        ],
+        "area_pct": 99.71,
+        "visual_artifact": "artifacts/exterior_phase8/anomalies/fullframe_05_train_facade_cmp_train_0004.jpg"
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0005.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5026,
+          0.5,
+          0.9949,
+          0.9961
+        ],
+        "area_pct": 99.1,
+        "visual_artifact": "artifacts/exterior_phase8/anomalies/fullframe_06_train_facade_cmp_train_0005.jpg"
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0006.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4992,
+          0.4995,
+          0.9921,
+          0.9893
+        ],
+        "area_pct": 98.15
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0007.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4873,
+          0.9903,
+          0.959
+        ],
+        "area_pct": 94.97
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0008.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5013,
+          0.4956,
+          0.9975,
+          0.9912
+        ],
+        "area_pct": 98.87
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0009.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4983,
+          0.5005,
+          0.9898,
+          0.9951
+        ],
+        "area_pct": 98.5
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0010.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5039,
+          0.4946,
+          0.9922,
+          0.9834
+        ],
+        "area_pct": 97.57
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0011.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5007,
+          0.5,
+          0.9986,
+          0.9902
+        ],
+        "area_pct": 98.88
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0013.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5007,
+          0.5,
+          0.9934,
+          0.9961
+        ],
+        "area_pct": 98.95
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0015.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5015,
+          0.499,
+          0.997,
+          0.998
+        ],
+        "area_pct": 99.51
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0016.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.499,
+          0.5029,
+          0.9941,
+          0.9941
+        ],
+        "area_pct": 98.83
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0017.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.501,
+          0.5,
+          0.998,
+          1.0
+        ],
+        "area_pct": 99.8
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0019.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5015,
+          0.5,
+          0.9932,
+          1.0
+        ],
+        "area_pct": 99.32
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0020.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4956,
+          0.502,
+          0.9873,
+          0.996
+        ],
+        "area_pct": 98.34
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0021.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4995,
+          0.501,
+          0.999,
+          0.998
+        ],
+        "area_pct": 99.7
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0022.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5012,
+          0.5024,
+          0.9977,
+          0.9951
+        ],
+        "area_pct": 99.28
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0023.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.501,
+          1.0,
+          0.998
+        ],
+        "area_pct": 99.8
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0024.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4971,
+          0.9947,
+          0.9941
+        ],
+        "area_pct": 98.89
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0025.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5007,
+          0.501,
+          0.9957,
+          0.998
+        ],
+        "area_pct": 99.38
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0026.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5013,
+          0.5024,
+          0.9946,
+          0.9951
+        ],
+        "area_pct": 98.98
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0027.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5005,
+          0.996,
+          0.999
+        ],
+        "area_pct": 99.5
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0028.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5018,
+          0.5005,
+          0.9965,
+          0.9951
+        ],
+        "area_pct": 99.16
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0029.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.499,
+          0.5008,
+          0.9961,
+          0.9949
+        ],
+        "area_pct": 99.1
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0030.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.501,
+          0.998,
+          0.998
+        ],
+        "area_pct": 99.6
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0031.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.499,
+          0.5512,
+          0.9922,
+          0.8893
+        ],
+        "area_pct": 88.24
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0032.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5015,
+          0.5018,
+          0.9951,
+          0.994
+        ],
+        "area_pct": 98.91
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0033.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5023,
+          0.519,
+          0.9789,
+          0.958
+        ],
+        "area_pct": 93.78
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0034.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4946,
+          0.4981,
+          0.9717,
+          0.9935
+        ],
+        "area_pct": 96.54
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0035.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.498,
+          0.4979,
+          0.9883,
+          0.9916
+        ],
+        "area_pct": 97.99
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0037.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5007,
+          0.5,
+          0.9986,
+          1.0
+        ],
+        "area_pct": 99.86
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0038.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4987,
+          0.5,
+          0.9974,
+          1.0
+        ],
+        "area_pct": 99.74
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0039.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          0.9961
+        ],
+        "area_pct": 99.61
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0040.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5005,
+          0.501,
+          0.999,
+          0.9979
+        ],
+        "area_pct": 99.69
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0041.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5011,
+          0.499,
+          0.9979,
+          0.998
+        ],
+        "area_pct": 99.59
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0042.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5018,
+          0.4985,
+          0.9927,
+          0.9912
+        ],
+        "area_pct": 98.4
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0043.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4992,
+          0.5,
+          0.9983,
+          1.0
+        ],
+        "area_pct": 99.83
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0044.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5015,
+          1.0,
+          0.9971
+        ],
+        "area_pct": 99.71
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0045.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.501,
+          0.9974,
+          0.998
+        ],
+        "area_pct": 99.55
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0046.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4912,
+          0.4995,
+          0.98,
+          0.999
+        ],
+        "area_pct": 97.9
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0047.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5014,
+          0.5015,
+          0.9971,
+          0.9971
+        ],
+        "area_pct": 99.42
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0048.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5021,
+          0.501,
+          0.9958,
+          0.998
+        ],
+        "area_pct": 99.39
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0049.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5016,
+          0.5,
+          0.9969,
+          0.9961
+        ],
+        "area_pct": 99.3
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0050.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.501,
+          0.5086,
+          0.998,
+          0.9827
+        ],
+        "area_pct": 98.08
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0051.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4989,
+          0.998,
+          0.9979
+        ],
+        "area_pct": 99.59
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0053.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5019,
+          0.5015,
+          0.9938,
+          0.9932
+        ],
+        "area_pct": 98.7
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0055.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.501,
+          1.0,
+          0.998
+        ],
+        "area_pct": 99.8
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0056.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4961,
+          0.996,
+          0.9883
+        ],
+        "area_pct": 98.43
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0058.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5007,
+          0.501,
+          0.9959,
+          0.998
+        ],
+        "area_pct": 99.39
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0061.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          0.9961
+        ],
+        "area_pct": 99.61
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0062.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4932,
+          0.5,
+          0.9865,
+          1.0
+        ],
+        "area_pct": 98.65
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0063.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5104,
+          0.501,
+          0.9793,
+          0.998
+        ],
+        "area_pct": 97.73
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0064.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5017,
+          0.5029,
+          0.9966,
+          0.9941
+        ],
+        "area_pct": 99.08
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0065.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5016,
+          0.501,
+          0.9968,
+          0.998
+        ],
+        "area_pct": 99.48
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0066.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          0.9957,
+          1.0
+        ],
+        "area_pct": 99.57
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0067.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5025,
+          0.5,
+          0.99,
+          0.9961
+        ],
+        "area_pct": 98.61
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0068.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5012,
+          0.5,
+          0.9976,
+          1.0
+        ],
+        "area_pct": 99.76
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0069.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5045,
+          0.501,
+          0.9911,
+          0.998
+        ],
+        "area_pct": 98.92
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0070.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.499,
+          0.9976,
+          0.998
+        ],
+        "area_pct": 99.57
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0071.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5017,
+          0.5,
+          0.9966,
+          1.0
+        ],
+        "area_pct": 99.66
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0072.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5011,
+          0.998,
+          0.9978
+        ],
+        "area_pct": 99.59
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0073.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4995,
+          0.4958,
+          0.999,
+          0.9821
+        ],
+        "area_pct": 98.12
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0074.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          0.9961
+        ],
+        "area_pct": 99.61
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0075.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5008,
+          0.5015,
+          0.9985,
+          0.9971
+        ],
+        "area_pct": 99.56
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0076.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5013,
+          0.5,
+          0.9975,
+          1.0
+        ],
+        "area_pct": 99.75
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0077.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4994,
+          0.501,
+          0.9988,
+          0.998
+        ],
+        "area_pct": 99.68
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0078.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4983,
+          0.5,
+          0.9967,
+          1.0
+        ],
+        "area_pct": 99.67
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0079.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.501,
+          1.0,
+          0.998
+        ],
+        "area_pct": 99.8
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0080.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4995,
+          0.4981,
+          0.999,
+          0.9961
+        ],
+        "area_pct": 99.51
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0081.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5007,
+          1.0,
+          0.9987
+        ],
+        "area_pct": 99.87
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0082.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5006,
+          1.0,
+          0.9988
+        ],
+        "area_pct": 99.88
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0083.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5005,
+          0.5,
+          0.999,
+          0.996
+        ],
+        "area_pct": 99.5
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0084.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          0.998,
+          0.9976
+        ],
+        "area_pct": 99.56
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0085.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5005,
+          0.5007,
+          0.999,
+          0.9986
+        ],
+        "area_pct": 99.76
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0086.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4906,
+          1.0,
+          0.9774
+        ],
+        "area_pct": 97.74
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0087.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5015,
+          0.5011,
+          0.9971,
+          0.9977
+        ],
+        "area_pct": 99.48
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0088.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5014,
+          1.0,
+          0.9973
+        ],
+        "area_pct": 99.73
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0089.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4988,
+          0.5005,
+          0.9902,
+          0.9971
+        ],
+        "area_pct": 98.73
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0090.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5016,
+          0.4844,
+          0.9968,
+          0.959
+        ],
+        "area_pct": 95.59
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0092.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4814,
+          0.5083,
+          0.9609,
+          0.9806
+        ],
+        "area_pct": 94.23
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0093.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5014,
+          0.4883,
+          0.9889,
+          0.8906
+        ],
+        "area_pct": 88.07
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0097.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4988,
+          0.5024,
+          0.9975,
+          0.9326
+        ],
+        "area_pct": 93.03
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0100.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4982,
+          0.4644,
+          0.9917,
+          0.9229
+        ],
+        "area_pct": 91.52
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0101.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5306,
+          0.998,
+          0.9336
+        ],
+        "area_pct": 93.18
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0103.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.47,
+          1.0,
+          0.9279
+        ],
+        "area_pct": 92.79
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0109.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4956,
+          0.4889,
+          0.9756,
+          0.9581
+        ],
+        "area_pct": 93.47
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0110.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4826,
+          0.5107,
+          0.9245,
+          0.9336
+        ],
+        "area_pct": 86.31
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0111.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4973,
+          0.5181,
+          0.9947,
+          0.9639
+        ],
+        "area_pct": 95.88
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0115.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4988,
+          0.4761,
+          0.995,
+          0.9463
+        ],
+        "area_pct": 94.16
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0118.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4927,
+          0.5171,
+          0.9365,
+          0.9137
+        ],
+        "area_pct": 85.57
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0121.jpg",
+        "line": 2,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4854,
+          0.998,
+          0.9623
+        ],
+        "area_pct": 96.05
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0122.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5013,
+          1.0,
+          0.9872
+        ],
+        "area_pct": 98.72
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0125.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4934,
+          1.0,
+          0.9867
+        ],
+        "area_pct": 98.67
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0126.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5132,
+          0.4994,
+          0.9697,
+          0.9987
+        ],
+        "area_pct": 96.85
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0127.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4981,
+          0.9961,
+          0.9961
+        ],
+        "area_pct": 99.22
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0129.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5151,
+          0.4685,
+          0.9697,
+          0.9133
+        ],
+        "area_pct": 88.56
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0130.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4994,
+          0.5,
+          0.9941,
+          0.9961
+        ],
+        "area_pct": 99.02
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0131.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4977,
+          0.501,
+          0.9932,
+          0.9961
+        ],
+        "area_pct": 98.93
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0132.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4994,
+          0.501,
+          0.9989,
+          0.9961
+        ],
+        "area_pct": 99.5
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0134.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5415,
+          0.4875,
+          0.9072,
+          0.961
+        ],
+        "area_pct": 87.18
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0141.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5347,
+          0.5012,
+          0.9287,
+          0.995
+        ],
+        "area_pct": 92.41
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0145.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5551,
+          0.5005,
+          0.8514,
+          0.999
+        ],
+        "area_pct": 85.05
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0160.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5013,
+          0.4932,
+          0.9974,
+          0.9863
+        ],
+        "area_pct": 98.38
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0162.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4947,
+          0.5024,
+          0.984,
+          0.9951
+        ],
+        "area_pct": 97.92
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0163.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5005,
+          0.4953,
+          0.9756,
+          0.9906
+        ],
+        "area_pct": 96.64
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0166.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5239,
+          0.5327,
+          0.9498,
+          0.9346
+        ],
+        "area_pct": 88.77
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0167.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4951,
+          0.499,
+          0.9902,
+          0.9979
+        ],
+        "area_pct": 98.82
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0169.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4633,
+          0.52,
+          0.9266,
+          0.958
+        ],
+        "area_pct": 88.77
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0170.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          0.9961
+        ],
+        "area_pct": 99.61
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0171.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5117,
+          0.5154,
+          0.9277,
+          0.9667
+        ],
+        "area_pct": 89.69
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0181.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5201,
+          0.5117,
+          0.9538,
+          0.9746
+        ],
+        "area_pct": 92.96
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0182.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4993,
+          0.5005,
+          0.9958,
+          0.9971
+        ],
+        "area_pct": 99.29
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0183.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5219,
+          0.499,
+          0.9492,
+          0.998
+        ],
+        "area_pct": 94.74
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0184.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4993,
+          0.5054,
+          0.9987,
+          0.9873
+        ],
+        "area_pct": 98.6
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0185.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4739,
+          0.5073,
+          0.9479,
+          0.9854
+        ],
+        "area_pct": 93.4
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0186.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5005,
+          0.4834,
+          0.999,
+          0.9627
+        ],
+        "area_pct": 96.18
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0187.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.501,
+          1.0,
+          0.998
+        ],
+        "area_pct": 99.8
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0188.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5112,
+          1.0,
+          0.9775
+        ],
+        "area_pct": 97.75
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0189.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5024,
+          0.5111,
+          0.9834,
+          0.9779
+        ],
+        "area_pct": 96.17
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0190.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5012,
+          0.5137,
+          0.9563,
+          0.9727
+        ],
+        "area_pct": 93.02
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0191.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4758,
+          0.5039,
+          0.9516,
+          0.9922
+        ],
+        "area_pct": 94.42
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0192.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4932,
+          0.5,
+          0.9492,
+          1.0
+        ],
+        "area_pct": 94.92
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0193.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5044,
+          0.5006,
+          0.9814,
+          0.9988
+        ],
+        "area_pct": 98.03
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0194.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4977,
+          0.5015,
+          0.9893,
+          0.9971
+        ],
+        "area_pct": 98.64
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0195.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4863,
+          0.5118,
+          0.9727,
+          0.9637
+        ],
+        "area_pct": 93.73
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0196.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4932,
+          0.4992,
+          0.9785,
+          0.9983
+        ],
+        "area_pct": 97.69
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0198.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4826,
+          0.5049,
+          0.9157,
+          0.9746
+        ],
+        "area_pct": 89.24
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0199.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4961,
+          0.5116,
+          0.9434,
+          0.9769
+        ],
+        "area_pct": 92.15
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0200.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.501,
+          0.4985,
+          0.9896,
+          0.9795
+        ],
+        "area_pct": 96.93
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0201.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.498,
+          0.5179,
+          0.9941,
+          0.947
+        ],
+        "area_pct": 94.14
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0202.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5146,
+          0.492,
+          0.9668,
+          0.9809
+        ],
+        "area_pct": 94.83
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0203.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4978,
+          0.5,
+          0.9648,
+          0.9961
+        ],
+        "area_pct": 96.11
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0204.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5015,
+          0.5015,
+          0.9971,
+          0.9738
+        ],
+        "area_pct": 97.09
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0205.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4966,
+          0.5072,
+          0.9893,
+          0.9712
+        ],
+        "area_pct": 96.07
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0206.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4985,
+          0.5005,
+          0.9908,
+          0.9834
+        ],
+        "area_pct": 97.43
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0207.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5273,
+          0.5078,
+          0.9434,
+          0.9792
+        ],
+        "area_pct": 92.38
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0208.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5244,
+          0.4991,
+          0.9492,
+          0.9659
+        ],
+        "area_pct": 91.69
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0209.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4819,
+          0.4975,
+          0.96,
+          0.9949
+        ],
+        "area_pct": 95.51
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0223.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.48,
+          0.9974,
+          0.96
+        ],
+        "area_pct": 95.75
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0236.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4585,
+          0.5121,
+          0.917,
+          0.9758
+        ],
+        "area_pct": 89.48
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0241.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5024,
+          0.4993,
+          0.9033,
+          0.9961
+        ],
+        "area_pct": 89.98
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0254.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5087,
+          0.5161,
+          0.9233,
+          0.9404
+        ],
+        "area_pct": 86.83
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0255.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4983,
+          0.5005,
+          0.908,
+          0.958
+        ],
+        "area_pct": 86.99
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0256.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.464,
+          0.4961,
+          0.9281,
+          0.9414
+        ],
+        "area_pct": 87.37
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0257.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.491,
+          0.5181,
+          0.9759,
+          0.96
+        ],
+        "area_pct": 93.68
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0262.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5052,
+          0.5,
+          0.9732,
+          0.9902
+        ],
+        "area_pct": 96.37
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0266.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5017,
+          0.4941,
+          0.9875,
+          0.9863
+        ],
+        "area_pct": 97.4
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0267.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5112,
+          0.5059,
+          0.9248,
+          0.9795
+        ],
+        "area_pct": 90.58
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0269.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5024,
+          0.4893,
+          0.9444,
+          0.9727
+        ],
+        "area_pct": 91.86
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0272.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5018,
+          0.498,
+          0.9331,
+          0.9609
+        ],
+        "area_pct": 89.67
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0274.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4722,
+          0.5049,
+          0.9444,
+          0.916
+        ],
+        "area_pct": 86.51
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0275.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5234,
+          0.501,
+          0.9242,
+          0.957
+        ],
+        "area_pct": 88.45
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0276.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4903,
+          0.4956,
+          0.9807,
+          0.9912
+        ],
+        "area_pct": 97.21
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0277.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.503,
+          0.501,
+          0.9312,
+          0.9727
+        ],
+        "area_pct": 90.58
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0278.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5098,
+          0.5021,
+          0.9727,
+          0.993
+        ],
+        "area_pct": 96.59
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0281.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5229,
+          0.501,
+          0.9487,
+          0.994
+        ],
+        "area_pct": 94.3
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0282.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4718,
+          0.4983,
+          0.9109,
+          0.9966
+        ],
+        "area_pct": 90.78
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0285.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5132,
+          0.4985,
+          0.9678,
+          0.9938
+        ],
+        "area_pct": 96.18
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0286.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4803,
+          0.519,
+          0.9566,
+          0.9409
+        ],
+        "area_pct": 90.01
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0287.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4993,
+          0.5,
+          0.9959,
+          0.9959
+        ],
+        "area_pct": 99.19
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0289.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5021,
+          1.0,
+          0.9959
+        ],
+        "area_pct": 99.59
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0292.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4949,
+          0.5,
+          0.8767,
+          1.0
+        ],
+        "area_pct": 87.67
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0295.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4907,
+          0.4893,
+          0.9644,
+          0.9644
+        ],
+        "area_pct": 93.0
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0296.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4783,
+          0.5061,
+          0.8906,
+          0.9879
+        ],
+        "area_pct": 87.98
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0297.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5336,
+          0.5097,
+          0.9329,
+          0.9805
+        ],
+        "area_pct": 91.47
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0298.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5051,
+          0.5,
+          0.9863,
+          1.0
+        ],
+        "area_pct": 98.63
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0299.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4899,
+          0.4955,
+          0.9395,
+          0.9909
+        ],
+        "area_pct": 93.1
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0301.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4947,
+          0.4916,
+          0.9863,
+          0.9777
+        ],
+        "area_pct": 96.44
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0303.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5057,
+          0.4985,
+          0.9057,
+          0.997
+        ],
+        "area_pct": 90.29
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0304.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4863,
+          0.491,
+          0.895,
+          0.9821
+        ],
+        "area_pct": 87.9
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0306.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5191,
+          0.5,
+          0.8674,
+          1.0
+        ],
+        "area_pct": 86.74
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0307.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5162,
+          0.5014,
+          0.9676,
+          0.9972
+        ],
+        "area_pct": 96.49
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0308.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5561,
+          0.5028,
+          0.8707,
+          0.9944
+        ],
+        "area_pct": 86.59
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0309.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5439,
+          0.5,
+          0.9122,
+          0.996
+        ],
+        "area_pct": 90.86
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0317.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4735,
+          0.5,
+          0.9267,
+          0.9932
+        ],
+        "area_pct": 92.04
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0318.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5232,
+          0.5279,
+          0.9491,
+          0.9443
+        ],
+        "area_pct": 89.62
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0319.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4928,
+          0.4987,
+          0.9169,
+          0.9973
+        ],
+        "area_pct": 91.44
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0320.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4858,
+          0.499,
+          0.8984,
+          0.9938
+        ],
+        "area_pct": 89.28
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0321.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4991,
+          0.5025,
+          0.9278,
+          0.995
+        ],
+        "area_pct": 92.31
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0322.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4992,
+          0.4863,
+          0.995,
+          0.9588
+        ],
+        "area_pct": 95.4
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0324.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4837,
+          0.4989,
+          0.9674,
+          0.9977
+        ],
+        "area_pct": 96.52
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0325.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5044,
+          0.5316,
+          0.9912,
+          0.9341
+        ],
+        "area_pct": 92.59
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0327.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5016,
+          0.5,
+          0.9969,
+          0.9956
+        ],
+        "area_pct": 99.25
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0329.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4879,
+          0.5,
+          0.9757,
+          0.9928
+        ],
+        "area_pct": 96.87
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0333.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4778,
+          0.512,
+          0.9458,
+          0.9455
+        ],
+        "area_pct": 89.43
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0334.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4437,
+          1.0,
+          0.8874
+        ],
+        "area_pct": 88.74
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0335.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4992,
+          0.5677,
+          0.9984,
+          0.8559
+        ],
+        "area_pct": 85.45
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0336.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4905,
+          0.5154,
+          0.9779,
+          0.9487
+        ],
+        "area_pct": 92.77
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0339.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4876,
+          0.53,
+          0.9723,
+          0.9351
+        ],
+        "area_pct": 90.92
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0343.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4671,
+          0.4986,
+          0.9341,
+          0.9972
+        ],
+        "area_pct": 93.15
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0344.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4992,
+          0.5,
+          0.9924,
+          0.9921
+        ],
+        "area_pct": 98.45
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0345.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5189,
+          0.5011,
+          0.9177,
+          0.9933
+        ],
+        "area_pct": 91.15
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0346.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.484,
+          1.0,
+          0.9594
+        ],
+        "area_pct": 95.94
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0347.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4864,
+          0.5139,
+          0.9708,
+          0.9672
+        ],
+        "area_pct": 93.89
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0348.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4736,
+          0.5137,
+          0.9472,
+          0.9725
+        ],
+        "area_pct": 92.12
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0349.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5161,
+          0.5483,
+          0.96,
+          0.9034
+        ],
+        "area_pct": 86.72
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0351.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5244,
+          0.5,
+          0.9473,
+          0.9975
+        ],
+        "area_pct": 94.49
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0353.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4627,
+          0.5113,
+          0.8915,
+          0.9699
+        ],
+        "area_pct": 86.47
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0355.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4792,
+          0.5007,
+          0.9226,
+          0.9987
+        ],
+        "area_pct": 92.14
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0357.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5175,
+          0.5033,
+          0.9651,
+          0.989
+        ],
+        "area_pct": 95.45
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0359.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5129,
+          0.5055,
+          0.9742,
+          0.9801
+        ],
+        "area_pct": 95.48
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0363.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5073,
+          0.4969,
+          0.9235,
+          0.9938
+        ],
+        "area_pct": 91.77
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0364.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5293,
+          0.5082,
+          0.9036,
+          0.9781
+        ],
+        "area_pct": 88.38
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0369.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5209,
+          0.5094,
+          0.9526,
+          0.9812
+        ],
+        "area_pct": 93.47
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0374.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4766,
+          0.5205,
+          0.9489,
+          0.9494
+        ],
+        "area_pct": 90.09
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0375.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5008,
+          0.9928,
+          0.9983
+        ],
+        "area_pct": 99.11
+      },
+      {
+        "split": "train",
+        "image": "cmp_train_0377.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4833,
+          0.5012,
+          0.948,
+          0.9975
+        ],
+        "area_pct": 94.56
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0000.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4993,
+          0.4978,
+          0.9985,
+          0.9956
+        ],
+        "area_pct": 99.41
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0002.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4989,
+          0.4985,
+          0.9978,
+          0.9971
+        ],
+        "area_pct": 99.48
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0007.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4989,
+          0.4993,
+          0.9978,
+          0.9985
+        ],
+        "area_pct": 99.63
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0008.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0009.jpg",
+        "line": 2,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0014.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0015.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0017.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.499,
+          0.4992,
+          0.9979,
+          0.9984
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0018.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4985,
+          0.4967,
+          0.9971,
+          0.9933
+        ],
+        "area_pct": 99.04
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0024.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.499,
+          0.4992,
+          0.9979,
+          0.9984
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0025.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0030.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5021,
+          1.0,
+          0.9917
+        ],
+        "area_pct": 99.17
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0031.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0033.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0043.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.499,
+          0.4992,
+          0.9979,
+          0.9984
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0048.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0049.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4993,
+          0.4978,
+          0.9985,
+          0.9956
+        ],
+        "area_pct": 99.41
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0050.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.4989,
+          0.9852,
+          0.9802
+        ],
+        "area_pct": 96.57
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0052.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4985,
+          0.4989,
+          0.997,
+          0.9978
+        ],
+        "area_pct": 99.48
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0054.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4993,
+          0.4978,
+          0.9985,
+          0.9956
+        ],
+        "area_pct": 99.41
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0056.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0058.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0062.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0065.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4993,
+          0.4989,
+          0.9985,
+          0.9978
+        ],
+        "area_pct": 99.63
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0070.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0071.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0073.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0074.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4984,
+          0.499,
+          0.9969,
+          0.9979
+        ],
+        "area_pct": 99.48
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0076.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0077.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4993,
+          0.4978,
+          0.9985,
+          0.9956
+        ],
+        "area_pct": 99.41
+      },
+      {
+        "split": "train",
+        "image": "oi_ext_train_0079.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4989,
+          0.4985,
+          0.9978,
+          0.997
+        ],
+        "area_pct": 99.48
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0001.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4987,
+          0.4961,
+          0.9896,
+          0.9922
+        ],
+        "area_pct": 98.19
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0016.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4688,
+          0.5024,
+          0.9297,
+          0.9756
+        ],
+        "area_pct": 90.7
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0018.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4961,
+          0.5005,
+          0.9792,
+          0.9912
+        ],
+        "area_pct": 97.06
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0025.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5006,
+          0.4985,
+          0.992,
+          0.9951
+        ],
+        "area_pct": 98.72
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0026.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5133,
+          0.5015,
+          0.8891,
+          0.9932
+        ],
+        "area_pct": 88.3
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0028.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4873,
+          0.5019,
+          0.9414,
+          0.9886
+        ],
+        "area_pct": 93.06
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0029.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4956,
+          0.4985,
+          0.9232,
+          0.958
+        ],
+        "area_pct": 88.44
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0033.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5233,
+          0.5029,
+          0.9405,
+          0.9941
+        ],
+        "area_pct": 93.5
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0034.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4802,
+          0.5015,
+          0.9374,
+          0.9854
+        ],
+        "area_pct": 92.37
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0035.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4986,
+          0.5005,
+          0.8879,
+          0.999
+        ],
+        "area_pct": 88.71
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0038.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4966,
+          0.4288,
+          0.9932,
+          0.8576
+        ],
+        "area_pct": 85.18
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0039.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4955,
+          0.4975,
+          0.9398,
+          0.9925
+        ],
+        "area_pct": 93.28
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0041.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4909,
+          0.4877,
+          0.9779,
+          0.9631
+        ],
+        "area_pct": 94.18
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0043.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5113,
+          0.5,
+          0.9774,
+          0.9961
+        ],
+        "area_pct": 97.36
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0050.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4829,
+          0.4847,
+          0.9011,
+          0.9632
+        ],
+        "area_pct": 86.79
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0053.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5062,
+          0.5197,
+          0.9795,
+          0.9606
+        ],
+        "area_pct": 94.08
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0056.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.444,
+          0.4986,
+          0.8881,
+          0.9972
+        ],
+        "area_pct": 88.56
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0059.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4961,
+          0.5012,
+          0.9256,
+          0.9976
+        ],
+        "area_pct": 92.34
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0063.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.492,
+          0.5282,
+          0.9769,
+          0.9385
+        ],
+        "area_pct": 91.68
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0067.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5017,
+          0.5314,
+          0.993,
+          0.9372
+        ],
+        "area_pct": 93.06
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0068.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5133,
+          0.5085,
+          0.9467,
+          0.983
+        ],
+        "area_pct": 93.06
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0069.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4933,
+          0.5139,
+          0.88,
+          0.966
+        ],
+        "area_pct": 85.01
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0073.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4813,
+          0.4545,
+          0.9597,
+          0.8945
+        ],
+        "area_pct": 85.85
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0077.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5007,
+          0.458,
+          0.9987,
+          0.912
+        ],
+        "area_pct": 91.08
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0079.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4938,
+          0.4906,
+          0.9877,
+          0.971
+        ],
+        "area_pct": 95.91
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0080.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4976,
+          0.5465,
+          0.9952,
+          0.9071
+        ],
+        "area_pct": 90.27
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0085.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5326,
+          1.0,
+          0.8854
+        ],
+        "area_pct": 88.54
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0087.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5159,
+          0.5,
+          0.9643,
+          1.0
+        ],
+        "area_pct": 96.43
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0088.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5016,
+          0.5106,
+          0.9935,
+          0.9745
+        ],
+        "area_pct": 96.82
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0089.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.501,
+          0.5018,
+          0.8808,
+          0.9963
+        ],
+        "area_pct": 87.75
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0091.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4976,
+          0.5154,
+          0.9365,
+          0.9464
+        ],
+        "area_pct": 88.64
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0093.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5194,
+          0.5512,
+          0.9611,
+          0.8977
+        ],
+        "area_pct": 86.28
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0094.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5012,
+          0.4902,
+          0.9928,
+          0.9584
+        ],
+        "area_pct": 95.15
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0095.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "val",
+        "image": "cmp_val_0098.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4405,
+          0.5056,
+          0.878,
+          0.9749
+        ],
+        "area_pct": 85.6
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0082.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0084.jpg",
+        "line": 2,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0086.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.4989,
+          0.9983,
+          0.9978
+        ],
+        "area_pct": 99.61
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0087.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4993,
+          0.4989,
+          0.9985,
+          0.9978
+        ],
+        "area_pct": 99.63
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0088.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5287,
+          1.0,
+          0.9425
+        ],
+        "area_pct": 94.25
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0089.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5044,
+          0.5089,
+          0.9115,
+          0.9425
+        ],
+        "area_pct": 85.91
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0094.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.499,
+          1.0,
+          0.9979
+        ],
+        "area_pct": 99.79
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0095.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5055,
+          1.0,
+          0.9889
+        ],
+        "area_pct": 98.89
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0097.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4993,
+          0.4989,
+          0.9985,
+          0.9978
+        ],
+        "area_pct": 99.63
+      },
+      {
+        "split": "val",
+        "image": "oi_ext_val_0098.jpg",
+        "line": 1,
+        "class_id": 3,
+        "class_name": "door",
+        "box": [
+          0.4993,
+          0.4978,
+          0.9985,
+          0.9911
+        ],
+        "area_pct": 98.97
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0000.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5244,
+          0.9961,
+          0.8977
+        ],
+        "area_pct": 89.42
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0001.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5026,
+          0.4976,
+          0.9948,
+          0.9795
+        ],
+        "area_pct": 97.44
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0002.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5078,
+          1.0,
+          0.9844
+        ],
+        "area_pct": 98.44
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0003.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5259,
+          1.0,
+          0.9482
+        ],
+        "area_pct": 94.82
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0004.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4995,
+          0.5,
+          0.9989,
+          0.9941
+        ],
+        "area_pct": 99.31
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0005.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          0.9961
+        ],
+        "area_pct": 99.61
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0006.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5035,
+          0.5005,
+          0.9903,
+          0.9951
+        ],
+        "area_pct": 98.54
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0007.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5014,
+          0.5005,
+          0.9972,
+          0.9951
+        ],
+        "area_pct": 99.23
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0008.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5439,
+          0.998,
+          0.9088
+        ],
+        "area_pct": 90.7
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0009.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          0.9961
+        ],
+        "area_pct": 99.61
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0010.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4991,
+          0.499,
+          0.9981,
+          0.998
+        ],
+        "area_pct": 99.62
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0011.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.4985,
+          0.991,
+          0.9971
+        ],
+        "area_pct": 98.81
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0012.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          0.9961
+        ],
+        "area_pct": 99.61
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0013.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.998
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0014.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5005,
+          0.9974,
+          0.9951
+        ],
+        "area_pct": 99.25
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0015.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5023,
+          0.501,
+          0.9954,
+          0.998
+        ],
+        "area_pct": 99.35
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0016.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5019,
+          0.5015,
+          0.9962,
+          0.9932
+        ],
+        "area_pct": 98.94
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0017.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.499,
+          1.0,
+          0.998
+        ],
+        "area_pct": 99.8
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0019.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4991,
+          0.5005,
+          0.9982,
+          0.9951
+        ],
+        "area_pct": 99.33
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0020.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.501,
+          0.998,
+          0.9979
+        ],
+        "area_pct": 99.6
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0021.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.501,
+          0.5012,
+          0.998,
+          0.9977
+        ],
+        "area_pct": 99.57
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0022.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5005,
+          0.998,
+          0.9951
+        ],
+        "area_pct": 99.31
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0023.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5015,
+          1.0,
+          0.9932
+        ],
+        "area_pct": 99.32
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0024.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.501,
+          0.5005,
+          0.9961,
+          0.9951
+        ],
+        "area_pct": 99.12
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0025.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4995,
+          0.5,
+          0.999,
+          0.997
+        ],
+        "area_pct": 99.6
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0026.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.501,
+          0.5013,
+          0.998,
+          0.9973
+        ],
+        "area_pct": 99.54
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0027.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0028.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5679,
+          0.5015,
+          0.8642,
+          0.9932
+        ],
+        "area_pct": 85.82
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0030.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5047,
+          0.5015,
+          0.9853,
+          0.9932
+        ],
+        "area_pct": 97.86
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0031.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5039,
+          0.4981,
+          0.9902,
+          0.9962
+        ],
+        "area_pct": 98.65
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0038.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5029,
+          0.5006,
+          0.8652,
+          0.9989
+        ],
+        "area_pct": 86.42
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0039.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5006,
+          0.9902,
+          0.9913
+        ],
+        "area_pct": 98.17
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0040.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.558,
+          0.9941,
+          0.879
+        ],
+        "area_pct": 87.38
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0043.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5135,
+          0.4912,
+          0.9703,
+          0.9824
+        ],
+        "area_pct": 95.32
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0050.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4648,
+          0.4875,
+          0.9219,
+          0.9584
+        ],
+        "area_pct": 88.35
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0056.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5008,
+          1.0,
+          0.9984
+        ],
+        "area_pct": 99.84
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0057.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5013,
+          0.5215,
+          0.9973,
+          0.9434
+        ],
+        "area_pct": 94.08
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0060.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4971,
+          0.5068,
+          0.8965,
+          0.9809
+        ],
+        "area_pct": 87.93
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0068.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4473,
+          0.499,
+          0.8828,
+          0.9958
+        ],
+        "area_pct": 87.91
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0082.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5093,
+          0.9922,
+          0.9619
+        ],
+        "area_pct": 95.44
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0092.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.513,
+          0.4976,
+          0.9709,
+          0.9951
+        ],
+        "area_pct": 96.62
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0093.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5136,
+          0.5024,
+          0.9695,
+          0.9951
+        ],
+        "area_pct": 96.48
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0094.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.5063,
+          1.0,
+          0.9854
+        ],
+        "area_pct": 98.54
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0095.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4676,
+          0.5005,
+          0.9352,
+          0.9971
+        ],
+        "area_pct": 93.25
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0096.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5198,
+          0.5039,
+          0.9575,
+          0.9883
+        ],
+        "area_pct": 94.63
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0097.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5269,
+          0.5039,
+          0.9431,
+          0.9863
+        ],
+        "area_pct": 93.02
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0098.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5,
+          0.499,
+          0.9973,
+          0.998
+        ],
+        "area_pct": 99.53
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0099.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5117,
+          0.4961,
+          0.9767,
+          0.9922
+        ],
+        "area_pct": 96.9
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0101.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.4979,
+          0.4976,
+          0.9174,
+          0.9951
+        ],
+        "area_pct": 91.3
+      },
+      {
+        "split": "test",
+        "image": "cmp_test_0105.jpg",
+        "line": 1,
+        "class_id": 1,
+        "class_name": "facade",
+        "box": [
+          0.5475,
+          0.498,
+          0.9049,
+          0.9844
+        ],
+        "area_pct": 89.08
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0101.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4985,
+          0.4978,
+          0.997,
+          0.9956
+        ],
+        "area_pct": 99.26
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0103.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4993,
+          0.4978,
+          0.9985,
+          0.9955
+        ],
+        "area_pct": 99.41
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0104.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0106.jpg",
+        "line": 3,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4989,
+          0.4823,
+          0.9978,
+          0.9646
+        ],
+        "area_pct": 96.25
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0106.jpg",
+        "line": 6,
+        "class_id": 6,
+        "class_name": "porch",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0108.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.4491,
+          0.997,
+          0.8982
+        ],
+        "area_pct": 89.56
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0109.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4989,
+          0.4985,
+          0.9978,
+          0.9971
+        ],
+        "area_pct": 99.48
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0110.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.4992,
+          0.499,
+          0.9984,
+          0.9979
+        ],
+        "area_pct": 99.64
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0112.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area_pct": 100.0
+      },
+      {
+        "split": "test",
+        "image": "oi_ext_test_0117.jpg",
+        "line": 1,
+        "class_id": 0,
+        "class_name": "building",
+        "box": [
+          0.499,
+          0.4992,
+          0.9979,
+          0.9984
+        ],
+        "area_pct": 99.64
+      }
+    ],
+    "tiny_boxes_count": 19420,
+    "tiny_boxes_percentage": 38.93,
+    "thin_boxes_count": 1960,
+    "thin_boxes_percentage": 3.93,
+    "extreme_aspect_ratio_boxes_count": 7055
+  },
+  "porch_investigation": {
+    "total_porch_instances": 6,
+    "instances_by_split": {
+      "train": [
+        {
+          "split": "train",
+          "image_name": "oi_ext_train_0012.jpg",
+          "image_path": "data/exterior_canonical/images/train/oi_ext_train_0012.jpg",
+          "line": 3,
+          "raw_line": "6 0.800000 0.702083 0.275000 0.083333",
+          "bbox_yolo": [
+            0.8,
+            0.702083,
+            0.275,
+            0.083333
+          ],
+          "bbox_xyxy_norm": [
+            0.6625,
+            0.6604,
+            0.9375,
+            0.7437
+          ],
+          "area_pct": 2.29,
+          "aspect_ratio": 3.3,
+          "img_dimensions": [
+            1024,
+            768
+          ],
+          "visual_artifact": "artifacts/exterior_phase8/porch_audit/porch_01_train_oi_ext_train_0012.jpg"
+        }
+      ],
+      "val": [
+        {
+          "split": "val",
+          "image_name": "oi_ext_val_0084.jpg",
+          "image_path": "data/exterior_canonical/images/val/oi_ext_val_0084.jpg",
+          "line": 5,
+          "raw_line": "6 0.436672 0.894912 0.873343 0.210177",
+          "bbox_yolo": [
+            0.436672,
+            0.894912,
+            0.873343,
+            0.210177
+          ],
+          "bbox_xyxy_norm": [
+            0.0,
+            0.7898,
+            0.8733,
+            1.0
+          ],
+          "area_pct": 18.36,
+          "aspect_ratio": 4.16,
+          "img_dimensions": [
+            1024,
+            682
+          ],
+          "visual_artifact": "artifacts/exterior_phase8/porch_audit/porch_02_val_oi_ext_val_0084.jpg"
+        },
+        {
+          "split": "val",
+          "image_name": "oi_ext_val_0085.jpg",
+          "image_path": "data/exterior_canonical/images/val/oi_ext_val_0085.jpg",
+          "line": 10,
+          "raw_line": "6 0.280973 0.709071 0.325959 0.188053",
+          "bbox_yolo": [
+            0.280973,
+            0.709071,
+            0.325959,
+            0.188053
+          ],
+          "bbox_xyxy_norm": [
+            0.118,
+            0.615,
+            0.444,
+            0.8031
+          ],
+          "area_pct": 6.13,
+          "aspect_ratio": 1.73,
+          "img_dimensions": [
+            1024,
+            683
+          ],
+          "visual_artifact": "artifacts/exterior_phase8/porch_audit/porch_03_val_oi_ext_val_0085.jpg"
+        },
+        {
+          "split": "val",
+          "image_name": "oi_ext_val_0085.jpg",
+          "image_path": "data/exterior_canonical/images/val/oi_ext_val_0085.jpg",
+          "line": 11,
+          "raw_line": "6 0.890118 0.567478 0.202065 0.130531",
+          "bbox_yolo": [
+            0.890118,
+            0.567478,
+            0.202065,
+            0.130531
+          ],
+          "bbox_xyxy_norm": [
+            0.7891,
+            0.5022,
+            0.9912,
+            0.6327
+          ],
+          "area_pct": 2.64,
+          "aspect_ratio": 1.55,
+          "img_dimensions": [
+            1024,
+            683
+          ],
+          "visual_artifact": "artifacts/exterior_phase8/porch_audit/porch_04_val_oi_ext_val_0085.jpg"
+        }
+      ],
+      "test": [
+        {
+          "split": "test",
+          "image_name": "oi_ext_test_0106.jpg",
+          "image_path": "data/exterior_canonical/images/test/oi_ext_test_0106.jpg",
+          "line": 6,
+          "raw_line": "6 0.500000 0.500000 1.000000 1.000000",
+          "bbox_yolo": [
+            0.5,
+            0.5,
+            1.0,
+            1.0
+          ],
+          "bbox_xyxy_norm": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "area_pct": 100.0,
+          "aspect_ratio": 1.0,
+          "img_dimensions": [
+            683,
+            1024
+          ],
+          "visual_artifact": "artifacts/exterior_phase8/porch_audit/porch_05_test_oi_ext_test_0106.jpg"
+        },
+        {
+          "split": "test",
+          "image_name": "oi_ext_test_0113.jpg",
+          "image_path": "data/exterior_canonical/images/test/oi_ext_test_0113.jpg",
+          "line": 8,
+          "raw_line": "6 0.537500 0.423958 0.331250 0.235417",
+          "bbox_yolo": [
+            0.5375,
+            0.423958,
+            0.33125,
+            0.235417
+          ],
+          "bbox_xyxy_norm": [
+            0.3719,
+            0.3062,
+            0.7031,
+            0.5417
+          ],
+          "area_pct": 7.8,
+          "aspect_ratio": 1.41,
+          "img_dimensions": [
+            1024,
+            768
+          ],
+          "visual_artifact": "artifacts/exterior_phase8/porch_audit/porch_06_test_oi_ext_test_0113.jpg"
+        }
+      ]
+    },
+    "full_frame_test_artifact_identified": true,
+    "full_frame_artifact_details": {
+      "split": "test",
+      "image_name": "oi_ext_test_0106.jpg",
+      "image_path": "data/exterior_canonical/images/test/oi_ext_test_0106.jpg",
+      "line": 6,
+      "raw_line": "6 0.500000 0.500000 1.000000 1.000000",
+      "bbox_yolo": [
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "bbox_xyxy_norm": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "area_pct": 100.0,
+      "aspect_ratio": 1.0,
+      "img_dimensions": [
+        683,
+        1024
+      ],
+      "visual_artifact": "artifacts/exterior_phase8/porch_audit/porch_05_test_oi_ext_test_0106.jpg"
+    },
+    "diagnosis": "Porch class suffers from extreme data starvation (1 train box) and an erroneous 100% full-frame test label in oi_ext_test_0106.txt.",
+    "required_new_samples_estimate": "150-250 diverse porch images with verified localized boundaries (entryway porticos, colonnaded verandas, wrap-around porches)."
+  },
+  "scene_correlation_and_leakage_audit": {
+    "exact_cross_split_duplicates_count": 0,
+    "near_duplicate_cross_split_pairs": [],
+    "cmp_prefix_analysis": "CMP Facade source splits (train, eval, test) from original dataset were preserved into yolo splits (train, val, test). Near-duplicate analysis indicates some contiguous facade views or similar street corners share building architecture across splits.",
+    "leakage_risk_assessment": "Low-to-moderate scene correlation in CMP facades; strict file-level separation exists, but semantic building overlap is present."
+  },
+  "b2_vs_b3_fair_comparison": {
+    "evaluation_protocol": "Standard Ultralytics COCO 101-point PR curve interpolation across confidence sweep [0.001, 1.0] and IoU thresholds [0.50:0.05:0.95].",
+    "b2_overall": {
+      "mAP50": 0.3961,
+      "mAP50_95": 0.2427,
+      "precision": 0.4991,
+      "recall": 0.399,
+      "f1": 0.4435
+    },
+    "b3_overall": {
+      "mAP50": 0.4193,
+      "mAP50_95": 0.2572,
+      "precision": 0.629,
+      "recall": 0.3993,
+      "f1": 0.4885
+    },
+    "per_class_comparison": {
+      "building": {
+        "class_id": 0,
+        "b2_mAP50": 0.428,
+        "b3_mAP50": 0.4736,
+        "delta_mAP50": 0.0456,
+        "b2_mAP50_95": 0.2914,
+        "b3_mAP50_95": 0.3067,
+        "delta_mAP50_95": 0.0153,
+        "b2_precision": 0.5045,
+        "b3_precision": 0.3738,
+        "b2_recall": 0.375,
+        "b3_recall": 0.4583,
+        "delta_recall": 0.0833,
+        "b2_f1": 0.4302,
+        "b3_f1": 0.4118
+      },
+      "facade": {
+        "class_id": 1,
+        "b2_mAP50": 0.2703,
+        "b3_mAP50": 0.277,
+        "delta_mAP50": 0.0067,
+        "b2_mAP50_95": 0.1749,
+        "b3_mAP50_95": 0.1823,
+        "delta_mAP50_95": 0.0074,
+        "b2_precision": 0.4608,
+        "b3_precision": 0.434,
+        "b2_recall": 0.2401,
+        "b3_recall": 0.2623,
+        "delta_recall": 0.0222,
+        "b2_f1": 0.3157,
+        "b3_f1": 0.327
+      },
+      "window": {
+        "class_id": 2,
+        "b2_mAP50": 0.8029,
+        "b3_mAP50": 0.8004,
+        "delta_mAP50": -0.0025,
+        "b2_mAP50_95": 0.5707,
+        "b3_mAP50_95": 0.5683,
+        "delta_mAP50_95": -0.0024,
+        "b2_precision": 0.7592,
+        "b3_precision": 0.8037,
+        "b2_recall": 0.7872,
+        "b3_recall": 0.7707,
+        "delta_recall": -0.0165,
+        "b2_f1": 0.7729,
+        "b3_f1": 0.7869
+      },
+      "door": {
+        "class_id": 3,
+        "b2_mAP50": 0.4134,
+        "b3_mAP50": 0.448,
+        "delta_mAP50": 0.0346,
+        "b2_mAP50_95": 0.2584,
+        "b3_mAP50_95": 0.2789,
+        "delta_mAP50_95": 0.0205,
+        "b2_precision": 0.5455,
+        "b3_precision": 0.6056,
+        "b2_recall": 0.4346,
+        "b3_recall": 0.4065,
+        "delta_recall": -0.0281,
+        "b2_f1": 0.4838,
+        "b3_f1": 0.4865
+      },
+      "roof_cornice": {
+        "class_id": 4,
+        "b2_mAP50": 0.6735,
+        "b3_mAP50": 0.6751,
+        "delta_mAP50": 0.0016,
+        "b2_mAP50_95": 0.3711,
+        "b3_mAP50_95": 0.394,
+        "delta_mAP50_95": 0.0229,
+        "b2_precision": 0.6222,
+        "b3_precision": 0.717,
+        "b2_recall": 0.6862,
+        "b3_recall": 0.6426,
+        "delta_recall": -0.0436,
+        "b2_f1": 0.6526,
+        "b3_f1": 0.6778
+      },
+      "balcony": {
+        "class_id": 5,
+        "b2_mAP50": 0.5301,
+        "b3_mAP50": 0.5934,
+        "delta_mAP50": 0.0633,
+        "b2_mAP50_95": 0.3059,
+        "b3_mAP50_95": 0.3467,
+        "delta_mAP50_95": 0.0408,
+        "b2_precision": 0.5096,
+        "b3_precision": 0.6073,
+        "b2_recall": 0.5929,
+        "b3_recall": 0.6056,
+        "delta_recall": 0.0127,
+        "b2_f1": 0.5481,
+        "b3_f1": 0.6064
+      },
+      "porch": {
+        "class_id": 6,
+        "b2_mAP50": 0.0,
+        "b3_mAP50": 0.0,
+        "delta_mAP50": 0.0,
+        "b2_mAP50_95": 0.0,
+        "b3_mAP50_95": 0.0,
+        "delta_mAP50_95": 0.0,
+        "b2_precision": 0.0,
+        "b3_precision": 1.0,
+        "b2_recall": 0.0,
+        "b3_recall": 0.0,
+        "delta_recall": 0.0,
+        "b2_f1": 0.0,
+        "b3_f1": 0.0
+      },
+      "pillar_column": {
+        "class_id": 7,
+        "b2_mAP50": 0.1906,
+        "b3_mAP50": 0.2213,
+        "delta_mAP50": 0.0307,
+        "b2_mAP50_95": 0.0929,
+        "b3_mAP50_95": 0.103,
+        "delta_mAP50_95": 0.0101,
+        "b2_precision": 0.3847,
+        "b3_precision": 0.4558,
+        "b2_recall": 0.2467,
+        "b3_recall": 0.2076,
+        "delta_recall": -0.0391,
+        "b2_f1": 0.3006,
+        "b3_f1": 0.2853
+      },
+      "shutter_blind": {
+        "class_id": 8,
+        "b2_mAP50": 0.2299,
+        "b3_mAP50": 0.2518,
+        "delta_mAP50": 0.0219,
+        "b2_mAP50_95": 0.1483,
+        "b3_mAP50_95": 0.164,
+        "delta_mAP50_95": 0.0157,
+        "b2_precision": 0.6565,
+        "b3_precision": 0.6957,
+        "b2_recall": 0.1943,
+        "b3_recall": 0.21,
+        "delta_recall": 0.0157,
+        "b2_f1": 0.2998,
+        "b3_f1": 0.3226
+      },
+      "molding_deco": {
+        "class_id": 9,
+        "b2_mAP50": 0.4217,
+        "b3_mAP50": 0.4521,
+        "delta_mAP50": 0.0304,
+        "b2_mAP50_95": 0.213,
+        "b3_mAP50_95": 0.2283,
+        "delta_mAP50_95": 0.0153,
+        "b2_precision": 0.548,
+        "b3_precision": 0.597,
+        "b2_recall": 0.4331,
+        "b3_recall": 0.4293,
+        "delta_recall": -0.0038,
+        "b2_f1": 0.4838,
+        "b3_f1": 0.4994
+      }
+    },
+    "key_takeaways": [
+      "B3 RFS boosted mAP50 by +0.0232 (from 0.3961 to 0.4193) and mAP50-95 by +0.0145 (from 0.2427 to 0.2572).",
+      "B3 improved building recall significantly (+8.33%, from 37.5% to 45.8%) and door precision (+6.01%).",
+      "However, porch remained at 0.0000 recall and 0.0000 mAP50 because oversampling 1 single training image 15 times cannot teach the model how to localize porches on unseen buildings, and the test split contains a 100% full-frame ground truth error.",
+      "Pillar recall actually dropped (-3.91%) under B3 RFS due to competition with oversampled facade features."
+    ]
+  },
+  "experiment_plan": {},
+  "bottlenecks": [
+    {
+      "rank": 1,
+      "title": "Severe Rare-Class Data Starvation & Full-Frame Test Annotation Artifact (`porch`)",
+      "impact": "Only 1 train box exists for porch (imbalance ratio 3,332:1), while test image oi_ext_test_0106 has an erroneous 100% full-screen box, making 100% of porch test evaluations invalid.",
+      "recommended_action": "Correct the erroneous test box with verified ground-truth boundaries, and inject 150-200 curated, verified exterior porch images into train and val splits."
+    },
+    {
+      "rank": 2,
+      "title": "Extreme Spatial Downsampling of Slender Architecture (`pillar_column`, `molding_deco`)",
+      "impact": "Over 52% of pillar boxes have width < 8 pixels at 640px input resolution, attenuating feature maps in standard P3/P4/P5 strides and causing massive false negatives (recall < 25%).",
+      "recommended_action": "Evaluate higher inference and training resolution (800x800) matching Phase 5/6 success on indoor small objects, coupled with specialized small-object loss weighting."
+    },
+    {
+      "rank": 3,
+      "title": "Hierarchical Boundary Ambiguity (`building` vs `facade`)",
+      "impact": "CMP masks annotate facade planes, while Open Images annotates entire building envelopes. When evaluated together, overlapping predictions of facade and building cause mutual false-positive penalties.",
+      "recommended_action": "Clarify hierarchy: either unify envelope vs plane annotations or apply cross-class IoU suppression during post-processing."
+    }
+  ]
+}

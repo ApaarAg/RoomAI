@@ -1,0 +1,222 @@
+{
+  "timestamp": "2026-10-28T18:35:00Z",
+  "audit_phase": "Phase 21A: Recovery, Audit & B7 Verification",
+  "task_1_training_recovery": {
+    "active_training_process": false,
+    "active_python_processes": [
+      {
+        "pid": 31624,
+        "command_line": "experiments/week2_tta_consistency/run_week2_experiment.py",
+        "description": "Unrelated Week 2 TTA consistency experiment; not B7 training"
+      }
+    ],
+    "training_completed_successfully": true,
+    "early_stopping_triggered": false,
+    "final_epoch": 20,
+    "total_epochs": 20,
+    "best_epoch": 20,
+    "training_duration_s": 1574.06,
+    "training_duration_min": 26.23,
+    "peak_vram_gb": 2.85,
+    "checkpoint_inventory": {
+      "b7_candidate": {
+        "path": "checkpoints/exterior_detector_b7_pilot_best.pt",
+        "runs_path": "runs/train/exterior_detector_b7_pilot/weights/best.pt",
+        "size_bytes": 19167194,
+        "sha256": "0B04B97E66F033D2037BC1483D4AD4F484A00213DEFEE66A7D32AD83199E2C3F",
+        "md5": "41433E929910EDA4414ED6541BAC2FE4",
+        "status": "valid_and_loadable"
+      },
+      "b6_baseline": {
+        "path": "checkpoints/exterior_detector_b6_expanded_best.pt",
+        "size_bytes": 19167194,
+        "sha256": "009144B272998EC9447F649E8D850E0FDB8CAE5FC973C5E0CB9EEBE717675AC9",
+        "md5": "F5CEEA56B0610EA14B647014E48152DC",
+        "status": "verified_unmodified"
+      },
+      "b2_production_default": {
+        "path": "checkpoints/exterior_detector_b2_yolo11s_best.pt",
+        "size_bytes": 19163034,
+        "sha256": "C599C19241B8C60390AC0C4914DE6CEF449BC1129F73B0DB7F8F04FC62A0459F",
+        "md5": "14A931DD0ADABC16CBD7B28ED1D17F66",
+        "status": "verified_unmodified_production_default"
+      }
+    }
+  },
+  "task_2_masked_loss_verification": {
+    "module": "utils/masked_detection_loss.py",
+    "class_name": "MaskedDetectionLoss",
+    "verified_class_masks_count": 1602,
+    "curated_pilot_images_count": 300,
+    "legacy_b6_images_count": 1302,
+    "wiring_verification": {
+      "dataloader_batch_filename_key": "im_file",
+      "filename_key_verified": true,
+      "per_image_mask_lookup_verified": true,
+      "missing_annotations_ignored_zero_loss": true,
+      "verified_negatives_penalized": true,
+      "positive_labels_contribute_loss": true,
+      "legacy_all_ones_loss_mathematical_identity": {
+        "max_absolute_difference": 0.0,
+        "verified": true
+      },
+      "finite_loss_components": true,
+      "finite_backward_gradients": true,
+      "training_callback_injection": "on_pretrain_routine_end replaces trainer.criterion",
+      "test_suite_status": {
+        "tests_passed": 14,
+        "tests_failed": 1,
+        "failure_note": "test_existing_roomai_annotations_remain_valid failed due to comparing v8DetectionLoss dict output against MaskedDetectionLoss tensor output at return index 2; underlying loss tensors at index 1 are exactly identical (abs diff 0.0)"
+      }
+    }
+  },
+  "task_3_model_evaluation": {
+    "validation_split": "authorized_locked_154_scenes",
+    "ground_truth_instances": 8504,
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.50,
+    "global_metrics": {
+      "model_b6": {
+        "macro_f1": 0.5069,
+        "micro_f1": 0.6336,
+        "micro_precision": 0.6204,
+        "micro_recall": 0.6475,
+        "mAP50": 0.4920,
+        "mAP50_95": 0.2974,
+        "latency_ms": 89.68
+      },
+      "model_b7": {
+        "macro_f1": 0.5199,
+        "micro_f1": 0.6395,
+        "micro_precision": 0.6336,
+        "micro_recall": 0.6455,
+        "mAP50": 0.5075,
+        "mAP50_95": 0.3071,
+        "latency_ms": 35.85
+      },
+      "delta": {
+        "macro_f1": 0.0130,
+        "micro_f1": 0.0059,
+        "micro_precision": 0.0132,
+        "micro_recall": -0.0020,
+        "mAP50": 0.0155,
+        "mAP50_95": 0.0097
+      }
+    },
+    "key_classes_breakdown": {
+      "porch": {
+        "gt": 24,
+        "b6": { "tp": 3, "fp": 4, "fn": 21, "p": 0.4286, "r": 0.1250, "f1": 0.1935, "ap50": 0.1437 },
+        "b7": { "tp": 5, "fp": 13, "fn": 19, "p": 0.2778, "r": 0.2083, "f1": 0.2381, "ap50": 0.2336 },
+        "f1_delta": 0.0446,
+        "ap50_delta": 0.0899,
+        "status": "improved_above_gate"
+      },
+      "door": {
+        "gt": 372,
+        "b6": { "tp": 206, "fp": 297, "fn": 166, "p": 0.4095, "r": 0.5538, "f1": 0.4709, "ap50": 0.4556 },
+        "b7": { "tp": 183, "fp": 216, "fn": 189, "p": 0.4586, "r": 0.4919, "f1": 0.4747, "ap50": 0.4385 },
+        "f1_delta": 0.0038,
+        "ap50_delta": -0.0171,
+        "status": "neutral_precision_improved"
+      },
+      "window": {
+        "gt": 3845,
+        "b6": { "tp": 2968, "fp": 1056, "fn": 877, "p": 0.7376, "r": 0.7719, "f1": 0.7544, "ap50": 0.7869 },
+        "b7": { "tp": 2980, "fp": 1072, "fn": 865, "p": 0.7354, "r": 0.7750, "f1": 0.7547, "ap50": 0.7825 },
+        "f1_delta": 0.0003,
+        "ap50_delta": -0.0044,
+        "status": "neutral_resilient"
+      },
+      "building": {
+        "gt": 40,
+        "b6": { "tp": 20, "fp": 22, "fn": 20, "p": 0.4762, "r": 0.5000, "f1": 0.4878, "ap50": 0.4757 },
+        "b7": { "tp": 22, "fp": 27, "fn": 18, "p": 0.4490, "r": 0.5500, "f1": 0.4944, "ap50": 0.5119 },
+        "f1_delta": 0.0066,
+        "ap50_delta": 0.0362,
+        "status": "improved"
+      },
+      "facade": {
+        "gt": 495,
+        "b6": { "tp": 177, "fp": 316, "fn": 318, "p": 0.3590, "r": 0.3576, "f1": 0.3583, "ap50": 0.3396 },
+        "b7": { "tp": 177, "fp": 201, "fn": 318, "p": 0.4683, "r": 0.3576, "f1": 0.4055, "ap50": 0.3650 },
+        "f1_delta": 0.0472,
+        "ap50_delta": 0.0254,
+        "status": "improved_false_positives_reduced_by_115"
+      }
+    },
+    "paired_bootstrap_1000_iterations": {
+      "macro_f1_delta_mean": 0.0135,
+      "macro_f1_95ci": [-0.0075, 0.0327],
+      "micro_f1_delta_mean": 0.0059,
+      "micro_f1_95ci": [-0.0007, 0.0127],
+      "porch_f1_delta_mean": 0.0472,
+      "porch_f1_95ci": [-0.1189, 0.2077],
+      "statistical_significance_claim": "unsupported_due_to_small_sample_size_n24"
+    }
+  },
+  "gate_decision": {
+    "candidate": "Model B7 Pilot",
+    "pilot_evaluation_verdict": "GO (Passed Controlled Pilot Gate)",
+    "production_promotion_verdict": "NO-GO (B2 Remains Production Default)",
+    "rationales": {
+      "pilot_go": "B7 met all pilot success criteria: Porch F1 0.2381 >= 0.20, Macro-F1 0.5199 >= 0.50, 0 regressed classes, and valid loss masking without catastrophic forgetting.",
+      "production_no_go": "B7 is a 300-image pilot. 95% bootstrap CI for porch spans zero [-0.1189, +0.2077]. Formal production promotion requires full-scale dataset curation, held-out evaluation, and strict release gating. B2 remains active default."
+    }
+  },
+  "git_hygiene_proposal": {
+    "1_source_and_tests_to_retain": [
+      "models/registry.py",
+      "services/ensemble_service.py",
+      "services/specialist_ensemble_service.py",
+      "utils/masked_detection_loss.py",
+      "utils/multidataset_harmonization.py",
+      "utils/deepfurniture_loader.py",
+      "utils/timing_utils.py",
+      "tests/test_masked_loss.py",
+      "tests/test_phase19_multidataset.py",
+      "tests/test_model_registry.py",
+      "tests/test_ensemble_service.py",
+      "tests/test_specialist_ensemble.py",
+      "tests/test_per_class_thresholds.py",
+      "tests/test_detection_deployment_readiness.py",
+      "tests/test_deepfurniture_detector.py",
+      "tests/test_depth_estimation.py",
+      "tests/test_exterior_ensemble.py",
+      "tests/test_parking_ensemble.py",
+      "tests/test_timing_utils.py"
+    ],
+    "2_documentation_and_reports_to_retain": [
+      "README.md",
+      "reports/*.md",
+      "reports/*.json",
+      "reports/phase19_dataset_mapping.csv"
+    ],
+    "3_generated_artifacts_to_ignore": [
+      "artifacts/ (112 MB of PNGs/crops)",
+      "reports/*_gallery/ (~30 MB of evaluation crops)",
+      "reports/visualizations/"
+    ],
+    "4_backup_files_to_archive_or_remove": [
+      "config/model_config.yaml.backup_20261024_155219",
+      "config/model_config.yaml.backup_b5",
+      "config/model_config.yaml.backup_phase11",
+      "models/detection_model.py.backup_phase11",
+      "models/registry.py.backup_20261024_155219",
+      "services/detection_service.py.backup_phase11"
+    ],
+    "5_files_requiring_manual_review": [
+      "config/exterior_b5.yaml",
+      "config/exterior_b6.yaml",
+      "config/porch_specialist.yaml",
+      "scripts/*.py (partition into tools vs historical research pipelines)"
+    ]
+  },
+  "remaining_release_blockers": [
+    "Application audit: verify UI claims, ensure relative depth is clearly marked, and check mock fallbacks",
+    "Test suite integrity: rectify test assertion type difference in test_masked_loss.py",
+    "Update .gitignore to exclude 112 MB artifacts/ directory",
+    "End-to-end competition demonstration workflow validation with real image inputs"
+  ]
+}
+

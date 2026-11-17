@@ -1,0 +1,42 @@
+# Visual Geometry Grounded Transformer (VGGT) Model Configuration for RoomAI
+# Feed-forward Baseline Model (Oxford VGG & Meta AI)
+
+model:
+  name: "VGGT-1B"
+  hub_model_id: "facebook/VGGT-1B"
+  parameters: 1_000_000_000  # ~1B
+  precision: "bfloat16"
+  device: "cuda:0"
+
+  architecture:
+    backbone: "Alternating Self & Cross-View Attention Transformer"
+    patch_size: 16
+    embed_dim: 1024
+    num_heads: 16
+    num_layers: 24
+
+  prediction_heads:
+    camera:
+      enabled: true
+      outputs: ["extrinsics_world_to_cam", "intrinsics"]
+    depth:
+      enabled: true
+      outputs: ["dense_depth_maps"]
+    point_map:
+      enabled: true
+      outputs: ["point_maps_xyz_world"]
+    point_tracking:
+      enabled: true
+      outputs: ["point_tracks_across_views"]
+    surface_normal:
+      enabled: false  # Not supported by VGGT architecture
+    gaussian_splatting:
+      enabled: false  # Not supported by VGGT architecture
+
+  inference_runtime:
+    max_input_views: 8
+    default_input_views: 3
+    resolution: [512, 512]
+    max_vram_budget_mb: 6500
+    enable_memory_efficient_attention: true
+

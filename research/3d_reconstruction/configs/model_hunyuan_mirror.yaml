@@ -1,0 +1,53 @@
+# HunyuanWorld-Mirror (WorldMirror) Model Configuration for RoomAI
+# Feed-forward 3D Foundation Model with Multi-Modal Any-Prior Prompting
+
+model:
+  name: "HunyuanWorld-Mirror"
+  hub_model_id: "tencent/HunyuanWorld-Mirror"
+  parameters: 1_000_000_000  # ~1B
+  precision: "bfloat16"      # Use BF16 on Ada Lovelace RTX 4060
+  device: "cuda:0"
+
+  architecture:
+    backbone: "Universal Vision Transformer"
+    patch_size: 16
+    embed_dim: 1024
+    num_heads: 16
+    num_layers: 24
+
+  prediction_heads:
+    camera:
+      enabled: true
+      outputs: ["poses_6dof", "fov_intrinsics"]
+    metric_depth:
+      enabled: true
+      outputs: ["multi_view_depth_maps"]
+      loss_weight: 1.0
+    point_map:
+      enabled: true
+      outputs: ["3d_point_coordinates_xyz"]
+      loss_weight: 1.5
+    surface_normal:
+      enabled: true
+      outputs: ["pixel_normal_vectors_xyz"]
+      loss_weight: 0.8
+    gaussian_splatting:
+      enabled: true
+      outputs: ["xyz_centers", "covariances_scale_rot", "opacities", "sh_colors"]
+      loss_weight: 2.0
+
+  prior_prompting:
+    enabled: true
+    depth_prior:
+      enabled: true
+      source: "Depth Anything V2 Metric"
+    camera_prior:
+      enabled: false  # Auto-estimate if unknown
+
+  inference_runtime:
+    max_input_views: 6
+    default_input_views: 3
+    resolution: [512, 512]
+    max_vram_budget_mb: 6800  # Leave >1GB headroom on 8GB RTX 4060
+    enable_memory_efficient_attention: true
+

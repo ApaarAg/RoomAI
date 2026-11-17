@@ -1,0 +1,38 @@
+# Model Configuration: Exterior Detector B5 (Transfer Learning Candidate)
+task_name: "Group B: Exterior and Building Components"
+model_type: "yolo11s"
+base_weights: "yolo11s.pt"
+checkpoint_path: "checkpoints/exterior_detector_b5_transfer_best.pt"
+dataset_yaml: "data/exterior_b5_unified/dataset.yaml"
+status: "experimental_candidate"
+
+training_hyperparameters:
+  epochs: 25
+  patience: 6
+  batch_size: 8
+  imgsz: 640
+  device: 0
+  seed: 42
+  half: true
+  optimizer: "auto"
+  lr0: 0.01
+  lrf: 0.01
+  momentum: 0.937
+  weight_decay: 0.0005
+  warmup_epochs: 3.0
+
+classes:
+  0: "building"
+  1: "facade"
+  2: "window"
+  3: "door"
+  4: "roof_cornice"
+  5: "balcony"
+  6: "porch"
+  7: "pillar_column"
+  8: "shutter_blind"
+  9: "molding_deco"
+
+operating_thresholds:
+  default_confidence: 0.25
+  iou_threshold: 0.45

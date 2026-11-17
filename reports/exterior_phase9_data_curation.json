@@ -1,0 +1,152 @@
+{
+  "dataset_name": "RoomAI Exterior V2 Curated",
+  "timestamp": "2026-10-24 17:15:59",
+  "all_gates_passed": true,
+  "gates": {
+    "gate_image_readability": {
+      "status": "PASSED",
+      "details": "All 876 images successfully verified and readable by PIL and OpenCV."
+    },
+    "gate_canonical_classes": {
+      "status": "PASSED",
+      "details": "All annotations strictly use canonical 10-class vocabulary [0..9]."
+    },
+    "gate_bbox_geometry": {
+      "status": "PASSED",
+      "details": "All bounding boxes have strictly positive dimensions and valid normalized coordinates."
+    },
+    "gate_full_frame_filter": {
+      "status": "PASSED",
+      "details": "Zero full-frame (area > 0.85) boxes on rare/component classes (Porch: 0, Balcony: 0, Window: 0, Roof: 0, Pillar: 0). Test anomaly oi_ext_test_0106 porch is confirmed corrected to 6.30% area. Structural envelopes (facade: 295, building: 49) verified as legitimate architectural spans; 1 macro door in canonical val documented."
+    },
+    "gate_split_integrity_zero_leakage": {
+      "status": "PASSED",
+      "details": "Zero cross-split image leakage confirmed via MD5 hash comparison across all splits."
+    },
+    "gate_porch_sample_diversity": {
+      "status": "PASSED",
+      "details": "Porch class expanded from 6 canonical instances to 186 instances (Train: 134, Val: 24, Test: 28). Represented across 150 distinct photographic scenes."
+    }
+  },
+  "total_images": 876,
+  "split_counts": {
+    "train": 568,
+    "val": 154,
+    "test": 154
+  },
+  "class_counts_by_split": {
+    "train": {
+      "0": 204,
+      "1": 2411,
+      "2": 12677,
+      "3": 1379,
+      "4": 2797,
+      "5": 1091,
+      "6": 134,
+      "7": 2270,
+      "8": 2487,
+      "9": 7070
+    },
+    "val": {
+      "0": 40,
+      "1": 495,
+      "2": 3845,
+      "3": 372,
+      "4": 445,
+      "5": 345,
+      "6": 24,
+      "7": 494,
+      "8": 901,
+      "9": 1543
+    },
+    "test": {
+      "0": 40,
+      "1": 579,
+      "2": 4090,
+      "3": 432,
+      "4": 666,
+      "5": 393,
+      "6": 28,
+      "7": 896,
+      "8": 664,
+      "9": 2038
+    }
+  },
+  "image_occurrences_by_split": {
+    "train": {
+      "0": 132,
+      "1": 378,
+      "2": 479,
+      "3": 333,
+      "4": 277,
+      "5": 216,
+      "6": 111,
+      "7": 237,
+      "8": 145,
+      "9": 372
+    },
+    "val": {
+      "0": 29,
+      "1": 113,
+      "2": 135,
+      "3": 92,
+      "4": 70,
+      "5": 74,
+      "6": 22,
+      "7": 60,
+      "8": 67,
+      "9": 103
+    },
+    "test": {
+      "0": 29,
+      "1": 113,
+      "2": 130,
+      "3": 98,
+      "4": 83,
+      "5": 70,
+      "6": 22,
+      "7": 88,
+      "8": 34,
+      "9": 109
+    }
+  },
+  "large_boxes_analysis": {
+    "facade_span_count": 295,
+    "building_span_count": 49,
+    "door_macro_count": 1,
+    "porch_large_box_count": 0
+  },
+  "porch_analysis": {
+    "canonical_porch_count": 6,
+    "curated_porch_count": 186,
+    "porch_by_split": {
+      "train": 134,
+      "val": 24,
+      "test": 28
+    },
+    "expansion_factor": "31.0x",
+    "test_porch_anomaly_resolved": {
+      "image": "oi_ext_test_0106.jpg",
+      "original_box": [
+        6,
+        0.5,
+        0.5,
+        1.0,
+        1.0
+      ],
+      "corrected_box": [
+        6,
+        0.483895,
+        0.479492,
+        0.285505,
+        0.220703
+      ],
+      "corrected_area_percent": 6.3,
+      "original_box_file": "labels/test/oi_ext_test_0106.txt.original"
+    }
+  },
+  "artifacts_generated": [
+    "C:\\Users\\apaar\\Desktop\\RoomAI\\artifacts\\exterior_phase9\\new_porch_curated_contact_sheet.jpg",
+    "C:\\Users\\apaar\\Desktop\\RoomAI\\artifacts\\exterior_phase9\\stage_a_porch_correction\\oi_ext_test_0106_Proposal_A.jpg"
+  ]
+}

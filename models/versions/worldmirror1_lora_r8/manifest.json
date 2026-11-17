@@ -1,0 +1,71 @@
+{
+  "model_name": "WorldMirror-1.0 LoRA Rank 8 (Stage 1)",
+  "version": "1.0.0-stage1-r8",
+  "status": "VALIDATION_CANDIDATE",
+  "role": "Best reported Stage 1 candidate",
+  "architecture": "HunyuanWorld-Mirror 1.0 (ViT-L/14 backbone, DINOv2, DPT heads) + Stage 1 Geometric Fine-tuning",
+  "checkpoint_path": "research/3d_reconstruction/checkpoints/stage1/best_stage1.ckpt",
+  "sha256": "fa12e006da6d1dbdbae810ee3995e9659dd8da5dad16dc9fe8380c9daa9481a2",
+  "file_size_bytes": 2839164068,
+  "source_code_commit": "c61300e47ce06db2f02c8e2551aae68be7ae3a0b",
+  "dataset_manifest_hash": "86679e6aae422e57",
+  "preprocessing_config": {
+    "input_resolution": [518, 518],
+    "patch_size": 14,
+    "normalization": "imagenet",
+    "square_crop": true,
+    "coordinate_transform": "diag(1, -1, -1)"
+  },
+  "input_schema": {
+    "type": "image_batch",
+    "channels": 3,
+    "height": 518,
+    "width": 518,
+    "dtype": "float32",
+    "range": [0.0, 1.0]
+  },
+  "output_schema": {
+    "depth": {"shape": [1, 518, 518], "unit": "meters", "confidence": true},
+    "pts3d": {"shape": [518, 518, 3], "unit": "meters", "confidence": true},
+    "normals": {"shape": [518, 518, 3], "unit": "normalized", "confidence": true},
+    "camera_poses": {"shape": [4, 4], "format": "c2w_opencv"}
+  },
+  "evaluation_metrics": {
+    "reported": {
+      "hypersim_absrel": 0.4526,
+      "scannet_absrel": 0.2835,
+      "pointmap_score": 2.8035
+    },
+    "validation_split": "indoor_verified_manifest.json (val split, 3 views)",
+    "pointmap_accuracy_m": 2.9590,
+    "depth_absrel": 1.2720,
+    "depth_rmse_m": 5.2839,
+    "normal_mae_deg": 67.46,
+    "median_latency_ms": 275.95,
+    "peak_vram_mb": 3390.88
+  },
+  "known_limitations": [
+    "Reported AbsRel metrics (0.45/0.28) were on pilot split — NOT evaluated on final locked test split",
+    "Stage 1 does not generalize: ScanNet AbsRel = 5.53 on held-out test (generalization failure)",
+    "Full merged model — NOT a separable LoRA adapter (no lora/adapter keys in state_dict)",
+    "Normal estimation still unreliable",
+    "Metric depth has scale ambiguity vs. ground truth"
+  ],
+  "license": "Tencent HunyuanWorld-Mirror License (Non-Commercial Research)",
+  "provenance": {
+    "source_repo": "https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror",
+    "paper": "arXiv:2510.10726",
+    "training_data": "Indoor verified dataset (Hypersim + ScanNet pilot)",
+    "training_config": "research/3d_reconstruction/configs/finetune_stage1.yaml"
+  },
+  "trainable_partition": {
+    "total_params": 1223250748,
+    "frozen_backbone_params": 909112320,
+    "trainable_heads_params": 314138428,
+    "is_lora_adapter": false,
+    "is_merged_model": true,
+    "note": "No lora.* or adapter.* keys found in state_dict. This is a fully merged checkpoint with geometric heads fine-tuned, not a separable LoRA adapter."
+  },
+  "frozen_at": "2026-11-10T00:00:00Z",
+  "certification_status": "NOT PERMANENTLY CERTIFIED — pending final locked test split evaluation under frozen protocol"
+}

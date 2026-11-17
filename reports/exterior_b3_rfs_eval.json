@@ -1,0 +1,110 @@
+{
+  "model_name": "Exterior Detector Model B3 (YOLO11s RFS)",
+  "architecture": "YOLO11s",
+  "base_model": "C:\\Users\\apaar\\Desktop\\RoomAI\\yolo11s.pt",
+  "intervention": "Repeat Factor Sampling (porch 15x, building 2x, shutter_blind 2x)",
+  "epochs_trained": 15,
+  "batch_size": 4,
+  "imgsz": 640,
+  "seed": 42,
+  "train_duration_sec": 432.59,
+  "sec_per_epoch": 28.84,
+  "peak_gpu_mem_mb": 2442.78,
+  "val_metrics": {
+    "mAP50": 0.509,
+    "mAP50_95": 0.3173,
+    "precision": 0.6934,
+    "recall": 0.4295,
+    "f1": 0.5304
+  },
+  "test_metrics": {
+    "mAP50": 0.4193,
+    "mAP50_95": 0.2572,
+    "precision": 0.629,
+    "recall": 0.3993,
+    "f1": 0.4885
+  },
+  "per_class_test_metrics": {
+    "building": {
+      "class_id": 0,
+      "precision": 0.3738,
+      "recall": 0.4583,
+      "f1": 0.4118,
+      "mAP50": 0.4736,
+      "mAP50_95": 0.3067
+    },
+    "facade": {
+      "class_id": 1,
+      "precision": 0.434,
+      "recall": 0.2623,
+      "f1": 0.327,
+      "mAP50": 0.277,
+      "mAP50_95": 0.1823
+    },
+    "window": {
+      "class_id": 2,
+      "precision": 0.8037,
+      "recall": 0.7707,
+      "f1": 0.7869,
+      "mAP50": 0.8004,
+      "mAP50_95": 0.5683
+    },
+    "door": {
+      "class_id": 3,
+      "precision": 0.6056,
+      "recall": 0.4065,
+      "f1": 0.4865,
+      "mAP50": 0.448,
+      "mAP50_95": 0.2789
+    },
+    "roof_cornice": {
+      "class_id": 4,
+      "precision": 0.717,
+      "recall": 0.6426,
+      "f1": 0.6778,
+      "mAP50": 0.6751,
+      "mAP50_95": 0.394
+    },
+    "balcony": {
+      "class_id": 5,
+      "precision": 0.6073,
+      "recall": 0.6056,
+      "f1": 0.6064,
+      "mAP50": 0.5934,
+      "mAP50_95": 0.3467
+    },
+    "porch": {
+      "class_id": 6,
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "mAP50_95": 0.0
+    },
+    "pillar_column": {
+      "class_id": 7,
+      "precision": 0.4558,
+      "recall": 0.2076,
+      "f1": 0.2853,
+      "mAP50": 0.2213,
+      "mAP50_95": 0.103
+    },
+    "shutter_blind": {
+      "class_id": 8,
+      "precision": 0.6957,
+      "recall": 0.21,
+      "f1": 0.3226,
+      "mAP50": 0.2518,
+      "mAP50_95": 0.164
+    },
+    "molding_deco": {
+      "class_id": 9,
+      "precision": 0.597,
+      "recall": 0.4293,
+      "f1": 0.4994,
+      "mAP50": 0.4521,
+      "mAP50_95": 0.2283
+    }
+  },
+  "checkpoint_path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_detector_b3_yolo11s_rfs_best.pt"
+}

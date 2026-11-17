@@ -1,0 +1,117 @@
+{
+  "B2 General Only (Production Default)": {
+    "candidate": "B2 General Only (Production Default)",
+    "cold_load_time_ms": 91.99,
+    "peak_vram_allocated_mb": 147.07,
+    "peak_vram_reserved_mb": 182.0,
+    "model_only_latency_ms": {
+      "median": 38.03,
+      "p90": 56.88,
+      "p95": 61.57,
+      "min": 18.74,
+      "max": 86.7,
+      "mean": 40.11
+    },
+    "full_pipeline_latency_ms": {
+      "median": 45.2,
+      "p90": 64.18,
+      "p95": 68.01,
+      "min": 22.71,
+      "max": 94.71,
+      "mean": 45.95
+    },
+    "steady_state_fps": 26.3
+  },
+  "B6 General Only (Expanded Candidate)": {
+    "candidate": "B6 General Only (Expanded Candidate)",
+    "cold_load_time_ms": 0.96,
+    "peak_vram_allocated_mb": 147.07,
+    "peak_vram_reserved_mb": 174.0,
+    "model_only_latency_ms": {
+      "median": 37.41,
+      "p90": 59.55,
+      "p95": 67.14,
+      "min": 19.71,
+      "max": 82.21,
+      "mean": 40.71
+    },
+    "full_pipeline_latency_ms": {
+      "median": 43.24,
+      "p90": 65.71,
+      "p95": 76.71,
+      "min": 25.4,
+      "max": 93.06,
+      "mean": 46.34
+    },
+    "steady_state_fps": 26.7
+  },
+  "B6 + CLAHE (Luminance clip=2.0)": {
+    "candidate": "B6 + CLAHE (Luminance clip=2.0)",
+    "cold_load_time_ms": 0.85,
+    "peak_vram_allocated_mb": 147.07,
+    "peak_vram_reserved_mb": 174.0,
+    "model_only_latency_ms": {
+      "median": 36.57,
+      "p90": 55.33,
+      "p95": 60.99,
+      "min": 19.61,
+      "max": 79.91,
+      "mean": 38.86
+    },
+    "full_pipeline_latency_ms": {
+      "median": 56.36,
+      "p90": 82.31,
+      "p95": 95.64,
+      "min": 26.0,
+      "max": 110.39,
+      "mean": 59.16
+    },
+    "steady_state_fps": 27.3
+  },
+  "Cascaded Specialist (B6 + Porch Specialist)": {
+    "candidate": "Cascaded Specialist (B6 + Porch Specialist)",
+    "cold_load_time_ms": 1.2,
+    "peak_vram_allocated_mb": 182.19,
+    "peak_vram_reserved_mb": 214.0,
+    "model_only_latency_ms": {
+      "median": 66.02,
+      "p90": 99.85,
+      "p95": 108.03,
+      "min": 19.88,
+      "max": 134.26,
+      "mean": 68.25
+    },
+    "full_pipeline_latency_ms": {
+      "median": 68.96,
+      "p90": 106.85,
+      "p95": 114.27,
+      "min": 28.36,
+      "max": 144.18,
+      "mean": 73.77
+    },
+    "steady_state_fps": 15.1
+  },
+  "Parallel Ensemble (B6 + Porch Specialist)": {
+    "candidate": "Parallel Ensemble (B6 + Porch Specialist)",
+    "cold_load_time_ms": 1.39,
+    "peak_vram_allocated_mb": 182.19,
+    "peak_vram_reserved_mb": 214.0,
+    "model_only_latency_ms": {
+      "median": 70.6,
+      "p90": 98.46,
+      "p95": 102.48,
+      "min": 38.19,
+      "max": 128.87,
+      "mean": 73.02
+    },
+    "full_pipeline_latency_ms": {
+      "median": 77.06,
+      "p90": 104.36,
+      "p95": 111.1,
+      "min": 41.06,
+      "max": 134.72,
+      "mean": 79.22
+    },
+    "steady_state_fps": 14.2
+  }
+}

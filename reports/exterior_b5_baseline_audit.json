@@ -1,0 +1,377 @@
+{
+  "B2 (Production)": {
+    "checkpoint": "exterior_detector_b2_yolo11s_best.pt",
+    "mAP50": 0.4296,
+    "mAP50_95": 0.2567,
+    "macro_f1": 0.4507,
+    "micro_f1": 0.6168,
+    "micro_precision": 0.6497,
+    "micro_recall": 0.587,
+    "ap50_per_class": {
+      "building": 0.3981,
+      "facade": 0.2874,
+      "window": 0.7682,
+      "door": 0.4035,
+      "roof_cornice": 0.642,
+      "balcony": 0.5979,
+      "porch": 0.0,
+      "pillar_column": 0.1711,
+      "shutter_blind": 0.5647,
+      "molding_deco": 0.4635
+    },
+    "ap_per_class": {
+      "building": 0.2515,
+      "facade": 0.1741,
+      "window": 0.5112,
+      "door": 0.2236,
+      "roof_cornice": 0.3413,
+      "balcony": 0.3646,
+      "porch": 0.0,
+      "pillar_column": 0.085,
+      "shutter_blind": 0.3755,
+      "molding_deco": 0.2399
+    },
+    "per_class_op": {
+      "building": {
+        "gt_count": 40,
+        "tp": 11,
+        "fp": 10,
+        "fn": 29,
+        "precision": 0.5238,
+        "recall": 0.275,
+        "f1": 0.3607
+      },
+      "facade": {
+        "gt_count": 495,
+        "tp": 129,
+        "fp": 88,
+        "fn": 366,
+        "precision": 0.5945,
+        "recall": 0.2606,
+        "f1": 0.3624
+      },
+      "window": {
+        "gt_count": 3845,
+        "tp": 2908,
+        "fp": 1193,
+        "fn": 937,
+        "precision": 0.7091,
+        "recall": 0.7563,
+        "f1": 0.7319
+      },
+      "door": {
+        "gt_count": 372,
+        "tp": 137,
+        "fp": 128,
+        "fn": 235,
+        "precision": 0.517,
+        "recall": 0.3683,
+        "f1": 0.4301
+      },
+      "roof_cornice": {
+        "gt_count": 445,
+        "tp": 308,
+        "fp": 222,
+        "fn": 137,
+        "precision": 0.5811,
+        "recall": 0.6921,
+        "f1": 0.6318
+      },
+      "balcony": {
+        "gt_count": 345,
+        "tp": 213,
+        "fp": 129,
+        "fn": 132,
+        "precision": 0.6228,
+        "recall": 0.6174,
+        "f1": 0.6201
+      },
+      "porch": {
+        "gt_count": 24,
+        "tp": 0,
+        "fp": 0,
+        "fn": 24,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "pillar_column": {
+        "gt_count": 494,
+        "tp": 105,
+        "fp": 211,
+        "fn": 389,
+        "precision": 0.3323,
+        "recall": 0.2126,
+        "f1": 0.2593
+      },
+      "shutter_blind": {
+        "gt_count": 901,
+        "tp": 456,
+        "fp": 183,
+        "fn": 445,
+        "precision": 0.7136,
+        "recall": 0.5061,
+        "f1": 0.5922
+      },
+      "molding_deco": {
+        "gt_count": 1543,
+        "tp": 725,
+        "fp": 527,
+        "fn": 818,
+        "precision": 0.5791,
+        "recall": 0.4699,
+        "f1": 0.5188
+      }
+    }
+  },
+  "B3 (Rollback)": {
+    "checkpoint": "exterior_detector_b3_yolo11s_rfs_best.pt",
+    "mAP50": 0.4547,
+    "mAP50_95": 0.2751,
+    "macro_f1": 0.4606,
+    "micro_f1": 0.6279,
+    "micro_precision": 0.6276,
+    "micro_recall": 0.6282,
+    "ap50_per_class": {
+      "building": 0.3234,
+      "facade": 0.3022,
+      "window": 0.7837,
+      "door": 0.4438,
+      "roof_cornice": 0.6638,
+      "balcony": 0.6372,
+      "porch": 0.0187,
+      "pillar_column": 0.2359,
+      "shutter_blind": 0.6342,
+      "molding_deco": 0.5045
+    },
+    "ap_per_class": {
+      "building": 0.2045,
+      "facade": 0.1855,
+      "window": 0.5279,
+      "door": 0.2473,
+      "roof_cornice": 0.3711,
+      "balcony": 0.3858,
+      "porch": 0.0143,
+      "pillar_column": 0.1198,
+      "shutter_blind": 0.4302,
+      "molding_deco": 0.2642
+    },
+    "per_class_op": {
+      "building": {
+        "gt_count": 40,
+        "tp": 17,
+        "fp": 47,
+        "fn": 23,
+        "precision": 0.2656,
+        "recall": 0.425,
+        "f1": 0.3269
+      },
+      "facade": {
+        "gt_count": 495,
+        "tp": 147,
+        "fp": 195,
+        "fn": 348,
+        "precision": 0.4298,
+        "recall": 0.297,
+        "f1": 0.3513
+      },
+      "window": {
+        "gt_count": 3845,
+        "tp": 2998,
+        "fp": 1238,
+        "fn": 847,
+        "precision": 0.7077,
+        "recall": 0.7797,
+        "f1": 0.742
+      },
+      "door": {
+        "gt_count": 372,
+        "tp": 159,
+        "fp": 160,
+        "fn": 213,
+        "precision": 0.4984,
+        "recall": 0.4274,
+        "f1": 0.4602
+      },
+      "roof_cornice": {
+        "gt_count": 445,
+        "tp": 311,
+        "fp": 270,
+        "fn": 134,
+        "precision": 0.5353,
+        "recall": 0.6989,
+        "f1": 0.6062
+      },
+      "balcony": {
+        "gt_count": 345,
+        "tp": 211,
+        "fp": 115,
+        "fn": 134,
+        "precision": 0.6472,
+        "recall": 0.6116,
+        "f1": 0.6289
+      },
+      "porch": {
+        "gt_count": 24,
+        "tp": 0,
+        "fp": 1,
+        "fn": 24,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "pillar_column": {
+        "gt_count": 494,
+        "tp": 133,
+        "fp": 247,
+        "fn": 361,
+        "precision": 0.35,
+        "recall": 0.2692,
+        "f1": 0.3043
+      },
+      "shutter_blind": {
+        "gt_count": 901,
+        "tp": 511,
+        "fp": 200,
+        "fn": 390,
+        "precision": 0.7187,
+        "recall": 0.5671,
+        "f1": 0.634
+      },
+      "molding_deco": {
+        "gt_count": 1543,
+        "tp": 855,
+        "fp": 697,
+        "fn": 688,
+        "precision": 0.5509,
+        "recall": 0.5541,
+        "f1": 0.5525
+      }
+    }
+  },
+  "B4 (Experimental)": {
+    "checkpoint": "exterior_detector_b4_yolo11s_curated_best.pt",
+    "mAP50": 0.4764,
+    "mAP50_95": 0.285,
+    "macro_f1": 0.5115,
+    "micro_f1": 0.6333,
+    "micro_precision": 0.6488,
+    "micro_recall": 0.6185,
+    "ap50_per_class": {
+      "building": 0.4604,
+      "facade": 0.3023,
+      "window": 0.7964,
+      "door": 0.4438,
+      "roof_cornice": 0.6775,
+      "balcony": 0.5879,
+      "porch": 0.1398,
+      "pillar_column": 0.2522,
+      "shutter_blind": 0.612,
+      "molding_deco": 0.4911
+    },
+    "ap_per_class": {
+      "building": 0.2942,
+      "facade": 0.1822,
+      "window": 0.5381,
+      "door": 0.2449,
+      "roof_cornice": 0.3616,
+      "balcony": 0.3729,
+      "porch": 0.0575,
+      "pillar_column": 0.1269,
+      "shutter_blind": 0.4154,
+      "molding_deco": 0.2562
+    },
+    "per_class_op": {
+      "building": {
+        "gt_count": 40,
+        "tp": 21,
+        "fp": 22,
+        "fn": 19,
+        "precision": 0.4884,
+        "recall": 0.525,
+        "f1": 0.506
+      },
+      "facade": {
+        "gt_count": 495,
+        "tp": 146,
+        "fp": 122,
+        "fn": 349,
+        "precision": 0.5448,
+        "recall": 0.2949,
+        "f1": 0.3827
+      },
+      "window": {
+        "gt_count": 3845,
+        "tp": 3045,
+        "fp": 1218,
+        "fn": 800,
+        "precision": 0.7143,
+        "recall": 0.7919,
+        "f1": 0.7511
+      },
+      "door": {
+        "gt_count": 372,
+        "tp": 164,
+        "fp": 168,
+        "fn": 208,
+        "precision": 0.494,
+        "recall": 0.4409,
+        "f1": 0.4659
+      },
+      "roof_cornice": {
+        "gt_count": 445,
+        "tp": 313,
+        "fp": 253,
+        "fn": 132,
+        "precision": 0.553,
+        "recall": 0.7034,
+        "f1": 0.6192
+      },
+      "balcony": {
+        "gt_count": 345,
+        "tp": 214,
+        "fp": 127,
+        "fn": 131,
+        "precision": 0.6276,
+        "recall": 0.6203,
+        "f1": 0.6239
+      },
+      "porch": {
+        "gt_count": 24,
+        "tp": 6,
+        "fp": 9,
+        "fn": 18,
+        "precision": 0.4,
+        "recall": 0.25,
+        "f1": 0.3077
+      },
+      "pillar_column": {
+        "gt_count": 494,
+        "tp": 143,
+        "fp": 310,
+        "fn": 351,
+        "precision": 0.3157,
+        "recall": 0.2895,
+        "f1": 0.302
+      },
+      "shutter_blind": {
+        "gt_count": 901,
+        "tp": 446,
+        "fp": 98,
+        "fn": 455,
+        "precision": 0.8199,
+        "recall": 0.495,
+        "f1": 0.6173
+      },
+      "molding_deco": {
+        "gt_count": 1543,
+        "tp": 762,
+        "fp": 520,
+        "fn": 781,
+        "precision": 0.5944,
+        "recall": 0.4938,
+        "f1": 0.5395
+      }
+    }
+  }
+}

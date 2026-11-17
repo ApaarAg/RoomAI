@@ -1,0 +1,232 @@
+{
+  "model_c2_baseline": {
+    "name": "Model C2 (YOLO11s Baseline)",
+    "checkpoint": "parking_detector_c2_yolo11s_pilot_best.pt",
+    "validation_operating_points": {
+      "high_precision": {
+        "conf": 0.3,
+        "iou": 0.4,
+        "precision": 0.621,
+        "recall": 0.2909,
+        "f1": 0.3962,
+        "map50": 0.2421,
+        "map50_95": 0.1422
+      },
+      "balanced_f1": {
+        "conf": 0.1,
+        "iou": 0.4,
+        "precision": 0.5569,
+        "recall": 0.3539,
+        "f1": 0.4328,
+        "map50": 0.3144,
+        "map50_95": 0.1767
+      },
+      "high_recall": {
+        "conf": 0.2,
+        "iou": 0.6,
+        "precision": 0.4685,
+        "recall": 0.3614,
+        "f1": 0.408,
+        "map50": 0.2861,
+        "map50_95": 0.1639
+      }
+    },
+    "test_evaluations": {
+      "high_precision": {
+        "applied_conf": 0.3,
+        "applied_iou": 0.4,
+        "test_precision": 0.4481,
+        "test_recall": 0.2559,
+        "test_f1": 0.3258,
+        "test_map50": 0.2015,
+        "test_map50_95": 0.1345
+      },
+      "balanced_f1": {
+        "applied_conf": 0.1,
+        "applied_iou": 0.4,
+        "test_precision": 0.56,
+        "test_recall": 0.2712,
+        "test_f1": 0.3655,
+        "test_map50": 0.2258,
+        "test_map50_95": 0.1474
+      },
+      "high_recall": {
+        "applied_conf": 0.2,
+        "applied_iou": 0.6,
+        "test_precision": 0.5498,
+        "test_recall": 0.2645,
+        "test_f1": 0.3572,
+        "test_map50": 0.2129,
+        "test_map50_95": 0.1434
+      }
+    },
+    "benchmark": {
+      "mean_latency_ms": 18.15,
+      "median_latency_ms": 16.79,
+      "p95_latency_ms": 28.29,
+      "peak_vram_mb": 254.43
+    },
+    "sweep_sample": [
+      {
+        "conf": 0.1,
+        "iou": 0.4,
+        "precision": 0.5569,
+        "recall": 0.3539,
+        "f1": 0.4328,
+        "map50": 0.3144,
+        "map50_95": 0.1767
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.45,
+        "precision": 0.5164,
+        "recall": 0.3583,
+        "f1": 0.423,
+        "map50": 0.3119,
+        "map50_95": 0.1759
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.5,
+        "precision": 0.5127,
+        "recall": 0.358,
+        "f1": 0.4216,
+        "map50": 0.315,
+        "map50_95": 0.1779
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.6,
+        "precision": 0.4881,
+        "recall": 0.3539,
+        "f1": 0.4103,
+        "map50": 0.3127,
+        "map50_95": 0.1771
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.4,
+        "precision": 0.5536,
+        "recall": 0.3545,
+        "f1": 0.4322,
+        "map50": 0.2973,
+        "map50_95": 0.1684
+      }
+    ]
+  },
+  "model_c3_candidate": {
+    "name": "Model C3 (YOLO11s RFS Candidate)",
+    "checkpoint": "parking_detector_c3_yolo11s_rfs_best.pt",
+    "validation_operating_points": {
+      "high_precision": {
+        "conf": 0.1,
+        "iou": 0.6,
+        "precision": 0.6017,
+        "recall": 0.3417,
+        "f1": 0.4359,
+        "map50": 0.3073,
+        "map50_95": 0.1519
+      },
+      "balanced_f1": {
+        "conf": 0.1,
+        "iou": 0.6,
+        "precision": 0.6017,
+        "recall": 0.3417,
+        "f1": 0.4359,
+        "map50": 0.3073,
+        "map50_95": 0.1519
+      },
+      "high_recall": {
+        "conf": 0.2,
+        "iou": 0.5,
+        "precision": 0.4077,
+        "recall": 0.3789,
+        "f1": 0.3927,
+        "map50": 0.2785,
+        "map50_95": 0.1395
+      }
+    },
+    "test_evaluations": {
+      "high_precision": {
+        "applied_conf": 0.1,
+        "applied_iou": 0.6,
+        "test_precision": 0.4574,
+        "test_recall": 0.3768,
+        "test_f1": 0.4132,
+        "test_map50": 0.3049,
+        "test_map50_95": 0.1804
+      },
+      "balanced_f1": {
+        "applied_conf": 0.1,
+        "applied_iou": 0.6,
+        "test_precision": 0.4574,
+        "test_recall": 0.3768,
+        "test_f1": 0.4132,
+        "test_map50": 0.3049,
+        "test_map50_95": 0.1804
+      },
+      "high_recall": {
+        "applied_conf": 0.2,
+        "applied_iou": 0.5,
+        "test_precision": 0.4662,
+        "test_recall": 0.3767,
+        "test_f1": 0.4167,
+        "test_map50": 0.2815,
+        "test_map50_95": 0.1682
+      }
+    },
+    "benchmark": {
+      "mean_latency_ms": 25.59,
+      "median_latency_ms": 25.72,
+      "p95_latency_ms": 33.61,
+      "peak_vram_mb": 220.19
+    },
+    "sweep_sample": [
+      {
+        "conf": 0.1,
+        "iou": 0.4,
+        "precision": 0.4461,
+        "recall": 0.338,
+        "f1": 0.3846,
+        "map50": 0.2866,
+        "map50_95": 0.1465
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.45,
+        "precision": 0.4535,
+        "recall": 0.3549,
+        "f1": 0.3982,
+        "map50": 0.3056,
+        "map50_95": 0.1504
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.5,
+        "precision": 0.4099,
+        "recall": 0.3783,
+        "f1": 0.3934,
+        "map50": 0.3072,
+        "map50_95": 0.1512
+      },
+      {
+        "conf": 0.1,
+        "iou": 0.6,
+        "precision": 0.6017,
+        "recall": 0.3417,
+        "f1": 0.4359,
+        "map50": 0.3073,
+        "map50_95": 0.1519
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.4,
+        "precision": 0.4461,
+        "recall": 0.338,
+        "f1": 0.3846,
+        "map50": 0.2721,
+        "map50_95": 0.14
+      }
+    ]
+  }
+}

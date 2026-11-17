@@ -1,0 +1,204 @@
+{
+  "checkpoint": "parking_detector_c2_yolo11s_pilot_best.pt",
+  "checkpoint_hash": "89383b78c1a43785fc5057cead5e52a5",
+  "checkpoint_size_bytes": 19157978,
+  "total_images_per_split": {
+    "train": 510,
+    "val": 120,
+    "test": 120
+  },
+  "val_baseline": {
+    "mAP50": 0.3465,
+    "mAP50_95": 0.195,
+    "precision": 0.4731,
+    "recall": 0.351,
+    "f1": 0.403
+  },
+  "test_baseline": {
+    "mAP50": 0.2551,
+    "mAP50_95": 0.1682,
+    "precision": 0.5382,
+    "recall": 0.264,
+    "f1": 0.3542
+  },
+  "per_class_test_performance": {
+    "car_vehicle": {
+      "class_id": 0,
+      "precision": 0.643,
+      "recall": 0.4174,
+      "f1": 0.5062,
+      "mAP50": 0.4522,
+      "mAP50_95": 0.282
+    },
+    "motorcycle": {
+      "class_id": 1,
+      "precision": 0.5316,
+      "recall": 0.4675,
+      "f1": 0.4975,
+      "mAP50": 0.3863,
+      "mAP50_95": 0.2765
+    },
+    "bicycle": {
+      "class_id": 2,
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0657,
+      "mAP50_95": 0.0502
+    },
+    "outdoor_seating": {
+      "class_id": 3,
+      "precision": 0.3803,
+      "recall": 0.2421,
+      "f1": 0.2959,
+      "mAP50": 0.2424,
+      "mAP50_95": 0.1553
+    },
+    "outdoor_table": {
+      "class_id": 4,
+      "precision": 0.5257,
+      "recall": 0.5294,
+      "f1": 0.5275,
+      "mAP50": 0.4075,
+      "mAP50_95": 0.2772
+    },
+    "plant_bush": {
+      "class_id": 5,
+      "precision": 0.7223,
+      "recall": 0.17,
+      "f1": 0.2752,
+      "mAP50": 0.2035,
+      "mAP50_95": 0.154
+    },
+    "tree": {
+      "class_id": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0509,
+      "mAP50_95": 0.0261
+    },
+    "outdoor_fixture": {
+      "class_id": 7,
+      "precision": 0.503,
+      "recall": 0.2857,
+      "f1": 0.3644,
+      "mAP50": 0.2321,
+      "mAP50_95": 0.1239
+    }
+  },
+  "geometry_and_counts": {
+    "car_vehicle": {
+      "class_id": 0,
+      "total_boxes": 760,
+      "median_area_pct": 0.763,
+      "p10_area_pct": 0.071,
+      "p90_area_pct": 23.355,
+      "median_aspect_ratio": 1.14,
+      "train_boxes": 545,
+      "train_images": 173,
+      "val_boxes": 100,
+      "val_images": 35,
+      "test_boxes": 115,
+      "test_images": 25
+    },
+    "motorcycle": {
+      "class_id": 1,
+      "total_boxes": 94,
+      "median_area_pct": 3.89,
+      "p10_area_pct": 0.285,
+      "p90_area_pct": 49.737,
+      "median_aspect_ratio": 0.7,
+      "train_boxes": 55,
+      "train_images": 33,
+      "val_boxes": 22,
+      "val_images": 8,
+      "test_boxes": 17,
+      "test_images": 7
+    },
+    "bicycle": {
+      "class_id": 2,
+      "total_boxes": 81,
+      "median_area_pct": 0.581,
+      "p10_area_pct": 0.061,
+      "p90_area_pct": 9.535,
+      "median_aspect_ratio": 0.72,
+      "train_boxes": 66,
+      "train_images": 24,
+      "val_boxes": 8,
+      "val_images": 2,
+      "test_boxes": 7,
+      "test_images": 3
+    },
+    "outdoor_seating": {
+      "class_id": 3,
+      "total_boxes": 651,
+      "median_area_pct": 1.18,
+      "p10_area_pct": 0.091,
+      "p90_area_pct": 12.731,
+      "median_aspect_ratio": 0.79,
+      "train_boxes": 440,
+      "train_images": 160,
+      "val_boxes": 116,
+      "val_images": 34,
+      "test_boxes": 95,
+      "test_images": 42
+    },
+    "outdoor_table": {
+      "class_id": 4,
+      "total_boxes": 215,
+      "median_area_pct": 26.62,
+      "p10_area_pct": 0.549,
+      "p90_area_pct": 98.079,
+      "median_aspect_ratio": 1.24,
+      "train_boxes": 143,
+      "train_images": 110,
+      "val_boxes": 38,
+      "val_images": 24,
+      "test_boxes": 34,
+      "test_images": 31
+    },
+    "plant_bush": {
+      "class_id": 5,
+      "total_boxes": 252,
+      "median_area_pct": 2.484,
+      "p10_area_pct": 0.173,
+      "p90_area_pct": 99.635,
+      "median_aspect_ratio": 0.88,
+      "train_boxes": 169,
+      "train_images": 96,
+      "val_boxes": 37,
+      "val_images": 23,
+      "test_boxes": 46,
+      "test_images": 24
+    },
+    "tree": {
+      "class_id": 6,
+      "total_boxes": 165,
+      "median_area_pct": 8.36,
+      "p10_area_pct": 0.325,
+      "p90_area_pct": 96.293,
+      "median_aspect_ratio": 0.92,
+      "train_boxes": 97,
+      "train_images": 56,
+      "val_boxes": 35,
+      "val_images": 17,
+      "test_boxes": 33,
+      "test_images": 15
+    },
+    "outdoor_fixture": {
+      "class_id": 7,
+      "total_boxes": 198,
+      "median_area_pct": 0.335,
+      "p10_area_pct": 0.022,
+      "p90_area_pct": 9.365,
+      "median_aspect_ratio": 0.44,
+      "train_boxes": 132,
+      "train_images": 48,
+      "val_boxes": 45,
+      "val_images": 19,
+      "test_boxes": 21,
+      "test_images": 11
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "test_name": "Rapid 1-Epoch GPU Transfer Learning Smoke Test",
+  "timestamp": "2026-10-29T20:13:12Z",
+  "hardware": {
+    "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "total_vram_gb": 8.0,
+    "peak_allocated_mb": 4068.13,
+    "peak_reserved_mb": 4218.0,
+    "vram_headroom_gb": 3.88
+  },
+  "hyperparameters": {
+    "base_checkpoint": "F:\\RoomAI\\yolo11s.pt",
+    "dataset": "F:\\RoomAI_Data\\yolo_open_images_pilot\\data.yaml",
+    "epochs": 1,
+    "batch_size": 16,
+    "imgsz": 640,
+    "workers": 2,
+    "amp": true,
+    "seed": 42
+  },
+  "performance": {
+    "duration_sec": 464.86,
+    "throughput_img_per_sec": 17.21,
+    "train_box_loss": 1.59503,
+    "train_cls_loss": 2.4917,
+    "train_dfl_loss": 1.66997,
+    "val_mAP50": 0.11775,
+    "val_mAP50_95": 0.06056
+  },
+  "artifacts": {
+    "external_checkpoint": "F:\\RoomAI_Data\\checkpoints\\smoke_test_open_images_yolo11s_best.pt",
+    "md5_hash": "a524cca3799418cafe5654d75a10091e",
+    "size_bytes": 19163731,
+    "run_directory": "F:\\RoomAI_Data\\runs\\train\\smoke_test_open_images_yolo11s"
+  },
+  "pass_criteria": {
+    "cuda_device_bound": true,
+    "amp_mixed_precision_active": true,
+    "loss_finite_and_converging": true,
+    "peak_vram_under_6gb": true,
+    "vram_headroom_over_2gb": true,
+    "external_checkpoint_delivered": true,
+    "repo_checkpoints_unmodified": true,
+    "no_cuda_oom": true
+  },
+  "overall_status": "PASS"
+}

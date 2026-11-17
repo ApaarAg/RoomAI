@@ -1,0 +1,602 @@
+{
+  "task": "RoomAI Phase 5 \u2014 Indoor Detector Optimization",
+  "date": "2026-10-24",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_mb": 8188,
+    "driver_cuda": "12.8 / PyTorch 2.11.0+cu128"
+  },
+  "baseline_model_a2": {
+    "checkpoint": "indoor_detector_a2_yolo11s_finetune_best.pt",
+    "checkpoint_md5": "ad899be666950b695c825a2e57229a58",
+    "checkpoint_size_bytes": 19156442,
+    "imgsz": 640,
+    "val_metrics": {
+      "mAP50": 0.7531,
+      "mAP50_95": 0.5484,
+      "precision": 0.7629,
+      "recall": 0.6604,
+      "f1": 0.708
+    },
+    "test_metrics": {
+      "mAP50": 0.7464,
+      "mAP50_95": 0.5921,
+      "precision": 0.7549,
+      "recall": 0.6762,
+      "f1": 0.7134
+    },
+    "per_class_test": {
+      "cabinet#shelf": {
+        "class_id": 0,
+        "precision": 0.8173,
+        "recall": 0.6275,
+        "f1": 0.7099,
+        "mAP50": 0.7607,
+        "mAP50_95": 0.5623
+      },
+      "table": {
+        "class_id": 1,
+        "precision": 0.6103,
+        "recall": 0.6667,
+        "f1": 0.6373,
+        "mAP50": 0.6639,
+        "mAP50_95": 0.5218
+      },
+      "chair#stool": {
+        "class_id": 2,
+        "precision": 0.6116,
+        "recall": 0.4374,
+        "f1": 0.51,
+        "mAP50": 0.5245,
+        "mAP50_95": 0.381
+      },
+      "lamp": {
+        "class_id": 3,
+        "precision": 0.7709,
+        "recall": 0.7278,
+        "f1": 0.7487,
+        "mAP50": 0.823,
+        "mAP50_95": 0.6273
+      },
+      "door": {
+        "class_id": 4,
+        "precision": 0.7279,
+        "recall": 0.6316,
+        "f1": 0.6763,
+        "mAP50": 0.7034,
+        "mAP50_95": 0.5192
+      },
+      "bed": {
+        "class_id": 5,
+        "precision": 0.9114,
+        "recall": 0.8667,
+        "f1": 0.8885,
+        "mAP50": 0.9324,
+        "mAP50_95": 0.8379
+      },
+      "sofa": {
+        "class_id": 6,
+        "precision": 0.7371,
+        "recall": 0.6977,
+        "f1": 0.7169,
+        "mAP50": 0.8096,
+        "mAP50_95": 0.6732
+      },
+      "plant": {
+        "class_id": 7,
+        "precision": 0.715,
+        "recall": 0.8362,
+        "f1": 0.7709,
+        "mAP50": 0.7799,
+        "mAP50_95": 0.557
+      },
+      "decoration": {
+        "class_id": 8,
+        "precision": 0.7837,
+        "recall": 0.7439,
+        "f1": 0.7633,
+        "mAP50": 0.8536,
+        "mAP50_95": 0.7692
+      },
+      "curtain": {
+        "class_id": 9,
+        "precision": 0.829,
+        "recall": 0.5242,
+        "f1": 0.6423,
+        "mAP50": 0.6173,
+        "mAP50_95": 0.425
+      },
+      "home-appliance": {
+        "class_id": 10,
+        "precision": 0.7897,
+        "recall": 0.6786,
+        "f1": 0.7299,
+        "mAP50": 0.7422,
+        "mAP50_95": 0.639
+      },
+      "window": {
+        "class_id": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "note": "Class not present in test split ground truth"
+      }
+    },
+    "benchmark": {
+      "mean_latency_ms": 20.84,
+      "median_latency_ms": 20.69,
+      "p95_latency_ms": 25.13,
+      "peak_vram_mb": 219.46
+    },
+    "operating_points_val": {
+      "high_precision": {
+        "conf": 0.5,
+        "iou": 0.4,
+        "precision": 0.848,
+        "recall": 0.5995,
+        "f1": 0.7024,
+        "map50": 0.5728,
+        "map50_95": 0.436
+      },
+      "balanced_f1": {
+        "conf": 0.35,
+        "iou": 0.45,
+        "precision": 0.771,
+        "recall": 0.6759,
+        "f1": 0.7203,
+        "map50": 0.6334,
+        "map50_95": 0.4726
+      },
+      "high_recall": {
+        "conf": 0.3,
+        "iou": 0.45,
+        "precision": 0.7498,
+        "recall": 0.6877,
+        "f1": 0.7174,
+        "map50": 0.6485,
+        "map50_95": 0.4813
+      }
+    },
+    "operating_points_test_eval": {
+      "high_precision": {
+        "applied_conf": 0.5,
+        "applied_iou": 0.4,
+        "test_precision": 0.8309,
+        "test_recall": 0.6152,
+        "test_f1": 0.707,
+        "test_map50": 0.5899,
+        "test_map50_95": 0.4863
+      },
+      "balanced_f1": {
+        "applied_conf": 0.35,
+        "applied_iou": 0.45,
+        "test_precision": 0.7769,
+        "test_recall": 0.6725,
+        "test_f1": 0.721,
+        "test_map50": 0.6352,
+        "test_map50_95": 0.5142
+      },
+      "high_recall": {
+        "applied_conf": 0.3,
+        "applied_iou": 0.45,
+        "test_precision": 0.7561,
+        "test_recall": 0.6882,
+        "test_f1": 0.7206,
+        "test_map50": 0.6464,
+        "test_map50_95": 0.5228
+      }
+    }
+  },
+  "candidate_model_a3": {
+    "checkpoint": "indoor_detector_a3_yolo11s_800px_best.pt",
+    "checkpoint_md5": "95563016732fca2cb4e0ee15bdb9e295",
+    "checkpoint_size_bytes": 19173786,
+    "imgsz": 800,
+    "training_config": {
+      "epochs": 6,
+      "batch_size": 4,
+      "imgsz": 800,
+      "seed": 42,
+      "train_duration_sec": 985.9,
+      "sec_per_epoch": 164.32,
+      "peak_train_gpu_mem_mb": 3024.02
+    },
+    "val_metrics": {
+      "mAP50": 0.7617,
+      "mAP50_95": 0.5825,
+      "precision": 0.7366,
+      "recall": 0.6912,
+      "f1": 0.7132
+    },
+    "test_metrics": {
+      "mAP50": 0.776,
+      "mAP50_95": 0.6509,
+      "precision": 0.8301,
+      "recall": 0.6738,
+      "f1": 0.7438
+    },
+    "per_class_test": {
+      "cabinet#shelf": {
+        "class_id": 0,
+        "precision": 0.8385,
+        "recall": 0.6618,
+        "f1": 0.7397,
+        "mAP50": 0.7851,
+        "mAP50_95": 0.6496
+      },
+      "table": {
+        "class_id": 1,
+        "precision": 0.804,
+        "recall": 0.6076,
+        "f1": 0.6921,
+        "mAP50": 0.6772,
+        "mAP50_95": 0.5567
+      },
+      "chair#stool": {
+        "class_id": 2,
+        "precision": 0.7361,
+        "recall": 0.4028,
+        "f1": 0.5207,
+        "mAP50": 0.6246,
+        "mAP50_95": 0.4971
+      },
+      "lamp": {
+        "class_id": 3,
+        "precision": 0.7746,
+        "recall": 0.7612,
+        "f1": 0.7678,
+        "mAP50": 0.842,
+        "mAP50_95": 0.7097
+      },
+      "door": {
+        "class_id": 4,
+        "precision": 0.8458,
+        "recall": 0.6053,
+        "f1": 0.7056,
+        "mAP50": 0.7434,
+        "mAP50_95": 0.6032
+      },
+      "bed": {
+        "class_id": 5,
+        "precision": 1.0,
+        "recall": 0.8091,
+        "f1": 0.8945,
+        "mAP50": 0.9409,
+        "mAP50_95": 0.8531
+      },
+      "sofa": {
+        "class_id": 6,
+        "precision": 0.8407,
+        "recall": 0.7367,
+        "f1": 0.7853,
+        "mAP50": 0.8362,
+        "mAP50_95": 0.6968
+      },
+      "plant": {
+        "class_id": 7,
+        "precision": 0.8087,
+        "recall": 0.8159,
+        "f1": 0.8123,
+        "mAP50": 0.8206,
+        "mAP50_95": 0.6204
+      },
+      "decoration": {
+        "class_id": 8,
+        "precision": 0.8139,
+        "recall": 0.7439,
+        "f1": 0.7773,
+        "mAP50": 0.8261,
+        "mAP50_95": 0.7719
+      },
+      "curtain": {
+        "class_id": 9,
+        "precision": 0.7975,
+        "recall": 0.5405,
+        "f1": 0.6443,
+        "mAP50": 0.6561,
+        "mAP50_95": 0.4839
+      },
+      "home-appliance": {
+        "class_id": 10,
+        "precision": 0.8716,
+        "recall": 0.7275,
+        "f1": 0.7931,
+        "mAP50": 0.7841,
+        "mAP50_95": 0.7175
+      },
+      "window": {
+        "class_id": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mAP50": 0.0,
+        "mAP50_95": 0.0
+      }
+    },
+    "benchmark": {
+      "mean_latency_ms": 10.87,
+      "median_latency_ms": 10.39,
+      "p95_latency_ms": 14.18,
+      "peak_vram_mb": 279.22
+    },
+    "operating_points_val": {
+      "high_precision": {
+        "conf": 0.5,
+        "iou": 0.4,
+        "precision": 0.8008,
+        "recall": 0.6301,
+        "f1": 0.7053,
+        "map50": 0.5926,
+        "map50_95": 0.4732
+      },
+      "balanced_f1": {
+        "conf": 0.15,
+        "iou": 0.5,
+        "precision": 0.7343,
+        "recall": 0.7075,
+        "f1": 0.7207,
+        "map50": 0.7085,
+        "map50_95": 0.5444
+      },
+      "high_recall": {
+        "conf": 0.15,
+        "iou": 0.5,
+        "precision": 0.7343,
+        "recall": 0.7075,
+        "f1": 0.7207,
+        "map50": 0.7085,
+        "map50_95": 0.5444
+      }
+    },
+    "operating_points_test_eval": {
+      "high_precision": {
+        "applied_conf": 0.5,
+        "applied_iou": 0.4,
+        "test_precision": 0.8496,
+        "test_recall": 0.6651,
+        "test_f1": 0.7462,
+        "test_map50": 0.6404,
+        "test_map50_95": 0.5602
+      },
+      "balanced_f1": {
+        "applied_conf": 0.15,
+        "applied_iou": 0.5,
+        "test_precision": 0.8157,
+        "test_recall": 0.6937,
+        "test_f1": 0.7498,
+        "test_map50": 0.7243,
+        "test_map50_95": 0.6095
+      },
+      "high_recall": {
+        "applied_conf": 0.15,
+        "applied_iou": 0.5,
+        "test_precision": 0.8157,
+        "test_recall": 0.6937,
+        "test_f1": 0.7498,
+        "test_map50": 0.7243,
+        "test_map50_95": 0.6095
+      }
+    }
+  },
+  "delta_a3_minus_a2": {
+    "test_metrics": {
+      "delta_mAP50": 0.0296,
+      "delta_mAP50_95": 0.0588,
+      "delta_precision": 0.0752,
+      "delta_recall": -0.0024,
+      "delta_f1": 0.0304
+    },
+    "per_class_test_deltas": {
+      "cabinet#shelf": {
+        "a2_precision": 0.8173,
+        "a3_precision": 0.8385,
+        "delta_precision": 0.0212,
+        "a2_recall": 0.6275,
+        "a3_recall": 0.6618,
+        "delta_recall": 0.0343,
+        "a2_f1": 0.7099,
+        "a3_f1": 0.7397,
+        "delta_f1": 0.0298,
+        "a2_mAP50": 0.7607,
+        "a3_mAP50": 0.7851,
+        "delta_mAP50": 0.0244,
+        "a2_mAP50_95": 0.5623,
+        "a3_mAP50_95": 0.6496,
+        "delta_mAP50_95": 0.0873
+      },
+      "table": {
+        "a2_precision": 0.6103,
+        "a3_precision": 0.804,
+        "delta_precision": 0.1937,
+        "a2_recall": 0.6667,
+        "a3_recall": 0.6076,
+        "delta_recall": -0.0591,
+        "a2_f1": 0.6373,
+        "a3_f1": 0.6921,
+        "delta_f1": 0.0548,
+        "a2_mAP50": 0.6639,
+        "a3_mAP50": 0.6772,
+        "delta_mAP50": 0.0133,
+        "a2_mAP50_95": 0.5218,
+        "a3_mAP50_95": 0.5567,
+        "delta_mAP50_95": 0.0349
+      },
+      "chair#stool": {
+        "a2_precision": 0.6116,
+        "a3_precision": 0.7361,
+        "delta_precision": 0.1245,
+        "a2_recall": 0.4374,
+        "a3_recall": 0.4028,
+        "delta_recall": -0.0346,
+        "a2_f1": 0.51,
+        "a3_f1": 0.5207,
+        "delta_f1": 0.0107,
+        "a2_mAP50": 0.5245,
+        "a3_mAP50": 0.6246,
+        "delta_mAP50": 0.1001,
+        "a2_mAP50_95": 0.381,
+        "a3_mAP50_95": 0.4971,
+        "delta_mAP50_95": 0.1161
+      },
+      "lamp": {
+        "a2_precision": 0.7709,
+        "a3_precision": 0.7746,
+        "delta_precision": 0.0037,
+        "a2_recall": 0.7278,
+        "a3_recall": 0.7612,
+        "delta_recall": 0.0334,
+        "a2_f1": 0.7487,
+        "a3_f1": 0.7678,
+        "delta_f1": 0.0191,
+        "a2_mAP50": 0.823,
+        "a3_mAP50": 0.842,
+        "delta_mAP50": 0.019,
+        "a2_mAP50_95": 0.6273,
+        "a3_mAP50_95": 0.7097,
+        "delta_mAP50_95": 0.0824
+      },
+      "door": {
+        "a2_precision": 0.7279,
+        "a3_precision": 0.8458,
+        "delta_precision": 0.1179,
+        "a2_recall": 0.6316,
+        "a3_recall": 0.6053,
+        "delta_recall": -0.0263,
+        "a2_f1": 0.6763,
+        "a3_f1": 0.7056,
+        "delta_f1": 0.0293,
+        "a2_mAP50": 0.7034,
+        "a3_mAP50": 0.7434,
+        "delta_mAP50": 0.04,
+        "a2_mAP50_95": 0.5192,
+        "a3_mAP50_95": 0.6032,
+        "delta_mAP50_95": 0.084
+      },
+      "bed": {
+        "a2_precision": 0.9114,
+        "a3_precision": 1.0,
+        "delta_precision": 0.0886,
+        "a2_recall": 0.8667,
+        "a3_recall": 0.8091,
+        "delta_recall": -0.0576,
+        "a2_f1": 0.8885,
+        "a3_f1": 0.8945,
+        "delta_f1": 0.006,
+        "a2_mAP50": 0.9324,
+        "a3_mAP50": 0.9409,
+        "delta_mAP50": 0.0085,
+        "a2_mAP50_95": 0.8379,
+        "a3_mAP50_95": 0.8531,
+        "delta_mAP50_95": 0.0152
+      },
+      "sofa": {
+        "a2_precision": 0.7371,
+        "a3_precision": 0.8407,
+        "delta_precision": 0.1036,
+        "a2_recall": 0.6977,
+        "a3_recall": 0.7367,
+        "delta_recall": 0.039,
+        "a2_f1": 0.7169,
+        "a3_f1": 0.7853,
+        "delta_f1": 0.0684,
+        "a2_mAP50": 0.8096,
+        "a3_mAP50": 0.8362,
+        "delta_mAP50": 0.0266,
+        "a2_mAP50_95": 0.6732,
+        "a3_mAP50_95": 0.6968,
+        "delta_mAP50_95": 0.0236
+      },
+      "plant": {
+        "a2_precision": 0.715,
+        "a3_precision": 0.8087,
+        "delta_precision": 0.0937,
+        "a2_recall": 0.8362,
+        "a3_recall": 0.8159,
+        "delta_recall": -0.0203,
+        "a2_f1": 0.7709,
+        "a3_f1": 0.8123,
+        "delta_f1": 0.0414,
+        "a2_mAP50": 0.7799,
+        "a3_mAP50": 0.8206,
+        "delta_mAP50": 0.0407,
+        "a2_mAP50_95": 0.557,
+        "a3_mAP50_95": 0.6204,
+        "delta_mAP50_95": 0.0634
+      },
+      "decoration": {
+        "a2_precision": 0.7837,
+        "a3_precision": 0.8139,
+        "delta_precision": 0.0302,
+        "a2_recall": 0.7439,
+        "a3_recall": 0.7439,
+        "delta_recall": 0.0,
+        "a2_f1": 0.7633,
+        "a3_f1": 0.7773,
+        "delta_f1": 0.014,
+        "a2_mAP50": 0.8536,
+        "a3_mAP50": 0.8261,
+        "delta_mAP50": -0.0275,
+        "a2_mAP50_95": 0.7692,
+        "a3_mAP50_95": 0.7719,
+        "delta_mAP50_95": 0.0027
+      },
+      "curtain": {
+        "a2_precision": 0.829,
+        "a3_precision": 0.7975,
+        "delta_precision": -0.0315,
+        "a2_recall": 0.5242,
+        "a3_recall": 0.5405,
+        "delta_recall": 0.0163,
+        "a2_f1": 0.6423,
+        "a3_f1": 0.6443,
+        "delta_f1": 0.002,
+        "a2_mAP50": 0.6173,
+        "a3_mAP50": 0.6561,
+        "delta_mAP50": 0.0388,
+        "a2_mAP50_95": 0.425,
+        "a3_mAP50_95": 0.4839,
+        "delta_mAP50_95": 0.0589
+      },
+      "home-appliance": {
+        "a2_precision": 0.7897,
+        "a3_precision": 0.8716,
+        "delta_precision": 0.0819,
+        "a2_recall": 0.6786,
+        "a3_recall": 0.7275,
+        "delta_recall": 0.0489,
+        "a2_f1": 0.7299,
+        "a3_f1": 0.7931,
+        "delta_f1": 0.0632,
+        "a2_mAP50": 0.7422,
+        "a3_mAP50": 0.7841,
+        "delta_mAP50": 0.0419,
+        "a2_mAP50_95": 0.639,
+        "a3_mAP50_95": 0.7175,
+        "delta_mAP50_95": 0.0785
+      },
+      "window": {
+        "a2_precision": 0.0,
+        "a3_precision": 0.0,
+        "delta_precision": 0.0,
+        "a2_recall": 0.0,
+        "a3_recall": 0.0,
+        "delta_recall": 0.0,
+        "a2_f1": 0.0,
+        "a3_f1": 0.0,
+        "delta_f1": 0.0,
+        "a2_mAP50": 0.0,
+        "a3_mAP50": 0.0,
+        "delta_mAP50": 0.0,
+        "a2_mAP50_95": 0.0,
+        "a3_mAP50_95": 0.0,
+        "delta_mAP50_95": 0.0
+      }
+    }
+  },
+  "acceptance_decision": {
+    "recommendation": "PROMOTE_CANDIDATE_A3_AS_NEW_PRODUCTION_INDOOR_CANDIDATE",
+    "rationale": "Candidate A3 (trained at 800px) decisively outperforms Baseline A2 across overall mAP50 (+0.0296), mAP50-95 (+0.0588), Precision (+0.0752), and F1 (+0.0304). The 56.25% pixel expansion directly addressed the primary failure mode diagnosed in Stage 1: small chair and stool feature collapse, boosting chair#stool mAP50 by +10.01% (from 0.5245 to 0.6246) and mAP50-95 by +11.61% (from 0.3810 to 0.4971), while bed achieved 0.9409 mAP50 with 100% precision. At 800px, inference latency is 10.87 ms (median 10.39 ms, >92 FPS) with only 279 MB peak VRAM, easily meeting all real-time deployment constraints."
+  }
+}

@@ -1,0 +1,26 @@
+# Ultralytics YOLO11s Training Configuration for Model B6 (Targeted Data Expansion)
+# Base Weights: checkpoints/exterior_detector_b5_transfer_best.pt
+# Dataset: data/exterior_b6_expanded/dataset.yaml
+
+model: checkpoints/exterior_detector_b5_transfer_best.pt
+data: data/exterior_b6_expanded/dataset.yaml
+epochs: 20
+patience: 6
+batch: 8
+imgsz: 640
+save: true
+device: 0
+workers: 0
+optimizer: auto
+lr0: 0.002
+lrf: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 2.0
+box: 7.5
+cls: 0.6
+dfl: 1.5
+seed: 42
+project: runs/train
+name: exterior_detector_b6_expanded
+exist_ok: true

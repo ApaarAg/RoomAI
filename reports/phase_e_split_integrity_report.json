@@ -1,0 +1,92 @@
+{
+  "split_counts": {
+    "golden_test_200": 200,
+    "audit_benchmark_50": 50,
+    "validation_tuning_50": 50,
+    "train_1pct_48": 48
+  },
+  "internal_duplicates": {
+    "golden_test_200": {},
+    "audit_benchmark_50": {},
+    "validation_tuning_50": {},
+    "train_1pct_48": {}
+  },
+  "pairwise_overlaps": {
+    "golden_test_200 INTERSECT audit_benchmark_50": {
+      "intersection_size": 0,
+      "intersection": []
+    },
+    "golden_test_200 INTERSECT validation_tuning_50": {
+      "intersection_size": 0,
+      "intersection": []
+    },
+    "golden_test_200 INTERSECT train_1pct_48": {
+      "intersection_size": 0,
+      "intersection": []
+    },
+    "audit_benchmark_50 INTERSECT validation_tuning_50": {
+      "intersection_size": 0,
+      "intersection": []
+    },
+    "audit_benchmark_50 INTERSECT train_1pct_48": {
+      "intersection_size": 0,
+      "intersection": []
+    },
+    "validation_tuning_50 INTERSECT train_1pct_48": {
+      "intersection_size": 0,
+      "intersection": []
+    }
+  },
+  "origin_per_split": {
+    "golden_test_200": {
+      "validation": 200
+    },
+    "audit_benchmark_50": {
+      "validation": 50
+    },
+    "validation_tuning_50": {
+      "validation": 50
+    },
+    "train_1pct_48": {
+      "training": 48
+    }
+  },
+  "disk_existence": {
+    "golden_test_200": {
+      "missing_count": 0,
+      "missing": []
+    },
+    "audit_benchmark_50": {
+      "missing_count": 0,
+      "missing": []
+    },
+    "validation_tuning_50": {
+      "missing_count": 0,
+      "missing": []
+    },
+    "train_1pct_48": {
+      "missing_count": 0,
+      "missing": []
+    }
+  },
+  "integrity_verdict": {
+    "golden_disjoint_from_benchmark": true,
+    "golden_disjoint_from_validation_tuning": true,
+    "golden_disjoint_from_finetune_train": true,
+    "benchmark_disjoint_from_finetune_train": true,
+    "benchmark_disjoint_from_validation_tuning": true,
+    "finetune_train_disjoint_from_validation_tuning": true,
+    "all_evaluation_images_disjoint_from_train": true
+  },
+  "pretraining_overlap_analysis": {
+    "finetune_train_from_ade_training_split": 48,
+    "finetune_train_from_ade_validation_split": 0,
+    "golden_test_from_ade_training_split": 0,
+    "golden_test_from_ade_validation_split": 200,
+    "validation_tuning_from_ade_training_split": 0,
+    "validation_tuning_from_ade_validation_split": 50,
+    "benchmark_from_ade_training_split": 0,
+    "benchmark_from_ade_validation_split": 50,
+    "interpretation": "SegFormer-B1 (nvidia/segformer-b1-finetuned-ade-512-512) was pretrained on the ADE20K *training* split (20,210 images). Fine-tuning images are drawn from that SAME training split, so they were already seen during pretraining. The Golden Test Set, validation tuning set, and benchmark set are all drawn from the ADE20K *validation* split, which the pretrained checkpoint never observed. Therefore the pilot measures in-distribution continued training on seen data, NOT independent generalization to a novel domain. Generalization can only be claimed on the validation-split-derived evaluation sets."
+  }
+}

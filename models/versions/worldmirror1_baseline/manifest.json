@@ -1,0 +1,77 @@
+{
+  "model_name": "WorldMirror-1.0 Baseline",
+  "version": "1.0.0-pretrained",
+  "status": "REFERENCE",
+  "role": "Baseline and rollback foundation model",
+  "architecture": "HunyuanWorld-Mirror 1.0 (ViT-L/14 backbone, DINOv2, DPT heads)",
+  "checkpoint_path": "research/3d_reconstruction/checkpoints/production_candidate/production_model.ckpt",
+  "sha256": "dbc9c9b0d4fae796ce5dd142bdde7e491057e484db313fef0397cac0c33970e5",
+  "file_size_bytes": 2839184102,
+  "source_code_commit": "c61300e47ce06db2f02c8e2551aae68be7ae3a0b",
+  "dataset_manifest_hash": "86679e6aae422e57",
+  "preprocessing_config": {
+    "input_resolution": [518, 518],
+    "patch_size": 14,
+    "normalization": "imagenet",
+    "square_crop": true,
+    "coordinate_transform": "diag(1, -1, -1)"
+  },
+  "input_schema": {
+    "type": "image_batch",
+    "channels": 3,
+    "height": 518,
+    "width": 518,
+    "dtype": "float32",
+    "range": [0.0, 1.0]
+  },
+  "output_schema": {
+    "depth": {"shape": [1, 518, 518], "unit": "meters", "confidence": true},
+    "pts3d": {"shape": [518, 518, 3], "unit": "meters", "confidence": true},
+    "normals": {"shape": [518, 518, 3], "unit": "normalized", "confidence": true},
+    "camera_poses": {"shape": [4, 4], "format": "c2w_opencv"}
+  },
+  "evaluation_metrics": {
+    "overall": {
+      "depth_absrel": 0.5953,
+      "depth_rmse_m": 2.8929,
+      "depth_median_ae_m": 1.9076,
+      "depth_delta1": 0.0584,
+      "normal_mae_deg": 62.66,
+      "normal_median_ae_deg": 64.63,
+      "normal_acc_30deg": 0.1495,
+      "shape_chamfer_m": 1.1704,
+      "shape_f50": 0.0078,
+      "shape_f100": 0.0440,
+      "sim3_scale": 4.0736,
+      "metric_chamfer_m": 2.5130,
+      "metric_f50": 0.0126,
+      "latency_median_ms": 279.1,
+      "peak_vram_mb": 3393.7
+    },
+    "scannet_physical_sensor": {
+      "depth_absrel": 0.5456,
+      "depth_rmse_m": 1.5277,
+      "shape_chamfer_m": 0.4850,
+      "metric_chamfer_m": 1.4388
+    },
+    "hypersim_synthetic_cad": {
+      "depth_absrel": 0.7452,
+      "depth_rmse_m": 7.0159,
+      "shape_chamfer_m": 3.2401,
+      "metric_chamfer_m": 5.7572
+    }
+  },
+  "known_limitations": [
+    "Pretrained baseline does not generalize to indoor domain (AbsRel > 0.5)",
+    "No Gaussian Splatting head enabled",
+    "Sim3 scale ambiguity on real scans (4.07x)",
+    "Normal estimation unreliable (MAE > 60°)"
+  ],
+  "license": "Tencent HunyuanWorld-Mirror License (Non-Commercial Research)",
+  "provenance": {
+    "source_repo": "https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror",
+    "paper": "arXiv:2510.10726",
+    "training_data": "Unknown (foundation model)"
+  },
+  "frozen_at": "2026-11-10T00:00:00Z"
+}

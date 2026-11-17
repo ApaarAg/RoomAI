@@ -1,0 +1,10 @@
+{
+  "name": "roomai-gltf-validation-tooling",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pinned Khronos glTF Validator used by RoomAI release and asset validation.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "gltf-validator": "2.0.0-dev.3.10"
+  }
+}

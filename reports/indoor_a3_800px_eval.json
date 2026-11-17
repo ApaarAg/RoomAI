@@ -1,0 +1,126 @@
+{
+  "model_name": "Indoor Detector Model A3 (YOLO11s 800px)",
+  "architecture": "YOLO11s",
+  "base_model": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\indoor_detector_a2_yolo11s_pilot_best.pt",
+  "intervention": "Higher Resolution Training (imgsz=800, batch=4)",
+  "epochs_trained": 6,
+  "batch_size": 4,
+  "imgsz": 800,
+  "seed": 42,
+  "train_duration_sec": 985.9,
+  "sec_per_epoch": 164.32,
+  "peak_gpu_mem_mb": 3024.02,
+  "val_metrics": {
+    "mAP50": 0.7617,
+    "mAP50_95": 0.5825,
+    "precision": 0.7366,
+    "recall": 0.6912,
+    "f1": 0.7132
+  },
+  "test_metrics": {
+    "mAP50": 0.776,
+    "mAP50_95": 0.6509,
+    "precision": 0.8301,
+    "recall": 0.6738,
+    "f1": 0.7438
+  },
+  "per_class_test_metrics": {
+    "cabinet#shelf": {
+      "class_id": 0,
+      "precision": 0.8385,
+      "recall": 0.6618,
+      "f1": 0.7397,
+      "mAP50": 0.7851,
+      "mAP50_95": 0.6496
+    },
+    "table": {
+      "class_id": 1,
+      "precision": 0.804,
+      "recall": 0.6076,
+      "f1": 0.6921,
+      "mAP50": 0.6772,
+      "mAP50_95": 0.5567
+    },
+    "chair#stool": {
+      "class_id": 2,
+      "precision": 0.7361,
+      "recall": 0.4028,
+      "f1": 0.5207,
+      "mAP50": 0.6246,
+      "mAP50_95": 0.4971
+    },
+    "lamp": {
+      "class_id": 3,
+      "precision": 0.7746,
+      "recall": 0.7612,
+      "f1": 0.7678,
+      "mAP50": 0.842,
+      "mAP50_95": 0.7097
+    },
+    "door": {
+      "class_id": 4,
+      "precision": 0.8458,
+      "recall": 0.6053,
+      "f1": 0.7056,
+      "mAP50": 0.7434,
+      "mAP50_95": 0.6032
+    },
+    "bed": {
+      "class_id": 5,
+      "precision": 1.0,
+      "recall": 0.8091,
+      "f1": 0.8945,
+      "mAP50": 0.9409,
+      "mAP50_95": 0.8531
+    },
+    "sofa": {
+      "class_id": 6,
+      "precision": 0.8407,
+      "recall": 0.7367,
+      "f1": 0.7853,
+      "mAP50": 0.8362,
+      "mAP50_95": 0.6968
+    },
+    "plant": {
+      "class_id": 7,
+      "precision": 0.8087,
+      "recall": 0.8159,
+      "f1": 0.8123,
+      "mAP50": 0.8206,
+      "mAP50_95": 0.6204
+    },
+    "decoration": {
+      "class_id": 8,
+      "precision": 0.8139,
+      "recall": 0.7439,
+      "f1": 0.7773,
+      "mAP50": 0.8261,
+      "mAP50_95": 0.7719
+    },
+    "curtain": {
+      "class_id": 9,
+      "precision": 0.7975,
+      "recall": 0.5405,
+      "f1": 0.6443,
+      "mAP50": 0.6561,
+      "mAP50_95": 0.4839
+    },
+    "home-appliance": {
+      "class_id": 10,
+      "precision": 0.8716,
+      "recall": 0.7275,
+      "f1": 0.7931,
+      "mAP50": 0.7841,
+      "mAP50_95": 0.7175
+    },
+    "window": {
+      "class_id": 11,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "mAP50_95": 0.0
+    }
+  },
+  "checkpoint_path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\indoor_detector_a3_yolo11s_800px_best.pt"
+}

@@ -1,0 +1,405 @@
+{
+  "repository_root": "C:\\Users\\apaar\\Desktop\\RoomAI",
+  "environment": {
+    "python_executable": "C:\\Users\\apaar\\miniconda3\\envs\\tf-gpu\\python.exe",
+    "python_version": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
+    "conda_default_env": "base",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cuda_available": true,
+    "gpu_device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_total_gb": 8.0,
+    "ram_total_gb": 23.73,
+    "ram_available_gb": 4.64,
+    "disk_free_gb": 75.23,
+    "torch_version": "2.11.0+cu128",
+    "packages": {
+      "ultralytics": "8.4.66",
+      "torchvision": "0.26.0+cu128",
+      "pydantic": "2.13.5",
+      "pyyaml": "6.0.3",
+      "opencv-python": "4.13.0.92",
+      "pillow": "12.3.0",
+      "streamlit": "1.58.0",
+      "psutil": "7.2.2",
+      "numpy": "1.23.5",
+      "pytest": "9.0.3"
+    }
+  },
+  "git": {
+    "branch": "master",
+    "commit": "8f4bf662eb73518866f516710b68a99c6b03f37a",
+    "tracked_modified_count": 13,
+    "tracked_modified": [
+      [
+        "M ",
+        "EADME.md"
+      ],
+      [
+        " M",
+        "app.py"
+      ],
+      [
+        " M",
+        "config/app.yaml"
+      ],
+      [
+        " M",
+        "config/model_config.yaml"
+      ],
+      [
+        " M",
+        "models/detection_model.py"
+      ],
+      [
+        " M",
+        "models/scene3d_model.py"
+      ],
+      [
+        " M",
+        "models/segmentation_model.py"
+      ],
+      [
+        " M",
+        "schemas/responses.py"
+      ],
+      [
+        " M",
+        "services/detection_service.py"
+      ],
+      [
+        " M",
+        "services/image_service.py"
+      ],
+      [
+        " M",
+        "services/scene3d_service.py"
+      ],
+      [
+        " M",
+        "ui/analysis_view.py"
+      ],
+      [
+        " M",
+        "ui/upload_view.py"
+      ]
+    ],
+    "untracked_count": 136,
+    "untracked_sample": [
+      "artifacts/audit_galleries/",
+      "artifacts/custom_eval/",
+      "artifacts/depth_visualizations/",
+      "artifacts/detections/",
+      "artifacts/exterior_canonical_samples.png",
+      "artifacts/exterior_error_analysis/",
+      "artifacts/exterior_phase10/",
+      "artifacts/exterior_phase8/",
+      "artifacts/exterior_phase9/",
+      "artifacts/indoor_error_analysis/",
+      "artifacts/indoor_phase7/",
+      "artifacts/parking_canonical_samples.png",
+      "artifacts/parking_error_analysis/",
+      "artifacts/reports/",
+      "config/exterior_b5.yaml",
+      "config/exterior_b6.yaml",
+      "config/model_config.yaml.backup_20261024_155219",
+      "config/model_config.yaml.backup_b5",
+      "config/model_config.yaml.backup_phase11",
+      "config/porch_specialist.yaml",
+      "models/detection_model.py.backup_phase11",
+      "models/registry.py",
+      "models/registry.py.backup_20261024_155219",
+      "reports/",
+      "scripts/__init__.py",
+      "scripts/audit_and_reproduce_phase16.py",
+      "scripts/audit_and_tune_inference.py",
+      "scripts/audit_b5_pretraining.py",
+      "scripts/audit_datasets_deep.py",
+      "scripts/audit_datasets_overview.py"
+    ]
+  },
+  "checkpoints": [
+    {
+      "name": "deepfurniture_yolo11n_finetune_best.pt",
+      "path": "checkpoints\\deepfurniture_yolo11n_finetune_best.pt",
+      "size_bytes": 5460186,
+      "md5": "64c1150d99cc32e2877ce1b9bdfad657",
+      "sha256": "98077FA569117D21D1A2A0E03F4ADA2BA15E48AB28AEC594006A11D15B469D50"
+    },
+    {
+      "name": "deepfurniture_yolo11n_pilot_best.pt",
+      "path": "checkpoints\\deepfurniture_yolo11n_pilot_best.pt",
+      "size_bytes": 5456666,
+      "md5": "d65dad6a1318c5be5ee5abaa74c152df",
+      "sha256": "0F2D515CC78B50748688ED5E9623200C5020E1983452E70948FC692AC730C817"
+    },
+    {
+      "name": "exterior_detector_b1_yolo11n_pilot_best.pt",
+      "path": "checkpoints\\exterior_detector_b1_yolo11n_pilot_best.pt",
+      "size_bytes": 5453594,
+      "md5": "c61d28da725a0b05dc45f0f7f19fcab3",
+      "sha256": "00CAB43515EFD53C127E79976BE49DCD8121F43A4335D75E5B7C8D47B5C93666"
+    },
+    {
+      "name": "exterior_detector_b2_yolo11s_best.pt",
+      "path": "checkpoints\\exterior_detector_b2_yolo11s_best.pt",
+      "size_bytes": 19163034,
+      "md5": "14a931dd0adabc16cbd7b28ed1d17f66",
+      "sha256": "C599C19241B8C60390AC0C4914DE6CEF449BC1129F73B0DB7F8F04FC62A0459F"
+    },
+    {
+      "name": "exterior_detector_b2_yolo11s_pilot_best.pt",
+      "path": "checkpoints\\exterior_detector_b2_yolo11s_pilot_best.pt",
+      "size_bytes": 19162266,
+      "md5": "c54b6de00c7dfb853edee3602382f548",
+      "sha256": "6E7EE9795E9D029BEEAE9F25855BB24753798BE47F86BE83BB7C73819BDDAAA4"
+    },
+    {
+      "name": "exterior_detector_b3_yolo11s_rfs_best.pt",
+      "path": "checkpoints\\exterior_detector_b3_yolo11s_rfs_best.pt",
+      "size_bytes": 19164627,
+      "md5": "2c44291fa642aba3893db001520deba0",
+      "sha256": "BE708457EAE4D5BFEB939818AF72872074F85FE22B3FDF33BB00376F2565FE6C"
+    },
+    {
+      "name": "exterior_detector_b4_yolo11s_curated_best.pt",
+      "path": "checkpoints\\exterior_detector_b4_yolo11s_curated_best.pt",
+      "size_bytes": 19159322,
+      "md5": "d2710fba760713e68ea306e029ab651c",
+      "sha256": "157A1DBC88B3A1CA815F5E0C88B8E82D774438A58461994D497B956A667A28C6"
+    },
+    {
+      "name": "exterior_detector_b5_transfer_best.pt",
+      "path": "checkpoints\\exterior_detector_b5_transfer_best.pt",
+      "size_bytes": 19167770,
+      "md5": "e12b4181fee244a3569dfa782ba3c3c3",
+      "sha256": "21712794727E0706752A62362E88AEA18EECCEFF683369CCFA73808DF1464754"
+    },
+    {
+      "name": "exterior_detector_b6_expanded_best.pt",
+      "path": "checkpoints\\exterior_detector_b6_expanded_best.pt",
+      "size_bytes": 19167194,
+      "md5": "f5ceea56b0610ea14b647014e48152dc",
+      "sha256": "009144B272998EC9447F649E8D850E0FDB8CAE5FC973C5E0CB9EEBE717675AC9"
+    },
+    {
+      "name": "exterior_detector_b7_pilot_best.pt",
+      "path": "checkpoints\\exterior_detector_b7_pilot_best.pt",
+      "size_bytes": 19167194,
+      "md5": "41433e929910eda4414ed6541bac2fe4",
+      "sha256": "0B04B97E66F033D2037BC1483D4AD4F484A00213DEFEE66A7D32AD83199E2C3F"
+    },
+    {
+      "name": "exterior_detector_c1_phase22_best.pt",
+      "path": "checkpoints\\exterior_detector_c1_phase22_best.pt",
+      "size_bytes": 19167699,
+      "md5": "753c1784c5247895be3a41b2a829fa8e",
+      "sha256": "4D3A3339BB09B89213F60F2E8AF82212804A84BAFA3A91EC94D4D424B0FB187F"
+    },
+    {
+      "name": "exterior_specialist_porch_yolo11s_best.pt",
+      "path": "checkpoints\\exterior_specialist_porch_yolo11s_best.pt",
+      "size_bytes": 19159130,
+      "md5": "4261fc1ad5f6fd9ac29c0499e2adddfd",
+      "sha256": "943E7012090124EA726F21B37983CC8B253B35AF36F72B381EB01D18EAC2D9B2"
+    },
+    {
+      "name": "indoor_detector_a1_yolo11n_pilot_best.pt",
+      "path": "checkpoints\\indoor_detector_a1_yolo11n_pilot_best.pt",
+      "size_bytes": 5446490,
+      "md5": "40bc48e3a05fe93850ecf3d4888dd0cb",
+      "sha256": "EBD4BBF265D5558DA5E5C0164342862F3FEFA746EC1D1CF27ECE70A0EB76960A"
+    },
+    {
+      "name": "indoor_detector_a2_yolo11s_finetune_best.pt",
+      "path": "checkpoints\\indoor_detector_a2_yolo11s_finetune_best.pt",
+      "size_bytes": 19156442,
+      "md5": "ad899be666950b695c825a2e57229a58",
+      "sha256": "42113B2DDB5ABFFA4830BDE024CEA13EC5BE99B1C6493CB2A01B4B52A7EA08C8"
+    },
+    {
+      "name": "indoor_detector_a2_yolo11s_pilot_best.pt",
+      "path": "checkpoints\\indoor_detector_a2_yolo11s_pilot_best.pt",
+      "size_bytes": 19155866,
+      "md5": "65a789c6f2857b8cccd7ab9becde51a6",
+      "sha256": "1333473D8876421D073B40FA92331B89EB649E5FA1339285BE5E129118466957"
+    },
+    {
+      "name": "indoor_detector_a2_yolo11s_pilot_check.pt",
+      "path": "checkpoints\\indoor_detector_a2_yolo11s_pilot_check.pt",
+      "size_bytes": 19155802,
+      "md5": "3a3c3eb2164253d0374a5429315e565a",
+      "sha256": "236E3C54CA5B131DD325998949CD002D5CF93E950957A6EAFB1EE2B2AAD0FEA4"
+    },
+    {
+      "name": "indoor_detector_a3_yolo11s_800px_best.pt",
+      "path": "checkpoints\\indoor_detector_a3_yolo11s_800px_best.pt",
+      "size_bytes": 19173786,
+      "md5": "95563016732fca2cb4e0ee15bdb9e295",
+      "sha256": "6CBC9E58F87156E07DD0E4E712B8AA96097AEB514A473621139A54CB83CEC576"
+    },
+    {
+      "name": "parking_detector_c1_yolo11n_pilot_best.pt",
+      "path": "checkpoints\\parking_detector_c1_yolo11n_pilot_best.pt",
+      "size_bytes": 5450074,
+      "md5": "1a4a7a99b07efdc7a6ab7a75ced10474",
+      "sha256": "687DDA666DBFD0D10F06ACBD2F08AC8A94848A9D1EF0C269CE7B426FB0E4DA42"
+    },
+    {
+      "name": "parking_detector_c2_yolo11s_pilot_best.pt",
+      "path": "checkpoints\\parking_detector_c2_yolo11s_pilot_best.pt",
+      "size_bytes": 19157978,
+      "md5": "89383b78c1a43785fc5057cead5e52a5",
+      "sha256": "4ABAB963AB0BECFEF4A03C4E7B0039CC048D7621B3456BC5435DEECE6EED1470"
+    },
+    {
+      "name": "parking_detector_c3_yolo11s_rfs_best.pt",
+      "path": "checkpoints\\parking_detector_c3_yolo11s_rfs_best.pt",
+      "size_bytes": 19158490,
+      "md5": "a5430d32b070fe5f4741beb83b804ae0",
+      "sha256": "CD4584CDB736A75D11AA95D818927491191E46EC292D90115ABD3F7D88E031F2"
+    },
+    {
+      "name": "yolo11n-seg.pt",
+      "path": "checkpoints\\yolo11n-seg.pt",
+      "size_bytes": 6182636,
+      "md5": "edfa69d9468b2703b185f550e8f26251",
+      "sha256": "55ED65C56C91713D23E8402371C6C49A6FD84F257F7DCE452E8D70E41DCBE152"
+    }
+  ],
+  "config_parse_validity": {
+    "app.yaml": {
+      "valid": true,
+      "top_keys": [
+        "app",
+        "mock_mode",
+        "upload",
+        "design",
+        "disclaimers"
+      ]
+    },
+    "exterior_b5.yaml": {
+      "valid": true,
+      "top_keys": [
+        "task_name",
+        "model_type",
+        "base_weights",
+        "checkpoint_path",
+        "dataset_yaml",
+        "status",
+        "training_hyperparameters",
+        "classes",
+        "operating_thresholds"
+      ]
+    },
+    "exterior_b6.yaml": {
+      "valid": true,
+      "top_keys": [
+        "model",
+        "data",
+        "epochs",
+        "patience",
+        "batch",
+        "imgsz",
+        "save",
+        "device",
+        "workers",
+        "optimizer",
+        "lr0",
+        "lrf",
+        "momentum",
+        "weight_decay",
+        "warmup_epochs",
+        "box",
+        "cls",
+        "dfl",
+        "seed",
+        "project",
+        "name",
+        "exist_ok"
+      ]
+    },
+    "model_config.yaml": {
+      "valid": true,
+      "top_keys": "NoneType"
+    },
+    "porch_specialist.yaml": {
+      "valid": true,
+      "top_keys": [
+        "model_name",
+        "task",
+        "mode",
+        "model",
+        "data",
+        "epochs",
+        "patience",
+        "batch",
+        "imgsz",
+        "device",
+        "workers",
+        "seed",
+        "deterministic",
+        "optimizer",
+        "lr0",
+        "lrf",
+        "momentum",
+        "weight_decay",
+        "warmup_epochs",
+        "warmup_momentum",
+        "warmup_bias_lr",
+        "box",
+        "cls",
+        "dfl",
+        "hsv_h",
+        "hsv_s",
+        "hsv_v",
+        "degrees",
+        "translate",
+        "scale",
+        "shear",
+        "perspective",
+        "flipud",
+        "fliplr",
+        "mosaic",
+        "mixup",
+        "copy_paste",
+        "project",
+        "name",
+        "save",
+        "save_period",
+        "val",
+        "plots"
+      ]
+    }
+  },
+  "pytest_discovery": {
+    "exit_code": 0,
+    "summary_line": "117 tests collected in 59.77s",
+    "collected_items_sample": [
+      "tests/test_deepfurniture_detector.py::test_checkpoint_exists_and_class_mapping",
+      "tests/test_deepfurniture_detector.py::test_real_inference_response_schema",
+      "tests/test_deepfurniture_detector.py::test_confidence_filtering",
+      "tests/test_deepfurniture_detector.py::test_mock_mode_preserved",
+      "tests/test_deepfurniture_detector.py::test_cached_model_loading",
+      "tests/test_deepfurniture_detector.py::test_missing_checkpoint_fails_cleanly",
+      "tests/test_deepfurniture_detector.py::test_detection_service_integration_with_finetuned_checkpoint",
+      "tests/test_depth_estimation.py::test_mock_scene3d_model",
+      "tests/test_depth_estimation.py::test_custom_scene3d_unconfigured_raises",
+      "tests/test_depth_estimation.py::test_custom_scene3d_missing_checkpoint_raises",
+      "tests/test_depth_estimation.py::test_custom_scene3d_invalid_input",
+      "tests/test_depth_estimation.py::test_custom_scene3d_real_inference_shape_and_range",
+      "tests/test_depth_estimation.py::test_custom_scene3d_cpu_fallback",
+      "tests/test_depth_estimation.py::test_scene3d_service_real_and_mock",
+      "tests/test_depth_estimation.py::test_create_depth_heatmap_rendering",
+      "tests/test_detection_deployment_readiness.py::test_mock_mode_intact_and_isolated",
+      "tests/test_detection_deployment_readiness.py::test_real_mode_never_silently_substitutes_mock",
+      "tests/test_detection_deployment_readiness.py::test_missing_checkpoint_exception_handling",
+      "tests/test_detection_deployment_readiness.py::test_class_mapping_consistency",
+      "tests/test_detection_deployment_readiness.py::test_confidence_threshold_filtering",
+      "tests/test_detection_deployment_readiness.py::test_timing_metrics_integrity",
+      "tests/test_detection_deployment_readiness.py::test_cross_class_conflict_resolution",
+      "tests/test_detection_deployment_readiness.py::test_distinct_overlapping_objects_preserved",
+      "tests/test_detection_deployment_readiness.py::test_configured_checkpoint_and_image_size",
+      "tests/test_detection_deployment_readiness.py::test_model_registry_primary_a3_and_rollback_a2"
+    ]
+  }
+}

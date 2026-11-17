@@ -1,0 +1,455 @@
+[
+  {
+    "group": "Group A: Indoor",
+    "model_id": "indoor_a3_800px",
+    "name": "Model A3 (YOLO11s 800px) [Production Primary]",
+    "type": "Trained RoomAI Primary",
+    "checkpoint": "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt",
+    "resolution": 800,
+    "parameters_m": 9.43,
+    "overall_metrics": {
+      "precision": 0.7985,
+      "recall": 0.7117,
+      "f1": 0.7526,
+      "map50": 0.7036,
+      "map50_95": 0.5966
+    },
+    "timing": {
+      "preprocess_ms": 2.78,
+      "inference_ms": 7.39,
+      "postprocess_ms": 1.5,
+      "total_per_image_ms": 11.67,
+      "fps": 85.7
+    },
+    "hardware_profile": {
+      "latency_ms": 21.84,
+      "throughput_fps": 45.8,
+      "peak_vram_alloc_mb": 134.9,
+      "peak_vram_res_mb": 176.0
+    },
+    "per_class": {
+      "cabinet#shelf": {
+        "class_id": 0,
+        "precision": 0.7808,
+        "recall": 0.7108,
+        "f1": 0.7441,
+        "map50": 0.5857
+      },
+      "table": {
+        "class_id": 1,
+        "precision": 0.7647,
+        "recall": 0.6619,
+        "f1": 0.7096,
+        "map50": 0.5273
+      },
+      "chair#stool": {
+        "class_id": 2,
+        "precision": 0.7429,
+        "recall": 0.4414,
+        "f1": 0.5538,
+        "map50": 0.3813
+      },
+      "lamp": {
+        "class_id": 3,
+        "precision": 0.7827,
+        "recall": 0.7975,
+        "f1": 0.79,
+        "map50": 0.6805
+      },
+      "door": {
+        "class_id": 4,
+        "precision": 0.8144,
+        "recall": 0.6404,
+        "f1": 0.7169,
+        "map50": 0.5423
+      },
+      "bed": {
+        "class_id": 5,
+        "precision": 0.9873,
+        "recall": 0.8133,
+        "f1": 0.8919,
+        "map50": 0.7713
+      },
+      "sofa": {
+        "class_id": 6,
+        "precision": 0.782,
+        "recall": 0.7907,
+        "f1": 0.7863,
+        "map50": 0.6361
+      },
+      "plant": {
+        "class_id": 7,
+        "precision": 0.7701,
+        "recall": 0.8246,
+        "f1": 0.7964,
+        "map50": 0.5993
+      },
+      "decoration": {
+        "class_id": 8,
+        "precision": 0.7324,
+        "recall": 0.7683,
+        "f1": 0.7499,
+        "map50": 0.7064
+      },
+      "curtain": {
+        "class_id": 9,
+        "precision": 0.7565,
+        "recall": 0.5946,
+        "f1": 0.6658,
+        "map50": 0.4289
+      },
+      "home-appliance": {
+        "class_id": 10,
+        "precision": 0.8702,
+        "recall": 0.7857,
+        "f1": 0.8258,
+        "map50": 0.7035
+      },
+      "window": {
+        "class_id": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.5966
+      }
+    }
+  },
+  {
+    "group": "Group A: Indoor",
+    "model_id": "indoor_a2_640px",
+    "name": "Model A2 (YOLO11s 640px) [Rollback Candidate]",
+    "type": "Trained RoomAI Candidate",
+    "checkpoint": "checkpoints/indoor_detector_a2_yolo11s_finetune_best.pt",
+    "resolution": 640,
+    "parameters_m": 9.43,
+    "overall_metrics": {
+      "precision": 0.7628,
+      "recall": 0.684,
+      "f1": 0.7212,
+      "map50": 0.6574,
+      "map50_95": 0.5316
+    },
+    "timing": {
+      "preprocess_ms": 0.95,
+      "inference_ms": 6.13,
+      "postprocess_ms": 1.56,
+      "total_per_image_ms": 8.64,
+      "fps": 115.7
+    },
+    "hardware_profile": {
+      "latency_ms": 17.67,
+      "throughput_fps": 56.6,
+      "peak_vram_alloc_mb": 146.1,
+      "peak_vram_res_mb": 166.0
+    },
+    "per_class": {
+      "cabinet#shelf": {
+        "class_id": 0,
+        "precision": 0.82,
+        "recall": 0.6253,
+        "f1": 0.7095,
+        "map50": 0.4586
+      },
+      "table": {
+        "class_id": 1,
+        "precision": 0.6064,
+        "recall": 0.6667,
+        "f1": 0.6351,
+        "map50": 0.4845
+      },
+      "chair#stool": {
+        "class_id": 2,
+        "precision": 0.6141,
+        "recall": 0.4306,
+        "f1": 0.5062,
+        "map50": 0.2866
+      },
+      "lamp": {
+        "class_id": 3,
+        "precision": 0.7774,
+        "recall": 0.7514,
+        "f1": 0.7642,
+        "map50": 0.5848
+      },
+      "door": {
+        "class_id": 4,
+        "precision": 0.7393,
+        "recall": 0.6468,
+        "f1": 0.69,
+        "map50": 0.4808
+      },
+      "bed": {
+        "class_id": 5,
+        "precision": 0.9573,
+        "recall": 0.8667,
+        "f1": 0.9097,
+        "map50": 0.7906
+      },
+      "sofa": {
+        "class_id": 6,
+        "precision": 0.753,
+        "recall": 0.7089,
+        "f1": 0.7303,
+        "map50": 0.5877
+      },
+      "plant": {
+        "class_id": 7,
+        "precision": 0.7268,
+        "recall": 0.8403,
+        "f1": 0.7794,
+        "map50": 0.5357
+      },
+      "decoration": {
+        "class_id": 8,
+        "precision": 0.7862,
+        "recall": 0.7683,
+        "f1": 0.7771,
+        "map50": 0.6965
+      },
+      "curtain": {
+        "class_id": 9,
+        "precision": 0.8294,
+        "recall": 0.5405,
+        "f1": 0.6545,
+        "map50": 0.3559
+      },
+      "home-appliance": {
+        "class_id": 10,
+        "precision": 0.7806,
+        "recall": 0.6786,
+        "f1": 0.726,
+        "map50": 0.5861
+      },
+      "window": {
+        "class_id": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.5316
+      }
+    }
+  },
+  {
+    "group": "Group A: Indoor",
+    "model_id": "indoor_a1_640px",
+    "name": "Model A1 (YOLO11n 640px) [Lightweight Pilot]",
+    "type": "Trained RoomAI Pilot",
+    "checkpoint": "checkpoints/indoor_detector_a1_yolo11n_pilot_best.pt",
+    "resolution": 640,
+    "parameters_m": 2.59,
+    "overall_metrics": {
+      "precision": 0.6597,
+      "recall": 0.6494,
+      "f1": 0.6545,
+      "map50": 0.5892,
+      "map50_95": 0.4631
+    },
+    "timing": {
+      "preprocess_ms": 1.07,
+      "inference_ms": 4.02,
+      "postprocess_ms": 1.75,
+      "total_per_image_ms": 6.84,
+      "fps": 146.2
+    },
+    "hardware_profile": {
+      "latency_ms": 17.94,
+      "throughput_fps": 55.8,
+      "peak_vram_alloc_mb": 137.1,
+      "peak_vram_res_mb": 162.0
+    },
+    "per_class": {
+      "cabinet#shelf": {
+        "class_id": 0,
+        "precision": 0.5746,
+        "recall": 0.6422,
+        "f1": 0.6065,
+        "map50": 0.4362
+      },
+      "table": {
+        "class_id": 1,
+        "precision": 0.5714,
+        "recall": 0.6667,
+        "f1": 0.6154,
+        "map50": 0.3809
+      },
+      "chair#stool": {
+        "class_id": 2,
+        "precision": 0.5769,
+        "recall": 0.4167,
+        "f1": 0.4839,
+        "map50": 0.2891
+      },
+      "lamp": {
+        "class_id": 3,
+        "precision": 0.6621,
+        "recall": 0.6076,
+        "f1": 0.6337,
+        "map50": 0.4668
+      },
+      "door": {
+        "class_id": 4,
+        "precision": 0.7263,
+        "recall": 0.6053,
+        "f1": 0.6603,
+        "map50": 0.4662
+      },
+      "bed": {
+        "class_id": 5,
+        "precision": 0.9054,
+        "recall": 0.8933,
+        "f1": 0.8993,
+        "map50": 0.7843
+      },
+      "sofa": {
+        "class_id": 6,
+        "precision": 0.7692,
+        "recall": 0.6977,
+        "f1": 0.7317,
+        "map50": 0.4898
+      },
+      "plant": {
+        "class_id": 7,
+        "precision": 0.5867,
+        "recall": 0.7719,
+        "f1": 0.6667,
+        "map50": 0.5105
+      },
+      "decoration": {
+        "class_id": 8,
+        "precision": 0.598,
+        "recall": 0.7439,
+        "f1": 0.663,
+        "map50": 0.5697
+      },
+      "curtain": {
+        "class_id": 9,
+        "precision": 0.619,
+        "recall": 0.527,
+        "f1": 0.5693,
+        "map50": 0.3003
+      },
+      "home-appliance": {
+        "class_id": 10,
+        "precision": 0.6667,
+        "recall": 0.5714,
+        "f1": 0.6154,
+        "map50": 0.4006
+      },
+      "window": {
+        "class_id": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.4631
+      }
+    }
+  },
+  {
+    "group": "Group A: Indoor",
+    "model_id": "deepfurniture_baseline_640px",
+    "name": "DeepFurniture (YOLO11n 640px) [Baseline]",
+    "type": "Trained Baseline",
+    "checkpoint": "checkpoints/deepfurniture_yolo11n_finetune_best.pt",
+    "resolution": 640,
+    "parameters_m": 2.59,
+    "overall_metrics": {
+      "precision": 0.738,
+      "recall": 0.7104,
+      "f1": 0.7239,
+      "map50": 0.6652,
+      "map50_95": 0.5398
+    },
+    "timing": {
+      "preprocess_ms": 1.2,
+      "inference_ms": 2.72,
+      "postprocess_ms": 2.17,
+      "total_per_image_ms": 6.09,
+      "fps": 164.2
+    },
+    "hardware_profile": {
+      "latency_ms": 19.62,
+      "throughput_fps": 51.0,
+      "peak_vram_alloc_mb": 147.4,
+      "peak_vram_res_mb": 172.0
+    },
+    "per_class": {
+      "cabinet#shelf": {
+        "class_id": 0,
+        "precision": 0.7501,
+        "recall": 0.6814,
+        "f1": 0.7141,
+        "map50": 0.5357
+      },
+      "table": {
+        "class_id": 1,
+        "precision": 0.7475,
+        "recall": 0.603,
+        "f1": 0.6675,
+        "map50": 0.4887
+      },
+      "chair#stool": {
+        "class_id": 2,
+        "precision": 0.5805,
+        "recall": 0.4861,
+        "f1": 0.5291,
+        "map50": 0.2714
+      },
+      "lamp": {
+        "class_id": 3,
+        "precision": 0.9046,
+        "recall": 0.8165,
+        "f1": 0.8582,
+        "map50": 0.6517
+      },
+      "door": {
+        "class_id": 4,
+        "precision": 0.8102,
+        "recall": 0.6742,
+        "f1": 0.736,
+        "map50": 0.554
+      },
+      "bed": {
+        "class_id": 5,
+        "precision": 0.8692,
+        "recall": 0.92,
+        "f1": 0.8939,
+        "map50": 0.861
+      },
+      "sofa": {
+        "class_id": 6,
+        "precision": 0.4841,
+        "recall": 0.5814,
+        "f1": 0.5283,
+        "map50": 0.2723
+      },
+      "plant": {
+        "class_id": 7,
+        "precision": 0.7858,
+        "recall": 0.7725,
+        "f1": 0.7791,
+        "map50": 0.4798
+      },
+      "decoration": {
+        "class_id": 8,
+        "precision": 0.7634,
+        "recall": 0.878,
+        "f1": 0.8167,
+        "map50": 0.7654
+      },
+      "curtain": {
+        "class_id": 9,
+        "precision": 0.6682,
+        "recall": 0.6351,
+        "f1": 0.6513,
+        "map50": 0.4647
+      },
+      "home-appliance": {
+        "class_id": 10,
+        "precision": 0.754,
+        "recall": 0.7664,
+        "f1": 0.7601,
+        "map50": 0.593
+      }
+    }
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "cuda_available": true,
+  "device_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "indoor_a3": {
+    "model": "Indoor A3 (800px)",
+    "checkpoint": "indoor_detector_a3_yolo11s_800px_best.pt",
+    "device": "cuda:0",
+    "is_simulated": false,
+    "load_ms": 0.28,
+    "warm_inference_ms": 3131.97,
+    "vram_before_mb": 0.0,
+    "vram_after_mb": 68.05,
+    "vram_delta_mb": 68.05,
+    "objects": 6,
+    "timing_ms": 626.53
+  },
+  "exterior_b2": {
+    "model": "Exterior B2",
+    "checkpoint": "exterior_detector_b2_yolo11s_best.pt",
+    "device": "cuda:0",
+    "is_simulated": false,
+    "load_ms": 0.41,
+    "warm_inference_ms": 6603.58,
+    "vram_before_mb": 68.05,
+    "vram_after_mb": 86.57,
+    "vram_delta_mb": 18.52,
+    "objects": 70,
+    "timing_ms": 6486.06
+  },
+  "parking_c2": {
+    "model": "Parking C2",
+    "checkpoint": "parking_detector_c2_yolo11s_pilot_best.pt",
+    "device": "cuda:0",
+    "is_simulated": false,
+    "load_ms": 0.65,
+    "warm_inference_ms": 4799.69,
+    "vram_before_mb": 86.57,
+    "vram_after_mb": 104.59,
+    "vram_delta_mb": 18.02,
+    "objects": 1,
+    "timing_ms": 4665.75
+  },
+  "segmentation": {
+    "model": "YOLO11n-seg (pretrained)",
+    "device": null,
+    "is_simulated": false,
+    "load_ms": 0.03,
+    "warm_inference_ms": 1803.59,
+    "vram_before_mb": 104.59,
+    "vram_after_mb": 116.21,
+    "vram_delta_mb": 11.62,
+    "masks": 2
+  },
+  "depth_anything_v2_small": {
+    "model": "Depth Anything V2 Small",
+    "device": "cuda:0",
+    "is_simulated": false,
+    "load_ms": 7723.88,
+    "warm_inference_ms": 927.07,
+    "vram_before_mb": 201.14,
+    "vram_after_mb": 202.14,
+    "vram_delta_mb": 1.0,
+    "peak_memory_mb": 342.7,
+    "depth_min": 0.472655,
+    "depth_max": 8.233005,
+    "relative_depth_only": true
+  }
+}

@@ -1,0 +1,48 @@
+source_dataset,source_label,target_label,canonical_id,mapping_status,reason,validation_requirement
+CMP_Facade,facade,facade,1,exact,Direct facade envelope surface segment.,Verify non-overlap with interior window cutouts.
+CMP_Facade,window,window,2,exact,Direct architectural glazed window opening.,Filter out sub-pixel sliver boxes < 0.005 width/height.
+CMP_Facade,door,door,3,exact,Ground-floor and balcony entry portals.,Verify ground-level or entrance-deck spatial alignment.
+CMP_Facade,cornice,roof_cornice,4,exact,Projecting decorative horizontal molding crowning building or wall.,Distinguish from mid-wall stringcourses.
+CMP_Facade,balcony,balcony,5,exact,Exterior platform projecting from wall with railing.,Verify railing/deck enclosure boundary.
+CMP_Facade,blind,shutter_blind,8,exact,Exterior louvered shutters or fabric blinds adjacent to windows.,"Ensure bbox wraps shutter blade assembly, not interior curtain."
+CMP_Facade,pillar,pillar_column,7,exact,Vertical structural or decorative column / pilaster.,Differentiate engaged flat pilasters from freestanding columns.
+CMP_Facade,sill,molding_deco,9,defensible,Window sill horizontal ledge; collapsed into general exterior decorative molding.,Check tight aspect ratio below window frame.
+CMP_Facade,deco,molding_deco,9,defensible,"Ornamental pediment, keystone, or relief sculpture; collapsed into molding_deco.",Validate decorative exterior placement.
+CMP_Facade,molding,molding_deco,9,exact,Horizontal or profiled decorative band; direct match.,Ensure band continuity across facade span.
+CMP_Facade,shop,door,3,defensible,Ground-floor commercial storefront entrance; mapped to door.,Exclude large display glass if separate window label exists.
+CMP_Facade,background,UNMAPPED_IGNORE,-1,unsupported,"Sky, road, trees, or non-architectural background.",Ignore in loss calculation; do not map.
+OpenImagesV7,/m/0cgh4 (Building),building,0,exact,Direct building envelope annotation.,Ensure box encloses entire visible structure.
+OpenImagesV7,/m/03jm5 (House),building,0,exact,Residential single-family home envelope; mapped to building.,Ensure full structure envelope.
+OpenImagesV7,/m/021sj1 (Office building),building,0,exact,Commercial office structure; mapped to building.,Ensure complete exterior boundary.
+OpenImagesV7,/m/04m6gz (Porch),porch,6,exact,Covered exterior entrance structure / veranda.,"Validate inclusion of deck, steps, and roof overhang."
+OpenImagesV7,/m/02dgv (Door),door,3,exact,Architectural doorway opening.,"Filter out vehicle doors, interior cabinet doors via context."
+OpenImagesV7,/m/0d4v4 (Window),window,2,exact,Glazed exterior window opening.,Filter vehicle/airplane windows using exterior scene context.
+OpenImagesV7,/m/031b6r (Window blind),shutter_blind,8,defensible,Window blinds and shutters; mapped to shutter_blind.,Exclude interior micro-blinds lacking exterior visibility.
+OpenImagesV7,/m/016m2d (Skyscraper),building,0,defensible,Multi-story high-rise building; mapped to building.,Clip to visible structural boundaries.
+OpenImagesV7,/m/02p3w7 (Balcony),balcony,5,ambiguous,Exists in Open Images hierarchy but sparse / largely machine-generated.,Requires human verification of box bounds before ingestion.
+OpenImagesV7,/m/02522 (Column),UNMAPPED_IGNORE,-1,ambiguous,"Includes newspaper columns, text columns, and architectural pillars.",Reject without architectural scene filter.
+ADE20K,"building, edifice",building,0,exact,Overall exterior structural envelope.,Use whole object polygon mask.
+ADE20K,house,building,0,exact,Residential building structure; mapped to building.,Use whole object polygon mask.
+ADE20K,wall (exterior),facade,1,defensible,Exterior vertical surface of building.,Verify polygon excludes windows and doors.
+ADE20K,facade,facade,1,exact,Explicit building facade part annotation.,Best suited for semantic segmentation mask.
+ADE20K,"windowpane, window",window,2,exact,Glazed window aperture; direct match.,Extract tight bounding box from polygon.
+ADE20K,door,door,3,exact,Entrance door aperture; direct match.,Extract tight bounding box from polygon.
+ADE20K,roof,roof_cornice,4,defensible,Roof structure and eaves; mapped to roof_cornice.,Crop to lower cornice/fascia edge when converted to box.
+ADE20K,cornice,roof_cornice,4,exact,Cornice trim molding along roofline.,Direct match for roof_cornice.
+ADE20K,balcony,balcony,5,exact,Exterior cantilevered balcony platform and balustrade.,Extract tight bounding box from polygon.
+ADE20K,porch,porch,6,exact,Covered exterior entrance veranda / porch.,Direct match; high structural value for rare class.
+ADE20K,"column, pillar",pillar_column,7,exact,Architectural vertical column or pillar.,Extract vertical aspect-ratio box from polygon.
+ADE20K,"shutter, blind",shutter_blind,8,exact,Window shutter or external blind.,Extract box adjacent to window aperture.
+ADE20K,molding,molding_deco,9,exact,Architectural exterior molding band.,Extract horizontal/profiled box.
+ADE20K,"awning, sunblind",UNMAPPED_IGNORE,-1,ambiguous,Fabric or metal canopy over windows/doors; overlaps with porch/entrance.,Hold in quarantine; manual review required.
+ADE20K,"arcade, colonnade",pillar_column,7,ambiguous,Series of arches supported by columns; spans multiple pillars.,Must be split into individual pillar instances or rejected.
+MapillaryVistas,construction--structure--building,building,0,exact,Street-level building structure envelope.,Must be filtered for distance > 5m to avoid distant horizon noise.
+MapillaryVistas,construction--barrier--wall,facade,1,ambiguous,Freestanding perimeter walls and exterior building walls are lumped together.,Only accept when adjacent to building structure; otherwise reject.
+MapillaryVistas_v2,object--window,window,2,defensible,Building windows in v2.0.,Filter out distant low-resolution windows (< 16px).
+MapillaryVistas_v2,object--door,door,3,defensible,Building doors in v2.0.,Filter out distant low-resolution doors.
+MapillaryVistas,object--support--pole,UNMAPPED_IGNORE,-1,unsupported,"Utility poles, lamp posts, and traffic signs; NOT architectural columns.",Reject completely; semantic mismatch.
+MapillaryVistas,construction--flat--driveway,UNMAPPED_IGNORE,-1,unsupported,Driveway pavement; outside exterior 10-class taxonomy.,Ignore in loss calculation; do not map.
+COCO_Detection_80,ALL_80_CLASSES,UNMAPPED_IGNORE,-1,unsupported,"Standard COCO-80 has 0 architectural facade classes (no building, window, door, porch, column).",Completely unsupported for RoomAI object detection. Do not use for training detector.
+COCO_Stuff,building-other,building,0,defensible,Pixel stuff mask of building structures.,Use only for background negative filtering or semantic envelope segmentation.
+COCO_Stuff,roof,roof_cornice,4,defensible,Pixel stuff mask of roofs.,Coarse roof surface; lacks fine cornice boundary.
+COCO_Stuff,wall-brick/stone/concrete,facade,1,ambiguous,Material-based stuff masks spanning indoor and outdoor walls.,Hold in quarantine; do not map directly without scene parser.

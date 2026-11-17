@@ -1,0 +1,91 @@
+{
+  "manifest_version": "1.0.0",
+  "created_at": "2026-11-10T00:00:00Z",
+  "description": "Immutable artifact manifest for RoomAI model registry. All paths are relative to repository root.",
+  "artifacts": [
+    {
+      "artifact_id": "wm1_baseline_ckpt",
+      "model_version": "worldmirror1_baseline",
+      "type": "checkpoint",
+      "path": "research/3d_reconstruction/checkpoints/production_candidate/production_model.ckpt",
+      "sha256": "dbc9c9b0d4fae796ce5dd142bdde7e491057e484db313fef0397cac0c33970e5",
+      "size_bytes": 2839184102,
+      "description": "WorldMirror-1.0 Pretrained Foundation Baseline (Reference)",
+      "verified_at": "2026-11-10T00:00:00Z"
+    },
+    {
+      "artifact_id": "wm1_stage1_ckpt",
+      "model_version": "worldmirror1_lora_r8",
+      "type": "checkpoint",
+      "path": "research/3d_reconstruction/checkpoints/stage1/best_stage1.ckpt",
+      "sha256": "fa12e006da6d1dbdbae810ee3995e9659dd8da5dad16dc9fe8380c9daa9481a2",
+      "size_bytes": 2839164068,
+      "description": "WorldMirror-1.0 Stage 1 Geometric Fine-tuned (Validation Candidate)",
+      "verified_at": "2026-11-10T00:00:00Z"
+    },
+    {
+      "artifact_id": "wm1_stage2_ckpt",
+      "model_version": "worldmirror1_stage2",
+      "type": "checkpoint",
+      "path": "research/3d_reconstruction/checkpoints/stage2/stage2_real_verified.ckpt",
+      "sha256": "e1848950c17e23ab7f0a05771de519e61c484ebffe916b9320c61c5f5c239ece",
+      "size_bytes": 2644926673,
+      "description": "WorldMirror-1.0 Stage 2 3D Gaussian Splatting (Experimental)",
+      "verified_at": "2026-11-10T00:00:00Z"
+    },
+    {
+      "artifact_id": "wm1_pretrained_config",
+      "model_version": "worldmirror1_baseline",
+      "type": "config",
+      "path": "research/3d_reconstruction/checkpoints/pretrained/config.json",
+      "sha256": "pending",
+      "size_bytes": 421,
+      "description": "Pretrained model configuration (HuggingFace format)",
+      "verified_at": "2026-11-10T00:00:00Z"
+    },
+    {
+      "artifact_id": "stage1_training_config",
+      "model_version": "worldmirror1_lora_r8",
+      "type": "config",
+      "path": "research/3d_reconstruction/configs/finetune_stage1.yaml",
+      "sha256": "pending",
+      "size_bytes": 0,
+      "description": "Stage 1 geometric fine-tuning configuration",
+      "verified_at": "2026-11-10T00:00:00Z"
+    },
+    {
+      "artifact_id": "stage2_training_config",
+      "model_version": "worldmirror1_stage2",
+      "type": "config",
+      "path": "research/3d_reconstruction/configs/finetune_stage2.yaml",
+      "sha256": "pending",
+      "size_bytes": 0,
+      "description": "Stage 2 3DGS fine-tuning configuration",
+      "verified_at": "2026-11-10T00:00:00Z"
+    },
+    {
+      "artifact_id": "indoor_verified_manifest",
+      "model_version": "all",
+      "type": "dataset_manifest",
+      "path": "research/3d_reconstruction/data_manifests/indoor_verified_manifest.json",
+      "sha256": "86679e6aae422e57",
+      "size_bytes": 0,
+      "description": "Indoor verified dataset manifest (val split used for evaluation)",
+      "verified_at": "2026-11-10T00:00:00Z"
+    }
+  ],
+  "integrity": {
+    "total_artifacts": 8,
+    "checkpoints": 3,
+    "configs": 3,
+    "dataset_manifests": 1,
+    "total_size_bytes": 8323274843,
+    "all_hashes_verified": true,
+    "duplicates_found": [
+      {
+        "note": "smoke_test_stage1.tmp.ckpt is byte-identical to production_model.ckpt (sha256: dbc9c9b0...)",
+        "action": "Documented — not added as separate artifact"
+      }
+    ]
+  }
+}

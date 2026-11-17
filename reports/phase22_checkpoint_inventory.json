@@ -1,0 +1,47 @@
+[
+  {
+    "model_label": "B2 Production",
+    "filename": "exterior_detector_b2_yolo11s_best.pt",
+    "path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_detector_b2_yolo11s_best.pt",
+    "size_bytes": 19163034,
+    "md5": "14a931dd0adabc16cbd7b28ed1d17f66",
+    "sha256": "C599C19241B8C60390AC0C4914DE6CEF449BC1129F73B0DB7F8F04FC62A0459F",
+    "status": "production_default"
+  },
+  {
+    "model_label": "B6 Expanded Baseline",
+    "filename": "exterior_detector_b6_expanded_best.pt",
+    "path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_detector_b6_expanded_best.pt",
+    "size_bytes": 19167194,
+    "md5": "f5ceea56b0610ea14b647014e48152dc",
+    "sha256": "009144B272998EC9447F649E8D850E0FDB8CAE5FC973C5E0CB9EEBE717675AC9",
+    "status": "experimental"
+  },
+  {
+    "model_label": "B7 Pilot",
+    "filename": "exterior_detector_b7_pilot_best.pt",
+    "path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_detector_b7_pilot_best.pt",
+    "size_bytes": 19167194,
+    "md5": "41433e929910eda4414ed6541bac2fe4",
+    "sha256": "0B04B97E66F033D2037BC1483D4AD4F484A00213DEFEE66A7D32AD83199E2C3F",
+    "status": "experimental"
+  },
+  {
+    "model_label": "Porch Specialist",
+    "filename": "exterior_specialist_porch_yolo11s_best.pt",
+    "path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_specialist_porch_yolo11s_best.pt",
+    "size_bytes": 19159130,
+    "md5": "4261fc1ad5f6fd9ac29c0499e2adddfd",
+    "sha256": "943E7012090124EA726F21B37983CC8B253B35AF36F72B381EB01D18EAC2D9B2",
+    "status": "experimental"
+  },
+  {
+    "model_label": "Candidate C1",
+    "filename": "exterior_detector_c1_phase22_best.pt",
+    "path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_detector_c1_phase22_best.pt",
+    "size_bytes": 19167699,
+    "md5": "753c1784c5247895be3a41b2a829fa8e",
+    "sha256": "4D3A3339BB09B89213F60F2E8AF82212804A84BAFA3A91EC94D4D424B0FB187F",
+    "status": "experimental"
+  }
+]

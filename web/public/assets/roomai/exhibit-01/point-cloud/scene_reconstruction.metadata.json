@@ -1,0 +1,27 @@
+{
+  "source": {
+    "upload_id": "upl_cee8234c7f93",
+    "model": "worldmirror1_baseline",
+    "job": "job_1794499397_4aa219ea",
+    "artifact": "scene_reconstruction.ply",
+    "sha256": "9b413c858d423b8e352c3f28a2f16e23707319a92da85fd87c0761878b075fdf"
+  },
+  "browser_asset": {
+    "path": "point-cloud/scene_reconstruction.ply",
+    "format": "ASCII PLY 1.0",
+    "vertex_count": 61,
+    "properties": [
+      "float x",
+      "float y",
+      "float z",
+      "uchar red",
+      "uchar green",
+      "uchar blue",
+      "float nx",
+      "float ny",
+      "float nz"
+    ],
+    "sha256": "9b413c858d423b8e352c3f28a2f16e23707319a92da85fd87c0761878b075fdf"
+  },
+  "coordinate_system": "RoomAI coordinates already transformed from model coordinates by diag(1, -1, -1); no browser conversion is applied."
+}

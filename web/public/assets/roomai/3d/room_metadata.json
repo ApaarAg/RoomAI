@@ -1,0 +1,129 @@
+{
+  "test_kind": "internal diagnostic only; Hypersim V-Ray synthetic render, not a photograph and not product evidence",
+  "license_basis": "Hypersim CC BY-SA 3.0 per local Phase 9.1 license audit; output retained for internal QA with attribution",
+  "scene_id": "ai_013_010",
+  "split": "test",
+  "frame_id": 0,
+  "source_rgb_path": "research\\3d_reconstruction\\data\\ground_truth\\standardized\\hypersim\\test\\ai_013_010\\frame_0000_rgb.png",
+  "source_rgb_sha256": "56ad28818573d6ec647fa556db00bca8c045d9d543675f8a2a9b2698ab41bbd9",
+  "ground_truth_depth_path": "research\\3d_reconstruction\\data\\ground_truth\\standardized\\hypersim\\test\\ai_013_010\\frame_0000_depth.npy",
+  "image_size_px": [
+    518,
+    518
+  ],
+  "source_transforms": "none; 518x518 input",
+  "pipeline": "RoomAICompositeAdapter -> SceneFusionService -> YOLO11s A3 + YOLO11n-Seg + Depth Anything V2 Metric Indoor Small -> depth unprojection/layout",
+  "elapsed_seconds": 11.731,
+  "prediction": {
+    "shape": [
+      518,
+      518
+    ],
+    "dtype": "float32",
+    "finite_ratio": 1.0,
+    "valid_ratio": 1.0,
+    "min_m": 2.514143943786621,
+    "max_m": 7.184253692626953,
+    "median_m": 6.1740875244140625,
+    "unscaled_abs_rel": 0.1378658562898636,
+    "unscaled_rmse_m": 0.7211256623268127,
+    "gt_to_pred_median_scale_diagnostic": 0.8560577034950256,
+    "scale_fitted": false
+  },
+  "ground_truth": {
+    "shape": [
+      518,
+      518
+    ],
+    "valid_ratio": 1.0,
+    "min_m": 2.28367280960083,
+    "max_m": 5.8807053565979,
+    "median_m": 5.285375118255615,
+    "camera_intrinsics_pixel_units": {}
+  },
+  "pipeline_intrinsics_metadata": {
+    "fx": 1000.0,
+    "fy": 1000.0,
+    "cx": 0.5,
+    "cy": 0.5
+  },
+  "point_cloud": {
+    "count": 200000,
+    "finite_count": 200000,
+    "rgb_count": 200000,
+    "bounds_min": [
+      -1.007786750793457,
+      -1.7170090675354004,
+      2.522493362426758
+    ],
+    "bounds_max": [
+      1.8535374402999878,
+      0.702023446559906,
+      7.184253692626953
+    ],
+    "axis_span": [
+      2.8613243103027344,
+      2.419032573699951,
+      4.661760330200195
+    ],
+    "robust_extent_1_99": [
+      2.6220932006835938,
+      2.254359245300293,
+      4.336788177490234
+    ],
+    "covariance_eigenvalues": [
+      0.2861353797936135,
+      0.5649764341662644,
+      2.3040963817471094
+    ],
+    "median_z": 6.173793792724609
+  },
+  "scene": {
+    "depth_mode": "metric",
+    "model_name": "A3 + FastSAM + SegFormer-B1 + Depth Anything V2 Metric",
+    "n_total_points": 268324,
+    "n_valid_points": 268324,
+    "object_count": 5,
+    "surface_count": 2,
+    "room_layout": {
+      "floor_plane_detected": true,
+      "floor_normal": [
+        0.020763840526342392,
+        -0.9986913204193115,
+        -0.04673866927623749
+      ],
+      "camera_height_m": 0.8,
+      "room_width_m": 2.54,
+      "room_length_m": 4.26,
+      "room_height_m": 2.21,
+      "floor_elevation_m": 0.66,
+      "floor_inlier_ratio": 0.993,
+      "floor_residual_m": 0.0135,
+      "gravity_alignment_score": 0.999,
+      "competing_wall_planes_found": 0,
+      "assumptions": "Camera upright (+Y downward, +Z forward), floor is planar horizontal",
+      "calibrated": false,
+      "room_bounds": {
+        "x_min": -0.97,
+        "x_max": 1.57,
+        "y_min": -1.55,
+        "y_max": 0.66,
+        "z_min": 2.67,
+        "z_max": 6.93
+      }
+    }
+  },
+  "exports": {
+    "ply_path": "asset-production\\roomai\\01-review\\pipeline-test-ai_013_010-frame_0000-run2\\roomai_composite_test.ply",
+    "ply_bytes": 6589828,
+    "ply_valid": true,
+    "ply_vertices": 200000,
+    "glb_path": "asset-production\\roomai\\01-review\\pipeline-test-ai_013_010-frame_0000-run2\\roomai_composite_test.glb",
+    "glb_bytes": 484376,
+    "glb_valid": true,
+    "glb_meshes": 6,
+    "glb_point_attributes": {
+      "POSITION": 0
+    }
+  }
+}

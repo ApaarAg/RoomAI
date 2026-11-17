@@ -1,0 +1,94 @@
+{
+  "model_name": "Parking Detector Model C3 (YOLO11s RFS)",
+  "architecture": "YOLO11s",
+  "base_model": "C:\\Users\\apaar\\Desktop\\RoomAI\\yolo11s.pt",
+  "intervention": "Repeat Factor Sampling (bicycle 4x, motorcycle 3x, fixture 2x, tree 2x)",
+  "epochs_trained": 15,
+  "batch_size": 4,
+  "imgsz": 640,
+  "seed": 42,
+  "train_duration_sec": 199.92,
+  "sec_per_epoch": 13.33,
+  "peak_gpu_mem_mb": 1959.16,
+  "val_metrics": {
+    "mAP50": 0.3215,
+    "mAP50_95": 0.1652,
+    "precision": 0.4193,
+    "recall": 0.3571,
+    "f1": 0.3857
+  },
+  "test_metrics": {
+    "mAP50": 0.3343,
+    "mAP50_95": 0.1981,
+    "precision": 0.417,
+    "recall": 0.3752,
+    "f1": 0.395
+  },
+  "per_class_test_metrics": {
+    "car_vehicle": {
+      "class_id": 0,
+      "precision": 0.5877,
+      "recall": 0.4348,
+      "f1": 0.4998,
+      "mAP50": 0.4624,
+      "mAP50_95": 0.2841
+    },
+    "motorcycle": {
+      "class_id": 1,
+      "precision": 0.3636,
+      "recall": 0.3529,
+      "f1": 0.3582,
+      "mAP50": 0.4039,
+      "mAP50_95": 0.284
+    },
+    "bicycle": {
+      "class_id": 2,
+      "precision": 0.462,
+      "recall": 0.5714,
+      "f1": 0.5109,
+      "mAP50": 0.4872,
+      "mAP50_95": 0.2346
+    },
+    "outdoor_seating": {
+      "class_id": 3,
+      "precision": 0.5528,
+      "recall": 0.3254,
+      "f1": 0.4097,
+      "mAP50": 0.3262,
+      "mAP50_95": 0.1849
+    },
+    "outdoor_table": {
+      "class_id": 4,
+      "precision": 0.6009,
+      "recall": 0.5588,
+      "f1": 0.5791,
+      "mAP50": 0.461,
+      "mAP50_95": 0.2572
+    },
+    "plant_bush": {
+      "class_id": 5,
+      "precision": 0.1607,
+      "recall": 0.2391,
+      "f1": 0.1922,
+      "mAP50": 0.1184,
+      "mAP50_95": 0.0691
+    },
+    "tree": {
+      "class_id": 6,
+      "precision": 0.256,
+      "recall": 0.0909,
+      "f1": 0.1342,
+      "mAP50": 0.0848,
+      "mAP50_95": 0.0451
+    },
+    "outdoor_fixture": {
+      "class_id": 7,
+      "precision": 0.352,
+      "recall": 0.4286,
+      "f1": 0.3865,
+      "mAP50": 0.3305,
+      "mAP50_95": 0.2253
+    }
+  },
+  "checkpoint_path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\parking_detector_c3_yolo11s_rfs_best.pt"
+}

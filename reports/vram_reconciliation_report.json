@@ -1,0 +1,58 @@
+{
+  "cuda_context_baseline": {
+    "allocated_mb": 0.0,
+    "reserved_mb": 2.0,
+    "nvidia_smi_mb": null
+  },
+  "per_model_reconciliation": [
+    {
+      "name": "Model A3 (YOLO11s 800px)",
+      "parameters_m": 9.43,
+      "disk_mb": 18.3,
+      "param_mem_fp32_mb": 36.0,
+      "static_allocated_delta_mb": 36.3,
+      "cumulative_allocated_mb": 36.3,
+      "cumulative_reserved_mb": 40.0,
+      "nvidia_smi_process_mb": null
+    },
+    {
+      "name": "FastSAM-s",
+      "parameters_m": 11.79,
+      "disk_mb": 22.7,
+      "param_mem_fp32_mb": 45.0,
+      "static_allocated_delta_mb": 46.3,
+      "cumulative_allocated_mb": 82.6,
+      "cumulative_reserved_mb": 98.0,
+      "nvidia_smi_process_mb": null
+    },
+    {
+      "name": "SegFormer-B1",
+      "parameters_m": 13.72,
+      "disk_mb": 52.3,
+      "param_mem_fp32_mb": 52.3,
+      "static_allocated_delta_mb": 53.2,
+      "cumulative_allocated_mb": 135.8,
+      "cumulative_reserved_mb": 138.0,
+      "nvidia_smi_process_mb": null
+    },
+    {
+      "name": "Depth Anything V2 Metric Small",
+      "parameters_m": 24.79,
+      "disk_mb": 94.5,
+      "param_mem_fp32_mb": 94.5,
+      "static_allocated_delta_mb": 94.6,
+      "cumulative_allocated_mb": 230.3,
+      "cumulative_reserved_mb": 252.0,
+      "nvidia_smi_process_mb": null
+    }
+  ],
+  "unified_inference_peak": {
+    "total_static_model_weights_mb": 230.3,
+    "peak_dynamic_inference_activations_mb": 190.2,
+    "total_pytorch_peak_allocated_mb": 420.5,
+    "total_pytorch_peak_allocated_gb": 0.41,
+    "total_pytorch_peak_reserved_mb": 526.0,
+    "total_pytorch_peak_reserved_gb": 0.51,
+    "nvidia_smi_process_mb": null
+  }
+}

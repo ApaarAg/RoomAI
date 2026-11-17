@@ -1,0 +1,423 @@
+{
+  "b6_baseline": {
+    "macro_f1": 0.5069,
+    "micro_precision": 0.6204,
+    "micro_recall": 0.6476,
+    "micro_f1": 0.6337,
+    "per_class": {
+      "building": {
+        "gt": 40,
+        "tp": 20,
+        "fp": 22,
+        "fn": 20,
+        "precision": 0.4762,
+        "recall": 0.5,
+        "f1": 0.4878
+      },
+      "facade": {
+        "gt": 495,
+        "tp": 177,
+        "fp": 317,
+        "fn": 318,
+        "precision": 0.3583,
+        "recall": 0.3576,
+        "f1": 0.3579
+      },
+      "window": {
+        "gt": 3845,
+        "tp": 2969,
+        "fp": 1055,
+        "fn": 876,
+        "precision": 0.7378,
+        "recall": 0.7722,
+        "f1": 0.7546
+      },
+      "door": {
+        "gt": 372,
+        "tp": 206,
+        "fp": 297,
+        "fn": 166,
+        "precision": 0.4095,
+        "recall": 0.5538,
+        "f1": 0.4709
+      },
+      "roof_cornice": {
+        "gt": 445,
+        "tp": 318,
+        "fp": 261,
+        "fn": 127,
+        "precision": 0.5492,
+        "recall": 0.7146,
+        "f1": 0.6211
+      },
+      "balcony": {
+        "gt": 345,
+        "tp": 216,
+        "fp": 114,
+        "fn": 129,
+        "precision": 0.6545,
+        "recall": 0.6261,
+        "f1": 0.64
+      },
+      "porch": {
+        "gt": 24,
+        "tp": 3,
+        "fp": 4,
+        "fn": 21,
+        "precision": 0.4286,
+        "recall": 0.125,
+        "f1": 0.1935
+      },
+      "pillar_column": {
+        "gt": 494,
+        "tp": 167,
+        "fp": 360,
+        "fn": 327,
+        "precision": 0.3169,
+        "recall": 0.3381,
+        "f1": 0.3271
+      },
+      "shutter_blind": {
+        "gt": 901,
+        "tp": 506,
+        "fp": 159,
+        "fn": 395,
+        "precision": 0.7609,
+        "recall": 0.5616,
+        "f1": 0.6462
+      },
+      "molding_deco": {
+        "gt": 1543,
+        "tp": 925,
+        "fp": 781,
+        "fn": 618,
+        "precision": 0.5422,
+        "recall": 0.5995,
+        "f1": 0.5694
+      }
+    },
+    "median_latency_ms": 53.35,
+    "p95_latency_ms": 148.55,
+    "mAP50": 0.4921,
+    "mAP50_95": 0.2976,
+    "ap50": {
+      "building": 0.4757,
+      "facade": 0.3397,
+      "window": 0.7871,
+      "door": 0.4554,
+      "roof_cornice": 0.6715,
+      "balcony": 0.6245,
+      "porch": 0.1437,
+      "pillar_column": 0.2452,
+      "shutter_blind": 0.6422,
+      "molding_deco": 0.5364
+    },
+    "ap50_95": {
+      "building": 0.3199,
+      "facade": 0.2054,
+      "window": 0.5412,
+      "door": 0.2547,
+      "roof_cornice": 0.375,
+      "balcony": 0.3687,
+      "porch": 0.0654,
+      "pillar_column": 0.1257,
+      "shutter_blind": 0.4339,
+      "molding_deco": 0.2856
+    }
+  },
+  "b7_pilot": {
+    "macro_f1": 0.52,
+    "micro_precision": 0.6335,
+    "micro_recall": 0.6455,
+    "micro_f1": 0.6394,
+    "per_class": {
+      "building": {
+        "gt": 40,
+        "tp": 22,
+        "fp": 27,
+        "fn": 18,
+        "precision": 0.449,
+        "recall": 0.55,
+        "f1": 0.4944
+      },
+      "facade": {
+        "gt": 495,
+        "tp": 177,
+        "fp": 201,
+        "fn": 318,
+        "precision": 0.4683,
+        "recall": 0.3576,
+        "f1": 0.4055
+      },
+      "window": {
+        "gt": 3845,
+        "tp": 2980,
+        "fp": 1073,
+        "fn": 865,
+        "precision": 0.7353,
+        "recall": 0.775,
+        "f1": 0.7546
+      },
+      "door": {
+        "gt": 372,
+        "tp": 183,
+        "fp": 215,
+        "fn": 189,
+        "precision": 0.4598,
+        "recall": 0.4919,
+        "f1": 0.4753
+      },
+      "roof_cornice": {
+        "gt": 445,
+        "tp": 323,
+        "fp": 249,
+        "fn": 122,
+        "precision": 0.5647,
+        "recall": 0.7258,
+        "f1": 0.6352
+      },
+      "balcony": {
+        "gt": 345,
+        "tp": 229,
+        "fp": 123,
+        "fn": 116,
+        "precision": 0.6506,
+        "recall": 0.6638,
+        "f1": 0.6571
+      },
+      "porch": {
+        "gt": 24,
+        "tp": 5,
+        "fp": 13,
+        "fn": 19,
+        "precision": 0.2778,
+        "recall": 0.2083,
+        "f1": 0.2381
+      },
+      "pillar_column": {
+        "gt": 494,
+        "tp": 177,
+        "fp": 399,
+        "fn": 317,
+        "precision": 0.3073,
+        "recall": 0.3583,
+        "f1": 0.3308
+      },
+      "shutter_blind": {
+        "gt": 901,
+        "tp": 507,
+        "fp": 168,
+        "fn": 394,
+        "precision": 0.7511,
+        "recall": 0.5627,
+        "f1": 0.6434
+      },
+      "molding_deco": {
+        "gt": 1543,
+        "tp": 886,
+        "fp": 707,
+        "fn": 657,
+        "precision": 0.5562,
+        "recall": 0.5742,
+        "f1": 0.5651
+      }
+    },
+    "median_latency_ms": 37.41,
+    "p95_latency_ms": 51.06,
+    "mAP50": 0.5074,
+    "mAP50_95": 0.307,
+    "ap50": {
+      "building": 0.5115,
+      "facade": 0.365,
+      "window": 0.7824,
+      "door": 0.4385,
+      "roof_cornice": 0.6678,
+      "balcony": 0.646,
+      "porch": 0.2336,
+      "pillar_column": 0.2475,
+      "shutter_blind": 0.6441,
+      "molding_deco": 0.5376
+    },
+    "ap50_95": {
+      "building": 0.3431,
+      "facade": 0.2248,
+      "window": 0.5384,
+      "door": 0.2406,
+      "roof_cornice": 0.3543,
+      "balcony": 0.4028,
+      "porch": 0.114,
+      "pillar_column": 0.125,
+      "shutter_blind": 0.437,
+      "molding_deco": 0.2897
+    }
+  },
+  "candidate_c1": {
+    "macro_f1": 0.5198,
+    "micro_precision": 0.6214,
+    "micro_recall": 0.6361,
+    "micro_f1": 0.6287,
+    "per_class": {
+      "building": {
+        "gt": 40,
+        "tp": 24,
+        "fp": 31,
+        "fn": 16,
+        "precision": 0.4364,
+        "recall": 0.6,
+        "f1": 0.5053
+      },
+      "facade": {
+        "gt": 495,
+        "tp": 172,
+        "fp": 192,
+        "fn": 323,
+        "precision": 0.4725,
+        "recall": 0.3475,
+        "f1": 0.4005
+      },
+      "window": {
+        "gt": 3845,
+        "tp": 2901,
+        "fp": 1058,
+        "fn": 944,
+        "precision": 0.7328,
+        "recall": 0.7545,
+        "f1": 0.7435
+      },
+      "door": {
+        "gt": 372,
+        "tp": 185,
+        "fp": 217,
+        "fn": 187,
+        "precision": 0.4602,
+        "recall": 0.4973,
+        "f1": 0.478
+      },
+      "roof_cornice": {
+        "gt": 445,
+        "tp": 308,
+        "fp": 213,
+        "fn": 137,
+        "precision": 0.5912,
+        "recall": 0.6921,
+        "f1": 0.6377
+      },
+      "balcony": {
+        "gt": 345,
+        "tp": 221,
+        "fp": 130,
+        "fn": 124,
+        "precision": 0.6296,
+        "recall": 0.6406,
+        "f1": 0.6351
+      },
+      "porch": {
+        "gt": 24,
+        "tp": 7,
+        "fp": 19,
+        "fn": 17,
+        "precision": 0.2692,
+        "recall": 0.2917,
+        "f1": 0.28
+      },
+      "pillar_column": {
+        "gt": 494,
+        "tp": 184,
+        "fp": 458,
+        "fn": 310,
+        "precision": 0.2866,
+        "recall": 0.3725,
+        "f1": 0.3239
+      },
+      "shutter_blind": {
+        "gt": 901,
+        "tp": 512,
+        "fp": 191,
+        "fn": 389,
+        "precision": 0.7283,
+        "recall": 0.5683,
+        "f1": 0.6384
+      },
+      "molding_deco": {
+        "gt": 1543,
+        "tp": 895,
+        "fp": 786,
+        "fn": 648,
+        "precision": 0.5324,
+        "recall": 0.58,
+        "f1": 0.5552
+      }
+    },
+    "median_latency_ms": 35.08,
+    "p95_latency_ms": 44.52,
+    "mAP50": 0.4938,
+    "mAP50_95": 0.3009,
+    "ap50": {
+      "building": 0.4674,
+      "facade": 0.3471,
+      "window": 0.7673,
+      "door": 0.4242,
+      "roof_cornice": 0.6531,
+      "balcony": 0.6407,
+      "porch": 0.2475,
+      "pillar_column": 0.2363,
+      "shutter_blind": 0.6303,
+      "molding_deco": 0.5242
+    },
+    "ap50_95": {
+      "building": 0.3197,
+      "facade": 0.2087,
+      "window": 0.53,
+      "door": 0.2354,
+      "roof_cornice": 0.3535,
+      "balcony": 0.3882,
+      "porch": 0.1521,
+      "pillar_column": 0.1172,
+      "shutter_blind": 0.4237,
+      "molding_deco": 0.2804
+    }
+  },
+  "bootstrap_c1_vs_b7": {
+    "macro_f1_delta_mean": -0.0007,
+    "macro_f1_ci95": [
+      -0.0162,
+      0.0146
+    ],
+    "micro_f1_delta_mean": -0.0108,
+    "micro_f1_ci95": [
+      -0.0166,
+      -0.0048
+    ],
+    "porch_f1_delta_mean": 0.04,
+    "porch_f1_ci95": [
+      -0.0934,
+      0.1563
+    ]
+  },
+  "bootstrap_c1_vs_b6": {
+    "macro_f1_delta_mean": 0.0129,
+    "macro_f1_ci95": [
+      -0.0057,
+      0.0307
+    ],
+    "micro_f1_delta_mean": -0.0049,
+    "micro_f1_ci95": [
+      -0.0132,
+      0.0031
+    ],
+    "porch_f1_delta_mean": 0.0872,
+    "porch_f1_ci95": [
+      -0.05,
+      0.2222
+    ]
+  },
+  "training_resources": {
+    "training_time_seconds": 1860.72,
+    "training_time_minutes": 31.01,
+    "peak_vram_gb": 2.96,
+    "batch_size": 8,
+    "imgsz": 640,
+    "mosaic": 0.0,
+    "lr0": 0.0005
+  }
+}

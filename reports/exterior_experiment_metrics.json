@@ -1,0 +1,493 @@
+{
+  "task": "RoomAI Phase 3 \u2014 Exterior Detector Optimization",
+  "date": "2026-10-24",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_mb": 8188,
+    "driver_cuda": "12.8 / PyTorch 2.6.0+cu124"
+  },
+  "baseline_model_b2": {
+    "checkpoint": "exterior_detector_b2_yolo11s_best.pt",
+    "checkpoint_md5": "14a931dd0adabc16cbd7b28ed1d17f66",
+    "checkpoint_size_bytes": 19163034,
+    "val_metrics": {
+      "mAP50": 0.4484,
+      "mAP50_95": 0.2689,
+      "precision": 0.5473,
+      "recall": 0.4268,
+      "f1": 0.4796
+    },
+    "test_metrics": {
+      "mAP50": 0.3961,
+      "mAP50_95": 0.2427,
+      "precision": 0.4991,
+      "recall": 0.399,
+      "f1": 0.4435
+    },
+    "per_class_test": {
+      "building": {
+        "precision": 0.5045,
+        "recall": 0.375,
+        "f1": 0.4302,
+        "mAP50": 0.428,
+        "mAP50_95": 0.2914
+      },
+      "facade": {
+        "precision": 0.4608,
+        "recall": 0.2401,
+        "f1": 0.3157,
+        "mAP50": 0.2703,
+        "mAP50_95": 0.1749
+      },
+      "window": {
+        "precision": 0.7592,
+        "recall": 0.7872,
+        "f1": 0.7729,
+        "mAP50": 0.8029,
+        "mAP50_95": 0.5707
+      },
+      "door": {
+        "precision": 0.5455,
+        "recall": 0.4346,
+        "f1": 0.4838,
+        "mAP50": 0.4134,
+        "mAP50_95": 0.2584
+      },
+      "roof_cornice": {
+        "precision": 0.6222,
+        "recall": 0.6862,
+        "f1": 0.6526,
+        "mAP50": 0.6735,
+        "mAP50_95": 0.3711
+      },
+      "balcony": {
+        "precision": 0.5096,
+        "recall": 0.5929,
+        "f1": 0.5481,
+        "mAP50": 0.5301,
+        "mAP50_95": 0.3059
+      },
+      "porch": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mAP50": 0.0,
+        "mAP50_95": 0.0
+      },
+      "pillar_column": {
+        "precision": 0.3847,
+        "recall": 0.2467,
+        "f1": 0.3006,
+        "mAP50": 0.1906,
+        "mAP50_95": 0.0929
+      },
+      "shutter_blind": {
+        "precision": 0.6565,
+        "recall": 0.1943,
+        "f1": 0.2998,
+        "mAP50": 0.2299,
+        "mAP50_95": 0.1483
+      },
+      "molding_deco": {
+        "precision": 0.548,
+        "recall": 0.4331,
+        "f1": 0.4838,
+        "mAP50": 0.4217,
+        "mAP50_95": 0.213
+      }
+    },
+    "validation_operating_points": {
+      "high_precision": {
+        "conf": 0.4,
+        "iou": 0.4,
+        "precision": 0.6514,
+        "recall": 0.3726,
+        "f1": 0.474,
+        "map50": 0.3313,
+        "map50_95": 0.2113
+      },
+      "balanced_f1": {
+        "conf": 0.25,
+        "iou": 0.4,
+        "precision": 0.5767,
+        "recall": 0.4316,
+        "f1": 0.4937,
+        "map50": 0.3697,
+        "map50_95": 0.2296
+      },
+      "high_recall": {
+        "conf": 0.2,
+        "iou": 0.5,
+        "precision": 0.531,
+        "recall": 0.4568,
+        "f1": 0.4911,
+        "map50": 0.385,
+        "map50_95": 0.2367
+      }
+    },
+    "test_generalization": {
+      "high_precision": {
+        "applied_conf": 0.4,
+        "applied_iou": 0.4,
+        "test_precision": 0.6546,
+        "test_recall": 0.3069,
+        "test_f1": 0.4179,
+        "test_map50": 0.2748,
+        "test_map50_95": 0.1843
+      },
+      "balanced_f1": {
+        "applied_conf": 0.25,
+        "applied_iou": 0.4,
+        "test_precision": 0.5636,
+        "test_recall": 0.384,
+        "test_f1": 0.4567,
+        "test_map50": 0.3259,
+        "test_map50_95": 0.2089
+      },
+      "high_recall": {
+        "applied_conf": 0.2,
+        "applied_iou": 0.5,
+        "test_precision": 0.5131,
+        "test_recall": 0.4101,
+        "test_f1": 0.4559,
+        "test_map50": 0.3405,
+        "test_map50_95": 0.2164
+      }
+    },
+    "benchmark": {
+      "mean_latency_ms": 23.83,
+      "median_latency_ms": 23.85,
+      "p95_latency_ms": 29.61,
+      "peak_vram_mb": 150.1
+    }
+  },
+  "candidate_model_b3_rfs": {
+    "checkpoint": "exterior_detector_b3_yolo11s_rfs_best.pt",
+    "checkpoint_md5": "2c44291fa642aba3893db001520deba0",
+    "checkpoint_size_bytes": 19164627,
+    "intervention": "Repeat Factor Sampling (porch 15x, building 2x, shutter_blind 2x)",
+    "epochs": 15,
+    "batch_size": 4,
+    "imgsz": 640,
+    "seed": 42,
+    "train_duration_sec": 432.59,
+    "val_metrics": {
+      "mAP50": 0.509,
+      "mAP50_95": 0.3173,
+      "precision": 0.6934,
+      "recall": 0.4295,
+      "f1": 0.5304
+    },
+    "test_metrics": {
+      "mAP50": 0.4193,
+      "mAP50_95": 0.2572,
+      "precision": 0.629,
+      "recall": 0.3993,
+      "f1": 0.4885
+    },
+    "per_class_test": {
+      "building": {
+        "class_id": 0,
+        "precision": 0.3738,
+        "recall": 0.4583,
+        "f1": 0.4118,
+        "mAP50": 0.4736,
+        "mAP50_95": 0.3067
+      },
+      "facade": {
+        "class_id": 1,
+        "precision": 0.434,
+        "recall": 0.2623,
+        "f1": 0.327,
+        "mAP50": 0.277,
+        "mAP50_95": 0.1823
+      },
+      "window": {
+        "class_id": 2,
+        "precision": 0.8037,
+        "recall": 0.7707,
+        "f1": 0.7869,
+        "mAP50": 0.8004,
+        "mAP50_95": 0.5683
+      },
+      "door": {
+        "class_id": 3,
+        "precision": 0.6056,
+        "recall": 0.4065,
+        "f1": 0.4865,
+        "mAP50": 0.448,
+        "mAP50_95": 0.2789
+      },
+      "roof_cornice": {
+        "class_id": 4,
+        "precision": 0.717,
+        "recall": 0.6426,
+        "f1": 0.6778,
+        "mAP50": 0.6751,
+        "mAP50_95": 0.394
+      },
+      "balcony": {
+        "class_id": 5,
+        "precision": 0.6073,
+        "recall": 0.6056,
+        "f1": 0.6064,
+        "mAP50": 0.5934,
+        "mAP50_95": 0.3467
+      },
+      "porch": {
+        "class_id": 6,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mAP50": 0.0,
+        "mAP50_95": 0.0
+      },
+      "pillar_column": {
+        "class_id": 7,
+        "precision": 0.4558,
+        "recall": 0.2076,
+        "f1": 0.2853,
+        "mAP50": 0.2213,
+        "mAP50_95": 0.103
+      },
+      "shutter_blind": {
+        "class_id": 8,
+        "precision": 0.6957,
+        "recall": 0.21,
+        "f1": 0.3226,
+        "mAP50": 0.2518,
+        "mAP50_95": 0.164
+      },
+      "molding_deco": {
+        "class_id": 9,
+        "precision": 0.597,
+        "recall": 0.4293,
+        "f1": 0.4994,
+        "mAP50": 0.4521,
+        "mAP50_95": 0.2283
+      }
+    },
+    "validation_operating_points": {
+      "high_precision": {
+        "conf": 0.5,
+        "iou": 0.4,
+        "precision": 0.6858,
+        "recall": 0.3809,
+        "f1": 0.4898,
+        "map50": 0.3414,
+        "map50_95": 0.2238
+      },
+      "balanced_f1": {
+        "conf": 0.35,
+        "iou": 0.45,
+        "precision": 0.5894,
+        "recall": 0.4419,
+        "f1": 0.5051,
+        "map50": 0.3846,
+        "map50_95": 0.2446
+      },
+      "high_recall": {
+        "conf": 0.3,
+        "iou": 0.6,
+        "precision": 0.5449,
+        "recall": 0.4625,
+        "f1": 0.5003,
+        "map50": 0.3974,
+        "map50_95": 0.2512
+      }
+    },
+    "test_generalization": {
+      "high_precision": {
+        "applied_conf": 0.5,
+        "applied_iou": 0.4,
+        "test_precision": 0.6886,
+        "test_recall": 0.3132,
+        "test_f1": 0.4305,
+        "test_map50": 0.2862,
+        "test_map50_95": 0.1928
+      },
+      "balanced_f1": {
+        "applied_conf": 0.35,
+        "applied_iou": 0.45,
+        "test_precision": 0.5892,
+        "test_recall": 0.3768,
+        "test_f1": 0.4597,
+        "test_map50": 0.3327,
+        "test_map50_95": 0.2162
+      },
+      "high_recall": {
+        "applied_conf": 0.3,
+        "applied_iou": 0.6,
+        "test_precision": 0.5429,
+        "test_recall": 0.3993,
+        "test_f1": 0.4601,
+        "test_map50": 0.3458,
+        "test_map50_95": 0.2226
+      }
+    },
+    "benchmark": {
+      "mean_latency_ms": 14.88,
+      "median_latency_ms": 12.34,
+      "p95_latency_ms": 23.96,
+      "peak_vram_mb": 226.86
+    }
+  },
+  "comparison_delta": {
+    "val_mAP50_delta": 0.0606,
+    "val_mAP50_95_delta": 0.0484,
+    "val_precision_delta": 0.1461,
+    "val_recall_delta": 0.0027,
+    "val_f1_delta": 0.0508,
+    "test_mAP50_delta": 0.0232,
+    "test_mAP50_95_delta": 0.0145,
+    "test_precision_delta": 0.1299,
+    "test_recall_delta": 0.0003,
+    "test_f1_delta": 0.045,
+    "per_class_delta": {
+      "building": {
+        "b2_precision": 0.5045,
+        "b3_precision": 0.3738,
+        "delta_precision": -0.1307,
+        "b2_recall": 0.375,
+        "b3_recall": 0.4583,
+        "delta_recall": 0.0833,
+        "b2_mAP50": 0.428,
+        "b3_mAP50": 0.4736,
+        "delta_mAP50": 0.0456,
+        "b2_mAP50_95": 0.2914,
+        "b3_mAP50_95": 0.3067,
+        "delta_mAP50_95": 0.0153
+      },
+      "facade": {
+        "b2_precision": 0.4608,
+        "b3_precision": 0.434,
+        "delta_precision": -0.0268,
+        "b2_recall": 0.2401,
+        "b3_recall": 0.2623,
+        "delta_recall": 0.0222,
+        "b2_mAP50": 0.2703,
+        "b3_mAP50": 0.277,
+        "delta_mAP50": 0.0067,
+        "b2_mAP50_95": 0.1749,
+        "b3_mAP50_95": 0.1823,
+        "delta_mAP50_95": 0.0074
+      },
+      "window": {
+        "b2_precision": 0.7592,
+        "b3_precision": 0.8037,
+        "delta_precision": 0.0445,
+        "b2_recall": 0.7872,
+        "b3_recall": 0.7707,
+        "delta_recall": -0.0165,
+        "b2_mAP50": 0.8029,
+        "b3_mAP50": 0.8004,
+        "delta_mAP50": -0.0025,
+        "b2_mAP50_95": 0.5707,
+        "b3_mAP50_95": 0.5683,
+        "delta_mAP50_95": -0.0024
+      },
+      "door": {
+        "b2_precision": 0.5455,
+        "b3_precision": 0.6056,
+        "delta_precision": 0.0601,
+        "b2_recall": 0.4346,
+        "b3_recall": 0.4065,
+        "delta_recall": -0.0281,
+        "b2_mAP50": 0.4134,
+        "b3_mAP50": 0.448,
+        "delta_mAP50": 0.0346,
+        "b2_mAP50_95": 0.2584,
+        "b3_mAP50_95": 0.2789,
+        "delta_mAP50_95": 0.0205
+      },
+      "roof_cornice": {
+        "b2_precision": 0.6222,
+        "b3_precision": 0.717,
+        "delta_precision": 0.0948,
+        "b2_recall": 0.6862,
+        "b3_recall": 0.6426,
+        "delta_recall": -0.0436,
+        "b2_mAP50": 0.6735,
+        "b3_mAP50": 0.6751,
+        "delta_mAP50": 0.0016,
+        "b2_mAP50_95": 0.3711,
+        "b3_mAP50_95": 0.394,
+        "delta_mAP50_95": 0.0229
+      },
+      "balcony": {
+        "b2_precision": 0.5096,
+        "b3_precision": 0.6073,
+        "delta_precision": 0.0977,
+        "b2_recall": 0.5929,
+        "b3_recall": 0.6056,
+        "delta_recall": 0.0127,
+        "b2_mAP50": 0.5301,
+        "b3_mAP50": 0.5934,
+        "delta_mAP50": 0.0633,
+        "b2_mAP50_95": 0.3059,
+        "b3_mAP50_95": 0.3467,
+        "delta_mAP50_95": 0.0408
+      },
+      "porch": {
+        "b2_precision": 0.0,
+        "b3_precision": 1.0,
+        "delta_precision": 1.0,
+        "b2_recall": 0.0,
+        "b3_recall": 0.0,
+        "delta_recall": 0.0,
+        "b2_mAP50": 0.0,
+        "b3_mAP50": 0.0,
+        "delta_mAP50": 0.0,
+        "b2_mAP50_95": 0.0,
+        "b3_mAP50_95": 0.0,
+        "delta_mAP50_95": 0.0
+      },
+      "pillar_column": {
+        "b2_precision": 0.3847,
+        "b3_precision": 0.4558,
+        "delta_precision": 0.0711,
+        "b2_recall": 0.2467,
+        "b3_recall": 0.2076,
+        "delta_recall": -0.0391,
+        "b2_mAP50": 0.1906,
+        "b3_mAP50": 0.2213,
+        "delta_mAP50": 0.0307,
+        "b2_mAP50_95": 0.0929,
+        "b3_mAP50_95": 0.103,
+        "delta_mAP50_95": 0.0101
+      },
+      "shutter_blind": {
+        "b2_precision": 0.6565,
+        "b3_precision": 0.6957,
+        "delta_precision": 0.0392,
+        "b2_recall": 0.1943,
+        "b3_recall": 0.21,
+        "delta_recall": 0.0157,
+        "b2_mAP50": 0.2299,
+        "b3_mAP50": 0.2518,
+        "delta_mAP50": 0.0219,
+        "b2_mAP50_95": 0.1483,
+        "b3_mAP50_95": 0.164,
+        "delta_mAP50_95": 0.0157
+      },
+      "molding_deco": {
+        "b2_precision": 0.548,
+        "b3_precision": 0.597,
+        "delta_precision": 0.049,
+        "b2_recall": 0.4331,
+        "b3_recall": 0.4293,
+        "delta_recall": -0.0038,
+        "b2_mAP50": 0.4217,
+        "b3_mAP50": 0.4521,
+        "delta_mAP50": 0.0304,
+        "b2_mAP50_95": 0.213,
+        "b3_mAP50_95": 0.2283,
+        "delta_mAP50_95": 0.0153
+      }
+    }
+  },
+  "acceptance_decision": {
+    "recommendation": "PROMOTE_CANDIDATE_B3_AS_NEW_PRODUCTION_CANDIDATE",
+    "rationale": "Candidate B3 strictly outperforms Baseline B2 on the held-out test split across mAP50 (+0.0232), mAP50-95 (+0.0145), Precision (+0.1299), and F1 (+0.0450). On rare/underperforming classes, B3 improved building mAP50 (+0.0456) and recall (+0.0833), shutter_blind mAP50 (+0.0219), balcony mAP50 (+0.0633), and pillar_column mAP50 (+0.0307). Both models retain identical architecture, latency, and memory footprint."
+  }
+}

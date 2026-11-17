@@ -1,0 +1,234 @@
+{
+  "model_a2_baseline": {
+    "name": "Model A2 (YOLO11s 640px Baseline)",
+    "checkpoint": "indoor_detector_a2_yolo11s_finetune_best.pt",
+    "imgsz": 640,
+    "validation_operating_points": {
+      "high_precision": {
+        "conf": 0.5,
+        "iou": 0.4,
+        "precision": 0.848,
+        "recall": 0.5995,
+        "f1": 0.7024,
+        "map50": 0.5728,
+        "map50_95": 0.436
+      },
+      "balanced_f1": {
+        "conf": 0.35,
+        "iou": 0.45,
+        "precision": 0.771,
+        "recall": 0.6759,
+        "f1": 0.7203,
+        "map50": 0.6334,
+        "map50_95": 0.4726
+      },
+      "high_recall": {
+        "conf": 0.3,
+        "iou": 0.45,
+        "precision": 0.7498,
+        "recall": 0.6877,
+        "f1": 0.7174,
+        "map50": 0.6485,
+        "map50_95": 0.4813
+      }
+    },
+    "test_evaluations": {
+      "high_precision": {
+        "applied_conf": 0.5,
+        "applied_iou": 0.4,
+        "test_precision": 0.8309,
+        "test_recall": 0.6152,
+        "test_f1": 0.707,
+        "test_map50": 0.5899,
+        "test_map50_95": 0.4863
+      },
+      "balanced_f1": {
+        "applied_conf": 0.35,
+        "applied_iou": 0.45,
+        "test_precision": 0.7769,
+        "test_recall": 0.6725,
+        "test_f1": 0.721,
+        "test_map50": 0.6352,
+        "test_map50_95": 0.5142
+      },
+      "high_recall": {
+        "applied_conf": 0.3,
+        "applied_iou": 0.45,
+        "test_precision": 0.7561,
+        "test_recall": 0.6882,
+        "test_f1": 0.7206,
+        "test_map50": 0.6464,
+        "test_map50_95": 0.5228
+      }
+    },
+    "benchmark": {
+      "mean_latency_ms": 20.84,
+      "median_latency_ms": 20.69,
+      "p95_latency_ms": 25.13,
+      "peak_vram_mb": 219.46
+    },
+    "sweep_sample": [
+      {
+        "conf": 0.15,
+        "iou": 0.4,
+        "precision": 0.7567,
+        "recall": 0.681,
+        "f1": 0.7169,
+        "map50": 0.6912,
+        "map50_95": 0.5051
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.45,
+        "precision": 0.7562,
+        "recall": 0.683,
+        "f1": 0.7177,
+        "map50": 0.6947,
+        "map50_95": 0.5075
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.5,
+        "precision": 0.753,
+        "recall": 0.6835,
+        "f1": 0.7166,
+        "map50": 0.6965,
+        "map50_95": 0.5083
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.6,
+        "precision": 0.7454,
+        "recall": 0.6827,
+        "f1": 0.7127,
+        "map50": 0.6963,
+        "map50_95": 0.5097
+      },
+      {
+        "conf": 0.2,
+        "iou": 0.4,
+        "precision": 0.7567,
+        "recall": 0.681,
+        "f1": 0.7169,
+        "map50": 0.6759,
+        "map50_95": 0.4963
+      }
+    ]
+  },
+  "model_a3_candidate": {
+    "name": "Model A3 (YOLO11s 800px Candidate)",
+    "checkpoint": "indoor_detector_a3_yolo11s_800px_best.pt",
+    "imgsz": 800,
+    "validation_operating_points": {
+      "high_precision": {
+        "conf": 0.5,
+        "iou": 0.4,
+        "precision": 0.8008,
+        "recall": 0.6301,
+        "f1": 0.7053,
+        "map50": 0.5926,
+        "map50_95": 0.4732
+      },
+      "balanced_f1": {
+        "conf": 0.15,
+        "iou": 0.5,
+        "precision": 0.7343,
+        "recall": 0.7075,
+        "f1": 0.7207,
+        "map50": 0.7085,
+        "map50_95": 0.5444
+      },
+      "high_recall": {
+        "conf": 0.15,
+        "iou": 0.5,
+        "precision": 0.7343,
+        "recall": 0.7075,
+        "f1": 0.7207,
+        "map50": 0.7085,
+        "map50_95": 0.5444
+      }
+    },
+    "test_evaluations": {
+      "high_precision": {
+        "applied_conf": 0.5,
+        "applied_iou": 0.4,
+        "test_precision": 0.8496,
+        "test_recall": 0.6651,
+        "test_f1": 0.7462,
+        "test_map50": 0.6404,
+        "test_map50_95": 0.5602
+      },
+      "balanced_f1": {
+        "applied_conf": 0.15,
+        "applied_iou": 0.5,
+        "test_precision": 0.8157,
+        "test_recall": 0.6937,
+        "test_f1": 0.7498,
+        "test_map50": 0.7243,
+        "test_map50_95": 0.6095
+      },
+      "high_recall": {
+        "applied_conf": 0.15,
+        "applied_iou": 0.5,
+        "test_precision": 0.8157,
+        "test_recall": 0.6937,
+        "test_f1": 0.7498,
+        "test_map50": 0.7243,
+        "test_map50_95": 0.6095
+      }
+    },
+    "benchmark": {
+      "mean_latency_ms": 10.87,
+      "median_latency_ms": 10.39,
+      "p95_latency_ms": 14.18,
+      "peak_vram_mb": 279.22
+    },
+    "sweep_sample": [
+      {
+        "conf": 0.15,
+        "iou": 0.4,
+        "precision": 0.7379,
+        "recall": 0.7028,
+        "f1": 0.7199,
+        "map50": 0.7046,
+        "map50_95": 0.5411
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.45,
+        "precision": 0.7343,
+        "recall": 0.7063,
+        "f1": 0.72,
+        "map50": 0.7058,
+        "map50_95": 0.5426
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.5,
+        "precision": 0.7343,
+        "recall": 0.7075,
+        "f1": 0.7207,
+        "map50": 0.7085,
+        "map50_95": 0.5444
+      },
+      {
+        "conf": 0.15,
+        "iou": 0.6,
+        "precision": 0.7301,
+        "recall": 0.7061,
+        "f1": 0.7179,
+        "map50": 0.7089,
+        "map50_95": 0.5462
+      },
+      {
+        "conf": 0.2,
+        "iou": 0.4,
+        "precision": 0.7379,
+        "recall": 0.7028,
+        "f1": 0.7199,
+        "map50": 0.691,
+        "map50_95": 0.533
+      }
+    ]
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "B2 (Production)": {
+    "checkpoint": "exterior_detector_b2_yolo11s_best.pt",
+    "md5": "14a931dd0adabc16cbd7b28ed1d17f66",
+    "mAP50": 0.3737,
+    "mAP50_95": 0.2266,
+    "macro_f1": 0.4059,
+    "micro_f1": 0.5939,
+    "micro_precision": 0.6693,
+    "micro_recall": 0.5337,
+    "overall_mean_iou": 0.8282,
+    "model_only_latency_ms": 17.42,
+    "pipeline_latency_ms": 25.8,
+    "ap50_per_class": {
+      "building": 0.2559,
+      "facade": 0.2664,
+      "window": 0.7937,
+      "door": 0.4092,
+      "roof_cornice": 0.6745,
+      "balcony": 0.5301,
+      "porch": 0.0,
+      "pillar_column": 0.1878,
+      "shutter_blind": 0.1982,
+      "molding_deco": 0.4207
+    },
+    "ap_per_class": {
+      "building": 0.1649,
+      "facade": 0.1712,
+      "window": 0.5611,
+      "door": 0.2582,
+      "roof_cornice": 0.371,
+      "balcony": 0.3051,
+      "porch": 0.0,
+      "pillar_column": 0.0922,
+      "shutter_blind": 0.1289,
+      "molding_deco": 0.2135
+    },
+    "per_class": {
+      "building": {
+        "gt_count": 40,
+        "tp": 9,
+        "fp": 18,
+        "fn": 31,
+        "precision": 0.3333,
+        "recall": 0.225,
+        "f1": 0.2687,
+        "mean_iou": 0.8545
+      },
+      "facade": {
+        "gt_count": 579,
+        "tp": 136,
+        "fp": 150,
+        "fn": 443,
+        "precision": 0.4755,
+        "recall": 0.2349,
+        "f1": 0.3145,
+        "mean_iou": 0.8526
+      },
+      "window": {
+        "gt_count": 4090,
+        "tp": 3113,
+        "fp": 862,
+        "fn": 977,
+        "precision": 0.7831,
+        "recall": 0.7611,
+        "f1": 0.772,
+        "mean_iou": 0.8527
+      },
+      "door": {
+        "gt_count": 432,
+        "tp": 169,
+        "fp": 121,
+        "fn": 263,
+        "precision": 0.5828,
+        "recall": 0.3912,
+        "f1": 0.4681,
+        "mean_iou": 0.8452
+      },
+      "roof_cornice": {
+        "gt_count": 666,
+        "tp": 446,
+        "fp": 251,
+        "fn": 220,
+        "precision": 0.6399,
+        "recall": 0.6697,
+        "f1": 0.6544,
+        "mean_iou": 0.7965
+      },
+      "balcony": {
+        "gt_count": 393,
+        "tp": 224,
+        "fp": 188,
+        "fn": 169,
+        "precision": 0.5437,
+        "recall": 0.57,
+        "f1": 0.5565,
+        "mean_iou": 0.7969
+      },
+      "porch": {
+        "gt_count": 28,
+        "tp": 0,
+        "fp": 0,
+        "fn": 28,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mean_iou": 0.0
+      },
+      "pillar_column": {
+        "gt_count": 896,
+        "tp": 183,
+        "fp": 262,
+        "fn": 713,
+        "precision": 0.4112,
+        "recall": 0.2042,
+        "f1": 0.2729,
+        "mean_iou": 0.7674
+      },
+      "shutter_blind": {
+        "gt_count": 664,
+        "tp": 121,
+        "fp": 106,
+        "fn": 543,
+        "precision": 0.533,
+        "recall": 0.1822,
+        "f1": 0.2716,
+        "mean_iou": 0.835
+      },
+      "molding_deco": {
+        "gt_count": 2038,
+        "tp": 843,
+        "fp": 633,
+        "fn": 1195,
+        "precision": 0.5711,
+        "recall": 0.4136,
+        "f1": 0.4798,
+        "mean_iou": 0.7676
+      }
+    }
+  },
+  "B5 (Candidate)": {
+    "checkpoint": "exterior_detector_b5_transfer_best.pt",
+    "md5": "e12b4181fee244a3569dfa782ba3c3c3",
+    "mAP50": 0.4259,
+    "mAP50_95": 0.2621,
+    "macro_f1": 0.4563,
+    "micro_f1": 0.6087,
+    "micro_precision": 0.647,
+    "micro_recall": 0.5746,
+    "overall_mean_iou": 0.8294,
+    "model_only_latency_ms": 17.45,
+    "pipeline_latency_ms": 27.34,
+    "ap50_per_class": {
+      "building": 0.3606,
+      "facade": 0.2776,
+      "window": 0.804,
+      "door": 0.4633,
+      "roof_cornice": 0.6783,
+      "balcony": 0.5724,
+      "porch": 0.1354,
+      "pillar_column": 0.2384,
+      "shutter_blind": 0.2531,
+      "molding_deco": 0.476
+    },
+    "ap_per_class": {
+      "building": 0.2561,
+      "facade": 0.1858,
+      "window": 0.582,
+      "door": 0.2818,
+      "roof_cornice": 0.4074,
+      "balcony": 0.336,
+      "porch": 0.0444,
+      "pillar_column": 0.119,
+      "shutter_blind": 0.1635,
+      "molding_deco": 0.245
+    },
+    "per_class": {
+      "building": {
+        "gt_count": 40,
+        "tp": 13,
+        "fp": 21,
+        "fn": 27,
+        "precision": 0.3824,
+        "recall": 0.325,
+        "f1": 0.3514,
+        "mean_iou": 0.9284
+      },
+      "facade": {
+        "gt_count": 579,
+        "tp": 167,
+        "fp": 262,
+        "fn": 412,
+        "precision": 0.3893,
+        "recall": 0.2884,
+        "f1": 0.3313,
+        "mean_iou": 0.8355
+      },
+      "window": {
+        "gt_count": 4090,
+        "tp": 3187,
+        "fp": 903,
+        "fn": 903,
+        "precision": 0.7792,
+        "recall": 0.7792,
+        "f1": 0.7792,
+        "mean_iou": 0.8578
+      },
+      "door": {
+        "gt_count": 432,
+        "tp": 214,
+        "fp": 181,
+        "fn": 218,
+        "precision": 0.5418,
+        "recall": 0.4954,
+        "f1": 0.5175,
+        "mean_iou": 0.8208
+      },
+      "roof_cornice": {
+        "gt_count": 666,
+        "tp": 443,
+        "fp": 238,
+        "fn": 223,
+        "precision": 0.6505,
+        "recall": 0.6652,
+        "f1": 0.6578,
+        "mean_iou": 0.8053
+      },
+      "balcony": {
+        "gt_count": 393,
+        "tp": 245,
+        "fp": 161,
+        "fn": 148,
+        "precision": 0.6034,
+        "recall": 0.6234,
+        "f1": 0.6133,
+        "mean_iou": 0.7917
+      },
+      "porch": {
+        "gt_count": 28,
+        "tp": 3,
+        "fp": 5,
+        "fn": 25,
+        "precision": 0.375,
+        "recall": 0.1071,
+        "f1": 0.1667,
+        "mean_iou": 0.6142
+      },
+      "pillar_column": {
+        "gt_count": 896,
+        "tp": 266,
+        "fp": 501,
+        "fn": 630,
+        "precision": 0.3468,
+        "recall": 0.2969,
+        "f1": 0.3199,
+        "mean_iou": 0.7687
+      },
+      "shutter_blind": {
+        "gt_count": 664,
+        "tp": 131,
+        "fp": 61,
+        "fn": 533,
+        "precision": 0.6823,
+        "recall": 0.1973,
+        "f1": 0.3061,
+        "mean_iou": 0.8366
+      },
+      "molding_deco": {
+        "gt_count": 2038,
+        "tp": 977,
+        "fp": 747,
+        "fn": 1061,
+        "precision": 0.5667,
+        "recall": 0.4794,
+        "f1": 0.5194,
+        "mean_iou": 0.7726
+      }
+    }
+  }
+}

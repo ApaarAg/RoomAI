@@ -1,0 +1,231 @@
+# Model Registry and Runtime Configuration for RoomAI
+# As you implement each model in the models/ folder, configure the checkpoints here.
+
+classification:
+  enabled: true
+  model_type: "custom" # "custom_cnn", "vision_transformer", or "custom"
+  checkpoint_path: "checkpoints/classification_best.pt"
+  input_size: [224, 224]
+  confidence_threshold: 0.35
+  classes:
+    - "Living Room"
+    - "Bedroom"
+    - "Kitchen"
+    - "Dining Room"
+    - "Bathroom"
+    - "Home Office"
+
+detection:
+  enabled: true
+  task_group: "Group A: Indoor Furniture & Household Objects"
+  model_type: "yolo11"
+  default_mode: "best_single" # "best_single", "ensemble", "a1", "a2", or "baseline"
+  checkpoint_path: "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt"
+  confidence_threshold: 0.35
+  iou_threshold: 0.45
+  imgsz: 800
+  half: false
+  device: "cuda:0"
+  target_classes:
+    - "cabinet#shelf"
+    - "table"
+    - "chair#stool"
+    - "lamp"
+    - "door"
+    - "bed"
+    - "sofa"
+    - "plant"
+    - "decoration"
+    - "curtain"
+    - "home-appliance"
+    - "window"
+  candidates:
+    best_single:
+      name: "Model A3 (Higher-Resolution YOLO11s 800px) [Active Primary]"
+      checkpoint: "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt"
+      imgsz: 800
+      nc: 12
+    model_a2_rollback:
+      name: "Model A2 Fine-Tuned (YOLO11s 640px) [Rollback Candidate]"
+      checkpoint: "checkpoints/indoor_detector_a2_yolo11s_finetune_best.pt"
+      imgsz: 640
+      nc: 12
+    model_a1:
+      name: "Model A1 (YOLO11n Expanded)"
+      checkpoint: "checkpoints/indoor_detector_a1_yolo11n_pilot_best.pt"
+      imgsz: 640
+      nc: 12
+    model_a2_pilot:
+      name: "Model A2 Pilot (YOLO11s)"
+      checkpoint: "checkpoints/indoor_detector_a2_yolo11s_pilot_best.pt"
+      imgsz: 640
+      nc: 12
+    baseline_rollback:
+      name: "Rollback Baseline (DeepFurniture YOLO11n)"
+      checkpoint: "checkpoints/deepfurniture_yolo11n_finetune_best.pt"
+      imgsz: 640
+      nc: 11
+  ensemble:
+    fusion_method: "wbf"
+    fusion_iou_threshold: 0.50
+    model_weights: [0.8, 1.2]
+    single_model_factor: 0.88
+    consensus_bonus: 0.06
+    cross_class_iou_threshold: 0.80
+
+exterior_detection:
+  enabled: true
+  task_group: "Group B: Exterior and Building Components"
+  model_type: "yolo11s"
+  checkpoint_path: "checkpoints/exterior_detector_b2_yolo11s_best.pt"
+  confidence_threshold: 0.25
+  iou_threshold: 0.45
+  status: "production_ready"
+  target_classes:
+    - "building"
+    - "facade"
+    - "window"
+    - "door"
+    - "roof_cornice"
+    - "balcony"
+    - "porch"
+    - "pillar_column"
+    - "shutter_blind"
+    - "molding_deco"
+
+exterior_detection_b4_experimental:
+  enabled: false  # Opt-in experimental candidate, strictly NOT active in production
+  task_group: "Group B: Exterior and Building Components"
+  model_type: "yolo11s"
+  checkpoint_path: "checkpoints/exterior_detector_b4_yolo11s_curated_best.pt"
+  confidence_threshold: 0.25  # Fallback for any unspecified class
+  use_per_class_thresholds: true
+  per_class_thresholds:
+    building: 0.26
+    facade: 0.31
+    window: 0.46
+    door: 0.22
+    roof_cornice: 0.44
+    balcony: 0.24
+    porch: 0.17
+    pillar_column: 0.23
+    shutter_blind: 0.17
+    molding_deco: 0.24
+  iou_threshold: 0.45
+  status: "experimental_candidate"
+  target_classes:
+    - "building"
+    - "facade"
+    - "window"
+    - "door"
+    - "roof_cornice"
+    - "balcony"
+    - "porch"
+    - "pillar_column"
+    - "shutter_blind"
+    - "molding_deco"
+
+exterior_detection_b6_candidate:
+  enabled: false
+  status: "candidate"
+  checkpoint_path: "checkpoints/exterior_detector_b6_expanded_best.pt"
+  task_group: "Group B: Exterior and Building Components"
+
+parking_detection:
+  enabled: true
+  task_group: "Group C: Parking & Outdoor Property"
+  model_type: "yolo11s"
+  checkpoint_path: "checkpoints/parking_detector_c2_yolo11s_pilot_best.pt"
+  confidence_threshold: 0.25
+  iou_threshold: 0.45
+  status: "production_ready"
+  target_classes:
+    - "car_vehicle"
+    - "motorcycle"
+    - "bicycle"
+    - "outdoor_seating"
+    - "outdoor_table"
+    - "plant_bush"
+    - "tree"
+    - "outdoor_fixture"
+
+segmentation:
+  enabled: true
+  model_type: "yolo11-seg"
+  checkpoint_path: "checkpoints/yolo11n-seg.pt"
+  confidence_threshold: 0.25
+  mask_threshold: 0.50
+  categories:
+    - "floor"
+    - "wall"
+    - "furniture"
+    - "ceiling"
+    - "window"
+
+vision_language:
+  enabled: true
+  model_type: "custom"
+  checkpoint_path: "checkpoints/vlm_best.pt"
+  max_tokens: 256
+  temperature: 0.7
+
+generation:
+  enabled: true
+  model_type: "custom"
+  checkpoint_path: "checkpoints/generator_best.pt"
+  guidance_scale: 7.5
+  num_inference_steps: 30
+
+scene3d:
+  enabled: true
+  model_name: "Depth Anything V2 Small"
+  model_type: "depth_anything_v2"
+  checkpoint_path: "checkpoints/depth_anything_v2_small"
+  hf_model_id: "depth-anything/Depth-Anything-V2-Small-hf"
+  device: "cuda:0"
+  input_size: [518, 518]
+  generate_point_cloud: true
+  relative_depth_only: true
+
+scene3d_metric:
+  enabled: true
+  model_name: "Depth Anything V2 Metric Indoor Small"
+  model_type: "depth_anything_v2"
+  checkpoint_path: "checkpoints/depth_anything_v2_metric_indoor_small"
+  hf_model_id: "depth-anything/Depth-Anything-V2-Metric-Indoor-Small-hf"
+  depth_mode: "metric"
+  device: "cuda:0"
+  input_size: [518, 518]
+  generate_point_cloud: true
+  relative_depth_only: false
+  max_depth: 20.0
+
+multiview_3d:
+  enabled: true
+  feature_detector: "sift"
+  max_features: 2000
+  ratio_test_threshold: 0.75
+  inlier_distance_threshold_m: 0.25
+  min_inliers: 6
+  voxel_downsample_size_m: 0.03
+  sor_k_neighbors: 16
+  sor_std_ratio: 1.8
+  depth_refinement:
+    enabled: true
+    guided_bilateral: true
+    filter_flying_pixels: true
+    gradient_threshold_ratio: 0.18
+
+hunyuan_world_mirror_1b:
+  enabled: true
+  model_id: "hunyuan_world_mirror_1b"
+  name: "Tencent HunyuanWorld-Mirror 1.0"
+  checkpoint_path: "results/final_execution/checkpoints/exp_05_expanded_lora_rank8_final.ckpt"
+  reference_baseline_checkpoint_path: "research/3d_reconstruction/checkpoints/production_candidate/production_model.ckpt"
+  expected_sha256: "2472EBADCF06EAD0276C2E7FBD7467A6010C1A5CD591AA066E7EA8C57CEC699F"
+  reference_sha256: "DBC9C9B0D4FAE796CE5DD142BDDE7E491057E484DB313FEF0397CAC0C33970E5"
+  img_size: 518
+  min_views: 1
+  max_views: 6
+  required_vram_mb: 4800
+

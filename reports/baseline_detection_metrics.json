@@ -1,0 +1,2792 @@
+[
+  {
+    "group": "Group A: Indoor Furniture (Active Production Primary A3)",
+    "task_id": "indoor_detection",
+    "model_id": "indoor_a3_production_primary",
+    "checkpoint": "F:\\RoomAI\\checkpoints\\indoor_detector_a3_yolo11s_800px_best.pt",
+    "dataset": "F:\\RoomAI\\data\\indoor_canonical\\indoor_canonical.yaml",
+    "resolution": 800,
+    "batch_size": 8,
+    "parameter_count": 9432436,
+    "gflops": 21.3,
+    "notes": "Active production indoor primary detector trained at 800px.",
+    "splits": {
+      "val": {
+        "mAP50": 0.7613,
+        "mAP50_95": 0.5818,
+        "precision": 0.7358,
+        "recall": 0.6919,
+        "f1": 0.7132,
+        "timing_ms": {
+          "preprocess": 2.36,
+          "inference": 8.38,
+          "postprocess": 1.96,
+          "total_per_image": 12.7
+        },
+        "steady_fps": 78.7,
+        "peak_vram_allocated_mb": 639.5,
+        "peak_vram_reserved_mb": 1586.0,
+        "per_class": {
+          "cabinet#shelf": {
+            "precision": 0.7103,
+            "recall": 0.6879,
+            "f1": 0.6989,
+            "map50": 0.7426,
+            "map50_95": 0.5967
+          },
+          "table": {
+            "precision": 0.733,
+            "recall": 0.7558,
+            "f1": 0.7443,
+            "map50": 0.81,
+            "map50_95": 0.6084
+          },
+          "chair#stool": {
+            "precision": 0.7105,
+            "recall": 0.7068,
+            "f1": 0.7087,
+            "map50": 0.7579,
+            "map50_95": 0.5491
+          },
+          "lamp": {
+            "precision": 0.7133,
+            "recall": 0.6959,
+            "f1": 0.7045,
+            "map50": 0.7517,
+            "map50_95": 0.5745
+          },
+          "door": {
+            "precision": 0.6477,
+            "recall": 0.59,
+            "f1": 0.6175,
+            "map50": 0.6615,
+            "map50_95": 0.5302
+          },
+          "bed": {
+            "precision": 0.9418,
+            "recall": 0.7557,
+            "f1": 0.8385,
+            "map50": 0.9227,
+            "map50_95": 0.7804
+          },
+          "sofa": {
+            "precision": 0.8221,
+            "recall": 0.8481,
+            "f1": 0.8349,
+            "map50": 0.897,
+            "map50_95": 0.6838
+          },
+          "plant": {
+            "precision": 0.7475,
+            "recall": 0.697,
+            "f1": 0.7213,
+            "map50": 0.736,
+            "map50_95": 0.4312
+          },
+          "decoration": {
+            "precision": 0.8363,
+            "recall": 0.7728,
+            "f1": 0.8033,
+            "map50": 0.8446,
+            "map50_95": 0.702
+          },
+          "curtain": {
+            "precision": 0.6212,
+            "recall": 0.6835,
+            "f1": 0.6509,
+            "map50": 0.7249,
+            "map50_95": 0.5841
+          },
+          "home-appliance": {
+            "precision": 0.7373,
+            "recall": 0.6484,
+            "f1": 0.69,
+            "map50": 0.713,
+            "map50_95": 0.5861
+          },
+          "window": {
+            "precision": 0.6085,
+            "recall": 0.4608,
+            "f1": 0.5244,
+            "map50": 0.5742,
+            "map50_95": 0.3555
+          }
+        }
+      },
+      "test": {
+        "mAP50": 0.776,
+        "mAP50_95": 0.6509,
+        "precision": 0.8301,
+        "recall": 0.6738,
+        "f1": 0.7438,
+        "timing_ms": {
+          "preprocess": 2.65,
+          "inference": 7.49,
+          "postprocess": 1.85,
+          "total_per_image": 11.99
+        },
+        "steady_fps": 83.4,
+        "peak_vram_allocated_mb": 508.3,
+        "peak_vram_reserved_mb": 698.0,
+        "per_class": {
+          "cabinet#shelf": {
+            "precision": 0.8385,
+            "recall": 0.6618,
+            "f1": 0.7397,
+            "map50": 0.7851,
+            "map50_95": 0.6496
+          },
+          "table": {
+            "precision": 0.804,
+            "recall": 0.6079,
+            "f1": 0.6923,
+            "map50": 0.6772,
+            "map50_95": 0.5574
+          },
+          "chair#stool": {
+            "precision": 0.7362,
+            "recall": 0.4028,
+            "f1": 0.5207,
+            "map50": 0.6245,
+            "map50_95": 0.4971
+          },
+          "lamp": {
+            "precision": 0.7746,
+            "recall": 0.7611,
+            "f1": 0.7677,
+            "map50": 0.842,
+            "map50_95": 0.7097
+          },
+          "door": {
+            "precision": 0.8459,
+            "recall": 0.6053,
+            "f1": 0.7056,
+            "map50": 0.743,
+            "map50_95": 0.603
+          },
+          "bed": {
+            "precision": 1.0,
+            "recall": 0.8091,
+            "f1": 0.8945,
+            "map50": 0.941,
+            "map50_95": 0.8531
+          },
+          "sofa": {
+            "precision": 0.8407,
+            "recall": 0.7366,
+            "f1": 0.7852,
+            "map50": 0.8362,
+            "map50_95": 0.6968
+          },
+          "plant": {
+            "precision": 0.8087,
+            "recall": 0.8157,
+            "f1": 0.8122,
+            "map50": 0.8203,
+            "map50_95": 0.6202
+          },
+          "decoration": {
+            "precision": 0.8137,
+            "recall": 0.7439,
+            "f1": 0.7772,
+            "map50": 0.826,
+            "map50_95": 0.7718
+          },
+          "curtain": {
+            "precision": 0.7975,
+            "recall": 0.5405,
+            "f1": 0.6444,
+            "map50": 0.6561,
+            "map50_95": 0.4841
+          },
+          "home-appliance": {
+            "precision": 0.8716,
+            "recall": 0.7274,
+            "f1": 0.793,
+            "map50": 0.7841,
+            "map50_95": 0.7175
+          },
+          "window": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "Group A: Indoor Rollback Baseline (DeepFurniture 11-Class)",
+    "task_id": "indoor_detection",
+    "model_id": "deepfurniture_baseline",
+    "checkpoint": "F:\\RoomAI\\checkpoints\\deepfurniture_yolo11n_finetune_best.pt",
+    "dataset": "F:\\RoomAI\\data\\deepfurniture\\deepfurniture.yaml",
+    "resolution": 640,
+    "batch_size": 8,
+    "parameter_count": 2591985,
+    "gflops": 6.3,
+    "notes": "Baseline rollback model trained on 11 furniture classes.",
+    "splits": {
+      "val": {
+        "mAP50": 0.7493,
+        "mAP50_95": 0.6142,
+        "precision": 0.7937,
+        "recall": 0.6754,
+        "f1": 0.7298,
+        "timing_ms": {
+          "preprocess": 1.61,
+          "inference": 4.3,
+          "postprocess": 2.07,
+          "total_per_image": 7.99
+        },
+        "steady_fps": 125.2,
+        "peak_vram_allocated_mb": 236.4,
+        "peak_vram_reserved_mb": 308.0,
+        "per_class": {
+          "cabinet#shelf": {
+            "precision": 0.8242,
+            "recall": 0.7366,
+            "f1": 0.778,
+            "map50": 0.8228,
+            "map50_95": 0.6968
+          },
+          "table": {
+            "precision": 0.7448,
+            "recall": 0.5676,
+            "f1": 0.6442,
+            "map50": 0.6057,
+            "map50_95": 0.4561
+          },
+          "chair#stool": {
+            "precision": 0.9587,
+            "recall": 0.5,
+            "f1": 0.6572,
+            "map50": 0.616,
+            "map50_95": 0.4024
+          },
+          "lamp": {
+            "precision": 0.8782,
+            "recall": 0.9067,
+            "f1": 0.8922,
+            "map50": 0.9339,
+            "map50_95": 0.7948
+          },
+          "door": {
+            "precision": 0.8137,
+            "recall": 0.7392,
+            "f1": 0.7747,
+            "map50": 0.7917,
+            "map50_95": 0.6713
+          },
+          "bed": {
+            "precision": 0.9019,
+            "recall": 0.8655,
+            "f1": 0.8833,
+            "map50": 0.9547,
+            "map50_95": 0.8649
+          },
+          "sofa": {
+            "precision": 0.643,
+            "recall": 0.75,
+            "f1": 0.6924,
+            "map50": 0.7963,
+            "map50_95": 0.6218
+          },
+          "plant": {
+            "precision": 0.7341,
+            "recall": 0.5225,
+            "f1": 0.6105,
+            "map50": 0.6003,
+            "map50_95": 0.4732
+          },
+          "decoration": {
+            "precision": 0.8278,
+            "recall": 0.7154,
+            "f1": 0.7675,
+            "map50": 0.7776,
+            "map50_95": 0.7141
+          },
+          "curtain": {
+            "precision": 0.6512,
+            "recall": 0.6709,
+            "f1": 0.6609,
+            "map50": 0.695,
+            "map50_95": 0.5908
+          },
+          "home-appliance": {
+            "precision": 0.7529,
+            "recall": 0.4545,
+            "f1": 0.5669,
+            "map50": 0.6483,
+            "map50_95": 0.4701
+          }
+        }
+      },
+      "test": {
+        "mAP50": 0.731,
+        "mAP50_95": 0.5891,
+        "precision": 0.7374,
+        "recall": 0.6828,
+        "f1": 0.709,
+        "timing_ms": {
+          "preprocess": 1.69,
+          "inference": 3.33,
+          "postprocess": 2.16,
+          "total_per_image": 7.19
+        },
+        "steady_fps": 139.1,
+        "peak_vram_allocated_mb": 236.4,
+        "peak_vram_reserved_mb": 308.0,
+        "per_class": {
+          "cabinet#shelf": {
+            "precision": 0.7635,
+            "recall": 0.6422,
+            "f1": 0.6976,
+            "map50": 0.7567,
+            "map50_95": 0.6208
+          },
+          "table": {
+            "precision": 0.7589,
+            "recall": 0.5556,
+            "f1": 0.6415,
+            "map50": 0.6777,
+            "map50_95": 0.5446
+          },
+          "chair#stool": {
+            "precision": 0.5979,
+            "recall": 0.4444,
+            "f1": 0.5099,
+            "map50": 0.5231,
+            "map50_95": 0.3782
+          },
+          "lamp": {
+            "precision": 0.8983,
+            "recall": 0.8038,
+            "f1": 0.8484,
+            "map50": 0.8618,
+            "map50_95": 0.6958
+          },
+          "door": {
+            "precision": 0.7943,
+            "recall": 0.6438,
+            "f1": 0.7112,
+            "map50": 0.7108,
+            "map50_95": 0.5977
+          },
+          "bed": {
+            "precision": 0.8627,
+            "recall": 0.9067,
+            "f1": 0.8842,
+            "map50": 0.9431,
+            "map50_95": 0.8798
+          },
+          "sofa": {
+            "precision": 0.4737,
+            "recall": 0.6071,
+            "f1": 0.5322,
+            "map50": 0.4646,
+            "map50_95": 0.3311
+          },
+          "plant": {
+            "precision": 0.7751,
+            "recall": 0.7368,
+            "f1": 0.7555,
+            "map50": 0.8018,
+            "map50_95": 0.5241
+          },
+          "decoration": {
+            "precision": 0.7964,
+            "recall": 0.8293,
+            "f1": 0.8125,
+            "map50": 0.8656,
+            "map50_95": 0.7963
+          },
+          "curtain": {
+            "precision": 0.669,
+            "recall": 0.6008,
+            "f1": 0.6331,
+            "map50": 0.647,
+            "map50_95": 0.5004
+          },
+          "home-appliance": {
+            "precision": 0.7214,
+            "recall": 0.7399,
+            "f1": 0.7305,
+            "map50": 0.789,
+            "map50_95": 0.6115
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "Open Images Pilot: Pretrained Reference Baseline (YOLO11s 640px)",
+    "task_id": "open_images_pilot_benchmark",
+    "model_id": "yolo11s_coco_reference_640",
+    "checkpoint": "F:\\RoomAI\\yolo11s.pt",
+    "dataset": "F:\\RoomAI_Data\\yolo_open_images_pilot\\data.yaml",
+    "resolution": 640,
+    "batch_size": 8,
+    "parameter_count": 9458752,
+    "gflops": 21.5,
+    "notes": "Pretrained COCO 80-class weights evaluated on Open Images 18-class test split. Measures zero-shot latency & VRAM floor; mAP reflects unaligned class IDs (prior to fine-tuning).",
+    "splits": {
+      "test": {
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "precision": 0.0014,
+        "recall": 0.0028,
+        "f1": 0.0019,
+        "timing_ms": {
+          "preprocess": 1.08,
+          "inference": 5.89,
+          "postprocess": 1.76,
+          "total_per_image": 8.73
+        },
+        "steady_fps": 114.6,
+        "peak_vram_allocated_mb": 440.3,
+        "peak_vram_reserved_mb": 1104.0,
+        "per_class": {
+          "person": {
+            "precision": 0.0,
+            "recall": 0.0027,
+            "f1": 0.0001,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bicycle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "car": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "motorcycle": {
+            "precision": 0.0006,
+            "recall": 0.0012,
+            "f1": 0.0008,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "airplane": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bus": {
+            "precision": 0.0006,
+            "recall": 0.0047,
+            "f1": 0.0011,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "train": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "truck": {
+            "precision": 0.0002,
+            "recall": 0.0057,
+            "f1": 0.0004,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "boat": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "traffic light": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "fire hydrant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "stop sign": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "parking meter": {
+            "precision": 0.0186,
+            "recall": 0.0131,
+            "f1": 0.0154,
+            "map50": 0.0006,
+            "map50_95": 0.0003
+          },
+          "bench": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bird": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cat": {
+            "precision": 0.004,
+            "recall": 0.0005,
+            "f1": 0.0009,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "horse": {
+            "precision": 0.0018,
+            "recall": 0.0227,
+            "f1": 0.0033,
+            "map50": 0.0001,
+            "map50_95": 0.0001
+          },
+          "sheep": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cow": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "elephant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bear": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "zebra": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "giraffe": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "backpack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "umbrella": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "handbag": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tie": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "suitcase": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "frisbee": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "skis": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "snowboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sports ball": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "kite": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "baseball bat": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "baseball glove": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "skateboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "surfboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tennis racket": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bottle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "wine glass": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cup": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "fork": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "knife": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "spoon": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bowl": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "banana": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "apple": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sandwich": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "orange": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "broccoli": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "carrot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "hot dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "pizza": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "donut": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cake": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "chair": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "couch": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "potted plant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bed": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "dining table": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toilet": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tv": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "laptop": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "mouse": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "remote": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "keyboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cell phone": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "microwave": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "oven": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toaster": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "refrigerator": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "book": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "clock": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "vase": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "scissors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "teddy bear": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "hair drier": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toothbrush": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "Open Images Pilot: Pretrained Reference Baseline (YOLO11s 800px)",
+    "task_id": "open_images_pilot_benchmark",
+    "model_id": "yolo11s_coco_reference_800",
+    "checkpoint": "F:\\RoomAI\\yolo11s.pt",
+    "dataset": "F:\\RoomAI_Data\\yolo_open_images_pilot\\data.yaml",
+    "resolution": 800,
+    "batch_size": 8,
+    "parameter_count": 9458752,
+    "gflops": 33.6,
+    "notes": "Pretrained COCO 80-class weights at 800px resolution on Open Images test split. Benchmarks high-resolution inference latency and peak VRAM.",
+    "splits": {
+      "test": {
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "precision": 0.0019,
+        "recall": 0.0059,
+        "f1": 0.0029,
+        "timing_ms": {
+          "preprocess": 2.33,
+          "inference": 7.17,
+          "postprocess": 1.85,
+          "total_per_image": 11.35
+        },
+        "steady_fps": 88.1,
+        "peak_vram_allocated_mb": 675.5,
+        "peak_vram_reserved_mb": 1892.0,
+        "per_class": {
+          "person": {
+            "precision": 0.0,
+            "recall": 0.0027,
+            "f1": 0.0001,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bicycle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "car": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "motorcycle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "airplane": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bus": {
+            "precision": 0.0007,
+            "recall": 0.0047,
+            "f1": 0.0012,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "train": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "truck": {
+            "precision": 0.0006,
+            "recall": 0.017,
+            "f1": 0.0012,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "boat": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "traffic light": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "fire hydrant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "stop sign": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "parking meter": {
+            "precision": 0.0191,
+            "recall": 0.0153,
+            "f1": 0.017,
+            "map50": 0.0004,
+            "map50_95": 0.0002
+          },
+          "bench": {
+            "precision": 0.0002,
+            "recall": 0.0417,
+            "f1": 0.0003,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bird": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cat": {
+            "precision": 0.0119,
+            "recall": 0.0016,
+            "f1": 0.0027,
+            "map50": 0.0001,
+            "map50_95": 0.0
+          },
+          "dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "horse": {
+            "precision": 0.002,
+            "recall": 0.0227,
+            "f1": 0.0036,
+            "map50": 0.0002,
+            "map50_95": 0.0001
+          },
+          "sheep": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cow": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "elephant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bear": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "zebra": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "giraffe": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "backpack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "umbrella": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "handbag": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tie": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "suitcase": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "frisbee": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "skis": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "snowboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sports ball": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "kite": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "baseball bat": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "baseball glove": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "skateboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "surfboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tennis racket": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bottle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "wine glass": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cup": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "fork": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "knife": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "spoon": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bowl": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "banana": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "apple": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sandwich": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "orange": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "broccoli": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "carrot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "hot dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "pizza": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "donut": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cake": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "chair": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "couch": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "potted plant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bed": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "dining table": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toilet": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tv": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "laptop": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "mouse": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "remote": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "keyboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cell phone": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "microwave": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "oven": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toaster": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "refrigerator": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "book": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "clock": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "vase": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "scissors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "teddy bear": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "hair drier": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toothbrush": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "Open Images Pilot: Pretrained Reference Baseline (YOLO11n 640px)",
+    "task_id": "open_images_pilot_benchmark",
+    "model_id": "yolo11n_coco_reference_640",
+    "checkpoint": "F:\\RoomAI\\yolo11n.pt",
+    "dataset": "F:\\RoomAI_Data\\yolo_open_images_pilot\\data.yaml",
+    "resolution": 640,
+    "batch_size": 8,
+    "parameter_count": 2624080,
+    "gflops": 6.5,
+    "notes": "Lightweight pretrained COCO 80-class weights on Open Images test split at 640px. High throughput baseline candidate.",
+    "splits": {
+      "test": {
+        "mAP50": 0.0004,
+        "mAP50_95": 0.0003,
+        "precision": 0.003,
+        "recall": 0.0117,
+        "f1": 0.0048,
+        "timing_ms": {
+          "preprocess": 1.21,
+          "inference": 3.68,
+          "postprocess": 1.83,
+          "total_per_image": 6.72
+        },
+        "steady_fps": 148.9,
+        "peak_vram_allocated_mb": 287.1,
+        "peak_vram_reserved_mb": 610.0,
+        "per_class": {
+          "person": {
+            "precision": 0.0001,
+            "recall": 0.0081,
+            "f1": 0.0002,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bicycle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "car": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "motorcycle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "airplane": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bus": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "train": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "truck": {
+            "precision": 0.0002,
+            "recall": 0.0057,
+            "f1": 0.0003,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "boat": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "traffic light": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "fire hydrant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "stop sign": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "parking meter": {
+            "precision": 0.0393,
+            "recall": 0.0393,
+            "f1": 0.0393,
+            "map50": 0.0065,
+            "map50_95": 0.0046
+          },
+          "bench": {
+            "precision": 0.0001,
+            "recall": 0.0417,
+            "f1": 0.0003,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bird": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cat": {
+            "precision": 0.0089,
+            "recall": 0.0016,
+            "f1": 0.0026,
+            "map50": 0.0003,
+            "map50_95": 0.0002
+          },
+          "dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "horse": {
+            "precision": 0.0062,
+            "recall": 0.1136,
+            "f1": 0.0117,
+            "map50": 0.0007,
+            "map50_95": 0.0004
+          },
+          "sheep": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cow": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "elephant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bear": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "zebra": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "giraffe": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "backpack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "umbrella": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "handbag": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tie": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "suitcase": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "frisbee": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "skis": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "snowboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sports ball": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "kite": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "baseball bat": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "baseball glove": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "skateboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "surfboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tennis racket": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bottle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "wine glass": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cup": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "fork": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "knife": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "spoon": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bowl": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "banana": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "apple": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sandwich": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "orange": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "broccoli": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "carrot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "hot dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "pizza": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "donut": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cake": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "chair": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "couch": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "potted plant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bed": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "dining table": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toilet": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tv": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "laptop": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "mouse": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "remote": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "keyboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cell phone": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "microwave": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "oven": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toaster": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "refrigerator": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "book": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "clock": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "vase": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "scissors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "teddy bear": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "hair drier": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toothbrush": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          }
+        }
+      }
+    }
+  },
+  {
+    "group": "Open Images Pilot: Pretrained Reference Baseline (YOLO11n 800px)",
+    "task_id": "open_images_pilot_benchmark",
+    "model_id": "yolo11n_coco_reference_800",
+    "checkpoint": "F:\\RoomAI\\yolo11n.pt",
+    "dataset": "F:\\RoomAI_Data\\yolo_open_images_pilot\\data.yaml",
+    "resolution": 800,
+    "batch_size": 8,
+    "parameter_count": 2624080,
+    "gflops": 10.2,
+    "notes": "Lightweight pretrained COCO 80-class weights on Open Images test split at 800px resolution.",
+    "splits": {
+      "test": {
+        "mAP50": 0.0003,
+        "mAP50_95": 0.0001,
+        "precision": 0.0033,
+        "recall": 0.0117,
+        "f1": 0.0052,
+        "timing_ms": {
+          "preprocess": 2.07,
+          "inference": 4.28,
+          "postprocess": 2.05,
+          "total_per_image": 8.4
+        },
+        "steady_fps": 119.1,
+        "peak_vram_allocated_mb": 396.1,
+        "peak_vram_reserved_mb": 958.0,
+        "per_class": {
+          "person": {
+            "precision": 0.0001,
+            "recall": 0.0081,
+            "f1": 0.0002,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bicycle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "car": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "motorcycle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "airplane": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bus": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "train": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "truck": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "boat": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "traffic light": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "fire hydrant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "stop sign": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "parking meter": {
+            "precision": 0.0345,
+            "recall": 0.0437,
+            "f1": 0.0386,
+            "map50": 0.0036,
+            "map50_95": 0.0018
+          },
+          "bench": {
+            "precision": 0.0001,
+            "recall": 0.0417,
+            "f1": 0.0003,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bird": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cat": {
+            "precision": 0.0197,
+            "recall": 0.0041,
+            "f1": 0.0068,
+            "map50": 0.0001,
+            "map50_95": 0.0001
+          },
+          "dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "horse": {
+            "precision": 0.0056,
+            "recall": 0.1136,
+            "f1": 0.0107,
+            "map50": 0.0011,
+            "map50_95": 0.0004
+          },
+          "sheep": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cow": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "elephant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bear": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "zebra": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "giraffe": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "backpack": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "umbrella": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "handbag": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tie": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "suitcase": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "frisbee": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "skis": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "snowboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sports ball": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "kite": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "baseball bat": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "baseball glove": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "skateboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "surfboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tennis racket": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bottle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "wine glass": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cup": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "fork": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "knife": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "spoon": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bowl": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "banana": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "apple": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sandwich": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "orange": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "broccoli": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "carrot": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "hot dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "pizza": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "donut": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cake": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "chair": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "couch": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "potted plant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "bed": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "dining table": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toilet": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "tv": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "laptop": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "mouse": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "remote": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "keyboard": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "cell phone": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "microwave": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "oven": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toaster": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "sink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "refrigerator": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "book": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "clock": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "vase": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "scissors": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "teddy bear": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "hair drier": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          },
+          "toothbrush": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "map50": 0.0,
+            "map50_95": 0.0
+          }
+        }
+      }
+    }
+  }
+]

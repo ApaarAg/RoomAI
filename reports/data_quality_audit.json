@@ -1,0 +1,444 @@
+{
+  "indoor_canonical": {
+    "dataset_name": "indoor_canonical",
+    "num_classes": 12,
+    "class_names": [
+      "cabinet#shelf",
+      "table",
+      "chair#stool",
+      "lamp",
+      "door",
+      "bed",
+      "sofa",
+      "plant",
+      "decoration",
+      "curtain",
+      "home-appliance",
+      "window"
+    ],
+    "splits": {
+      "train": {
+        "image_count": 2985,
+        "label_count": 2985,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      },
+      "val": {
+        "image_count": 554,
+        "label_count": 554,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      },
+      "test": {
+        "image_count": 150,
+        "label_count": 150,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      }
+    },
+    "leakage_analysis": {
+      "exact_duplicate_leakage_count": 0,
+      "exact_duplicates": [],
+      "correlated_scene_leakage_count": 0,
+      "sample_correlated_scenes": []
+    },
+    "class_distribution": {
+      "total_instances": 28606,
+      "per_class_counts": {
+        "cabinet#shelf": 1773,
+        "table": 3294,
+        "chair#stool": 2899,
+        "lamp": 3151,
+        "door": 1556,
+        "bed": 669,
+        "sofa": 2647,
+        "plant": 5312,
+        "decoration": 4096,
+        "curtain": 509,
+        "home-appliance": 693,
+        "window": 2007
+      },
+      "per_split_counts": {
+        "train": {
+          "cabinet#shelf": 1255,
+          "table": 2735,
+          "chair#stool": 2462,
+          "lamp": 2496,
+          "door": 1227,
+          "bed": 487,
+          "sofa": 2190,
+          "plant": 4430,
+          "decoration": 3323,
+          "curtain": 356,
+          "home-appliance": 574,
+          "window": 1636
+        },
+        "val": {
+          "cabinet#shelf": 314,
+          "table": 505,
+          "chair#stool": 365,
+          "lamp": 497,
+          "door": 215,
+          "bed": 107,
+          "sofa": 414,
+          "plant": 825,
+          "decoration": 691,
+          "curtain": 79,
+          "home-appliance": 91,
+          "window": 371
+        },
+        "test": {
+          "cabinet#shelf": 204,
+          "table": 54,
+          "chair#stool": 72,
+          "lamp": 158,
+          "door": 114,
+          "bed": 75,
+          "sofa": 43,
+          "plant": 57,
+          "decoration": 82,
+          "curtain": 74,
+          "home-appliance": 28,
+          "window": 0
+        }
+      },
+      "max_class_count": 5312,
+      "min_class_count": 509,
+      "imbalance_ratio": 10.44
+    },
+    "geometry_anomalies": {
+      "out_of_bounds_coords": 0,
+      "degenerate_boxes": 0,
+      "tiny_boxes_sub_0_1_pct": 699,
+      "giant_boxes_gt_90_pct": 2,
+      "invalid_class_id": 0,
+      "empty_label_files": 0
+    },
+    "background_images": {}
+  },
+  "exterior_canonical": {
+    "dataset_name": "exterior_canonical",
+    "num_classes": 10,
+    "class_names": [
+      "building",
+      "facade",
+      "window",
+      "door",
+      "roof_cornice",
+      "balcony",
+      "porch",
+      "pillar_column",
+      "shutter_blind",
+      "molding_deco"
+    ],
+    "splits": {
+      "train": {
+        "image_count": 458,
+        "label_count": 458,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      },
+      "val": {
+        "image_count": 134,
+        "label_count": 134,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      },
+      "test": {
+        "image_count": 134,
+        "label_count": 134,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      }
+    },
+    "leakage_analysis": {
+      "exact_duplicate_leakage_count": 0,
+      "exact_duplicates": [],
+      "correlated_scene_leakage_count": 1,
+      "sample_correlated_scenes": [
+        {
+          "scene_prefix": "oi_ext",
+          "splits": [
+            "train",
+            "val",
+            "test"
+          ]
+        }
+      ]
+    },
+    "class_distribution": {
+      "total_instances": 49890,
+      "per_class_counts": {
+        "building": 147,
+        "facade": 3485,
+        "window": 19995,
+        "door": 2157,
+        "roof_cornice": 3908,
+        "balcony": 1829,
+        "porch": 6,
+        "pillar_column": 3660,
+        "shutter_blind": 4052,
+        "molding_deco": 10651
+      },
+      "per_split_counts": {
+        "train": {
+          "building": 101,
+          "facade": 2411,
+          "window": 12224,
+          "door": 1362,
+          "roof_cornice": 2797,
+          "balcony": 1091,
+          "porch": 1,
+          "pillar_column": 2270,
+          "shutter_blind": 2487,
+          "molding_deco": 7070
+        },
+        "val": {
+          "building": 22,
+          "facade": 495,
+          "window": 3754,
+          "door": 367,
+          "roof_cornice": 445,
+          "balcony": 345,
+          "porch": 3,
+          "pillar_column": 494,
+          "shutter_blind": 901,
+          "molding_deco": 1543
+        },
+        "test": {
+          "building": 24,
+          "facade": 579,
+          "window": 4017,
+          "door": 428,
+          "roof_cornice": 666,
+          "balcony": 393,
+          "porch": 2,
+          "pillar_column": 896,
+          "shutter_blind": 664,
+          "molding_deco": 2038
+        }
+      },
+      "max_class_count": 19995,
+      "min_class_count": 6,
+      "imbalance_ratio": 3332.5
+    },
+    "geometry_anomalies": {
+      "out_of_bounds_coords": 0,
+      "degenerate_boxes": 0,
+      "tiny_boxes_sub_0_1_pct": 6451,
+      "giant_boxes_gt_90_pct": 291,
+      "invalid_class_id": 0,
+      "empty_label_files": 0
+    },
+    "background_images": {}
+  },
+  "parking_canonical": {
+    "dataset_name": "parking_canonical",
+    "num_classes": 8,
+    "class_names": [
+      "car_vehicle",
+      "motorcycle",
+      "bicycle",
+      "outdoor_seating",
+      "outdoor_table",
+      "plant_bush",
+      "tree",
+      "outdoor_fixture"
+    ],
+    "splits": {
+      "train": {
+        "image_count": 510,
+        "label_count": 510,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      },
+      "val": {
+        "image_count": 120,
+        "label_count": 120,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      },
+      "test": {
+        "image_count": 120,
+        "label_count": 120,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      }
+    },
+    "leakage_analysis": {
+      "exact_duplicate_leakage_count": 0,
+      "exact_duplicates": [],
+      "correlated_scene_leakage_count": 0,
+      "sample_correlated_scenes": []
+    },
+    "class_distribution": {
+      "total_instances": 2416,
+      "per_class_counts": {
+        "car_vehicle": 760,
+        "motorcycle": 94,
+        "bicycle": 81,
+        "outdoor_seating": 651,
+        "outdoor_table": 215,
+        "plant_bush": 252,
+        "tree": 165,
+        "outdoor_fixture": 198
+      },
+      "per_split_counts": {
+        "train": {
+          "car_vehicle": 545,
+          "motorcycle": 55,
+          "bicycle": 66,
+          "outdoor_seating": 440,
+          "outdoor_table": 143,
+          "plant_bush": 169,
+          "tree": 97,
+          "outdoor_fixture": 132
+        },
+        "val": {
+          "car_vehicle": 100,
+          "motorcycle": 22,
+          "bicycle": 8,
+          "outdoor_seating": 116,
+          "outdoor_table": 38,
+          "plant_bush": 37,
+          "tree": 35,
+          "outdoor_fixture": 45
+        },
+        "test": {
+          "car_vehicle": 115,
+          "motorcycle": 17,
+          "bicycle": 7,
+          "outdoor_seating": 95,
+          "outdoor_table": 34,
+          "plant_bush": 46,
+          "tree": 33,
+          "outdoor_fixture": 21
+        }
+      },
+      "max_class_count": 760,
+      "min_class_count": 81,
+      "imbalance_ratio": 9.38
+    },
+    "geometry_anomalies": {
+      "out_of_bounds_coords": 0,
+      "degenerate_boxes": 0,
+      "tiny_boxes_sub_0_1_pct": 289,
+      "giant_boxes_gt_90_pct": 95,
+      "invalid_class_id": 0,
+      "empty_label_files": 0
+    },
+    "background_images": {}
+  },
+  "deepfurniture": {
+    "dataset_name": "deepfurniture",
+    "num_classes": 11,
+    "class_names": [
+      "cabinet#shelf",
+      "table",
+      "chair#stool",
+      "lamp",
+      "door",
+      "bed",
+      "sofa",
+      "plant",
+      "decoration",
+      "curtain",
+      "home-appliance"
+    ],
+    "splits": {
+      "train": {
+        "image_count": 700,
+        "label_count": 700,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      },
+      "val": {
+        "image_count": 150,
+        "label_count": 150,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      },
+      "test": {
+        "image_count": 150,
+        "label_count": 150,
+        "images_without_label_file": 0,
+        "labels_without_image_file": 0
+      }
+    },
+    "leakage_analysis": {
+      "exact_duplicate_leakage_count": 0,
+      "exact_duplicates": [],
+      "correlated_scene_leakage_count": 0,
+      "sample_correlated_scenes": []
+    },
+    "class_distribution": {
+      "total_instances": 6314,
+      "per_class_counts": {
+        "cabinet#shelf": 1196,
+        "table": 264,
+        "chair#stool": 386,
+        "lamp": 1029,
+        "door": 962,
+        "bed": 497,
+        "sofa": 175,
+        "plant": 275,
+        "decoration": 820,
+        "curtain": 509,
+        "home-appliance": 201
+      },
+      "per_split_counts": {
+        "train": {
+          "cabinet#shelf": 787,
+          "table": 174,
+          "chair#stool": 254,
+          "lamp": 678,
+          "door": 718,
+          "bed": 337,
+          "sofa": 116,
+          "plant": 181,
+          "decoration": 608,
+          "curtain": 356,
+          "home-appliance": 140
+        },
+        "val": {
+          "cabinet#shelf": 205,
+          "table": 36,
+          "chair#stool": 60,
+          "lamp": 193,
+          "door": 130,
+          "bed": 85,
+          "sofa": 16,
+          "plant": 37,
+          "decoration": 130,
+          "curtain": 79,
+          "home-appliance": 33
+        },
+        "test": {
+          "cabinet#shelf": 204,
+          "table": 54,
+          "chair#stool": 72,
+          "lamp": 158,
+          "door": 114,
+          "bed": 75,
+          "sofa": 43,
+          "plant": 57,
+          "decoration": 82,
+          "curtain": 74,
+          "home-appliance": 28
+        }
+      },
+      "max_class_count": 1196,
+      "min_class_count": 175,
+      "imbalance_ratio": 6.83
+    },
+    "geometry_anomalies": {
+      "out_of_bounds_coords": 0,
+      "degenerate_boxes": 0,
+      "tiny_boxes_sub_0_1_pct": 116,
+      "giant_boxes_gt_90_pct": 0,
+      "invalid_class_id": 0,
+      "empty_label_files": 0
+    },
+    "background_images": {}
+  }
+}

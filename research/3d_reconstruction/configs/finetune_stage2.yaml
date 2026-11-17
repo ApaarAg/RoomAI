@@ -1,0 +1,86 @@
+# ==============================================================================
+# ROOMAI — STAGE 2 3D GAUSSIAN SPLATTING FINE-TUNING CONFIGURATION
+# Focus: 3DGS Novel-View Synthesis, Radiance Optimization, Depth-Consistent Splats
+# ==============================================================================
+
+task_name: "roomai_worldmirror_stage2_gaussian"
+tags: ["stage2", "gaussian_splatting", "3dgs", "nvs", "roomai"]
+seed: 42
+
+paths:
+  log_dir: "research/3d_reconstruction/experiments/experiment_logs/stage2"
+  ckpt_dir: "research/3d_reconstruction/checkpoints/stage2"
+  stage1_best_weights: "research/3d_reconstruction/checkpoints/stage1/best_stage1.ckpt"
+  dataset_manifest: "research/3d_reconstruction/data_manifests/indoor_train_manifest.json"
+
+model:
+  _target_: src.models.models.worldmirror.WorldMirror
+  img_size: 518
+  patch_size: 14
+  embed_dim: 1024
+  gs_dim: 256
+  enable_cam: true
+  enable_pts: true
+  enable_depth: true
+  enable_norm: true
+  enable_gs: true                   # Enabled in Stage 2
+  enable_cond: true
+  dpt_gradient_checkpoint: true
+
+wrapper:
+  _target_: training.wrapper.WorldMirrorWrapper
+  eval_modalities: ["nvs", "point_map", "depth_map"]
+  enable_cond: true
+
+optimizer:
+  type: "AdamW"
+  betas: [0.9, 0.95]
+  eps: 1e-8
+  param_groups:
+    gs_head:
+      lr: 1e-4
+      weight_decay: 0.01
+    gs_renderer:
+      lr: 5e-5
+      weight_decay: 0.01
+
+scheduler:
+  type: "WarmupCosineAnnealingLR"
+  eta_min_ratio: 0.05
+  warmup_steps: 100
+  max_steps: 5000
+
+train_criterion:
+  _target_: training.losses.container.LossContainer
+  enable_cam: false
+  enable_pts: true
+  enable_depth: true
+  enable_norm: false
+  enable_gs: true
+  losses:
+    - _target_: training.losses.render.RenderMSELoss
+      mask_mode: "target_mask"
+    - _target_: training.losses.render.RenderPerceptualLoss
+      mask_mode: "target_mask"
+    - _target_: training.losses.render.RenderDepthLoss
+      depth_head_sup: true
+      depth_conf_mask: true
+      gamma: 1.0
+      alpha: 0.2
+      gradient_loss_fn: "grad"
+      valid_range: 0.98
+      mask_mode: "context_mask + target_mask"
+    - _target_: training.losses.render.GSDepthLoss
+      gamma: 1.0
+      alpha: 0.2
+      gradient_loss_fn: "grad"
+      valid_range: 0.98
+  weights: [1.0, 0.05, 0.1, 0.1]
+
+trainer:
+  precision: "bf16"
+  gradient_clip_val: 1.0
+  accumulate_grad_batches: 8
+  val_check_interval: 100
+  max_epochs: 15
+

@@ -1,0 +1,864 @@
+{
+  "timestamp": "2026-10-24 17:30:22",
+  "checkpoint_hashes": {
+    "B2 (YOLO11s Baseline)": "14a931dd0adabc16cbd7b28ed1d17f66",
+    "B3 (YOLO11s + RFS)": "2c44291fa642aba3893db001520deba0",
+    "B4 (YOLO11s Curated)": "d2710fba760713e68ea306e029ab651c"
+  },
+  "results_matrix": {
+    "B2 (YOLO11s Baseline)": {
+      "Canonical_Original_134": {
+        "mAP50": 0.3906,
+        "mAP50_95": 0.2407,
+        "precision": 0.4902,
+        "recall": 0.3962,
+        "f1": 0.4382,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.3638,
+            "ap50_95": 0.2677,
+            "precision": 0.4237,
+            "recall": 0.3333,
+            "f1": 0.3731
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2717,
+            "ap50_95": 0.1748,
+            "precision": 0.4599,
+            "recall": 0.2383,
+            "f1": 0.314
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.8028,
+            "ap50_95": 0.5708,
+            "precision": 0.7567,
+            "recall": 0.7896,
+            "f1": 0.7728
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.4156,
+            "ap50_95": 0.2612,
+            "precision": 0.5383,
+            "recall": 0.4346,
+            "f1": 0.4809
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6779,
+            "ap50_95": 0.3717,
+            "precision": 0.6221,
+            "recall": 0.6892,
+            "f1": 0.6539
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5329,
+            "ap50_95": 0.3075,
+            "precision": 0.5107,
+            "recall": 0.5954,
+            "f1": 0.5498
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.0,
+            "ap50_95": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.1921,
+            "ap50_95": 0.093,
+            "precision": 0.3828,
+            "recall": 0.2467,
+            "f1": 0.3
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.2288,
+            "ap50_95": 0.1476,
+            "precision": 0.662,
+            "recall": 0.1976,
+            "f1": 0.3044
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4207,
+            "ap50_95": 0.2132,
+            "precision": 0.5458,
+            "recall": 0.4372,
+            "f1": 0.4855
+          }
+        }
+      },
+      "Canonical_Corrected_134": {
+        "mAP50": 0.3906,
+        "mAP50_95": 0.2407,
+        "precision": 0.4902,
+        "recall": 0.3962,
+        "f1": 0.4382,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.3638,
+            "ap50_95": 0.2677,
+            "precision": 0.4237,
+            "recall": 0.3333,
+            "f1": 0.3731
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2717,
+            "ap50_95": 0.1748,
+            "precision": 0.4599,
+            "recall": 0.2383,
+            "f1": 0.314
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.8028,
+            "ap50_95": 0.5708,
+            "precision": 0.7567,
+            "recall": 0.7896,
+            "f1": 0.7728
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.4156,
+            "ap50_95": 0.2612,
+            "precision": 0.5383,
+            "recall": 0.4346,
+            "f1": 0.4809
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6779,
+            "ap50_95": 0.3717,
+            "precision": 0.6221,
+            "recall": 0.6892,
+            "f1": 0.6539
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5329,
+            "ap50_95": 0.3075,
+            "precision": 0.5107,
+            "recall": 0.5954,
+            "f1": 0.5498
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.0,
+            "ap50_95": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.1921,
+            "ap50_95": 0.093,
+            "precision": 0.3828,
+            "recall": 0.2467,
+            "f1": 0.3
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.2288,
+            "ap50_95": 0.1476,
+            "precision": 0.662,
+            "recall": 0.1976,
+            "f1": 0.3044
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4207,
+            "ap50_95": 0.2132,
+            "precision": 0.5458,
+            "recall": 0.4372,
+            "f1": 0.4855
+          }
+        }
+      },
+      "Curated_Total_154": {
+        "mAP50": 0.3753,
+        "mAP50_95": 0.2276,
+        "precision": 0.4668,
+        "recall": 0.3889,
+        "f1": 0.4243,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.2554,
+            "ap50_95": 0.1653,
+            "precision": 0.3491,
+            "recall": 0.275,
+            "f1": 0.3077
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2682,
+            "ap50_95": 0.1717,
+            "precision": 0.4556,
+            "recall": 0.2401,
+            "f1": 0.3145
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.7937,
+            "ap50_95": 0.5624,
+            "precision": 0.7523,
+            "recall": 0.7796,
+            "f1": 0.7657
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.4146,
+            "ap50_95": 0.2618,
+            "precision": 0.5372,
+            "recall": 0.4259,
+            "f1": 0.4751
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6777,
+            "ap50_95": 0.3719,
+            "precision": 0.6173,
+            "recall": 0.6922,
+            "f1": 0.6526
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5324,
+            "ap50_95": 0.3071,
+            "precision": 0.5124,
+            "recall": 0.5964,
+            "f1": 0.5512
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.0,
+            "ap50_95": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.1923,
+            "ap50_95": 0.0925,
+            "precision": 0.3767,
+            "recall": 0.2444,
+            "f1": 0.2965
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.1983,
+            "ap50_95": 0.1291,
+            "precision": 0.5246,
+            "recall": 0.1961,
+            "f1": 0.2855
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4206,
+            "ap50_95": 0.2141,
+            "precision": 0.5423,
+            "recall": 0.4392,
+            "f1": 0.4853
+          }
+        }
+      }
+    },
+    "B3 (YOLO11s + RFS)": {
+      "Canonical_Original_134": {
+        "mAP50": 0.4193,
+        "mAP50_95": 0.2572,
+        "precision": 0.6287,
+        "recall": 0.3991,
+        "f1": 0.4882,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.4735,
+            "ap50_95": 0.3067,
+            "precision": 0.3739,
+            "recall": 0.4583,
+            "f1": 0.4118
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2771,
+            "ap50_95": 0.1823,
+            "precision": 0.4317,
+            "recall": 0.2608,
+            "f1": 0.3252
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.8004,
+            "ap50_95": 0.5683,
+            "precision": 0.8038,
+            "recall": 0.7707,
+            "f1": 0.7869
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.4481,
+            "ap50_95": 0.2789,
+            "precision": 0.6055,
+            "recall": 0.4065,
+            "f1": 0.4865
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6752,
+            "ap50_95": 0.3941,
+            "precision": 0.717,
+            "recall": 0.6428,
+            "f1": 0.6779
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5933,
+            "ap50_95": 0.3462,
+            "precision": 0.6072,
+            "recall": 0.6057,
+            "f1": 0.6065
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.0,
+            "ap50_95": 0.0,
+            "precision": 1.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.2212,
+            "ap50_95": 0.1028,
+            "precision": 0.4557,
+            "recall": 0.2076,
+            "f1": 0.2852
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.2518,
+            "ap50_95": 0.164,
+            "precision": 0.6952,
+            "recall": 0.2095,
+            "f1": 0.322
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4522,
+            "ap50_95": 0.2283,
+            "precision": 0.5966,
+            "recall": 0.4289,
+            "f1": 0.499
+          }
+        }
+      },
+      "Canonical_Corrected_134": {
+        "mAP50": 0.4193,
+        "mAP50_95": 0.2572,
+        "precision": 0.6287,
+        "recall": 0.3991,
+        "f1": 0.4882,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.4735,
+            "ap50_95": 0.3067,
+            "precision": 0.3739,
+            "recall": 0.4583,
+            "f1": 0.4118
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2771,
+            "ap50_95": 0.1823,
+            "precision": 0.4317,
+            "recall": 0.2608,
+            "f1": 0.3252
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.8004,
+            "ap50_95": 0.5683,
+            "precision": 0.8038,
+            "recall": 0.7707,
+            "f1": 0.7869
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.4481,
+            "ap50_95": 0.2789,
+            "precision": 0.6055,
+            "recall": 0.4065,
+            "f1": 0.4865
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6752,
+            "ap50_95": 0.3941,
+            "precision": 0.717,
+            "recall": 0.6428,
+            "f1": 0.6779
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5933,
+            "ap50_95": 0.3462,
+            "precision": 0.6072,
+            "recall": 0.6057,
+            "f1": 0.6065
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.0,
+            "ap50_95": 0.0,
+            "precision": 1.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.2212,
+            "ap50_95": 0.1028,
+            "precision": 0.4557,
+            "recall": 0.2076,
+            "f1": 0.2852
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.2518,
+            "ap50_95": 0.164,
+            "precision": 0.6952,
+            "recall": 0.2095,
+            "f1": 0.322
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4522,
+            "ap50_95": 0.2283,
+            "precision": 0.5966,
+            "recall": 0.4289,
+            "f1": 0.499
+          }
+        }
+      },
+      "Curated_Total_154": {
+        "mAP50": 0.4118,
+        "mAP50_95": 0.2494,
+        "precision": 0.6103,
+        "recall": 0.4092,
+        "f1": 0.4899,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.4117,
+            "ap50_95": 0.2438,
+            "precision": 0.3607,
+            "recall": 0.5,
+            "f1": 0.4191
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2761,
+            "ap50_95": 0.1808,
+            "precision": 0.4159,
+            "recall": 0.2677,
+            "f1": 0.3257
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.7939,
+            "ap50_95": 0.5615,
+            "precision": 0.7888,
+            "recall": 0.7672,
+            "f1": 0.7779
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.4505,
+            "ap50_95": 0.2778,
+            "precision": 0.5977,
+            "recall": 0.4144,
+            "f1": 0.4894
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6732,
+            "ap50_95": 0.3917,
+            "precision": 0.6973,
+            "recall": 0.6532,
+            "f1": 0.6745
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5929,
+            "ap50_95": 0.3459,
+            "precision": 0.5861,
+            "recall": 0.6183,
+            "f1": 0.6018
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.0019,
+            "ap50_95": 0.0003,
+            "precision": 1.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.2224,
+            "ap50_95": 0.1034,
+            "precision": 0.4413,
+            "recall": 0.2199,
+            "f1": 0.2935
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.2437,
+            "ap50_95": 0.1595,
+            "precision": 0.637,
+            "recall": 0.2167,
+            "f1": 0.3234
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4519,
+            "ap50_95": 0.2291,
+            "precision": 0.578,
+            "recall": 0.4349,
+            "f1": 0.4963
+          }
+        }
+      }
+    },
+    "B4 (YOLO11s Curated)": {
+      "Canonical_Original_134": {
+        "mAP50": 0.4856,
+        "mAP50_95": 0.2789,
+        "precision": 0.4764,
+        "recall": 0.5427,
+        "f1": 0.5074,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.4306,
+            "ap50_95": 0.3035,
+            "precision": 0.4001,
+            "recall": 0.4583,
+            "f1": 0.4272
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2805,
+            "ap50_95": 0.1878,
+            "precision": 0.3285,
+            "recall": 0.3092,
+            "f1": 0.3185
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.8141,
+            "ap50_95": 0.576,
+            "precision": 0.7278,
+            "recall": 0.8173,
+            "f1": 0.77
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.455,
+            "ap50_95": 0.2829,
+            "precision": 0.4823,
+            "recall": 0.5159,
+            "f1": 0.4986
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6848,
+            "ap50_95": 0.4045,
+            "precision": 0.5353,
+            "recall": 0.7402,
+            "f1": 0.6213
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5534,
+            "ap50_95": 0.3334,
+            "precision": 0.4975,
+            "recall": 0.6336,
+            "f1": 0.5574
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.695,
+            "ap50_95": 0.188,
+            "precision": 0.3662,
+            "recall": 0.8875,
+            "f1": 0.5185
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.2393,
+            "ap50_95": 0.1207,
+            "precision": 0.29,
+            "recall": 0.3404,
+            "f1": 0.3132
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.245,
+            "ap50_95": 0.1568,
+            "precision": 0.6233,
+            "recall": 0.2244,
+            "f1": 0.33
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4586,
+            "ap50_95": 0.2351,
+            "precision": 0.5134,
+            "recall": 0.5005,
+            "f1": 0.5069
+          }
+        }
+      },
+      "Canonical_Corrected_134": {
+        "mAP50": 0.426,
+        "mAP50_95": 0.2652,
+        "precision": 0.4617,
+        "recall": 0.4359,
+        "f1": 0.4485,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.4306,
+            "ap50_95": 0.3035,
+            "precision": 0.4121,
+            "recall": 0.4167,
+            "f1": 0.4144
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2805,
+            "ap50_95": 0.1878,
+            "precision": 0.3519,
+            "recall": 0.2936,
+            "f1": 0.3201
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.8141,
+            "ap50_95": 0.576,
+            "precision": 0.7498,
+            "recall": 0.8088,
+            "f1": 0.7782
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.455,
+            "ap50_95": 0.2829,
+            "precision": 0.5151,
+            "recall": 0.4953,
+            "f1": 0.505
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6848,
+            "ap50_95": 0.4045,
+            "precision": 0.5659,
+            "recall": 0.7237,
+            "f1": 0.6352
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5534,
+            "ap50_95": 0.3334,
+            "precision": 0.5272,
+            "recall": 0.6081,
+            "f1": 0.5648
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.099,
+            "ap50_95": 0.0513,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.2393,
+            "ap50_95": 0.1207,
+            "precision": 0.311,
+            "recall": 0.3249,
+            "f1": 0.3178
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.245,
+            "ap50_95": 0.1568,
+            "precision": 0.6382,
+            "recall": 0.2126,
+            "f1": 0.3189
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4586,
+            "ap50_95": 0.2351,
+            "precision": 0.5462,
+            "recall": 0.4755,
+            "f1": 0.5084
+          }
+        }
+      },
+      "Curated_Total_154": {
+        "mAP50": 0.4381,
+        "mAP50_95": 0.2673,
+        "precision": 0.5925,
+        "recall": 0.4077,
+        "f1": 0.483,
+        "per_class": {
+          "building": {
+            "class_id": 0,
+            "ap50": 0.4662,
+            "ap50_95": 0.3087,
+            "precision": 0.6055,
+            "recall": 0.425,
+            "f1": 0.4994
+          },
+          "facade": {
+            "class_id": 1,
+            "ap50": 0.2807,
+            "ap50_95": 0.1893,
+            "precision": 0.462,
+            "recall": 0.2539,
+            "f1": 0.3277
+          },
+          "window": {
+            "class_id": 2,
+            "ap50": 0.8085,
+            "ap50_95": 0.5704,
+            "precision": 0.8045,
+            "recall": 0.7711,
+            "f1": 0.7875
+          },
+          "door": {
+            "class_id": 3,
+            "ap50": 0.4518,
+            "ap50_95": 0.2795,
+            "precision": 0.604,
+            "recall": 0.4379,
+            "f1": 0.5077
+          },
+          "roof_cornice": {
+            "class_id": 4,
+            "ap50": 0.6857,
+            "ap50_95": 0.4049,
+            "precision": 0.6717,
+            "recall": 0.6697,
+            "f1": 0.6707
+          },
+          "balcony": {
+            "class_id": 5,
+            "ap50": 0.5503,
+            "ap50_95": 0.3308,
+            "precision": 0.6004,
+            "recall": 0.5267,
+            "f1": 0.5612
+          },
+          "porch": {
+            "class_id": 6,
+            "ap50": 0.1904,
+            "ap50_95": 0.0743,
+            "precision": 0.4159,
+            "recall": 0.1429,
+            "f1": 0.2127
+          },
+          "pillar_column": {
+            "class_id": 7,
+            "ap50": 0.2425,
+            "ap50_95": 0.1217,
+            "precision": 0.3732,
+            "recall": 0.2612,
+            "f1": 0.3073
+          },
+          "shutter_blind": {
+            "class_id": 8,
+            "ap50": 0.2447,
+            "ap50_95": 0.1566,
+            "precision": 0.7489,
+            "recall": 0.1842,
+            "f1": 0.2957
+          },
+          "molding_deco": {
+            "class_id": 9,
+            "ap50": 0.4606,
+            "ap50_95": 0.2364,
+            "precision": 0.6385,
+            "recall": 0.4043,
+            "f1": 0.4951
+          }
+        }
+      }
+    }
+  },
+  "latency_matrix": {
+    "B2 (YOLO11s Baseline)": {
+      "median_latency_ms": 27.44,
+      "p95_latency_ms": 142.86,
+      "peak_vram_mb": 146.8,
+      "sample_count": 50
+    },
+    "B3 (YOLO11s + RFS)": {
+      "median_latency_ms": 29.7,
+      "p95_latency_ms": 38.29,
+      "peak_vram_mb": 150.1,
+      "sample_count": 50
+    },
+    "B4 (YOLO11s Curated)": {
+      "median_latency_ms": 28.5,
+      "p95_latency_ms": 43.02,
+      "peak_vram_mb": 155.1,
+      "sample_count": 50
+    }
+  },
+  "success_criteria": {
+    "porch_recall_ge_0.50": {
+      "target": ">= 0.50",
+      "actual": 0.1429,
+      "passed": false
+    },
+    "porch_ap50_ge_0.40": {
+      "target": ">= 0.40",
+      "actual": 0.1904,
+      "passed": false
+    },
+    "overall_map50_ge_0.45": {
+      "target": ">= 0.45",
+      "actual": 0.4381,
+      "passed": false
+    },
+    "overall_f1_ge_0.50": {
+      "target": ">= 0.50",
+      "actual": 0.483,
+      "passed": false
+    },
+    "latency_le_35ms": {
+      "target": "<= 35.0 ms",
+      "actual": 28.5,
+      "passed": true
+    }
+  }
+}

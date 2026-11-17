@@ -1,0 +1,32 @@
+{
+  "name": "roomai-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3000",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "@splinetool/react-spline": "^4.2.0",
+    "@splinetool/runtime": "^2.0.184",
+    "clsx": "^2.1.1",
+    "framer-motion": "^14.14.0",
+    "gsap": "^3.15.1",
+    "next": "^15.2.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.7.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/three": "^0.187.0",
+    "typescript": "^5.8.2"
+  }
+}

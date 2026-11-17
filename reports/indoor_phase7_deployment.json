@@ -1,0 +1,160 @@
+{
+  "phase": "RoomAI Phase 7 \u2014 Safely Activate Indoor Detector A3 and Verify End-to-End Inference",
+  "deployment_date": "2026-10-24",
+  "engineer": "Senior ML Deployment Engineer",
+  "status": "DEPLOYMENT_VERIFIED_SUCCESSFUL",
+  "environment": {
+    "os": "Windows 11",
+    "python": "3.10.20",
+    "pytorch": "2.11.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8,188 MiB VRAM)",
+    "cuda_available": true,
+    "ultralytics": "8.4.66",
+    "conda_env": "tf-gpu"
+  },
+  "pre_deployment_checkpoint_audit": {
+    "candidate_a3": {
+      "path": "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt",
+      "expected_md5": "95563016732fca2cb4e0ee15bdb9e295",
+      "computed_md5": "95563016732fca2cb4e0ee15bdb9e295",
+      "size_bytes": 19173786,
+      "verified": true,
+      "role": "Active Primary Production Indoor Detector"
+    },
+    "rollback_a2": {
+      "path": "checkpoints/indoor_detector_a2_yolo11s_finetune_best.pt",
+      "expected_md5": "ad899be666950b695c825a2e57229a58",
+      "computed_md5": "ad899be666950b695c825a2e57229a58",
+      "size_bytes": 19156442,
+      "verified": true,
+      "role": "Verified Rollback Option"
+    },
+    "legacy_deepfurniture": {
+      "path": "checkpoints/deepfurniture_yolo11n_finetune_best.pt",
+      "computed_md5": "64c1150d99cc32e2877ce1b9bdfad657",
+      "size_bytes": 5460186,
+      "verified": true,
+      "role": "Secondary Rollback Baseline"
+    }
+  },
+  "configuration_and_backups": {
+    "config_file": "config/model_config.yaml",
+    "config_backup": "config/model_config.yaml.backup_20261024_155219",
+    "registry_file": "models/registry.py",
+    "registry_backup": "models/registry.py.backup_20261024_155219",
+    "active_checkpoint": "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt",
+    "active_imgsz": 800,
+    "confidence_threshold": 0.35,
+    "iou_threshold": 0.45,
+    "primary_registry_id": "indoor_a3_800px",
+    "rollback_registry_id": "indoor_a2_finetuned"
+  },
+  "operating_point_rationale": {
+    "source": "Phase 6 validation confidence-sweep analysis (validation-selected balanced point conf=0.3654)",
+    "deployment_tradeoff": "Configured confidence=0.35 provides a balanced trade-off between precision (78.2%) and recall (70.8%) across the 12 canonical indoor classes, distinct from IoU threshold (0.45). This is an operational trade-off, not a guarantee of maximum performance on every individual class.",
+    "configurable": true,
+    "no_hardcoding": "Threshold is centralized in config/model_config.yaml and passed dynamically to services and UI."
+  },
+  "validation_inference_gallery": [
+    {
+      "image_name": "df_L3D121IYLT5YYUPFX6USRI3P3XI888.jpg",
+      "original_size": [1600, 1200],
+      "inference_imgsz": 800,
+      "inference_time_ms": 31.24,
+      "total_objects": 9,
+      "detected_classes": ["bed", "cabinet#shelf", "curtain", "decoration", "home-appliance", "lamp"],
+      "gallery_artifact": "artifacts/indoor_phase7/val_pred_01_df_L3D121IYLT5YYUPFX6USRI3P3XI888.jpg"
+    },
+    {
+      "image_name": "df_L3D121IYLT6EAUPFX6USRI3P3WU888.jpg",
+      "original_size": [1600, 1200],
+      "inference_imgsz": 800,
+      "inference_time_ms": 34.39,
+      "total_objects": 9,
+      "detected_classes": ["bed", "cabinet#shelf", "decoration", "home-appliance", "lamp"],
+      "gallery_artifact": "artifacts/indoor_phase7/val_pred_02_df_L3D121IYLT6EAUPFX6USRI3P3WU888.jpg"
+    },
+    {
+      "image_name": "df_L3D121IYLTLMQUPFR7OTTC3P3XK888.jpg",
+      "original_size": [1600, 1200],
+      "inference_imgsz": 800,
+      "inference_time_ms": 37.25,
+      "total_objects": 7,
+      "detected_classes": ["bed", "chair#stool", "curtain", "lamp", "table"],
+      "gallery_artifact": "artifacts/indoor_phase7/val_pred_03_df_L3D121IYLTLMQUPFR7OTTC3P3XK888.jpg"
+    },
+    {
+      "image_name": "df_L3D121IYLVPDQUG5TL4SYW3P3X2888.jpg",
+      "original_size": [1600, 1200],
+      "inference_imgsz": 800,
+      "inference_time_ms": 38.69,
+      "total_objects": 5,
+      "detected_classes": ["bed", "cabinet#shelf", "curtain", "decoration", "lamp"],
+      "gallery_artifact": "artifacts/indoor_phase7/val_pred_04_df_L3D121IYLVPDQUG5TL4SYW3P3X2888.jpg"
+    },
+    {
+      "image_name": "df_L3D121IYM4VEAUPFR2454H3P3XQ888.jpg",
+      "original_size": [1600, 1200],
+      "inference_imgsz": 800,
+      "inference_time_ms": 28.36,
+      "total_objects": 8,
+      "detected_classes": ["bed", "chair#stool", "curtain", "decoration", "lamp", "plant", "table"],
+      "gallery_artifact": "artifacts/indoor_phase7/val_pred_05_df_L3D121IYM4VEAUPFR2454H3P3XQ888.jpg"
+    }
+  ],
+  "edge_case_and_error_handling_tests": {
+    "blank_solid_black_image": {
+      "passed": true,
+      "total_objects": 0,
+      "result": "Zero false positives detected, no exceptions"
+    },
+    "ultra_high_threshold_0_99": {
+      "passed": true,
+      "total_objects": 0,
+      "result": "Clean filtering of all boxes without crash"
+    },
+    "low_threshold_0_10": {
+      "passed": true,
+      "total_objects": 9,
+      "result": "Graceful handling of high box count"
+    },
+    "invalid_image_input": {
+      "passed": true,
+      "result": "Gracefully returns success=False with clear error message without unhandled exception"
+    },
+    "missing_or_corrupt_checkpoint": {
+      "passed": true,
+      "result": "Explicit FileNotFoundError raised and reported; zero silent fallback to mock or A2"
+    },
+    "mock_mode_isolation": {
+      "passed": true,
+      "result": "Mock mode strictly returns is_simulated=True and mock_simulated.pt identifier"
+    }
+  },
+  "hardware_profile": {
+    "device": "cuda:0",
+    "mean_latency_ms": 33.99,
+    "median_latency_ms": 34.39,
+    "p95_latency_ms": 38.4,
+    "peak_vram_mb": 119.01,
+    "throughput_fps": 29.1,
+    "vram_headroom_remaining_mb": 8068.99
+  },
+  "rollback_verification": {
+    "rollback_checkpoint_exists": true,
+    "rollback_inference_success": true,
+    "rollback_model_reported": "indoor_detector_a2_yolo11s_finetune_best.pt",
+    "rollback_resolution": [640, 640],
+    "rollback_objects_detected": 9,
+    "rollback_status": "VERIFIED_OPERATIONAL"
+  },
+  "regression_testing": {
+    "framework": "pytest",
+    "total_tests": 82,
+    "passed": 82,
+    "failed": 0,
+    "execution_time_seconds": 23.32,
+    "status": "ALL_TESTS_PASSING"
+  },
+  "conclusion": "A3 indoor detector is safely activated at 800x800 resolution with strict error handling, complete response schemas, and verified A2 rollback."
+}

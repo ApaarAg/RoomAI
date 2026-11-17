@@ -1,0 +1,71 @@
+{
+  "model_name": "WorldMirror-1.0 Stage 2 Gaussian",
+  "version": "1.0.0-stage2-3dgs",
+  "status": "EXPERIMENTAL",
+  "role": "Optional multi-view 3D Gaussian Splatting candidate",
+  "architecture": "HunyuanWorld-Mirror 1.0 (ViT-L/14 backbone, DINOv2, DPT heads) + Stage 1 Geometric Heads + Stage 2 3DGS Head & Renderer",
+  "checkpoint_path": "research/3d_reconstruction/checkpoints/stage2/stage2_real_verified.ckpt",
+  "sha256": "e1848950c17e23ab7f0a05771de519e61c484ebffe916b9320c61c5f5c239ece",
+  "file_size_bytes": 2644926673,
+  "source_code_commit": "c61300e47ce06db2f02c8e2551aae68be7ae3a0b",
+  "dataset_manifest_hash": "86679e6aae422e57",
+  "preprocessing_config": {
+    "input_resolution": [518, 518],
+    "patch_size": 14,
+    "normalization": "imagenet",
+    "square_crop": true,
+    "coordinate_transform": "diag(1, -1, -1)"
+  },
+  "input_schema": {
+    "type": "image_batch",
+    "channels": 3,
+    "height": 518,
+    "width": 518,
+    "dtype": "float32",
+    "range": [0.0, 1.0],
+    "multi_view": {"min_views": 2, "max_views": 6}
+  },
+  "output_schema": {
+    "depth": {"shape": [1, 518, 518], "unit": "meters", "confidence": true},
+    "pts3d": {"shape": [518, 518, 3], "unit": "meters", "confidence": true},
+    "normals": {"shape": [518, 518, 3], "unit": "normalized", "confidence": true},
+    "camera_poses": {"shape": [4, 4], "format": "c2w_opencv"},
+    "gaussians": {
+      "means": "shape [N, 3]",
+      "scales": "shape [N, 3]",
+      "quats": "shape [N, 4]",
+      "opacities": "shape [N, 1]",
+      "colors": "shape [N, 3]",
+      "mean_count": 146207
+    }
+  },
+  "evaluation_metrics": {
+    "stage2": {
+      "mean_gaussians": 146207,
+      "latency_median_ms": 590.6,
+      "status": "REJECTED_INHERITED_STAGE1_DISTORTION"
+    }
+  },
+  "known_limitations": [
+    "Inherits Stage 1 geometric distortion — not independently viable",
+    "Gaussian count is high (146K) for 8GB VRAM",
+    "Novel-view synthesis quality unvalidated against authentic multi-view ground truth",
+    "Stage 2 must remain OPTIONAL — never merge into Stage 1 pipeline"
+  ],
+  "license": "Tencent HunyuanWorld-Mirror License (Non-Commercial Research)",
+  "provenance": {
+    "source_repo": "https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror",
+    "paper": "arXiv:2510.10726",
+    "training_data": "Indoor verified dataset (same as Stage 1)",
+    "training_config": "research/3d_reconstruction/configs/finetune_stage2.yaml"
+  },
+  "trainable_partition": {
+    "total_params": 1256222250,
+    "stage1_frozen_params": 1223250748,
+    "gs_head_params": 32673506,
+    "gs_renderer_params": 297996,
+    "is_lora_adapter": false,
+    "is_merged_model": true
+  },
+  "frozen_at": "2026-11-10T00:00:00Z"
+}

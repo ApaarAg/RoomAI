@@ -1,0 +1,338 @@
+{
+  "Model B5 (Baseline)": {
+    "checkpoint": "exterior_detector_b5_transfer_best.pt",
+    "md5": "e12b4181fee244a3569dfa782ba3c3c3",
+    "mAP50": 0.4869,
+    "mAP50_95": 0.2954,
+    "macro_f1": 0.496,
+    "micro_f1": 0.6371,
+    "micro_precision": 0.6361,
+    "micro_recall": 0.6381,
+    "overall_mean_iou": 0.8235,
+    "ap50_per_class": {
+      "building": 0.4582,
+      "facade": 0.3314,
+      "window": 0.7891,
+      "door": 0.4626,
+      "roof_cornice": 0.6753,
+      "balcony": 0.6565,
+      "porch": 0.0719,
+      "pillar_column": 0.2662,
+      "shutter_blind": 0.636,
+      "molding_deco": 0.5216
+    },
+    "ap_per_class": {
+      "building": 0.2979,
+      "facade": 0.2125,
+      "window": 0.5428,
+      "door": 0.2516,
+      "roof_cornice": 0.3653,
+      "balcony": 0.4031,
+      "porch": 0.0329,
+      "pillar_column": 0.132,
+      "shutter_blind": 0.4307,
+      "molding_deco": 0.285
+    },
+    "per_class": {
+      "building": {
+        "gt_count": 40,
+        "tp": 18,
+        "fp": 19,
+        "fn": 22,
+        "precision": 0.4865,
+        "recall": 0.45,
+        "f1": 0.4675,
+        "mean_iou": 0.8511
+      },
+      "facade": {
+        "gt_count": 495,
+        "tp": 150,
+        "fp": 184,
+        "fn": 345,
+        "precision": 0.4491,
+        "recall": 0.303,
+        "f1": 0.3619,
+        "mean_iou": 0.8406
+      },
+      "window": {
+        "gt_count": 3845,
+        "tp": 2962,
+        "fp": 1086,
+        "fn": 883,
+        "precision": 0.7317,
+        "recall": 0.7704,
+        "f1": 0.7505,
+        "mean_iou": 0.843
+      },
+      "door": {
+        "gt_count": 372,
+        "tp": 191,
+        "fp": 220,
+        "fn": 181,
+        "precision": 0.4647,
+        "recall": 0.5134,
+        "f1": 0.4879,
+        "mean_iou": 0.8002
+      },
+      "roof_cornice": {
+        "gt_count": 445,
+        "tp": 315,
+        "fp": 243,
+        "fn": 130,
+        "precision": 0.5645,
+        "recall": 0.7079,
+        "f1": 0.6281,
+        "mean_iou": 0.7844
+      },
+      "balcony": {
+        "gt_count": 345,
+        "tp": 229,
+        "fp": 130,
+        "fn": 116,
+        "precision": 0.6379,
+        "recall": 0.6638,
+        "f1": 0.6506,
+        "mean_iou": 0.7961
+      },
+      "porch": {
+        "gt_count": 24,
+        "tp": 1,
+        "fp": 4,
+        "fn": 23,
+        "precision": 0.2,
+        "recall": 0.0417,
+        "f1": 0.069,
+        "mean_iou": 0.6713
+      },
+      "pillar_column": {
+        "gt_count": 494,
+        "tp": 173,
+        "fp": 375,
+        "fn": 321,
+        "precision": 0.3157,
+        "recall": 0.3502,
+        "f1": 0.3321,
+        "mean_iou": 0.7625
+      },
+      "shutter_blind": {
+        "gt_count": 901,
+        "tp": 496,
+        "fp": 143,
+        "fn": 405,
+        "precision": 0.7762,
+        "recall": 0.5505,
+        "f1": 0.6442,
+        "mean_iou": 0.8491
+      },
+      "molding_deco": {
+        "gt_count": 1543,
+        "tp": 891,
+        "fp": 700,
+        "fn": 652,
+        "precision": 0.56,
+        "recall": 0.5774,
+        "f1": 0.5686,
+        "mean_iou": 0.7788
+      }
+    }
+  },
+  "Model B6 (Candidate)": {
+    "checkpoint": "exterior_detector_b6_expanded_best.pt",
+    "md5": "f5ceea56b0610ea14b647014e48152dc",
+    "mAP50": 0.492,
+    "mAP50_95": 0.2974,
+    "macro_f1": 0.5069,
+    "micro_f1": 0.6336,
+    "micro_precision": 0.6204,
+    "micro_recall": 0.6475,
+    "overall_mean_iou": 0.8204,
+    "ap50_per_class": {
+      "building": 0.4757,
+      "facade": 0.3396,
+      "window": 0.7869,
+      "door": 0.4556,
+      "roof_cornice": 0.6715,
+      "balcony": 0.6239,
+      "porch": 0.1437,
+      "pillar_column": 0.245,
+      "shutter_blind": 0.6421,
+      "molding_deco": 0.5364
+    },
+    "ap_per_class": {
+      "building": 0.3188,
+      "facade": 0.2055,
+      "window": 0.5411,
+      "door": 0.2548,
+      "roof_cornice": 0.3743,
+      "balcony": 0.3683,
+      "porch": 0.0654,
+      "pillar_column": 0.1257,
+      "shutter_blind": 0.4343,
+      "molding_deco": 0.2858
+    },
+    "per_class": {
+      "building": {
+        "gt_count": 40,
+        "tp": 20,
+        "fp": 22,
+        "fn": 20,
+        "precision": 0.4762,
+        "recall": 0.5,
+        "f1": 0.4878,
+        "mean_iou": 0.8635
+      },
+      "facade": {
+        "gt_count": 495,
+        "tp": 177,
+        "fp": 316,
+        "fn": 318,
+        "precision": 0.359,
+        "recall": 0.3576,
+        "f1": 0.3583,
+        "mean_iou": 0.8175
+      },
+      "window": {
+        "gt_count": 3845,
+        "tp": 2968,
+        "fp": 1056,
+        "fn": 877,
+        "precision": 0.7376,
+        "recall": 0.7719,
+        "f1": 0.7544,
+        "mean_iou": 0.8402
+      },
+      "door": {
+        "gt_count": 372,
+        "tp": 206,
+        "fp": 297,
+        "fn": 166,
+        "precision": 0.4095,
+        "recall": 0.5538,
+        "f1": 0.4709,
+        "mean_iou": 0.7854
+      },
+      "roof_cornice": {
+        "gt_count": 445,
+        "tp": 318,
+        "fp": 261,
+        "fn": 127,
+        "precision": 0.5492,
+        "recall": 0.7146,
+        "f1": 0.6211,
+        "mean_iou": 0.7935
+      },
+      "balcony": {
+        "gt_count": 345,
+        "tp": 216,
+        "fp": 114,
+        "fn": 129,
+        "precision": 0.6545,
+        "recall": 0.6261,
+        "f1": 0.64,
+        "mean_iou": 0.7921
+      },
+      "porch": {
+        "gt_count": 24,
+        "tp": 3,
+        "fp": 4,
+        "fn": 21,
+        "precision": 0.4286,
+        "recall": 0.125,
+        "f1": 0.1935,
+        "mean_iou": 0.8216
+      },
+      "pillar_column": {
+        "gt_count": 494,
+        "tp": 167,
+        "fp": 360,
+        "fn": 327,
+        "precision": 0.3169,
+        "recall": 0.3381,
+        "f1": 0.3271,
+        "mean_iou": 0.7669
+      },
+      "shutter_blind": {
+        "gt_count": 901,
+        "tp": 506,
+        "fp": 159,
+        "fn": 395,
+        "precision": 0.7609,
+        "recall": 0.5616,
+        "f1": 0.6462,
+        "mean_iou": 0.8464
+      },
+      "molding_deco": {
+        "gt_count": 1543,
+        "tp": 925,
+        "fp": 780,
+        "fn": 618,
+        "precision": 0.5425,
+        "recall": 0.5995,
+        "f1": 0.5696,
+        "mean_iou": 0.7755
+      }
+    }
+  },
+  "aspirational_target_audit": {
+    "building": {
+      "f1": 0.4878,
+      "status": "MISS (Gap: 0.4122)",
+      "gap_to_target": 0.4122,
+      "evidence_based_next_action": "Continue hyperparameter tuning and hard-example mining."
+    },
+    "facade": {
+      "f1": 0.3583,
+      "status": "MISS (Gap: 0.5417)",
+      "gap_to_target": 0.5417,
+      "evidence_based_next_action": "Resolve macro-building vs planar-facade boundary ambiguity in complex multi-wing architecture."
+    },
+    "window": {
+      "f1": 0.7544,
+      "status": "MISS (Gap: 0.1456)",
+      "gap_to_target": 0.1456,
+      "evidence_based_next_action": "Continue hyperparameter tuning and hard-example mining."
+    },
+    "door": {
+      "f1": 0.4709,
+      "status": "MISS (Gap: 0.4291)",
+      "gap_to_target": 0.4291,
+      "evidence_based_next_action": "Continue hyperparameter tuning and hard-example mining."
+    },
+    "roof_cornice": {
+      "f1": 0.6211,
+      "status": "MISS (Gap: 0.2789)",
+      "gap_to_target": 0.2789,
+      "evidence_based_next_action": "Continue hyperparameter tuning and hard-example mining."
+    },
+    "balcony": {
+      "f1": 0.64,
+      "status": "MISS (Gap: 0.2600)",
+      "gap_to_target": 0.26,
+      "evidence_based_next_action": "Expand 3D residential photography dataset; address severe acute class sparsity."
+    },
+    "porch": {
+      "f1": 0.1935,
+      "status": "MISS (Gap: 0.7065)",
+      "gap_to_target": 0.7065,
+      "evidence_based_next_action": "Expand 3D residential photography dataset; address severe acute class sparsity."
+    },
+    "pillar_column": {
+      "f1": 0.3271,
+      "status": "MISS (Gap: 0.5729)",
+      "gap_to_target": 0.5729,
+      "evidence_based_next_action": "Disambiguate flat vertical pilasters from freestanding 3D columns; refine annotation hierarchy."
+    },
+    "shutter_blind": {
+      "f1": 0.6462,
+      "status": "MISS (Gap: 0.2538)",
+      "gap_to_target": 0.2538,
+      "evidence_based_next_action": "Train higher resolution feature maps (imgsz=800) to separate window mullions from shutter louvers."
+    },
+    "molding_deco": {
+      "f1": 0.5696,
+      "status": "MISS (Gap: 0.3304)",
+      "gap_to_target": 0.3304,
+      "evidence_based_next_action": "Disambiguate flat vertical pilasters from freestanding 3D columns; refine annotation hierarchy."
+    }
+  }
+}

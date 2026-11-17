@@ -1,0 +1,35 @@
+# Research 3D Reconstruction .gitignore
+# Prevent large checkpoints, datasets, cache and logs from entering Git
+
+checkpoints/*.pt
+checkpoints/*.pth
+checkpoints/*.safetensors
+checkpoints/*.bin
+checkpoints/**/model.safetensors
+checkpoints/**/*.pt
+checkpoints/**/*.pth
+
+data_manifests/*.parquet
+data_manifests/raw_downloads/
+data_manifests/cache/
+
+experiments/**/*.pt
+experiments/**/*.pth
+experiments/**/*.safetensors
+experiments/**/step_*
+
+logs/*.log
+logs/*.tfevents*
+logs/**/*.log
+
+*.ply
+*.glb
+*.obj
+*.splat
+*.npy
+*.npz
+
+__pycache__/
+*.pyc
+.cache/
+

@@ -1,0 +1,365 @@
+[
+  {
+    "image_id": "ADE_val_00000077",
+    "class_name": "table",
+    "box_xyxy": [
+      38,
+      270,
+      392,
+      600
+    ],
+    "box_area": 116820,
+    "strategy_1_raw": {
+      "total_pixels": 82968,
+      "pixels_inside_box": 78189,
+      "pixels_outside_box": 4779,
+      "inside_ratio": 0.9424,
+      "connected_components": 3
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 78189,
+      "pixels_inside_box": 78189,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 5.76
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 82520,
+      "pixels_inside_box": 77711,
+      "pixels_outside_box": 4809,
+      "inside_ratio": 0.9417,
+      "connected_components": 1,
+      "isolated_islands_pruned": 2
+    }
+  },
+  {
+    "image_id": "ADE_val_00000100",
+    "class_name": "table",
+    "box_xyxy": [
+      1,
+      452,
+      186,
+      674
+    ],
+    "box_area": 41070,
+    "strategy_1_raw": {
+      "total_pixels": 16004,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 16004,
+      "inside_ratio": 0.0,
+      "connected_components": 1
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 0,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 100.0
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 16015,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 16015,
+      "inside_ratio": 0.0,
+      "connected_components": 1,
+      "isolated_islands_pruned": 0
+    }
+  },
+  {
+    "image_id": "ADE_val_00000100",
+    "class_name": "table",
+    "box_xyxy": [
+      328,
+      434,
+      491,
+      627
+    ],
+    "box_area": 31459,
+    "strategy_1_raw": {
+      "total_pixels": 14033,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 14033,
+      "inside_ratio": 0.0,
+      "connected_components": 2
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 0,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 100.0
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 14011,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 14011,
+      "inside_ratio": 0.0,
+      "connected_components": 1,
+      "isolated_islands_pruned": 1
+    }
+  },
+  {
+    "image_id": "ADE_val_00000100",
+    "class_name": "lamp",
+    "box_xyxy": [
+      147,
+      0,
+      286,
+      180
+    ],
+    "box_area": 25020,
+    "strategy_1_raw": {
+      "total_pixels": 14036,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 14036,
+      "inside_ratio": 0.0,
+      "connected_components": 3
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 0,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 100.0
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 14078,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 14078,
+      "inside_ratio": 0.0,
+      "connected_components": 1,
+      "isolated_islands_pruned": 2
+    }
+  },
+  {
+    "image_id": "ADE_val_00000100",
+    "class_name": "door",
+    "box_xyxy": [
+      141,
+      161,
+      348,
+      584
+    ],
+    "box_area": 87561,
+    "strategy_1_raw": {
+      "total_pixels": 73064,
+      "pixels_inside_box": 72971,
+      "pixels_outside_box": 93,
+      "inside_ratio": 0.9987,
+      "connected_components": 1
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 72971,
+      "pixels_inside_box": 72971,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 0.13
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 73086,
+      "pixels_inside_box": 72992,
+      "pixels_outside_box": 94,
+      "inside_ratio": 0.9987,
+      "connected_components": 1,
+      "isolated_islands_pruned": 0
+    }
+  },
+  {
+    "image_id": "ADE_val_00000511",
+    "class_name": "sofa",
+    "box_xyxy": [
+      0,
+      231,
+      292,
+      478
+    ],
+    "box_area": 72124,
+    "strategy_1_raw": {
+      "total_pixels": 5273,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 5273,
+      "inside_ratio": 0.0,
+      "connected_components": 1
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 0,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 100.0
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 5273,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 5273,
+      "inside_ratio": 0.0,
+      "connected_components": 1,
+      "isolated_islands_pruned": 0
+    }
+  },
+  {
+    "image_id": "ADE_val_00000511",
+    "class_name": "window",
+    "box_xyxy": [
+      429,
+      113,
+      486,
+      225
+    ],
+    "box_area": 6384,
+    "strategy_1_raw": {
+      "total_pixels": 5507,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 5507,
+      "inside_ratio": 0.0,
+      "connected_components": 1
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 0,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 100.0
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 5511,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 5511,
+      "inside_ratio": 0.0,
+      "connected_components": 1,
+      "isolated_islands_pruned": 0
+    }
+  },
+  {
+    "image_id": "ADE_val_00000511",
+    "class_name": "window",
+    "box_xyxy": [
+      369,
+      119,
+      422,
+      227
+    ],
+    "box_area": 5724,
+    "strategy_1_raw": {
+      "total_pixels": 14661,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 14661,
+      "inside_ratio": 0.0,
+      "connected_components": 1
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 0,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 100.0
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 14682,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 14682,
+      "inside_ratio": 0.0,
+      "connected_components": 1,
+      "isolated_islands_pruned": 0
+    }
+  },
+  {
+    "image_id": "ADE_val_00000511",
+    "class_name": "window",
+    "box_xyxy": [
+      492,
+      110,
+      552,
+      225
+    ],
+    "box_area": 6900,
+    "strategy_1_raw": {
+      "total_pixels": 4224,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 4224,
+      "inside_ratio": 0.0,
+      "connected_components": 1
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 0,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 100.0
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 4224,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 4224,
+      "inside_ratio": 0.0,
+      "connected_components": 1,
+      "isolated_islands_pruned": 0
+    }
+  },
+  {
+    "image_id": "ADE_val_00000511",
+    "class_name": "door",
+    "box_xyxy": [
+      229,
+      106,
+      282,
+      274
+    ],
+    "box_area": 8904,
+    "strategy_1_raw": {
+      "total_pixels": 49750,
+      "pixels_inside_box": 311,
+      "pixels_outside_box": 49439,
+      "inside_ratio": 0.0063,
+      "connected_components": 5
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 311,
+      "pixels_inside_box": 311,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 99.37
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 49453,
+      "pixels_inside_box": 312,
+      "pixels_outside_box": 49141,
+      "inside_ratio": 0.0063,
+      "connected_components": 1,
+      "isolated_islands_pruned": 4
+    }
+  },
+  {
+    "image_id": "ADE_val_00000511",
+    "class_name": "table",
+    "box_xyxy": [
+      489,
+      232,
+      613,
+      382
+    ],
+    "box_area": 18600,
+    "strategy_1_raw": {
+      "total_pixels": 10669,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 10669,
+      "inside_ratio": 0.0,
+      "connected_components": 1
+    },
+    "strategy_2_hard_clipped": {
+      "total_pixels": 0,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 0,
+      "inside_ratio": 1.0,
+      "reduction_vs_raw_pct": 100.0
+    },
+    "strategy_3_soft_refined": {
+      "total_pixels": 10687,
+      "pixels_inside_box": 0,
+      "pixels_outside_box": 10687,
+      "inside_ratio": 0.0,
+      "connected_components": 1,
+      "isolated_islands_pruned": 0
+    }
+  }
+]

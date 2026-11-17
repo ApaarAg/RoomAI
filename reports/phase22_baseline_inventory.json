@@ -1,0 +1,130 @@
+{
+  "timestamp": "2026-10-28T19:35:00Z",
+  "audit_phase": "Phase 22: Stage Zero Environment & Baseline Inventory",
+  "hardware": {
+    "gpu_device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_count": 1,
+    "vram_total_gb": 8.0,
+    "vram_allocated_gb": 0.0,
+    "vram_reserved_gb": 0.0,
+    "system_ram_total_gb": 23.73,
+    "system_ram_available_gb": 1.87,
+    "system_ram_used_percent": 92.1,
+    "disk_total_gb": 474.87,
+    "disk_used_gb": 401.64,
+    "disk_free_gb": 73.23,
+    "disk_free_percent": 15.4
+  },
+  "software_environments": {
+    "active_python": {
+      "path": "C:\\Users\\apaar\\miniconda3\\python.exe",
+      "version": "3.13.5",
+      "pytorch_version": "2.6.0+cu124",
+      "cuda_available": true,
+      "cuda_version": "12.4",
+      "ultralytics_version": "8.4.104"
+    },
+    "conda_tf_gpu": {
+      "path": "C:\\Users\\apaar\\miniconda3\\envs\\tf-gpu\\python.exe",
+      "version": "3.10.20",
+      "pytorch_version": "2.11.0+cu128",
+      "cuda_available": true,
+      "ultralytics_version": "8.4.66"
+    }
+  },
+  "process_audit": {
+    "active_training_jobs": 0,
+    "active_competing_gpu_processes": 0,
+    "monitored_python_processes": [
+      { "pid": 41356, "process_name": "python", "description": "MCP server / helper" },
+      { "pid": 42636, "process_name": "python", "description": "MCP server / helper" },
+      { "pid": 44456, "process_name": "python", "description": "MCP server / helper" },
+      { "pid": 45504, "process_name": "python", "description": "MCP server / helper" }
+    ],
+    "status": "idle_and_safe"
+  },
+  "checkpoint_inventory": {
+    "production_default": {
+      "id": "Model B2 Default",
+      "checkpoint_path": "checkpoints/exterior_detector_b2_yolo11s_best.pt",
+      "size_bytes": 19163034,
+      "md5": "14a931dd0adabc16cbd7b28ed1d17f66",
+      "sha256": "C599C19241B8C60390AC0C4914DE6CEF449BC1129F73B0DB7F8F04FC62A0459F",
+      "status": "production_ready (active default in config/model_config.yaml)",
+      "validation_macro_f1": 0.5057
+    },
+    "research_baseline": {
+      "id": "Model B6 Expanded",
+      "checkpoint_path": "checkpoints/exterior_detector_b6_expanded_best.pt",
+      "size_bytes": 19167194,
+      "md5": "f5ceea56b0610ea14b647014e48152dc",
+      "sha256": "009144B272998EC9447F649E8D850E0FDB8CAE5FC973C5E0CB9EEBE717675AC9",
+      "status": "principal_research_baseline (verified unaltered)",
+      "validation_macro_f1": 0.5069,
+      "validation_micro_f1": 0.6336,
+      "validation_map50": 0.4920
+    },
+    "pilot_candidate": {
+      "id": "Model B7 Pilot",
+      "checkpoint_path": "checkpoints/exterior_detector_b7_pilot_best.pt",
+      "runs_path": "runs/train/exterior_detector_b7_pilot/weights/best.pt",
+      "size_bytes": 19167194,
+      "md5": "41433e929910eda4414ed6541bac2fe4",
+      "sha256": "0B04B97E66F033D2037BC1483D4AD4F484A00213DEFEE66A7D32AD83199E2C3F",
+      "status": "completed_pilot_candidate (20/20 epochs)",
+      "validation_macro_f1": 0.5199,
+      "validation_micro_f1": 0.6395,
+      "validation_map50": 0.5075,
+      "porch_f1": 0.2381,
+      "porch_ap50": 0.2336
+    },
+    "specialist": {
+      "id": "Model B Porch Specialist",
+      "checkpoint_path": "checkpoints/exterior_specialist_porch_yolo11s_best.pt",
+      "size_bytes": 19159130,
+      "md5": "4261fc1ad5f6fd9ac29c0499e2adddfd",
+      "status": "specialist_candidate (verified unaltered)"
+    }
+  },
+  "dataset_manifest_audit": {
+    "authorized_validation_split": {
+      "path": "data/exterior_b6_expanded/images/val",
+      "scene_count": 154,
+      "annotation_count": 8504,
+      "status": "locked_and_unaltered"
+    },
+    "retired_test_split": {
+      "path": "data/exterior_b6_expanded/images/test",
+      "scene_count": 154,
+      "status": "quarantined_and_retired_for_model_selection"
+    },
+    "existing_training_manifests": {
+      "pilot_b7_dataset": {
+        "path": "data/pilot_b7_dataset",
+        "train_scenes": 1602,
+        "legacy_b6_scenes": 1302,
+        "curated_pilot_scenes": 300,
+        "verified_masks_file": "data/pilot_b7_dataset/verified_class_masks.json",
+        "manifest_file": "data/pilot_b7_dataset/pilot_manifest.json"
+      },
+      "local_candidate_caches": {
+        "cache_pilot_b7_candidates": 781,
+        "cache_oi_b6_candidates": 399,
+        "cache_oi_b5_images": 433,
+        "open_images_v7_detections_csv": "C:\\Users\\apaar\\fiftyone\\open-images-v7\\train\\labels\\detections.csv"
+      }
+    }
+  },
+  "budget_estimates": {
+    "free_disk_space_gb": 73.23,
+    "recommended_max_storage_budget_gb": 15.0,
+    "target_image_expansion_count": [1000, 3000],
+    "estimated_download_uncompressed_gb": [0.35, 1.05],
+    "estimated_training_cache_gb": [1.0, 2.5],
+    "estimated_vram_peak_gb_batch4": 2.1,
+    "estimated_vram_peak_gb_batch8": 2.85,
+    "vram_ceiling_gb": 8.0,
+    "safety_status": "environment_confirmed_safe"
+  }
+}
+

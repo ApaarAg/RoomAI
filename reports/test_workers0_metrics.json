@@ -1,0 +1,165 @@
+{
+  "experiment_name": "test_workers0",
+  "timestamp": "2026-10-29T21:25:51Z",
+  "hyperparameters": {
+    "model": "F:\\RoomAI\\yolo11s.pt",
+    "data": "F:/RoomAI_Data/yolo_open_images_pilot/data.yaml",
+    "imgsz": 640,
+    "batch_size": 16,
+    "accumulate": 1,
+    "effective_batch_size": 16,
+    "epochs": 1,
+    "patience": 1,
+    "cache": "none",
+    "workers": 0,
+    "amp": true,
+    "seed": 42,
+    "lr0": 0.01,
+    "lrf": 0.01
+  },
+  "resources": {
+    "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "total_vram_gb": 8.0,
+    "peak_allocated_mb": 4059.38,
+    "peak_reserved_mb": 4236.0,
+    "vram_headroom_gb": 3.86,
+    "training_duration_sec": 640.54,
+    "sec_per_epoch": 640.54
+  },
+  "validation_metrics": {
+    "mAP50": 0.0291,
+    "mAP50_95": 0.0122,
+    "precision": 0.6569,
+    "recall": 0.0483,
+    "mean_tail_mAP50": 0.0006,
+    "tail_class_mAP50": {
+      "Bed": 0.0028,
+      "Couch": 0.0,
+      "Stairs": 0.0,
+      "Cabinetry": 0.0,
+      "Bookcase": 0.0006,
+      "Bench": 0.0
+    },
+    "per_class": {
+      "Building": {
+        "mAP50": 0.0893,
+        "mAP50_95": 0.0345,
+        "precision": 0.1712,
+        "recall": 0.1873
+      },
+      "House": {
+        "mAP50": 0.0316,
+        "mAP50_95": 0.0137,
+        "precision": 0.1,
+        "recall": 0.0841
+      },
+      "Door": {
+        "mAP50": 0.0066,
+        "mAP50_95": 0.0022,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Window": {
+        "mAP50": 0.0587,
+        "mAP50_95": 0.0258,
+        "precision": 0.2237,
+        "recall": 0.0653
+      },
+      "Stairs": {
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Chair": {
+        "mAP50": 0.0157,
+        "mAP50_95": 0.0043,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Couch": {
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "Table": {
+        "mAP50": 0.0193,
+        "mAP50_95": 0.0062,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Bed": {
+        "mAP50": 0.0028,
+        "mAP50_95": 0.0008,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Bookcase": {
+        "mAP50": 0.0006,
+        "mAP50_95": 0.0003,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Cabinetry": {
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "Bench": {
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Car": {
+        "mAP50": 0.1515,
+        "mAP50_95": 0.0725,
+        "precision": 0.1993,
+        "recall": 0.2864
+      },
+      "Truck": {
+        "mAP50": 0.0022,
+        "mAP50_95": 0.0008,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Bus": {
+        "mAP50": 0.0101,
+        "mAP50_95": 0.004,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Tree": {
+        "mAP50": 0.1093,
+        "mAP50_95": 0.0448,
+        "precision": 0.1302,
+        "recall": 0.2465
+      },
+      "Motorcycle": {
+        "mAP50": 0.0219,
+        "mAP50_95": 0.0082,
+        "precision": 1.0,
+        "recall": 0.0
+      },
+      "Bicycle": {
+        "mAP50": 0.0039,
+        "mAP50_95": 0.0011,
+        "precision": 1.0,
+        "recall": 0.0
+      }
+    },
+    "speed_ms": {
+      "preprocess": 0.41,
+      "inference": 4.9,
+      "postprocess": 2.32
+    }
+  },
+  "artifacts": {
+    "run_dir": "F:\\RoomAI_Data\\runs\\train\\test_workers0",
+    "best_checkpoint": "F:\\RoomAI_Data\\checkpoints\\test_workers0_best.pt",
+    "checkpoint_md5": "f88d71ed6487a5e9d79eb941430a24df",
+    "size_bytes": 19163667
+  }
+}

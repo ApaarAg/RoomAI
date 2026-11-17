@@ -1,0 +1,82 @@
+# RoomAI 3D Reconstruction — Dataset Pipeline Configuration
+# Defines storage budgets, target resolutions, coordinate conventions, and source datasets
+
+dataset_pipeline:
+  storage_budget_gb: 180.0
+  target_drive: "F:\\RoomAI\\data"
+  cache_dir: "F:\\RoomAI\\research\\3d_reconstruction\\data_manifests\\cache"
+  manifest_output_path: "F:\\RoomAI\\research\\3d_reconstruction\\data_manifests\\indoor_3d_scenes_manifest.json"
+
+  # Standardized geometry conventions
+  geometry:
+    coordinate_convention: "opencv_pinhole"  # +X right, +Y down, +Z forward
+    depth_unit: "meters"                    # Float32 metric depth
+    max_valid_depth_m: 15.0                 # Clip indoor depth at 15m
+    min_valid_depth_m: 0.15                 # Near plane clipping
+    target_resolution: [512, 512]           # Standard training / eval resolution [H, W]
+
+  # Scene-level split ratios (Strict zero-leakage by room ID)
+  split:
+    train_ratio: 0.70
+    val_ratio: 0.15
+    test_ratio: 0.15
+    random_seed: 42
+
+  # Dataset sources to ingest
+  sources:
+    hypersim:
+      enabled: true
+      dataset_name: "Hypersim"
+      source_type: "synthetic_pbr"
+      license: "Apple Non-Commercial Research"
+      priority: "high"
+      max_scenes: 50
+      max_frames_per_scene: 150
+      frame_stride: 5
+      provides_normals: true
+      provides_metric_depth: true
+
+    scannet:
+      enabled: true
+      dataset_name: "ScanNet v2"
+      source_type: "real_rgbd"
+      license: "ScanNet Research Agreement"
+      priority: "high"
+      max_scenes: 80
+      max_frames_per_scene: 200
+      frame_stride: 10
+      provides_normals: false
+      provides_metric_depth: true
+
+    arkitscenes:
+      enabled: true
+      dataset_name: "ARKitScenes"
+      source_type: "real_lidar"
+      license: "Apple Research License"
+      priority: "medium"
+      max_scenes: 60
+      max_frames_per_scene: 150
+      frame_stride: 10
+      provides_normals: false
+      provides_metric_depth: true
+
+    structured3d:
+      enabled: true
+      dataset_name: "Structured3D"
+      source_type: "synthetic_pbr"
+      license: "SenseTime Academic License"
+      priority: "medium"
+      max_scenes: 100
+      max_frames_per_scene: 60
+      frame_stride: 2
+      provides_normals: true
+      provides_metric_depth: true
+
+    sample_verification:
+      enabled: true
+      dataset_name: "RoomAI Internal Verification Set"
+      source_type: "hybrid"
+      license: "Internal Proprietary"
+      priority: "critical"
+      manifest_path: "F:\\RoomAI\\artifacts\\phase_7_4_2_indoor_dataset_manifest.json"
+

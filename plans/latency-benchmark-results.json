@@ -1,0 +1,186 @@
+{
+  "Small (640x480)": {
+    "sample_count": 20,
+    "payload_kb": 7.27,
+    "total_e2e": {
+      "mean": 19.29,
+      "median": 18.65,
+      "p95": 23.02,
+      "min": 17.42,
+      "max": 23.78
+    },
+    "gpu_inference": {
+      "mean": 15.84,
+      "median": 15.36,
+      "p95": 18.6,
+      "min": 14.04,
+      "max": 19.56
+    },
+    "server_total": {
+      "mean": 17.4,
+      "median": 16.76,
+      "p95": 20.92,
+      "min": 15.56,
+      "max": 21.12
+    },
+    "preprocess": {
+      "mean": 0.77,
+      "median": 0.69,
+      "p95": 0.93,
+      "min": 0.64,
+      "max": 1.47
+    },
+    "postprocess": {
+      "mean": 0.79,
+      "median": 0.76,
+      "p95": 0.93,
+      "min": 0.69,
+      "max": 1.1
+    },
+    "transfer_overhead": {
+      "mean": 1.9,
+      "median": 1.8,
+      "p95": 2.56,
+      "min": 1.62,
+      "max": 2.66
+    }
+  },
+  "Medium (1280x720)": {
+    "sample_count": 20,
+    "payload_kb": 18.28,
+    "total_e2e": {
+      "mean": 24.2,
+      "median": 23.55,
+      "p95": 26.87,
+      "min": 21.63,
+      "max": 31.07
+    },
+    "gpu_inference": {
+      "mean": 19.6,
+      "median": 18.98,
+      "p95": 21.94,
+      "min": 17.55,
+      "max": 25.97
+    },
+    "server_total": {
+      "mean": 22.24,
+      "median": 21.62,
+      "p95": 24.99,
+      "min": 19.76,
+      "max": 28.65
+    },
+    "preprocess": {
+      "mean": 2.03,
+      "median": 2.05,
+      "p95": 2.24,
+      "min": 1.66,
+      "max": 2.25
+    },
+    "postprocess": {
+      "mean": 0.6,
+      "median": 0.59,
+      "p95": 0.81,
+      "min": 0.41,
+      "max": 0.85
+    },
+    "transfer_overhead": {
+      "mean": 1.97,
+      "median": 1.95,
+      "p95": 2.1,
+      "min": 1.77,
+      "max": 2.42
+    }
+  },
+  "Large (1920x1080)": {
+    "sample_count": 20,
+    "payload_kb": 39.46,
+    "total_e2e": {
+      "mean": 32.21,
+      "median": 32.4,
+      "p95": 35.15,
+      "min": 29.47,
+      "max": 35.87
+    },
+    "gpu_inference": {
+      "mean": 25.88,
+      "median": 25.88,
+      "p95": 28.22,
+      "min": 23.49,
+      "max": 28.78
+    },
+    "server_total": {
+      "mean": 30.05,
+      "median": 30.25,
+      "p95": 32.9,
+      "min": 27.47,
+      "max": 33.28
+    },
+    "preprocess": {
+      "mean": 3.73,
+      "median": 3.58,
+      "p95": 4.49,
+      "min": 3.16,
+      "max": 4.54
+    },
+    "postprocess": {
+      "mean": 0.45,
+      "median": 0.44,
+      "p95": 0.52,
+      "min": 0.39,
+      "max": 0.57
+    },
+    "transfer_overhead": {
+      "mean": 2.15,
+      "median": 2.14,
+      "p95": 2.59,
+      "min": 1.69,
+      "max": 2.91
+    }
+  },
+  "Cached Query (LRU Hit)": {
+    "sample_count": 20,
+    "payload_kb": 7.27,
+    "total_e2e": {
+      "mean": 1.94,
+      "median": 1.93,
+      "p95": 2.16,
+      "min": 1.77,
+      "max": 2.18
+    },
+    "gpu_inference": {
+      "mean": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "server_total": {
+      "mean": 0.69,
+      "median": 0.65,
+      "p95": 0.79,
+      "min": 0.61,
+      "max": 0.81
+    },
+    "preprocess": {
+      "mean": 0.66,
+      "median": 0.61,
+      "p95": 0.76,
+      "min": 0.58,
+      "max": 0.77
+    },
+    "postprocess": {
+      "mean": 0.03,
+      "median": 0.03,
+      "p95": 0.04,
+      "min": 0.03,
+      "max": 0.04
+    },
+    "transfer_overhead": {
+      "mean": 1.25,
+      "median": 1.24,
+      "p95": 1.37,
+      "min": 1.14,
+      "max": 1.56
+    }
+  }
+}

@@ -1,0 +1,574 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "dataset_metadata": {
+    "dataset_name": "roomai_open_images_pilot",
+    "source_split": "train",
+    "generated_at": "2026-10-29T18:49:34.360768+00:00",
+    "total_images": 10000,
+    "total_raw_boxes": 92953,
+    "num_candidate_classes": 20,
+    "num_harmonized_classes": 18,
+    "seed": 42
+  },
+  "splits": {
+    "train": {
+      "image_count": 8000,
+      "label_count": 8000,
+      "box_count": 34369
+    },
+    "val": {
+      "image_count": 1000,
+      "label_count": 1000,
+      "box_count": 4605
+    },
+    "test": {
+      "image_count": 1000,
+      "label_count": 1000,
+      "box_count": 4433
+    }
+  },
+  "leakage_verification": {
+    "is_disjoint": true,
+    "image_id_leak_count": 0,
+    "md5_leak_count": 0
+  },
+  "corpus_health": {
+    "corrupted_images": 0,
+    "zero_byte_files": 0,
+    "duplicate_md5_pairs": 0,
+    "color_modes": {
+      "RGB": 9668,
+      "L": 329,
+      "CMYK": 3
+    },
+    "containers": {
+      "JPEG": 9993,
+      "MPO": 7
+    }
+  },
+  "dimension_summary": {
+    "width": {
+      "min": 443,
+      "max": 4896,
+      "median": 1024,
+      "mean": 975.8,
+      "std": 184.21
+    },
+    "height": {
+      "min": 270,
+      "max": 4608,
+      "median": 768,
+      "mean": 777.37,
+      "std": 172.45
+    },
+    "aspect_ratio": {
+      "min": 0.4326,
+      "max": 3.7926,
+      "median": 1.3333,
+      "mean": 1.2845,
+      "std": 0.2814
+    }
+  },
+  "raw_candidate_classes": {
+    "Tree": {
+      "open_images_id": "/m/07j7r",
+      "total_boxes": 18499,
+      "total_images": 4991,
+      "mean_boxes_per_image": 3.71,
+      "group_of_pct": 26.5,
+      "occluded_pct": 76.8,
+      "truncated_pct": 45.9,
+      "depiction_pct": 2.3
+    },
+    "Window": {
+      "open_images_id": "/m/0d4v4",
+      "total_boxes": 9018,
+      "total_images": 1017,
+      "mean_boxes_per_image": 8.87,
+      "group_of_pct": 3.2,
+      "occluded_pct": 38.0,
+      "truncated_pct": 11.8,
+      "depiction_pct": 1.5
+    },
+    "Car": {
+      "open_images_id": "/m/0k4j",
+      "total_boxes": 4197,
+      "total_images": 1539,
+      "mean_boxes_per_image": 2.73,
+      "group_of_pct": 5.7,
+      "occluded_pct": 55.8,
+      "truncated_pct": 32.9,
+      "depiction_pct": 2.1
+    },
+    "Building": {
+      "open_images_id": "/m/0cgh4",
+      "total_boxes": 2997,
+      "total_images": 1761,
+      "mean_boxes_per_image": 1.7,
+      "group_of_pct": 15.1,
+      "occluded_pct": 70.3,
+      "truncated_pct": 66.1,
+      "depiction_pct": 2.1
+    },
+    "House": {
+      "open_images_id": "/m/03jm5",
+      "total_boxes": 2233,
+      "total_images": 1010,
+      "mean_boxes_per_image": 2.21,
+      "group_of_pct": 3.7,
+      "occluded_pct": 37.3,
+      "truncated_pct": 20.6,
+      "depiction_pct": 2.3
+    },
+    "Chair": {
+      "open_images_id": "/m/01mzpv",
+      "total_boxes": 2170,
+      "total_images": 427,
+      "mean_boxes_per_image": 5.08,
+      "group_of_pct": 3.0,
+      "occluded_pct": 86.9,
+      "truncated_pct": 29.4,
+      "depiction_pct": 0.7
+    },
+    "Table": {
+      "open_images_id": "/m/04bcr3",
+      "total_boxes": 1440,
+      "total_images": 749,
+      "mean_boxes_per_image": 1.92,
+      "group_of_pct": 0.6,
+      "occluded_pct": 72.5,
+      "truncated_pct": 39.3,
+      "depiction_pct": 0.1
+    },
+    "Bicycle": {
+      "open_images_id": "/m/0199g",
+      "total_boxes": 613,
+      "total_images": 267,
+      "mean_boxes_per_image": 2.3,
+      "group_of_pct": 5.2,
+      "occluded_pct": 82.9,
+      "truncated_pct": 29.9,
+      "depiction_pct": 2.9
+    },
+    "Door": {
+      "open_images_id": "/m/02dgv",
+      "total_boxes": 307,
+      "total_images": 207,
+      "mean_boxes_per_image": 1.48,
+      "group_of_pct": 0.0,
+      "occluded_pct": 49.8,
+      "truncated_pct": 27.4,
+      "depiction_pct": 1.6
+    },
+    "Motorcycle": {
+      "open_images_id": "/m/04_sv",
+      "total_boxes": 241,
+      "total_images": 119,
+      "mean_boxes_per_image": 2.03,
+      "group_of_pct": 2.1,
+      "occluded_pct": 51.5,
+      "truncated_pct": 11.6,
+      "depiction_pct": 0.0
+    },
+    "Bus": {
+      "open_images_id": "/m/01bjv",
+      "total_boxes": 212,
+      "total_images": 135,
+      "mean_boxes_per_image": 1.57,
+      "group_of_pct": 0.9,
+      "occluded_pct": 53.8,
+      "truncated_pct": 36.3,
+      "depiction_pct": 2.4
+    },
+    "Truck": {
+      "open_images_id": "/m/07rnxq",
+      "total_boxes": 187,
+      "total_images": 129,
+      "mean_boxes_per_image": 1.45,
+      "group_of_pct": 0.5,
+      "occluded_pct": 57.8,
+      "truncated_pct": 32.1,
+      "depiction_pct": 1.1
+    },
+    "Cabinetry": {
+      "open_images_id": "/m/01s55n",
+      "total_boxes": 120,
+      "total_images": 40,
+      "mean_boxes_per_image": 3.0,
+      "group_of_pct": 5.0,
+      "occluded_pct": 63.3,
+      "truncated_pct": 33.3,
+      "depiction_pct": 0.0
+    },
+    "Bench": {
+      "open_images_id": "/m/01x3jk",
+      "total_boxes": 118,
+      "total_images": 62,
+      "mean_boxes_per_image": 1.9,
+      "group_of_pct": 1.7,
+      "occluded_pct": 66.1,
+      "truncated_pct": 23.7,
+      "depiction_pct": 1.7
+    },
+    "Bookcase": {
+      "open_images_id": "/m/03__z0",
+      "total_boxes": 106,
+      "total_images": 64,
+      "mean_boxes_per_image": 1.66,
+      "group_of_pct": 3.8,
+      "occluded_pct": 63.2,
+      "truncated_pct": 77.4,
+      "depiction_pct": 0.9
+    },
+    "Stairs": {
+      "open_images_id": "/m/01lynh",
+      "total_boxes": 104,
+      "total_images": 83,
+      "mean_boxes_per_image": 1.25,
+      "group_of_pct": 51.0,
+      "occluded_pct": 58.6,
+      "truncated_pct": 61.5,
+      "depiction_pct": 1.9
+    },
+    "Bed": {
+      "open_images_id": "/m/03ssj5",
+      "total_boxes": 70,
+      "total_images": 52,
+      "mean_boxes_per_image": 1.35,
+      "group_of_pct": 0.0,
+      "occluded_pct": 67.1,
+      "truncated_pct": 65.7,
+      "depiction_pct": 2.9
+    },
+    "Couch": {
+      "open_images_id": "/m/02crq1",
+      "total_boxes": 64,
+      "total_images": 55,
+      "mean_boxes_per_image": 1.16,
+      "group_of_pct": 0.0,
+      "occluded_pct": 23.4,
+      "truncated_pct": 23.4,
+      "depiction_pct": 0.0
+    },
+    "Office building": {
+      "open_images_id": "/m/021sj1",
+      "total_boxes": 37,
+      "total_images": 37,
+      "mean_boxes_per_image": 1.0,
+      "group_of_pct": 0.0,
+      "occluded_pct": 24.3,
+      "truncated_pct": 24.3,
+      "depiction_pct": 0.0
+    },
+    "Kitchen & dining room table": {
+      "open_images_id": "/m/0h8n5zk",
+      "total_boxes": 26,
+      "total_images": 23,
+      "mean_boxes_per_image": 1.13,
+      "group_of_pct": 0.0,
+      "occluded_pct": 7.7,
+      "truncated_pct": 0.0,
+      "depiction_pct": 0.0
+    }
+  },
+  "harmonized_classes": {
+    "Building": {
+      "class_id": 0,
+      "target_name": "Building",
+      "source_classes": [
+        "Building",
+        "Office building",
+        "Skyscraper"
+      ],
+      "total_boxes": 3491,
+      "train_boxes": 2789,
+      "val_boxes": 331,
+      "test_boxes": 371,
+      "total_images": 1919,
+      "train_images": 1535,
+      "val_images": 192,
+      "test_images": 192,
+      "mean_boxes_per_image": 1.82
+    },
+    "House": {
+      "class_id": 1,
+      "target_name": "House",
+      "source_classes": [
+        "House"
+      ],
+      "total_boxes": 2233,
+      "train_boxes": 1776,
+      "val_boxes": 215,
+      "test_boxes": 242,
+      "total_images": 1010,
+      "train_images": 808,
+      "val_images": 101,
+      "test_images": 101,
+      "mean_boxes_per_image": 2.21
+    },
+    "Door": {
+      "class_id": 2,
+      "target_name": "Door",
+      "source_classes": [
+        "Door"
+      ],
+      "total_boxes": 307,
+      "train_boxes": 247,
+      "val_boxes": 29,
+      "test_boxes": 31,
+      "total_images": 207,
+      "train_images": 165,
+      "val_images": 21,
+      "test_images": 21,
+      "mean_boxes_per_image": 1.48
+    },
+    "Window": {
+      "class_id": 3,
+      "target_name": "Window",
+      "source_classes": [
+        "Window"
+      ],
+      "total_boxes": 9018,
+      "train_boxes": 7222,
+      "val_boxes": 995,
+      "test_boxes": 801,
+      "total_images": 1017,
+      "train_images": 813,
+      "val_images": 102,
+      "test_images": 102,
+      "mean_boxes_per_image": 8.87
+    },
+    "Stairs": {
+      "class_id": 4,
+      "target_name": "Stairs",
+      "source_classes": [
+        "Stairs"
+      ],
+      "total_boxes": 104,
+      "train_boxes": 76,
+      "val_boxes": 12,
+      "test_boxes": 16,
+      "total_images": 83,
+      "train_images": 65,
+      "val_images": 9,
+      "test_images": 9,
+      "mean_boxes_per_image": 1.25
+    },
+    "Chair": {
+      "class_id": 5,
+      "target_name": "Chair",
+      "source_classes": [
+        "Chair"
+      ],
+      "total_boxes": 2170,
+      "train_boxes": 1709,
+      "val_boxes": 249,
+      "test_boxes": 212,
+      "total_images": 427,
+      "train_images": 341,
+      "val_images": 43,
+      "test_images": 43,
+      "mean_boxes_per_image": 5.08
+    },
+    "Couch": {
+      "class_id": 6,
+      "target_name": "Couch",
+      "source_classes": [
+        "Couch",
+        "Sofa bed",
+        "Loveseat",
+        "Studio couch"
+      ],
+      "total_boxes": 96,
+      "train_boxes": 77,
+      "val_boxes": 7,
+      "test_boxes": 12,
+      "total_images": 69,
+      "train_images": 55,
+      "val_images": 7,
+      "test_images": 7,
+      "mean_boxes_per_image": 1.39
+    },
+    "Table": {
+      "class_id": 7,
+      "target_name": "Table",
+      "source_classes": [
+        "Table",
+        "Kitchen & dining room table",
+        "Coffee table"
+      ],
+      "total_boxes": 1533,
+      "train_boxes": 1198,
+      "val_boxes": 159,
+      "test_boxes": 176,
+      "total_images": 811,
+      "train_images": 649,
+      "val_images": 81,
+      "test_images": 81,
+      "mean_boxes_per_image": 1.89
+    },
+    "Bed": {
+      "class_id": 8,
+      "target_name": "Bed",
+      "source_classes": [
+        "Bed"
+      ],
+      "total_boxes": 70,
+      "train_boxes": 56,
+      "val_boxes": 8,
+      "test_boxes": 6,
+      "total_images": 52,
+      "train_images": 41,
+      "val_images": 6,
+      "test_images": 5,
+      "mean_boxes_per_image": 1.35
+    },
+    "Bookcase": {
+      "class_id": 9,
+      "target_name": "Bookcase",
+      "source_classes": [
+        "Bookcase"
+      ],
+      "total_boxes": 106,
+      "train_boxes": 87,
+      "val_boxes": 10,
+      "test_boxes": 9,
+      "total_images": 64,
+      "train_images": 50,
+      "val_images": 7,
+      "test_images": 7,
+      "mean_boxes_per_image": 1.66
+    },
+    "Cabinetry": {
+      "class_id": 10,
+      "target_name": "Cabinetry",
+      "source_classes": [
+        "Cabinetry",
+        "Cupboard",
+        "Bathroom cabinet"
+      ],
+      "total_boxes": 142,
+      "train_boxes": 92,
+      "val_boxes": 15,
+      "test_boxes": 35,
+      "total_images": 43,
+      "train_images": 33,
+      "val_images": 5,
+      "test_images": 5,
+      "mean_boxes_per_image": 3.3
+    },
+    "Bench": {
+      "class_id": 11,
+      "target_name": "Bench",
+      "source_classes": [
+        "Bench"
+      ],
+      "total_boxes": 118,
+      "train_boxes": 92,
+      "val_boxes": 15,
+      "test_boxes": 11,
+      "total_images": 62,
+      "train_images": 49,
+      "val_images": 6,
+      "test_images": 7,
+      "mean_boxes_per_image": 1.9
+    },
+    "Car": {
+      "class_id": 12,
+      "target_name": "Car",
+      "source_classes": [
+        "Car",
+        "Van"
+      ],
+      "total_boxes": 4267,
+      "train_boxes": 3369,
+      "val_boxes": 440,
+      "test_boxes": 458,
+      "total_images": 1589,
+      "train_images": 1271,
+      "val_images": 159,
+      "test_images": 159,
+      "mean_boxes_per_image": 2.69
+    },
+    "Truck": {
+      "class_id": 13,
+      "target_name": "Truck",
+      "source_classes": [
+        "Truck"
+      ],
+      "total_boxes": 187,
+      "train_boxes": 140,
+      "val_boxes": 23,
+      "test_boxes": 24,
+      "total_images": 129,
+      "train_images": 103,
+      "val_images": 13,
+      "test_images": 13,
+      "mean_boxes_per_image": 1.45
+    },
+    "Bus": {
+      "class_id": 14,
+      "target_name": "Bus",
+      "source_classes": [
+        "Bus"
+      ],
+      "total_boxes": 212,
+      "train_boxes": 172,
+      "val_boxes": 21,
+      "test_boxes": 19,
+      "total_images": 135,
+      "train_images": 107,
+      "val_images": 14,
+      "test_images": 14,
+      "mean_boxes_per_image": 1.57
+    },
+    "Tree": {
+      "class_id": 15,
+      "target_name": "Tree",
+      "source_classes": [
+        "Tree"
+      ],
+      "total_boxes": 18499,
+      "train_boxes": 14610,
+      "val_boxes": 1955,
+      "test_boxes": 1934,
+      "total_images": 4991,
+      "train_images": 3972,
+      "val_images": 512,
+      "test_images": 507,
+      "mean_boxes_per_image": 3.71
+    },
+    "Motorcycle": {
+      "class_id": 16,
+      "target_name": "Motorcycle",
+      "source_classes": [
+        "Motorcycle"
+      ],
+      "total_boxes": 241,
+      "train_boxes": 190,
+      "val_boxes": 19,
+      "test_boxes": 32,
+      "total_images": 119,
+      "train_images": 95,
+      "val_images": 12,
+      "test_images": 12,
+      "mean_boxes_per_image": 2.03
+    },
+    "Bicycle": {
+      "class_id": 17,
+      "target_name": "Bicycle",
+      "source_classes": [
+        "Bicycle"
+      ],
+      "total_boxes": 613,
+      "train_boxes": 467,
+      "val_boxes": 102,
+      "test_boxes": 44,
+      "total_images": 267,
+      "train_images": 213,
+      "val_images": 27,
+      "test_images": 27,
+      "mean_boxes_per_image": 2.3
+    }
+  }
+}

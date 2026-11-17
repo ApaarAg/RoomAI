@@ -1,0 +1,112 @@
+# RoomAI Immutable Model Registry Specification
+# Schema Version: 1.0.0
+# Last Updated: 2026-11-10
+
+registry_version: "1.0.0"
+active_aliases:
+  stage1_reference: "worldmirror1_baseline"
+  stage1_candidate: "worldmirror1_lora_r8"
+  stage2_experimental: "worldmirror1_stage2"
+
+models:
+  worldmirror1_baseline:
+    name: "WorldMirror-1.0 Baseline"
+    version: "1.0.0-pretrained"
+    status: "REFERENCE"
+    role: "Baseline and rollback foundation model"
+    manifest_path: "models/versions/worldmirror1_baseline/manifest.json"
+    checkpoint_path: "research/3d_reconstruction/checkpoints/production_candidate/production_model.ckpt"
+    sha256: "dbc9c9b0d4fae796ce5dd142bdde7e491057e484db313fef0397cac0c33970e5"
+    file_size_bytes: 2839184102
+    parameter_count:
+      total: 1223250748
+      total_m: 1223.25
+      backbone_m: 909.11
+      cam_head_m: 216.17
+      pts_head_m: 32.65
+      depth_head_m: 32.65
+      norm_head_m: 32.65
+    trainable_partition:
+      is_lora_adapter: false
+      is_merged_model: true
+      fine_tuned_weights: "None (Pretrained Baseline)"
+    source_commit: "c61300e47ce06db2f02c8e2551aae68be7ae3a0b"
+    license: "Tencent HunyuanWorld-Mirror License (Non-Commercial Research)"
+    capabilities:
+      single_view: true
+      multi_view: true
+      metric_depth: true
+      surface_normals: true
+      gaussian_splatting: false
+      glb_export: true
+      ply_export: true
+
+  worldmirror1_lora_r8:
+    name: "WorldMirror-1.0 LoRA Rank 8 (Stage 1)"
+    version: "1.0.0-stage1-r8"
+    status: "VALIDATION_CANDIDATE"
+    role: "Best reported Stage 1 candidate"
+    manifest_path: "models/versions/worldmirror1_lora_r8/manifest.json"
+    checkpoint_path: "research/3d_reconstruction/checkpoints/stage1/best_stage1.ckpt"
+    sha256: "fa12e006da6d1dbdbae810ee3995e9659dd8da5dad16dc9fe8380c9daa9481a2"
+    file_size_bytes: 2839164068
+    parameter_count:
+      total: 1223250748
+      total_m: 1223.25
+      backbone_m: 909.11
+      cam_head_m: 216.17
+      pts_head_m: 32.65
+      depth_head_m: 32.65
+      norm_head_m: 32.65
+    trainable_partition:
+      is_lora_adapter: false
+      is_merged_model: true
+      fine_tuned_weights: "Stage 1 Geometric Heads (314.12M params tuned, 909.11M backbone frozen)"
+    source_commit: "c61300e47ce06db2f02c8e2551aae68be7ae3a0b"
+    license: "Tencent HunyuanWorld-Mirror License (Non-Commercial Research)"
+    reported_metrics:
+      hypersim_absrel: 0.4526
+      scannet_absrel: 0.2835
+      pointmap_score: 2.8035
+    capabilities:
+      single_view: true
+      multi_view: true
+      metric_depth: true
+      surface_normals: true
+      gaussian_splatting: false
+      glb_export: true
+      ply_export: true
+
+  worldmirror1_stage2:
+    name: "WorldMirror-1.0 Stage 2 Gaussian"
+    version: "1.0.0-stage2-3dgs"
+    status: "EXPERIMENTAL"
+    role: "Optional multi-view 3D Gaussian Splatting candidate"
+    manifest_path: "models/versions/worldmirror1_stage2/manifest.json"
+    checkpoint_path: "research/3d_reconstruction/checkpoints/stage2/stage2_real_verified.ckpt"
+    sha256: "e1848950c17e23ab7f0a05771de519e61c484ebffe916b9320c61c5f5c239ece"
+    file_size_bytes: 2644926673
+    parameter_count:
+      total: 1256222250
+      total_m: 1256.22
+      backbone_m: 909.11
+      cam_head_m: 216.17
+      pts_head_m: 32.65
+      depth_head_m: 32.65
+      norm_head_m: 32.65
+      gs_head_m: 32.67
+      gs_renderer_m: 0.30
+    trainable_partition:
+      is_lora_adapter: false
+      is_merged_model: true
+      fine_tuned_weights: "Stage 2 GS Head & Renderer (32.97M params tuned on top of Stage 1)"
+    source_commit: "c61300e47ce06db2f02c8e2551aae68be7ae3a0b"
+    license: "Tencent HunyuanWorld-Mirror License (Non-Commercial Research)"
+    capabilities:
+      single_view: true
+      multi_view: true
+      metric_depth: true
+      surface_normals: true
+      gaussian_splatting: true
+      glb_export: true
+      ply_export: true

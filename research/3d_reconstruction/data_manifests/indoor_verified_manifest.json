@@ -1,0 +1,673 @@
+{
+  "metadata": {
+    "title": "RoomAI Verified Indoor 3D Reconstruction Dataset",
+    "version": "1.0.0",
+    "contract": "HyperSim_Multi / MultiViewDataset",
+    "generated_at": "2026-11-08T02:44:18Z",
+    "total_scenes": 11,
+    "total_views": 39,
+    "resolution": [
+      518,
+      518
+    ],
+    "depth_unit": "meters",
+    "depth_model": "Depth Anything V2 Metric Indoor Small",
+    "processing_time_sec": 8.368894577026367,
+    "splits": {
+      "train": {
+        "scenes": 8,
+        "views": 35,
+        "scene_ratio": 0.7272727272727273,
+        "view_ratio": 0.8974358974358975
+      },
+      "val": {
+        "scenes": 2,
+        "views": 3,
+        "scene_ratio": 0.18181818181818182,
+        "view_ratio": 0.07692307692307693
+      },
+      "test": {
+        "scenes": 1,
+        "views": 1,
+        "scene_ratio": 0.09090909090909091,
+        "view_ratio": 0.02564102564102564
+      }
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "Bright_Room",
+      "split": "val",
+      "num_views": 2,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Bright_Room",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 1.909490704536438,
+          "depth_max_m": 7.796430587768555,
+          "depth_mean_m": 5.091444969177246,
+          "sha256_rgb": "31972c1ea491630eeee62864f06181cb9bb695559e34ca4a9e9af83f6647e751",
+          "sha256_depth": "9e75e3a22318f16e88a5153caa9ff891087908791fbd1e1344c56f1d87b829f0",
+          "sha256_normal": "f20f47fb678497448f72948cad1eb05c91a54379e7efc117814de0f99d5b779c",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 2.1135075092315674,
+          "depth_max_m": 7.6108503341674805,
+          "depth_mean_m": 5.450900554656982,
+          "sha256_rgb": "8f9f633b5a0f5aee377bd2f507e30d9c01854e09bdfdeedccace8068092776a1",
+          "sha256_depth": "66a33babdd5bf9b255a9c580d6c676b7521534f95b564b5d150e922a9e9d9bf7",
+          "sha256_normal": "9cc82880d7b0e9cd1fd750130e61b861848d4c1b4970892aef73fab65296f15f",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        }
+      ]
+    },
+    {
+      "scene_id": "Desk",
+      "split": "train",
+      "num_views": 2,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Desk",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 1.1457277536392212,
+          "depth_max_m": 8.616927146911621,
+          "depth_mean_m": 5.081355571746826,
+          "sha256_rgb": "5ff284ce4c62feac92de5ef2afff9168949f57861d214aa857aafa052d0bd52f",
+          "sha256_depth": "b7a8d30a80d5a4741afecfd939daefab9335e7bddaea70fd08f6798815ac1b8f",
+          "sha256_normal": "391ddf88465f1603e66da2519e487aa8024f7acf33abc016e391df066938e196",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 1.9554729461669922,
+          "depth_max_m": 12.431658744812012,
+          "depth_mean_m": 5.141909599304199,
+          "sha256_rgb": "538a491b4d1d1a20ed0aeabb824fcadd070f7bd9ec9728d2186ee80252a8f4d9",
+          "sha256_depth": "ad25284df0b07f141a3bfec7b159e527f2a721c8a66d57787a17529ea5cc6fb4",
+          "sha256_normal": "424f0e33afd59f543643b118104b53603db2d209890811de438b4297309cb5ca",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        }
+      ]
+    },
+    {
+      "scene_id": "Dining_Table",
+      "split": "train",
+      "num_views": 4,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Dining_Table",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 3.2526063919067383,
+          "depth_max_m": 7.246072292327881,
+          "depth_mean_m": 5.107809543609619,
+          "sha256_rgb": "0af847affa98e25dd0dcf96da7fb287036e5cca762f3e467f66a53e8b030ffdd",
+          "sha256_depth": "66e2180795d476ea11ca9044a944a64cccf0a3d72d2b3805831d356cc633b4fe",
+          "sha256_normal": "0f618249cfee868eacb27752a885d8da2c97a379cb54fa20a969d486667c91db",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 2.693570852279663,
+          "depth_max_m": 6.267643928527832,
+          "depth_mean_m": 4.503288269042969,
+          "sha256_rgb": "99fd3d59ebe70c9a0a99df5203eaf121363fff98e312975b28d151652b68eecb",
+          "sha256_depth": "7f52d5fe35e7e937c1801ba58dce1fe0bc83ff56b98f9a3525e2e36295d2c372",
+          "sha256_normal": "8a1a11c1783b166e4ea0c53799bacea3d79df4fa87d07bf1a1bf858d0eca6056",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        },
+        {
+          "view_idx": 2,
+          "rgb_file": "frame_0002_rgb.png",
+          "depth_file": "frame_0002_depth.npy",
+          "normal_file": "frame_0002_normal.npy",
+          "cam_file": "frame_0002_cam.npz",
+          "depth_min_m": 1.785579800605774,
+          "depth_max_m": 5.666469573974609,
+          "depth_mean_m": 4.013087749481201,
+          "sha256_rgb": "9a66b7cd4dc28a5823b1bcedd89d76710039dd266532d183ccfafdf7989c460c",
+          "sha256_depth": "4f9cca727b6e7d155252153c6ac1b27dff4e6a421d3a492394528a93fd23f1ea",
+          "sha256_normal": "23b473bb6d325368671b6648c432954791b4fe464737636314a32f112612eef5",
+          "sha256_cam": "ebe3978f466fb1b187cad913839e11e4d18b7ac83cc1d3eb1c75202336376d29"
+        },
+        {
+          "view_idx": 3,
+          "rgb_file": "frame_0003_rgb.png",
+          "depth_file": "frame_0003_depth.npy",
+          "normal_file": "frame_0003_normal.npy",
+          "cam_file": "frame_0003_cam.npz",
+          "depth_min_m": 1.6057289838790894,
+          "depth_max_m": 4.916899681091309,
+          "depth_mean_m": 3.2287280559539795,
+          "sha256_rgb": "980706a510caf2c939f21c4fee8713f5e6860e3875ca60ad3dde05f16cebebc2",
+          "sha256_depth": "2b1cac7125f40d9199a204e435f1e61d2975437fbba7201c3469a86fb63c954a",
+          "sha256_normal": "cb32dac332ecead2f473223888119d0bce4dddf159cbd6c9ebf97e5a13e12bb9",
+          "sha256_cam": "f8a52c5582a89987aa73f0acfcee759f13c14c320c126d7e276a43716c7c04d7"
+        }
+      ]
+    },
+    {
+      "scene_id": "Hall",
+      "split": "train",
+      "num_views": 2,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Hall",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 1.2152215242385864,
+          "depth_max_m": 11.042558670043945,
+          "depth_mean_m": 4.782812595367432,
+          "sha256_rgb": "2a996258cf18b5ade151d0cd53262948c332513ce9f5d330ba87c3b7a2fbf41a",
+          "sha256_depth": "d567888cff20b234261fdefca0259c0491b1370fec325e79c07af78f5cd57330",
+          "sha256_normal": "620c2fe7f00668121d34b189a1972137cddf0245a5e49d8c75441f836148d3f0",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 1.0042340755462646,
+          "depth_max_m": 10.850905418395996,
+          "depth_mean_m": 5.008900165557861,
+          "sha256_rgb": "e88fa99b8791c76460af6f136f048511b6d31c49467e81587079c9621c62db90",
+          "sha256_depth": "9b71dea93a87f1c7e81b1016a207273d0387a5ecafef03d846336957d85fd8e2",
+          "sha256_normal": "caebc9dd16d89ffad0b0a2e38c90881f18d41643bc0ad50a6c596c27956b0954",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        }
+      ]
+    },
+    {
+      "scene_id": "Lego_Kitchen",
+      "split": "train",
+      "num_views": 10,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Lego_Kitchen",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 0.6696980595588684,
+          "depth_max_m": 5.049213409423828,
+          "depth_mean_m": 2.0347280502319336,
+          "sha256_rgb": "7031bdfba518492e09bcf9f9ca5cdae4079d0328f4ad013f9dd899c89967f256",
+          "sha256_depth": "4c2b42df401aaaa7be93d6b190d881a2e5d7810c7092428d9f3befc8984192cf",
+          "sha256_normal": "c7657bce21528fa9bdd6bea19260854400e83d6d3c5431208b64ec0432fa04d0",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 0.7170974612236023,
+          "depth_max_m": 4.265252113342285,
+          "depth_mean_m": 1.314152479171753,
+          "sha256_rgb": "6fafc8165d311692aee8b26cfe897fabe5aaf8fda73acb8004ec7ed1d5d692d3",
+          "sha256_depth": "d22da4565417f5d45f876cf2575d859ac693a46ec7614303bd88796f30f1b765",
+          "sha256_normal": "bf1b3b26fbd6c5b5de886466ed82ec77a342df689c5b332cf65348fdcf43ed93",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        },
+        {
+          "view_idx": 2,
+          "rgb_file": "frame_0002_rgb.png",
+          "depth_file": "frame_0002_depth.npy",
+          "normal_file": "frame_0002_normal.npy",
+          "cam_file": "frame_0002_cam.npz",
+          "depth_min_m": 0.7208026647567749,
+          "depth_max_m": 2.3802688121795654,
+          "depth_mean_m": 1.285962700843811,
+          "sha256_rgb": "9ea3e78de934be57eb84fe6452204f831dfccb0a5744a21b499553e6098959b8",
+          "sha256_depth": "02290fd3bb1792c1007a380d058e087fe104a095baa89711ca33985c7ab1f0d0",
+          "sha256_normal": "2a88f6d732a5ca89c76607d10f59959cb8a81435f78dd07a2102d47b47298c7f",
+          "sha256_cam": "ebe3978f466fb1b187cad913839e11e4d18b7ac83cc1d3eb1c75202336376d29"
+        },
+        {
+          "view_idx": 3,
+          "rgb_file": "frame_0003_rgb.png",
+          "depth_file": "frame_0003_depth.npy",
+          "normal_file": "frame_0003_normal.npy",
+          "cam_file": "frame_0003_cam.npz",
+          "depth_min_m": 1.0628019571304321,
+          "depth_max_m": 2.5974230766296387,
+          "depth_mean_m": 1.5494344234466553,
+          "sha256_rgb": "ede51a43bf2823d33ad5a2b947c46fd4a97be4b19b5c86a08ca31c7ebfbd1315",
+          "sha256_depth": "337b00ae10c780ac21269c3644558b2aa5cd75407f7b203b6fde1918f8392860",
+          "sha256_normal": "0df7800a25c08aecf69b9346409f828a9e9a5857bdea5883113daa5db78d2bca",
+          "sha256_cam": "f8a52c5582a89987aa73f0acfcee759f13c14c320c126d7e276a43716c7c04d7"
+        },
+        {
+          "view_idx": 4,
+          "rgb_file": "frame_0004_rgb.png",
+          "depth_file": "frame_0004_depth.npy",
+          "normal_file": "frame_0004_normal.npy",
+          "cam_file": "frame_0004_cam.npz",
+          "depth_min_m": 1.164712905883789,
+          "depth_max_m": 3.313952684402466,
+          "depth_mean_m": 1.8501930236816406,
+          "sha256_rgb": "bb43f2ee47111f1b63f3eab3d24f2e0d7a009b0818e847f16383c0f2f11bb643",
+          "sha256_depth": "b74e83c8e421f0b979796f0255e19b6f14aa393f8bf37b6590e06f750c956e12",
+          "sha256_normal": "d6bfea15c55076bf22f0fb145108280bcc4f5894a9de52997eddbb9377d27b6c",
+          "sha256_cam": "a13182156a217b86b85d7150c397f88dc2c745a605bf36bb06bd50a185e60b49"
+        },
+        {
+          "view_idx": 5,
+          "rgb_file": "frame_0005_rgb.png",
+          "depth_file": "frame_0005_depth.npy",
+          "normal_file": "frame_0005_normal.npy",
+          "cam_file": "frame_0005_cam.npz",
+          "depth_min_m": 0.7720338702201843,
+          "depth_max_m": 3.8456225395202637,
+          "depth_mean_m": 1.5042552947998047,
+          "sha256_rgb": "ff4ff3337562410afb24e0741315a255a79708f552b291ffebea876b9d5a4c27",
+          "sha256_depth": "52d222053352130ab25d0a6e052af3eda58cf8192660f12e9698151c8008fed8",
+          "sha256_normal": "68b06a97db2ff1052e973849747a5e412e922c9e7a3d07cdec8d82e4fe515543",
+          "sha256_cam": "91184b7a9ed6cbc19b11e68ac11fd4817e6632dd79bc0e42b766c9659c73bada"
+        },
+        {
+          "view_idx": 6,
+          "rgb_file": "frame_0006_rgb.png",
+          "depth_file": "frame_0006_depth.npy",
+          "normal_file": "frame_0006_normal.npy",
+          "cam_file": "frame_0006_cam.npz",
+          "depth_min_m": 0.5394359827041626,
+          "depth_max_m": 3.8307666778564453,
+          "depth_mean_m": 1.7420008182525635,
+          "sha256_rgb": "d7d0b6d4ba560ce1e414edf6f31512238574dc3f84a8b71ca0d4179ce49e3c07",
+          "sha256_depth": "ef3fb9d05734c9c84c165ca13d2a201b59653abe8b1dea0348ae8f77c9a8c214",
+          "sha256_normal": "694cf6b998ac4db089fa399c6a4cec4d18b48dd9fcaacdf927b6e823d965ddb3",
+          "sha256_cam": "3d4868db29ca5e0fbc38012bca5060377a02fae9e7cc210bc275acf8f3ea996a"
+        },
+        {
+          "view_idx": 7,
+          "rgb_file": "frame_0007_rgb.png",
+          "depth_file": "frame_0007_depth.npy",
+          "normal_file": "frame_0007_normal.npy",
+          "cam_file": "frame_0007_cam.npz",
+          "depth_min_m": 1.2437422275543213,
+          "depth_max_m": 3.4325103759765625,
+          "depth_mean_m": 1.7434265613555908,
+          "sha256_rgb": "aef5c309c2424ef9b5e75e092f5cf7305c4b8fa7b1b5c8d96525e8a3de24f56d",
+          "sha256_depth": "f73e4a0928cef1c3cada60f0818fff52e674917f35985d5f1f8f7c65fb13b858",
+          "sha256_normal": "1b4aa46bf3d0cf8c8c4b712f68488ed02d931889424d58a5620264e9de3a43fe",
+          "sha256_cam": "2f3e6c59d72c8f5274ec02efe340aeb7d9508e2e738fcaac1cbace9a3c55361e"
+        },
+        {
+          "view_idx": 8,
+          "rgb_file": "frame_0008_rgb.png",
+          "depth_file": "frame_0008_depth.npy",
+          "normal_file": "frame_0008_normal.npy",
+          "cam_file": "frame_0008_cam.npz",
+          "depth_min_m": 1.1051018238067627,
+          "depth_max_m": 2.7405571937561035,
+          "depth_mean_m": 1.7781568765640259,
+          "sha256_rgb": "c65d2dee30cdaa90fd3385e21ec8e35b5c1a8bf8faf27b5bd9a81e81ddbd62ad",
+          "sha256_depth": "8095dd6d0c6e72322fb79acd8e3bef5e59adc6a11dbc6f887513635455a76160",
+          "sha256_normal": "0c12aea205b2ed192e4a2a64e1bc236f4b02d7023e6c05bc7b2b0b09463809ac",
+          "sha256_cam": "c707459911a7c9548773ce4ccf3144099dd14d338ad9ee68602538136027ad43"
+        },
+        {
+          "view_idx": 9,
+          "rgb_file": "frame_0009_rgb.png",
+          "depth_file": "frame_0009_depth.npy",
+          "normal_file": "frame_0009_normal.npy",
+          "cam_file": "frame_0009_cam.npz",
+          "depth_min_m": 0.42398959398269653,
+          "depth_max_m": 3.1766061782836914,
+          "depth_mean_m": 1.2298787832260132,
+          "sha256_rgb": "d11df44d0e6bda8a73643009d301f0d2aaa5d084cb429f3cea2352408e1a5895",
+          "sha256_depth": "3595d49b0c95984b442c06750b3d14773c8594111e06c989943b7f9ee03482c9",
+          "sha256_normal": "87f57c71655cccf657f0962d19f6c2a66fefc4407d463396ef44c68e8f26cc11",
+          "sha256_cam": "54dc4398d68e8d8777d30890aa17a1a88184df77d3864163bdf20bc8b2d53d8a"
+        }
+      ]
+    },
+    {
+      "scene_id": "Living_Room",
+      "split": "train",
+      "num_views": 2,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Living_Room",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 1.5521564483642578,
+          "depth_max_m": 9.62112045288086,
+          "depth_mean_m": 4.690647125244141,
+          "sha256_rgb": "cfc227c2d7c621f14478051f25136aa02d64d9dd2224d680be83bcf2748e04d1",
+          "sha256_depth": "d3acb9485c5937165bdd6ae91c84023b23d7e3a9bff879a7c19bf56ce7f9c3d9",
+          "sha256_normal": "949c10d6d919913928a3cc9e21f2160cf559654721733c2e11c122e8df15540e",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 1.1410902738571167,
+          "depth_max_m": 12.260946273803711,
+          "depth_mean_m": 5.55366849899292,
+          "sha256_rgb": "89e107e33540cc2e8f5d9d3349131ab90d50080b5030bd9fb4e7f83647732e0d",
+          "sha256_depth": "45bcc73b5a1119c392d374b7028ee1942fdfe8cfaa0a4cafbc23d64b33faac04",
+          "sha256_normal": "0cd6bb270729728ee13e103dd67bfbbafc6c46f8b7398cbe7efe8f4d13fe1f61",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        }
+      ]
+    },
+    {
+      "scene_id": "Office",
+      "split": "val",
+      "num_views": 1,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Office",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 1.8715929985046387,
+          "depth_max_m": 5.448793888092041,
+          "depth_mean_m": 3.5815980434417725,
+          "sha256_rgb": "49587721e6a5b458043bfea2fd5903a72d66da61fc9d45b2468aed6baec633d5",
+          "sha256_depth": "7bfb47575f6e7ed7f74c833be32d423dae22c2ab7d4317fbe8c23457a2ba64d8",
+          "sha256_normal": "8f3fbf84879e94c33f0a5909421c938288003d6ee06aeba6c237a257f629639d",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        }
+      ]
+    },
+    {
+      "scene_id": "Room_Cat",
+      "split": "train",
+      "num_views": 8,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Room_Cat",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 1.3670673370361328,
+          "depth_max_m": 3.546220302581787,
+          "depth_mean_m": 2.580166816711426,
+          "sha256_rgb": "33c328d415ee7c5e8f90f87a96e4825b4aab57d4be5ff6d0281d44669c8b8bf6",
+          "sha256_depth": "b6dad5d88466ba06779e8cd0a031ae2a15de270ebe6f0d8a1e5ab77d8c83a53f",
+          "sha256_normal": "0274db3c9f6094f31f513184c109627be61486b63389d56535c4bb6da090a6ef",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 1.0940611362457275,
+          "depth_max_m": 3.7035348415374756,
+          "depth_mean_m": 2.5181655883789062,
+          "sha256_rgb": "070ec46ffc298844959ff34083f869080393af4e1986985070babc6d0ee0d028",
+          "sha256_depth": "b76a36ee462bff48ea013b58179d9bf0b59d108f64b781b7455e89a4c7f18751",
+          "sha256_normal": "dc85ba238d15859f45d14e5628444e2948abaf2fe7534ebe7f7f9423ee5cec37",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        },
+        {
+          "view_idx": 2,
+          "rgb_file": "frame_0002_rgb.png",
+          "depth_file": "frame_0002_depth.npy",
+          "normal_file": "frame_0002_normal.npy",
+          "cam_file": "frame_0002_cam.npz",
+          "depth_min_m": 0.8746663331985474,
+          "depth_max_m": 1.8378280401229858,
+          "depth_mean_m": 1.230812668800354,
+          "sha256_rgb": "1afd353b8450bec0ea0d6f545fb2c7edac3da1aec94333a3fecc1015ce0b02ec",
+          "sha256_depth": "8a653dae568ab642575ecb974687c1e69b6e10b96928a0395bb9fe94c3db50d1",
+          "sha256_normal": "649565844a8e4843345ecb04d0b6492436d750f733b379c20694b912a52ead2b",
+          "sha256_cam": "ebe3978f466fb1b187cad913839e11e4d18b7ac83cc1d3eb1c75202336376d29"
+        },
+        {
+          "view_idx": 3,
+          "rgb_file": "frame_0003_rgb.png",
+          "depth_file": "frame_0003_depth.npy",
+          "normal_file": "frame_0003_normal.npy",
+          "cam_file": "frame_0003_cam.npz",
+          "depth_min_m": 0.9953634738922119,
+          "depth_max_m": 3.1332874298095703,
+          "depth_mean_m": 1.6995278596878052,
+          "sha256_rgb": "b1f9dbd1ae890c1e82139ded583efb76b22e675532f7e3ce17de75f9d7e26ab5",
+          "sha256_depth": "1d0cc88fadd37b50c4835b3a5215b1ba1bd3a60f6f55b14415d5bce81c3e5bf0",
+          "sha256_normal": "0b9ceb7bbbef7356fc973c5bc2c4c6b7c72cfff3df219c6b4ba4dc96f9927766",
+          "sha256_cam": "f8a52c5582a89987aa73f0acfcee759f13c14c320c126d7e276a43716c7c04d7"
+        },
+        {
+          "view_idx": 4,
+          "rgb_file": "frame_0004_rgb.png",
+          "depth_file": "frame_0004_depth.npy",
+          "normal_file": "frame_0004_normal.npy",
+          "cam_file": "frame_0004_cam.npz",
+          "depth_min_m": 1.1346073150634766,
+          "depth_max_m": 5.324196815490723,
+          "depth_mean_m": 2.6600379943847656,
+          "sha256_rgb": "31fb79a0a6233131d2b6f1d45621faef00bebe06f70d43cdde817c8c19e13eab",
+          "sha256_depth": "9664db80b60968b56392094abde911f2010636aedce27ad9708ffae13e8473b3",
+          "sha256_normal": "cacb329fed7ef89b3b436586b111629ab370d57fc9f81fa380090349f88e1935",
+          "sha256_cam": "a13182156a217b86b85d7150c397f88dc2c745a605bf36bb06bd50a185e60b49"
+        },
+        {
+          "view_idx": 5,
+          "rgb_file": "frame_0005_rgb.png",
+          "depth_file": "frame_0005_depth.npy",
+          "normal_file": "frame_0005_normal.npy",
+          "cam_file": "frame_0005_cam.npz",
+          "depth_min_m": 1.5788369178771973,
+          "depth_max_m": 3.18172025680542,
+          "depth_mean_m": 2.2863564491271973,
+          "sha256_rgb": "fbb269d5b05c4c9cb065d0216e9375c0facbe7026f74dcc4f2aa6627d6ce1a95",
+          "sha256_depth": "923d6cc06592d3fee01987a357957de761b7c42e3fa1a0599674d74bb95ef505",
+          "sha256_normal": "9131bfab83eb5408487261157ff3891a5e1222e95d43fadc2b73a620570512d8",
+          "sha256_cam": "91184b7a9ed6cbc19b11e68ac11fd4817e6632dd79bc0e42b766c9659c73bada"
+        },
+        {
+          "view_idx": 6,
+          "rgb_file": "frame_0006_rgb.png",
+          "depth_file": "frame_0006_depth.npy",
+          "normal_file": "frame_0006_normal.npy",
+          "cam_file": "frame_0006_cam.npz",
+          "depth_min_m": 1.6032872200012207,
+          "depth_max_m": 3.098160982131958,
+          "depth_mean_m": 2.55812406539917,
+          "sha256_rgb": "6252380330cb6a246651d0e8cee7a77463f2016a37dbcc77fecdd87ac858f74d",
+          "sha256_depth": "7b04e40353e784175d9e55aad0a4b0606c35fbfead6646aef10521bcf412be68",
+          "sha256_normal": "a6c5876f90d22c25761825f2a1ea368e00954f67f2f76c77e5c6139814e5415c",
+          "sha256_cam": "3d4868db29ca5e0fbc38012bca5060377a02fae9e7cc210bc275acf8f3ea996a"
+        },
+        {
+          "view_idx": 7,
+          "rgb_file": "frame_0007_rgb.png",
+          "depth_file": "frame_0007_depth.npy",
+          "normal_file": "frame_0007_normal.npy",
+          "cam_file": "frame_0007_cam.npz",
+          "depth_min_m": 1.345160722732544,
+          "depth_max_m": 3.27028489112854,
+          "depth_mean_m": 2.0526015758514404,
+          "sha256_rgb": "19c32222d752a453203f6c54273726d7043b1fee345b307222d698acd0f3ad7e",
+          "sha256_depth": "95cde8b1be0b89e0f34192ed6213fa0e30f2206b90853659353f7206b62835b6",
+          "sha256_normal": "59dc56c421bf8414c1357bd073f47538470b132323000c40cfd20017802c59c7",
+          "sha256_cam": "2f3e6c59d72c8f5274ec02efe340aeb7d9508e2e738fcaac1cbace9a3c55361e"
+        }
+      ]
+    },
+    {
+      "scene_id": "Rooms",
+      "split": "train",
+      "num_views": 3,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Rooms",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 2.508388042449951,
+          "depth_max_m": 6.271204948425293,
+          "depth_mean_m": 4.465759754180908,
+          "sha256_rgb": "3426c211395ec3c6d2e1ce0ed8dd8334c4f51e32cd1ecae653b8e83e98b82f5d",
+          "sha256_depth": "18fc897d1f9327d018efd1a070336bf0e1030acb045581f00387621a6c4d71da",
+          "sha256_normal": "f7f2958ea54d9c9c0b958386067cbcfc3c6f6639b4fbcca6156ba3e3088412be",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 2.0358219146728516,
+          "depth_max_m": 7.94865608215332,
+          "depth_mean_m": 4.416143417358398,
+          "sha256_rgb": "f00eddfb5e9fac77cb9c6979df47953fff0e0d3d0a8b9a7147416e678f5994a6",
+          "sha256_depth": "b9ed2fe54682984538d3b9092f3329aad07bec2244a31794d676a1143e57e72d",
+          "sha256_normal": "0239935338ec8c29e73f4a9d19d84344806335dbd2bdf32d2e59c6683bde98b0",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        },
+        {
+          "view_idx": 2,
+          "rgb_file": "frame_0002_rgb.png",
+          "depth_file": "frame_0002_depth.npy",
+          "normal_file": "frame_0002_normal.npy",
+          "cam_file": "frame_0002_cam.npz",
+          "depth_min_m": 1.2755987644195557,
+          "depth_max_m": 9.399341583251953,
+          "depth_mean_m": 4.53962516784668,
+          "sha256_rgb": "aeeb1b7ee69023861300b7c7e6dee18a0ca8b9784373e002ffbe0f7b725aba21",
+          "sha256_depth": "71b4516e6c32d2499460988ac2375b7404e1d863e6e73cd78f37cdd73eb16c3b",
+          "sha256_normal": "fddd31f61ca3fe14bf5783f10add898fb92d11dfde47ffb64dfaa4f4524a0d61",
+          "sha256_cam": "ebe3978f466fb1b187cad913839e11e4d18b7ac83cc1d3eb1c75202336376d29"
+        }
+      ]
+    },
+    {
+      "scene_id": "Workspace",
+      "split": "train",
+      "num_views": 4,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Workspace",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 1.5869028568267822,
+          "depth_max_m": 7.023403644561768,
+          "depth_mean_m": 3.9035439491271973,
+          "sha256_rgb": "b9f924dd3afa14bf8d8c74f12fa8deb4ce6783b888567bf8092281c0f1af2b1a",
+          "sha256_depth": "c2d7aa430353262f64dcd026bd68abd5dbc5e4b3f2fd8bf8bce213dac08c6e3e",
+          "sha256_normal": "1d53957b394bc36c02ef49b074daa447b0c4449bb5b883865d99cab01fb64307",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        },
+        {
+          "view_idx": 1,
+          "rgb_file": "frame_0001_rgb.png",
+          "depth_file": "frame_0001_depth.npy",
+          "normal_file": "frame_0001_normal.npy",
+          "cam_file": "frame_0001_cam.npz",
+          "depth_min_m": 1.0181634426116943,
+          "depth_max_m": 6.606550216674805,
+          "depth_mean_m": 3.8816089630126953,
+          "sha256_rgb": "50d24a17baca59f33abd8f7a753ddbbfacfacea4c063b02a1d85e08232fd3886",
+          "sha256_depth": "1aea8222eca8e02aede357ad7045ce1120a4c56e5d15389b7a6f519d7309e929",
+          "sha256_normal": "e20ba3c0e72b9b5b539051f43b0fa488c2be198fea515f89d026493859c01f73",
+          "sha256_cam": "41b7a765d4ca8bf76951f70d8ad453058ca05ba2c1901323c3c40f1f61a8126d"
+        },
+        {
+          "view_idx": 2,
+          "rgb_file": "frame_0002_rgb.png",
+          "depth_file": "frame_0002_depth.npy",
+          "normal_file": "frame_0002_normal.npy",
+          "cam_file": "frame_0002_cam.npz",
+          "depth_min_m": 1.6106643676757812,
+          "depth_max_m": 5.701358795166016,
+          "depth_mean_m": 4.004084587097168,
+          "sha256_rgb": "c492c7caec76b676c8f9c111c9011dd9c807fa5343431d0c10f81cb4e9dd90b9",
+          "sha256_depth": "bcd0078d5f647ddefb01ef4907a7216cefa609e9da36b064f618a5a480323d80",
+          "sha256_normal": "e5ef241577caa0dbf50a53952bb5c749f2f8c16ce5da3b6f608662a38cb3d620",
+          "sha256_cam": "ebe3978f466fb1b187cad913839e11e4d18b7ac83cc1d3eb1c75202336376d29"
+        },
+        {
+          "view_idx": 3,
+          "rgb_file": "frame_0003_rgb.png",
+          "depth_file": "frame_0003_depth.npy",
+          "normal_file": "frame_0003_normal.npy",
+          "cam_file": "frame_0003_cam.npz",
+          "depth_min_m": 1.6725268363952637,
+          "depth_max_m": 4.208092212677002,
+          "depth_mean_m": 3.3141109943389893,
+          "sha256_rgb": "4553655d49af6ebe721384d0b0486b1de640232ffc856d7234aa5e0ded5993fe",
+          "sha256_depth": "9e046e13caeb0998238c1eefd0fb1009be17946b2d0a3bc075661ca689c0f155",
+          "sha256_normal": "9e27dea20114394b1cb0cb2383cda6ccd7fe4085593a30dd817a6566e91079f6",
+          "sha256_cam": "f8a52c5582a89987aa73f0acfcee759f13c14c320c126d7e276a43716c7c04d7"
+        }
+      ]
+    },
+    {
+      "scene_id": "Sample_Room",
+      "split": "test",
+      "num_views": 1,
+      "directory": "research/3d_reconstruction/data/indoor_verified_dataset/Sample_Room",
+      "frames": [
+        {
+          "view_idx": 0,
+          "rgb_file": "frame_0000_rgb.png",
+          "depth_file": "frame_0000_depth.npy",
+          "normal_file": "frame_0000_normal.npy",
+          "cam_file": "frame_0000_cam.npz",
+          "depth_min_m": 2.359020233154297,
+          "depth_max_m": 3.3776915073394775,
+          "depth_mean_m": 3.0019102096557617,
+          "sha256_rgb": "935dc58352890a9f6fb0182a024bc6adf7b0bcd5c2e81e03ab113f4a31503bd2",
+          "sha256_depth": "004bd585ffb27de6816ede676ce32786a42a4e8537742ec601d83ab0a1282cb7",
+          "sha256_normal": "fbb4c74ae3a50581845aaefa146691a22f6fab64daa756c2b0ce9a0fc277f6f5",
+          "sha256_cam": "8fbdec264fecd1f658b70f0c7065e8e6eb3e25245428e116dd28905488da78ff"
+        }
+      ]
+    }
+  ]
+}

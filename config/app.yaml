@@ -1,0 +1,34 @@
+app:
+  title: "RoomAI — AI Interior Design Assistant"
+  version: "1.0.0"
+  description: "Computer Vision & Generative AI Studio for Interior Scene Understanding"
+
+# Toggle mock mode globally or inspect simulated predictions
+# Default is false (Real inference active). Set to 'true' only to inspect simulated outputs without weights.
+mock_mode: false
+
+upload:
+  max_file_size_mb: 15
+  allowed_extensions:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".webp"
+  max_image_dimension: 4096  # Downsample or reject beyond this to avoid GPU OOM
+  display_max_width: 800
+
+design:
+  styles:
+    - "Scandinavian"
+    - "Modern"
+    - "Minimalist"
+    - "Industrial"
+    - "Traditional"
+    - "Mid-Century Modern"
+    - "Bohemian"
+    - "Japandi"
+  default_style: "Scandinavian"
+  default_prompt: "Redesign this room with warm natural lighting, oak wood flooring, and minimalist neutral furniture."
+
+disclaimers:
+  honesty_notice: "RoomAI design concept generation does not preserve exact physical room dimensions, structural load-bearing walls, or architectural engineering constraints. Generated visuals are creative concepts for aesthetic inspiration only."

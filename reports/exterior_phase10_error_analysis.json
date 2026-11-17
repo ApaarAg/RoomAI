@@ -1,0 +1,645 @@
+{
+  "timestamp": "2026-10-24 21:17:15",
+  "evaluation_split": "validation",
+  "total_images": 154,
+  "optimal_thresholds_by_class": {
+    "building": {
+      "class_id": 0,
+      "optimal_threshold": 0.26,
+      "max_f1": 0.5185,
+      "precision_at_opt": 0.5122,
+      "recall_at_opt": 0.525,
+      "tp": 21,
+      "fp": 20,
+      "fn": 19
+    },
+    "facade": {
+      "class_id": 1,
+      "optimal_threshold": 0.31,
+      "max_f1": 0.3876,
+      "precision_at_opt": 0.6462,
+      "recall_at_opt": 0.2768,
+      "tp": 137,
+      "fp": 75,
+      "fn": 358
+    },
+    "window": {
+      "class_id": 2,
+      "optimal_threshold": 0.46,
+      "max_f1": 0.7656,
+      "precision_at_opt": 0.8286,
+      "recall_at_opt": 0.7116,
+      "tp": 2736,
+      "fp": 566,
+      "fn": 1109
+    },
+    "door": {
+      "class_id": 3,
+      "optimal_threshold": 0.22,
+      "max_f1": 0.4714,
+      "precision_at_opt": 0.4779,
+      "recall_at_opt": 0.4651,
+      "tp": 173,
+      "fp": 189,
+      "fn": 199
+    },
+    "roof_cornice": {
+      "class_id": 4,
+      "optimal_threshold": 0.44,
+      "max_f1": 0.6553,
+      "precision_at_opt": 0.7185,
+      "recall_at_opt": 0.6022,
+      "tp": 268,
+      "fp": 105,
+      "fn": 177
+    },
+    "balcony": {
+      "class_id": 5,
+      "optimal_threshold": 0.24,
+      "max_f1": 0.6245,
+      "precision_at_opt": 0.62,
+      "recall_at_opt": 0.629,
+      "tp": 217,
+      "fp": 133,
+      "fn": 128
+    },
+    "porch": {
+      "class_id": 6,
+      "optimal_threshold": 0.17,
+      "max_f1": 0.3922,
+      "precision_at_opt": 0.3704,
+      "recall_at_opt": 0.4167,
+      "tp": 10,
+      "fp": 17,
+      "fn": 14
+    },
+    "pillar_column": {
+      "class_id": 7,
+      "optimal_threshold": 0.23,
+      "max_f1": 0.3145,
+      "precision_at_opt": 0.3133,
+      "recall_at_opt": 0.3158,
+      "tp": 156,
+      "fp": 342,
+      "fn": 338
+    },
+    "shutter_blind": {
+      "class_id": 8,
+      "optimal_threshold": 0.17,
+      "max_f1": 0.6304,
+      "precision_at_opt": 0.7582,
+      "recall_at_opt": 0.5394,
+      "tp": 486,
+      "fp": 155,
+      "fn": 415
+    },
+    "molding_deco": {
+      "class_id": 9,
+      "optimal_threshold": 0.24,
+      "max_f1": 0.5427,
+      "precision_at_opt": 0.584,
+      "recall_at_opt": 0.5068,
+      "tp": 782,
+      "fp": 557,
+      "fn": 761
+    }
+  },
+  "building_facade_confusion": {
+    "building_pred_matches_facade_gt": 10,
+    "facade_pred_matches_building_gt": 1,
+    "total_building_preds": 43,
+    "total_facade_preds": 268
+  },
+  "small_thin_object_performance": {
+    "small_objects": {
+      "total_instances": 7227,
+      "detected": 4554,
+      "recall": 0.6301
+    },
+    "thin_objects": {
+      "total_instances": 2713,
+      "detected": 1564,
+      "recall": 0.5765
+    }
+  },
+  "porch_error_taxonomy": {
+    "total_instances": 24,
+    "status_distribution": {
+      "LOCALIZATION_ERROR": 4,
+      "LOW_CONFIDENCE": 16,
+      "COMPLETE_MISS": 2,
+      "DETECTED": 2
+    },
+    "instances": [
+      {
+        "image": "oi_curated_porch_val_0110.jpg",
+        "gt_box": [
+          0.2625,
+          0.720833,
+          0.3,
+          0.058333
+        ],
+        "area": 0.0175,
+        "size_category": "small (<5%)",
+        "best_iou": 0.309,
+        "best_conf": 0.342,
+        "best_pred_box": [
+          0.2709089517593384,
+          0.7565301656723022,
+          0.29019618034362793,
+          0.18382439017295837
+        ],
+        "status": "LOCALIZATION_ERROR",
+        "failure_reason": "Partial overlap (IoU=0.31 < 0.50), box boundary mismatched"
+      },
+      {
+        "image": "oi_curated_porch_val_0111.jpg",
+        "gt_box": [
+          0.475781,
+          0.414583,
+          0.707813,
+          0.695833
+        ],
+        "area": 0.4925,
+        "size_category": "large (>20%)",
+        "best_iou": 0.888,
+        "best_conf": 0.023,
+        "best_pred_box": [
+          0.4990263879299164,
+          0.39541763067245483,
+          0.6733934283256531,
+          0.7160136103630066
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.89) but confidence (0.023) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0112.jpg",
+        "gt_box": [
+          0.453125,
+          0.59375,
+          0.78125,
+          0.178125
+        ],
+        "area": 0.1392,
+        "size_category": "medium (5-20%)",
+        "best_iou": 0.588,
+        "best_conf": 0.01,
+        "best_pred_box": [
+          0.33843573927879333,
+          0.6028369665145874,
+          0.5576558709144592,
+          0.14798516035079956
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.59) but confidence (0.010) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0113.jpg",
+        "gt_box": [
+          0.580208,
+          0.625,
+          0.685417,
+          0.684375
+        ],
+        "area": 0.4691,
+        "size_category": "large (>20%)",
+        "best_iou": 0.667,
+        "best_conf": 0.085,
+        "best_pred_box": [
+          0.4858119487762451,
+          0.6254795789718628,
+          0.9686779975891113,
+          0.7264609336853027
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.67) but confidence (0.085) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0114.jpg",
+        "gt_box": [
+          0.5,
+          0.581986,
+          1.0,
+          0.327945
+        ],
+        "area": 0.3279,
+        "size_category": "large (>20%)",
+        "best_iou": 0.885,
+        "best_conf": 0.055,
+        "best_pred_box": [
+          0.5160996317863464,
+          0.5725095868110657,
+          0.9375085830688477,
+          0.3184675872325897
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.88) but confidence (0.055) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0115.jpg",
+        "gt_box": [
+          0.321875,
+          0.436458,
+          0.64375,
+          0.872917
+        ],
+        "area": 0.5619,
+        "size_category": "large (>20%)",
+        "best_iou": 0.729,
+        "best_conf": 0.029,
+        "best_pred_box": [
+          0.39113548398017883,
+          0.3823094367980957,
+          0.7703908085823059,
+          0.7566547393798828
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.73) but confidence (0.029) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0116.jpg",
+        "gt_box": [
+          0.209375,
+          0.677083,
+          0.221875,
+          0.220833
+        ],
+        "area": 0.049,
+        "size_category": "small (<5%)",
+        "best_iou": 0.422,
+        "best_conf": 0.012,
+        "best_pred_box": [
+          0.23205435276031494,
+          0.7550055384635925,
+          0.1931707113981247,
+          0.24338814616203308
+        ],
+        "status": "LOCALIZATION_ERROR",
+        "failure_reason": "Partial overlap (IoU=0.42 < 0.50), box boundary mismatched"
+      },
+      {
+        "image": "oi_curated_porch_val_0117.jpg",
+        "gt_box": [
+          0.151562,
+          0.466667,
+          0.303125,
+          0.2625
+        ],
+        "area": 0.0796,
+        "size_category": "medium (5-20%)",
+        "best_iou": 0.945,
+        "best_conf": 0.129,
+        "best_pred_box": [
+          0.15620414912700653,
+          0.4636748433113098,
+          0.31240829825401306,
+          0.2696368098258972
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.94) but confidence (0.129) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0118.jpg",
+        "gt_box": [
+          0.5,
+          0.398958,
+          1.0,
+          0.797917
+        ],
+        "area": 0.7979,
+        "size_category": "large (>20%)",
+        "best_iou": 0.567,
+        "best_conf": 0.017,
+        "best_pred_box": [
+          0.45951205492019653,
+          0.5036201477050781,
+          0.9190241098403931,
+          0.49232906103134155
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.57) but confidence (0.017) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0119.jpg",
+        "gt_box": [
+          0.485156,
+          0.586458,
+          0.329688,
+          0.23125
+        ],
+        "area": 0.0762,
+        "size_category": "medium (5-20%)",
+        "best_iou": 0.47,
+        "best_conf": 0.048,
+        "best_pred_box": [
+          0.5182469487190247,
+          0.6429334878921509,
+          0.37358346581459045,
+          0.13938336074352264
+        ],
+        "status": "LOCALIZATION_ERROR",
+        "failure_reason": "Partial overlap (IoU=0.47 < 0.50), box boundary mismatched"
+      },
+      {
+        "image": "oi_curated_porch_val_0120.jpg",
+        "gt_box": [
+          0.401917,
+          0.481195,
+          0.464602,
+          0.126106
+        ],
+        "area": 0.0586,
+        "size_category": "medium (5-20%)",
+        "best_iou": 0.77,
+        "best_conf": 0.012,
+        "best_pred_box": [
+          0.4197578430175781,
+          0.4740011990070343,
+          0.3970358073711395,
+          0.12837204337120056
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.77) but confidence (0.012) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0121.jpg",
+        "gt_box": [
+          0.608333,
+          0.936719,
+          0.783333,
+          0.107812
+        ],
+        "area": 0.0845,
+        "size_category": "medium (5-20%)",
+        "best_iou": 0.73,
+        "best_conf": 0.037,
+        "best_pred_box": [
+          0.6324339509010315,
+          0.9409462213516235,
+          0.611607015132904,
+          0.11025583744049072
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.73) but confidence (0.037) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0122.jpg",
+        "gt_box": [
+          0.79375,
+          0.339583,
+          0.09375,
+          0.058333
+        ],
+        "area": 0.0055,
+        "size_category": "small (<5%)",
+        "best_iou": 0.034,
+        "best_conf": 0.086,
+        "best_pred_box": [
+          0.802273154258728,
+          0.20566263794898987,
+          0.3880193829536438,
+          0.409748911857605
+        ],
+        "status": "COMPLETE_MISS",
+        "failure_reason": "No overlapping porch prediction detected"
+      },
+      {
+        "image": "oi_curated_porch_val_0123.jpg",
+        "gt_box": [
+          0.509573,
+          0.654102,
+          0.980854,
+          0.656319
+        ],
+        "area": 0.6438,
+        "size_category": "large (>20%)",
+        "best_iou": 0.535,
+        "best_conf": 0.076,
+        "best_pred_box": [
+          0.49668315052986145,
+          0.4923456907272339,
+          0.969107449054718,
+          0.4476248323917389
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.53) but confidence (0.076) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0124.jpg",
+        "gt_box": [
+          0.520251,
+          0.599299,
+          0.789106,
+          0.726635
+        ],
+        "area": 0.5734,
+        "size_category": "large (>20%)",
+        "best_iou": 0.765,
+        "best_conf": 0.03,
+        "best_pred_box": [
+          0.5758844017982483,
+          0.5843106508255005,
+          0.7925381660461426,
+          0.831378698348999
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.77) but confidence (0.030) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0124.jpg",
+        "gt_box": [
+          0.952514,
+          0.303738,
+          0.094972,
+          0.191589
+        ],
+        "area": 0.0182,
+        "size_category": "small (<5%)",
+        "best_iou": 0.589,
+        "best_conf": 0.016,
+        "best_pred_box": [
+          0.9386594891548157,
+          0.2747674286365509,
+          0.12089121341705322,
+          0.20256300270557404
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.59) but confidence (0.016) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0125.jpg",
+        "gt_box": [
+          0.896875,
+          0.785417,
+          0.10625,
+          0.066667
+        ],
+        "area": 0.0071,
+        "size_category": "small (<5%)",
+        "best_iou": 0.023,
+        "best_conf": 0.01,
+        "best_pred_box": [
+          0.6404845118522644,
+          0.6592535972595215,
+          0.5657444000244141,
+          0.40854084491729736
+        ],
+        "status": "COMPLETE_MISS",
+        "failure_reason": "No overlapping porch prediction detected"
+      },
+      {
+        "image": "oi_curated_porch_val_0126.jpg",
+        "gt_box": [
+          0.710106,
+          0.563725,
+          0.156915,
+          0.127451
+        ],
+        "area": 0.02,
+        "size_category": "small (<5%)",
+        "best_iou": 0.612,
+        "best_conf": 0.08,
+        "best_pred_box": [
+          0.7269543409347534,
+          0.5458624958992004,
+          0.1267969012260437,
+          0.12980224192142487
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.61) but confidence (0.080) below threshold"
+      },
+      {
+        "image": "oi_curated_porch_val_0127.jpg",
+        "gt_box": [
+          0.6375,
+          0.545833,
+          0.725,
+          0.908333
+        ],
+        "area": 0.6585,
+        "size_category": "large (>20%)",
+        "best_iou": 0.975,
+        "best_conf": 0.199,
+        "best_pred_box": [
+          0.6420298218727112,
+          0.5397598743438721,
+          0.7159403562545776,
+          0.9204803705215454
+        ],
+        "status": "DETECTED",
+        "failure_reason": "None"
+      },
+      {
+        "image": "oi_curated_porch_val_0128.jpg",
+        "gt_box": [
+          0.410294,
+          0.391353,
+          0.605882,
+          0.13969
+        ],
+        "area": 0.0846,
+        "size_category": "medium (5-20%)",
+        "best_iou": 0.487,
+        "best_conf": 0.062,
+        "best_pred_box": [
+          0.45072582364082336,
+          0.4391401410102844,
+          0.6789482235908508,
+          0.184083491563797
+        ],
+        "status": "LOCALIZATION_ERROR",
+        "failure_reason": "Partial overlap (IoU=0.49 < 0.50), box boundary mismatched"
+      },
+      {
+        "image": "oi_curated_porch_val_0129.jpg",
+        "gt_box": [
+          0.5,
+          0.246875,
+          1.0,
+          0.49375
+        ],
+        "area": 0.4938,
+        "size_category": "large (>20%)",
+        "best_iou": 0.668,
+        "best_conf": 0.06,
+        "best_pred_box": [
+          0.6394907832145691,
+          0.2737938463687897,
+          0.7210184335708618,
+          0.5475876927375793
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.67) but confidence (0.060) below threshold"
+      },
+      {
+        "image": "oi_ext_val_0084.jpg",
+        "gt_box": [
+          0.436672,
+          0.894912,
+          0.873343,
+          0.210177
+        ],
+        "area": 0.1836,
+        "size_category": "medium (5-20%)",
+        "best_iou": 0.866,
+        "best_conf": 0.045,
+        "best_pred_box": [
+          0.42230623960494995,
+          0.8993000388145447,
+          0.7896394729614258,
+          0.2013999968767166
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.87) but confidence (0.045) below threshold"
+      },
+      {
+        "image": "oi_ext_val_0085.jpg",
+        "gt_box": [
+          0.280973,
+          0.709071,
+          0.325959,
+          0.188053
+        ],
+        "area": 0.0613,
+        "size_category": "medium (5-20%)",
+        "best_iou": 0.716,
+        "best_conf": 0.042,
+        "best_pred_box": [
+          0.2376805543899536,
+          0.7123100161552429,
+          0.27311789989471436,
+          0.19854271411895752
+        ],
+        "status": "LOW_CONFIDENCE",
+        "failure_reason": "Localization correct (IoU=0.72) but confidence (0.042) below threshold"
+      },
+      {
+        "image": "oi_ext_val_0085.jpg",
+        "gt_box": [
+          0.890118,
+          0.567478,
+          0.202065,
+          0.130531
+        ],
+        "area": 0.0264,
+        "size_category": "small (<5%)",
+        "best_iou": 0.921,
+        "best_conf": 0.177,
+        "best_pred_box": [
+          0.8860852718353271,
+          0.5653258562088013,
+          0.1976364254951477,
+          0.12512274086475372
+        ],
+        "status": "DETECTED",
+        "failure_reason": "None"
+      }
+    ]
+  },
+  "galleries": [
+    "C:\\Users\\apaar\\Desktop\\RoomAI\\artifacts\\exterior_phase10\\error_porch_analysis.jpg",
+    "C:\\Users\\apaar\\Desktop\\RoomAI\\artifacts\\exterior_phase10\\error_building_facade_confusion.jpg",
+    "C:\\Users\\apaar\\Desktop\\RoomAI\\artifacts\\exterior_phase10\\error_small_thin_objects.jpg"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "timestamp": "2026-10-24 21:20:00",
+  "audit_phase": "Phase 10 — B4 Evaluation Integrity Audit and Error Analysis",
+  "safeguards": {
+    "checkpoint_hashes": {
+      "exterior_detector_b2_yolo11s_best.pt": {
+        "hash": "14a931dd0adabc16cbd7b28ed1d17f66",
+        "size_bytes": 19163034,
+        "verified": true
+      },
+      "exterior_detector_b3_yolo11s_rfs_best.pt": {
+        "hash": "2c44291fa642aba3893db001520deba0",
+        "size_bytes": 19164627,
+        "verified": true
+      },
+      "exterior_detector_b4_yolo11s_curated_best.pt": {
+        "hash": "d2710fba760713e68ea306e029ab651c",
+        "size_bytes": 19159322,
+        "verified": true
+      }
+    },
+    "production_config_active_model": "checkpoints/exterior_detector_b2_yolo11s_best.pt",
+    "production_config_unmodified": true,
+    "datasets_unmodified": true
+  },
+  "task1_evaluation_integrity": {
+    "identical_preprocessing_and_nms": true,
+    "metrics_reproduced": true,
+    "porch_recall_discrepancy_explanation": "Under Canonical_Original_134, the defective 1.0x1.0 box on oi_ext_test_0106 artificially matched a broad porch prediction ([0.5, 0.324, 1.0, 0.647], conf=0.245) with IoU=0.647 >= 0.50, generating a True Positive at the global F1 threshold. Under Canonical_Corrected_134, Proposal A (area 6.3%) has IoU=0.097 with that prediction, making it a False Positive. The only remaining instance (oi_ext_test_0113) was localized accurately (IoU=0.85) but had confidence 0.0158, falling below the global F1 operating threshold (~0.25). Thus, True Positives = 0 at that threshold, yielding Recall=0.0000, despite AP50 across the PR curve reaching 0.0990.",
+    "all_classes_ap50_improvement_claim_verified": true,
+    "delta_ap50_summary": {
+      "Canonical_Original_134": "10/10 classes improved",
+      "Canonical_Corrected_134": "10/10 classes improved",
+      "Curated_Total_154": "10/10 classes improved"
+    }
+  },
+  "task2_provenance_audit": {
+    "source_breakdown": {
+      "OpenImagesV7_Test": 114,
+      "OpenImagesV7_Validation": 36
+    },
+    "split_assignment": {
+      "OpenImagesV7_Test_to_RoomAI_train": 82,
+      "OpenImagesV7_Test_to_RoomAI_val": 16,
+      "OpenImagesV7_Test_to_RoomAI_test": 16,
+      "OpenImagesV7_Validation_to_RoomAI_train": 28,
+      "OpenImagesV7_Validation_to_RoomAI_val": 4,
+      "OpenImagesV7_Validation_to_RoomAI_test": 4
+    },
+    "internal_data_leakage": {
+      "detected": false,
+      "train_val_overlap_md5": 0,
+      "train_test_overlap_md5": 0,
+      "val_test_overlap_md5": 0,
+      "phash_scene_clustering_leakage": 0
+    },
+    "source_split_reuse_finding": "82 images originally in Google Open Images V7 official test split and 28 from validation were reassigned into RoomAI training data. While internal RoomAI splits are strictly leak-free, B4 cannot be benchmarked against the standard external Open Images V7 test set without train-set contamination.",
+    "curated_test_set_independence": "The 20 new curated test scenes (28 instances) are distinct architectural scenes not in RoomAI train or val. However, sample size is small, carrying a +/- 3.57% statistical step per detection."
+  },
+  "task3_latency_audit": {
+    "original_reported_latencies": {
+      "B2": {"median_ms": 27.44, "p95_ms": 142.86},
+      "B3": {"median_ms": 29.70, "p95_ms": 38.29},
+      "B4": {"median_ms": 28.50, "p95_ms": 43.02}
+    },
+    "anomaly_root_cause": "The warm-up loop only ran on the first 10 images (sample_images[:10]). B2 was the first model evaluated, meaning images 10-49 were read from disk for the first time during B2's timing loop. Windows file system cache misses caused 110-135 ms disk I/O spikes on 13 images. B3 and B4 were evaluated subsequent to B2 and benefited from an already-warm Windows file system cache.",
+    "corrected_warmed_latencies": {
+      "B2": {"median_ms": 25.48, "p95_ms": 37.27, "max_ms": 39.48},
+      "B3": {"median_ms": 28.10, "p95_ms": 35.56, "max_ms": 39.82},
+      "B4": {"median_ms": 29.74, "p95_ms": 43.98, "max_ms": 50.23}
+    },
+    "finding": "B2 p95 latency is 37.27 ms when properly warmed, fully consistent with B3 and B4."
+  },
+  "task4_validation_error_analysis": {
+    "split_evaluated": "validation (154 images, 8504 annotations)",
+    "porch_error_taxonomy_24_instances": {
+      "LOW_CONFIDENCE": 16,
+      "LOCALIZATION_ERROR": 4,
+      "COMPLETE_MISS": 2,
+      "DETECTED_AT_025": 2
+    },
+    "porch_finding": "66.7% of validation porch errors have correct spatial localization (IoU >= 0.50, mean IoU 0.76) but confidence scores between 0.02 and 0.16. Tuning threshold from 0.25 to 0.17 triples porch recall on validation data.",
+    "building_facade_confusion": {
+      "building_pred_on_facade_gt": 10,
+      "facade_pred_on_building_gt": 1,
+      "total_building_preds": 43
+    },
+    "small_thin_objects": {
+      "small_recall": 0.630,
+      "thin_recall": 0.576
+    },
+    "optimal_thresholds_strictly_validation": {
+      "building": 0.26,
+      "facade": 0.31,
+      "window": 0.46,
+      "door": 0.22,
+      "roof_cornice": 0.44,
+      "balcony": 0.24,
+      "porch": 0.17,
+      "pillar_column": 0.23,
+      "shutter_blind": 0.17,
+      "molding_deco": 0.24
+    }
+  },
+  "task5_recommendation": {
+    "selected_recommendation": "B. Conduct a controlled threshold/calibration experiment.",
+    "rejected_options": {
+      "A_additional_data": "Premature. Model B4 already localizes 66.7% of missed validation porches with IoU >= 0.50. Adding more raw data without resolving confidence miscalibration will not fix threshold suppression.",
+      "C_higher_resolution_b5": "Premature. While thin objects would benefit from 800px/1024px, the primary rare-class failure mode on porch is confidence calibration, which should be stabilized first.",
+      "D_repair_pipeline": "Unnecessary. Internal split integrity is verified zero-leakage, and the evaluation metrics accurately reflect standard COCO protocol when per-class thresholds are accounted for."
+    },
+    "next_acceptance_criteria": [
+      "Calibrate per-class operating thresholds on validation data (porch=0.17, window=0.46, roof=0.44).",
+      "Verify porch recall >= 0.35 and F1 >= 0.38 at calibrated threshold on validation data.",
+      "Deploy fully warmed 50-image latency benchmark verifying median <= 30 ms and p95 <= 45 ms.",
+      "Confirm zero regression on all 82 unit tests."
+    ],
+    "test_suite_passed": true,
+    "test_suite_details": "82 passed in 38.90s"
+  }
+}

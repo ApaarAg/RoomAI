@@ -1,0 +1,84 @@
+{
+  "project": "ROOMAI",
+  "format": "12 individual 16:9 WebP frames",
+  "dimensions": [
+    1648,
+    928
+  ],
+  "source_image": "a_cinematic_warm_realistic_bedroom_interior_phot.png",
+  "sequence": [
+    {
+      "file": "01_photograph.webp",
+      "stage": "Photograph",
+      "progress": 0.0,
+      "type": "source photograph"
+    },
+    {
+      "file": "02_scene_analysis.webp",
+      "stage": "Scene analysis",
+      "progress": 0.08,
+      "type": "visual composition guide"
+    },
+    {
+      "file": "03_depth_emergence.webp",
+      "stage": "Depth emergence",
+      "progress": 0.18,
+      "type": "conceptual overlay"
+    },
+    {
+      "file": "04_depth_map_concept.webp",
+      "stage": "Depth map",
+      "progress": 0.28,
+      "type": "synthetic illustrative depth treatment"
+    },
+    {
+      "file": "05_depth_surface_concept.webp",
+      "stage": "Depth surface",
+      "progress": 0.36,
+      "type": "synthetic illustrative relief treatment"
+    },
+    {
+      "file": "06_point_field_emerging.webp",
+      "stage": "Point field emerging",
+      "progress": 0.44,
+      "type": "stylized points derived from image edges and luminance"
+    },
+    {
+      "file": "07_point_field_dense.webp",
+      "stage": "Point field dense",
+      "progress": 0.52,
+      "type": "stylized points derived from image edges and luminance"
+    },
+    {
+      "file": "08_spatial_wireframe.webp",
+      "stage": "Spatial wireframe",
+      "progress": 0.62,
+      "type": "edge/grid visualization"
+    },
+    {
+      "file": "09_surface_mesh_concept.webp",
+      "stage": "Surface mesh",
+      "progress": 0.7,
+      "type": "illustrative grid mesh overlay"
+    },
+    {
+      "file": "10_materialized_scene.webp",
+      "stage": "Materialized scene",
+      "progress": 0.8,
+      "type": "photograph with subtle structural treatment"
+    },
+    {
+      "file": "11_object_understanding_concept.webp",
+      "stage": "Object understanding",
+      "progress": 0.9,
+      "type": "illustrative manually placed labels"
+    },
+    {
+      "file": "12_interactive_exploration_concept.webp",
+      "stage": "Interactive exploration",
+      "progress": 1.0,
+      "type": "illustrative selected-object UI"
+    }
+  ],
+  "important_note": "Frames 03\u201312 are visual-concept placeholders generated from the source photograph. They are not Hunyuan model outputs, metric depth, verified point clouds, reconstructed meshes, or real object-detector predictions."
+}

@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-10-31 01:45:54",
+  "base_model": "nvidia/segformer-b1-finetuned-ade-512-512",
+  "trainable_parameters": 564374,
+  "frozen_parameters": 13151424,
+  "training_time_sec": 21.57,
+  "peak_train_vram_allocated_mb": 2220.0,
+  "peak_train_vram_reserved_mb": 3466.0,
+  "epoch_logs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.4811,
+      "val_loss": 0.724,
+      "val_target_10_miou": 0.6473
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.4215,
+      "val_loss": 0.729,
+      "val_target_10_miou": 0.6456
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.4618,
+      "val_loss": 0.7367,
+      "val_target_10_miou": 0.6459
+    }
+  ],
+  "baseline_golden_test_metrics": {
+    "mean_loss": 0.6313,
+    "target_10_miou": 0.6638,
+    "all_present_miou": 0.3017,
+    "per_class_iou": {
+      "wall": 0.8038,
+      "floor": 0.8244,
+      "ceiling": 0.8781,
+      "windowpane": 0.6176,
+      "door": 0.4078,
+      "bed": 0.8418,
+      "sofa": 0.5992,
+      "chair": 0.5164,
+      "table": 0.5259,
+      "cabinet": 0.6229
+    }
+  },
+  "finetuned_golden_test_metrics": {
+    "mean_loss": 0.666,
+    "target_10_miou": 0.657,
+    "all_present_miou": 0.2753,
+    "per_class_iou": {
+      "wall": 0.8002,
+      "floor": 0.8216,
+      "ceiling": 0.8785,
+      "windowpane": 0.6089,
+      "door": 0.3916,
+      "bed": 0.8306,
+      "sofa": 0.6004,
+      "chair": 0.5094,
+      "table": 0.5062,
+      "cabinet": 0.6229
+    }
+  },
+  "delta_target_10_miou": -0.0068,
+  "delta_planar_stability": -0.002
+}

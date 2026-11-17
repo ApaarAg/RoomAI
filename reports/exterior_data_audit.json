@@ -1,0 +1,306 @@
+{
+  "checkpoint": "exterior_detector_b2_yolo11s_best.pt",
+  "checkpoint_hash": "14a931dd0adabc16cbd7b28ed1d17f66",
+  "checkpoint_size_bytes": 19163034,
+  "val_baseline": {
+    "mAP50": 0.4484,
+    "mAP50_95": 0.2689,
+    "precision": 0.5473,
+    "recall": 0.4268,
+    "f1": 0.4796
+  },
+  "test_baseline": {
+    "mAP50": 0.3961,
+    "mAP50_95": 0.2427,
+    "precision": 0.4991,
+    "recall": 0.399,
+    "f1": 0.4435
+  },
+  "per_class_test_performance": {
+    "building": {
+      "precision": 0.5045,
+      "recall": 0.375,
+      "f1": 0.4302,
+      "mAP50": 0.428,
+      "mAP50_95": 0.2914
+    },
+    "facade": {
+      "precision": 0.4608,
+      "recall": 0.2401,
+      "f1": 0.3157,
+      "mAP50": 0.2703,
+      "mAP50_95": 0.1749
+    },
+    "window": {
+      "precision": 0.7592,
+      "recall": 0.7872,
+      "f1": 0.7729,
+      "mAP50": 0.8029,
+      "mAP50_95": 0.5707
+    },
+    "door": {
+      "precision": 0.5455,
+      "recall": 0.4346,
+      "f1": 0.4838,
+      "mAP50": 0.4134,
+      "mAP50_95": 0.2584
+    },
+    "roof_cornice": {
+      "precision": 0.6222,
+      "recall": 0.6862,
+      "f1": 0.6526,
+      "mAP50": 0.6735,
+      "mAP50_95": 0.3711
+    },
+    "balcony": {
+      "precision": 0.5096,
+      "recall": 0.5929,
+      "f1": 0.5481,
+      "mAP50": 0.5301,
+      "mAP50_95": 0.3059
+    },
+    "porch": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "mAP50": 0.0,
+      "mAP50_95": 0.0
+    },
+    "pillar_column": {
+      "precision": 0.3847,
+      "recall": 0.2467,
+      "f1": 0.3006,
+      "mAP50": 0.1906,
+      "mAP50_95": 0.0929
+    },
+    "shutter_blind": {
+      "precision": 0.6565,
+      "recall": 0.1943,
+      "f1": 0.2998,
+      "mAP50": 0.2299,
+      "mAP50_95": 0.1483
+    },
+    "molding_deco": {
+      "precision": 0.548,
+      "recall": 0.4331,
+      "f1": 0.4838,
+      "mAP50": 0.4217,
+      "mAP50_95": 0.213
+    }
+  },
+  "geometry_and_counts": {
+    "building": {
+      "total_boxes": 147,
+      "median_area_pct": 50.875,
+      "p10_area_pct": 1.137,
+      "p90_area_pct": 99.636,
+      "median_aspect_ratio": 1.0,
+      "train_boxes": 101,
+      "train_images": 63,
+      "val_boxes": 22,
+      "val_images": 17,
+      "test_boxes": 24,
+      "test_images": 18
+    },
+    "facade": {
+      "total_boxes": 3485,
+      "median_area_pct": 0.505,
+      "p10_area_pct": 0.074,
+      "p90_area_pct": 78.211,
+      "median_aspect_ratio": 0.67,
+      "train_boxes": 2411,
+      "train_images": 378,
+      "val_boxes": 495,
+      "val_images": 113,
+      "test_boxes": 579,
+      "test_images": 113
+    },
+    "window": {
+      "total_boxes": 19995,
+      "median_area_pct": 0.324,
+      "p10_area_pct": 0.106,
+      "p90_area_pct": 0.813,
+      "median_aspect_ratio": 0.63,
+      "train_boxes": 12224,
+      "train_images": 405,
+      "val_boxes": 3754,
+      "val_images": 121,
+      "test_boxes": 4017,
+      "test_images": 120
+    },
+    "door": {
+      "total_boxes": 2157,
+      "median_area_pct": 0.788,
+      "p10_area_pct": 0.131,
+      "p90_area_pct": 2.686,
+      "median_aspect_ratio": 0.78,
+      "train_boxes": 1362,
+      "train_images": 318,
+      "val_boxes": 367,
+      "val_images": 87,
+      "test_boxes": 428,
+      "test_images": 95
+    },
+    "roof_cornice": {
+      "total_boxes": 3908,
+      "median_area_pct": 0.39,
+      "p10_area_pct": 0.15,
+      "p90_area_pct": 0.988,
+      "median_aspect_ratio": 2.47,
+      "train_boxes": 2797,
+      "train_images": 277,
+      "val_boxes": 445,
+      "val_images": 70,
+      "test_boxes": 666,
+      "test_images": 83
+    },
+    "balcony": {
+      "total_boxes": 1829,
+      "median_area_pct": 0.886,
+      "p10_area_pct": 0.205,
+      "p90_area_pct": 3.266,
+      "median_aspect_ratio": 2.21,
+      "train_boxes": 1091,
+      "train_images": 216,
+      "val_boxes": 345,
+      "val_images": 74,
+      "test_boxes": 393,
+      "test_images": 70
+    },
+    "porch": {
+      "total_boxes": 6,
+      "median_area_pct": 6.964,
+      "p10_area_pct": 2.465,
+      "p90_area_pct": 59.178,
+      "median_aspect_ratio": 1.64,
+      "train_boxes": 1,
+      "train_images": 1,
+      "val_boxes": 3,
+      "val_images": 2,
+      "test_boxes": 2,
+      "test_images": 2
+    },
+    "pillar_column": {
+      "total_boxes": 3660,
+      "median_area_pct": 0.148,
+      "p10_area_pct": 0.038,
+      "p90_area_pct": 0.702,
+      "median_aspect_ratio": 0.93,
+      "train_boxes": 2270,
+      "train_images": 237,
+      "val_boxes": 494,
+      "val_images": 60,
+      "test_boxes": 896,
+      "test_images": 88
+    },
+    "shutter_blind": {
+      "total_boxes": 4052,
+      "median_area_pct": 0.247,
+      "p10_area_pct": 0.069,
+      "p90_area_pct": 0.582,
+      "median_aspect_ratio": 0.4,
+      "train_boxes": 2487,
+      "train_images": 145,
+      "val_boxes": 901,
+      "val_images": 67,
+      "test_boxes": 664,
+      "test_images": 34
+    },
+    "molding_deco": {
+      "total_boxes": 10651,
+      "median_area_pct": 0.288,
+      "p10_area_pct": 0.079,
+      "p90_area_pct": 2.587,
+      "median_aspect_ratio": 2.58,
+      "train_boxes": 7070,
+      "train_images": 372,
+      "val_boxes": 1543,
+      "val_images": 103,
+      "test_boxes": 2038,
+      "test_images": 109
+    }
+  },
+  "porch_audit": {
+    "total_boxes": 6,
+    "instances": [
+      {
+        "split": "train",
+        "file": "oi_ext_train_0012.txt",
+        "image_exists": true,
+        "bbox": [
+          0.8,
+          0.702083,
+          0.275,
+          0.083333
+        ],
+        "area": 0.0229,
+        "aspect_ratio": 3.3
+      },
+      {
+        "split": "val",
+        "file": "oi_ext_val_0084.txt",
+        "image_exists": true,
+        "bbox": [
+          0.436672,
+          0.894912,
+          0.873343,
+          0.210177
+        ],
+        "area": 0.1836,
+        "aspect_ratio": 4.1553
+      },
+      {
+        "split": "val",
+        "file": "oi_ext_val_0085.txt",
+        "image_exists": true,
+        "bbox": [
+          0.280973,
+          0.709071,
+          0.325959,
+          0.188053
+        ],
+        "area": 0.0613,
+        "aspect_ratio": 1.7333
+      },
+      {
+        "split": "val",
+        "file": "oi_ext_val_0085.txt",
+        "image_exists": true,
+        "bbox": [
+          0.890118,
+          0.567478,
+          0.202065,
+          0.130531
+        ],
+        "area": 0.0264,
+        "aspect_ratio": 1.548
+      },
+      {
+        "split": "test",
+        "file": "oi_ext_test_0106.txt",
+        "image_exists": true,
+        "bbox": [
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "area": 1.0,
+        "aspect_ratio": 1.0
+      },
+      {
+        "split": "test",
+        "file": "oi_ext_test_0113.txt",
+        "image_exists": true,
+        "bbox": [
+          0.5375,
+          0.423958,
+          0.33125,
+          0.235417
+        ],
+        "area": 0.078,
+        "aspect_ratio": 1.4071
+      }
+    ]
+  }
+}

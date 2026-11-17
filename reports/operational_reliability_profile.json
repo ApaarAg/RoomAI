@@ -1,0 +1,145 @@
+{
+  "test_image": "cmp_val_0001.jpg",
+  "image_resolution": [
+    768,
+    1024
+  ],
+  "detection_b2": {
+    "num_passes": 10,
+    "median_total_ms": 235.81,
+    "p95_total_ms": 278.77,
+    "median_inference_ms": 18.63,
+    "median_preprocess_ms": 0.0,
+    "median_postprocess_ms": 204.99,
+    "memory_leak_delta_mb": 0.0,
+    "per_pass_details": [
+      {
+        "pass": 1,
+        "total_ms": 218.62,
+        "inference_ms": 17.57,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 195.19,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 2,
+        "total_ms": 220.36,
+        "inference_ms": 22.72,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 190.9,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 3,
+        "total_ms": 268.72,
+        "inference_ms": 14.36,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 249.35,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 4,
+        "total_ms": 281.25,
+        "inference_ms": 17.07,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 255.08,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 5,
+        "total_ms": 217.85,
+        "inference_ms": 22.93,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 186.14,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 6,
+        "total_ms": 231.4,
+        "inference_ms": 19.69,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 204.09,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 7,
+        "total_ms": 195.04,
+        "inference_ms": 14.51,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 174.28,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 8,
+        "total_ms": 252.23,
+        "inference_ms": 27.17,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 215.87,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 9,
+        "total_ms": 240.21,
+        "inference_ms": 24.19,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 205.88,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      },
+      {
+        "pass": 10,
+        "total_ms": 275.75,
+        "inference_ms": 15.67,
+        "preprocess_ms": 0.0,
+        "postprocess_ms": 249.43,
+        "vram_allocated_mb": 68.01,
+        "vram_reserved_mb": 132.0
+      }
+    ]
+  },
+  "scene3d_depth": {
+    "num_passes": 5,
+    "median_total_ms": 95.44,
+    "p95_total_ms": 112.88,
+    "per_pass_details": [
+      {
+        "pass": 1,
+        "total_ms": 116.17,
+        "inference_ms": 50.28,
+        "vram_allocated_mb": 164.06
+      },
+      {
+        "pass": 2,
+        "total_ms": 99.74,
+        "inference_ms": 50.14,
+        "vram_allocated_mb": 164.06
+      },
+      {
+        "pass": 3,
+        "total_ms": 95.44,
+        "inference_ms": 50.06,
+        "vram_allocated_mb": 164.06
+      },
+      {
+        "pass": 4,
+        "total_ms": 92.84,
+        "inference_ms": 40.4,
+        "vram_allocated_mb": 164.06
+      },
+      {
+        "pass": 5,
+        "total_ms": 91.21,
+        "inference_ms": 40.99,
+        "vram_allocated_mb": 164.06
+      }
+    ]
+  }
+}

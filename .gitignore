@@ -1,0 +1,163 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Packaging
+.Python
+/build/
+develop-eggs/
+/dist/
+/downloads/
+eggs/
+.eggs/
+/lib/
+/lib64/
+/parts/
+/sdist/
+/var/
+/wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# ML weights / checkpoints
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+*.ckpt
+*.h5
+*.keras
+checkpoints/
+weights/
+
+# Datasets
+/data/
+/RoomAI_Data/
+/ScanNet-master/
+/val2017/
+!web/data/
+
+# Experiment / generated outputs
+artifacts/
+results/
+runs/
+scratch/
+outputs/
+experiments/
+
+# Databases
+*.db
+*.db-shm
+*.db-wal
+
+# Browser / agent tooling
+.chrome-debug/
+.chrome-debug*/
+.chrome-temp/
+.chrome-verify/
+.chrome-verify*/
+.chrome-snap/
+.chrome-shot/
+.chrome-shot-*/
+.chrome-test/
+.chrome-test-*/
+.codex/
+.freebuff/
+.gemini/
+.agent/
+.agents/
+.gsd/
+
+# Logs / temporary
+*.log
+*.tmp
+*.temp
+*.bak
+
+# Streamlit
+.streamlit/
+
+# Node
+node_modules/
+web/node_modules/
+web/.next/
+web/out/
+web/next-env.d.ts
+web/tsconfig.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Research datasets / checkpoints / experiment outputs
+research/3d_reconstruction/data/
+research/3d_reconstruction/checkpoints/
+research/3d_reconstruction/experiments/
+
+# External repositories
+research/3d_reconstruction/external/*/.git/
+
+# Generated 3D production assets
+asset-production/
+
+# Generated visual audit outputs
+pipeline_audit_grid.png
+sequence_audit_grid.png
+spatial_stage_01.png
+spatial_stage_06.png
+workflow_4_preview.png
+screenshot.png
+
+# Archives / local bundles
+archive (2)/
+# External research repositories
+research/3d_reconstruction/external/
+
+# Generated research visualizations / error galleries
+reports/visualizations/
+reports/phase15_error_gallery/
+reports/phase16_clahe_error_gallery/
+reports/phase17_final_test_error_gallery/
+reports/phase20_pilot_gallery/
+reports/phase22_prediction_gallery/
+
+# Local prompt/transcript artifacts
+plans/current_user_prompt.txt
+plans/full_prompt_from_transcript.txt
+reconstruction_candidates.txt
+reconstruction_references.txt
+
+# Generated research probes
+reports/phase_13/_write_probe.txt
+
+# Root image dumps (served assets are in web/public/)
+/img/
+/img2/
+/images/

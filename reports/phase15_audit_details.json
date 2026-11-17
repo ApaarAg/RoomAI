@@ -1,0 +1,311 @@
+{
+  "hash_status": {
+    "B2": {
+      "path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_detector_b2_yolo11s_best.pt",
+      "md5": "14a931dd0adabc16cbd7b28ed1d17f66",
+      "verified": true
+    },
+    "B5": {
+      "path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_detector_b5_transfer_best.pt",
+      "md5": "e12b4181fee244a3569dfa782ba3c3c3",
+      "verified": true
+    },
+    "B6": {
+      "path": "C:\\Users\\apaar\\Desktop\\RoomAI\\checkpoints\\exterior_detector_b6_expanded_best.pt",
+      "md5": "f5ceea56b0610ea14b647014e48152dc",
+      "verified": true
+    }
+  },
+  "split_integrity": {
+    "train_count": 1302,
+    "val_count": 154,
+    "test_count": 154,
+    "val_overlap": 0,
+    "test_overlap": 0
+  },
+  "weak_class_error_analysis": {
+    "porch": {
+      "gt_instances": 24,
+      "tp": 3,
+      "fp": 4,
+      "fn_missed": 21,
+      "precision": 0.4286,
+      "recall": 0.125,
+      "f1": 0.1935,
+      "localization_errors": 3,
+      "cross_class_confusions": {},
+      "background_fps": 1,
+      "sample_fp_diagnostics": [
+        {
+          "img": "oi_curated_porch_val_0112.jpg",
+          "conf": 0.312,
+          "reason": "background/context"
+        },
+        {
+          "img": "oi_curated_porch_val_0116.jpg",
+          "conf": 0.299,
+          "reason": "localization (IoU=0.11)"
+        },
+        {
+          "img": "oi_curated_porch_val_0119.jpg",
+          "conf": 0.328,
+          "reason": "localization (IoU=0.34)"
+        },
+        {
+          "img": "oi_curated_porch_val_0127.jpg",
+          "conf": 0.445,
+          "reason": "localization (IoU=0.49)"
+        }
+      ]
+    },
+    "pillar_column": {
+      "gt_instances": 494,
+      "tp": 167,
+      "fp": 360,
+      "fn_missed": 327,
+      "precision": 0.3169,
+      "recall": 0.3381,
+      "f1": 0.3271,
+      "localization_errors": 54,
+      "cross_class_confusions": {
+        "window": 5,
+        "molding_deco": 31,
+        "roof_cornice": 33,
+        "door": 1,
+        "balcony": 5,
+        "facade": 7
+      },
+      "background_fps": 224,
+      "sample_fp_diagnostics": [
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.785,
+          "reason": "localization (IoU=0.30)"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.704,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.571,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.546,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.52,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.49,
+          "reason": "confused with window (IoU=0.75)"
+        }
+      ]
+    },
+    "facade": {
+      "gt_instances": 495,
+      "tp": 177,
+      "fp": 316,
+      "fn_missed": 318,
+      "precision": 0.359,
+      "recall": 0.3576,
+      "f1": 0.3583,
+      "localization_errors": 61,
+      "cross_class_confusions": {
+        "window": 24,
+        "molding_deco": 27,
+        "pillar_column": 1,
+        "balcony": 1,
+        "roof_cornice": 1,
+        "door": 1
+      },
+      "background_fps": 200,
+      "sample_fp_diagnostics": [
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.471,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.417,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.379,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.343,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.341,
+          "reason": "confused with window (IoU=0.38)"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.303,
+          "reason": "confused with window (IoU=0.72)"
+        }
+      ]
+    },
+    "door": {
+      "gt_instances": 372,
+      "tp": 206,
+      "fp": 297,
+      "fn_missed": 166,
+      "precision": 0.4095,
+      "recall": 0.5538,
+      "f1": 0.4709,
+      "localization_errors": 66,
+      "cross_class_confusions": {
+        "window": 64,
+        "shutter_blind": 4,
+        "molding_deco": 1,
+        "pillar_column": 3
+      },
+      "background_fps": 159,
+      "sample_fp_diagnostics": [
+        {
+          "img": "cmp_val_0000.jpg",
+          "conf": 0.791,
+          "reason": "confused with window (IoU=0.87)"
+        },
+        {
+          "img": "cmp_val_0000.jpg",
+          "conf": 0.734,
+          "reason": "confused with window (IoU=0.93)"
+        },
+        {
+          "img": "cmp_val_0000.jpg",
+          "conf": 0.307,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.887,
+          "reason": "localization (IoU=0.40)"
+        },
+        {
+          "img": "cmp_val_0002.jpg",
+          "conf": 0.734,
+          "reason": "localization (IoU=0.23)"
+        },
+        {
+          "img": "cmp_val_0004.jpg",
+          "conf": 0.756,
+          "reason": "localization (IoU=0.33)"
+        }
+      ]
+    },
+    "roof_cornice": {
+      "gt_instances": 445,
+      "tp": 318,
+      "fp": 261,
+      "fn_missed": 127,
+      "precision": 0.5492,
+      "recall": 0.7146,
+      "f1": 0.6211,
+      "localization_errors": 60,
+      "cross_class_confusions": {
+        "balcony": 5,
+        "window": 1,
+        "pillar_column": 31,
+        "molding_deco": 6,
+        "door": 3
+      },
+      "background_fps": 155,
+      "sample_fp_diagnostics": [
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.431,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0002.jpg",
+          "conf": 0.392,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0002.jpg",
+          "conf": 0.334,
+          "reason": "confused with balcony (IoU=0.39)"
+        },
+        {
+          "img": "cmp_val_0002.jpg",
+          "conf": 0.308,
+          "reason": "confused with balcony (IoU=0.31)"
+        },
+        {
+          "img": "cmp_val_0002.jpg",
+          "conf": 0.288,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0003.jpg",
+          "conf": 0.4,
+          "reason": "background/context"
+        }
+      ]
+    },
+    "balcony": {
+      "gt_instances": 345,
+      "tp": 216,
+      "fp": 114,
+      "fn_missed": 129,
+      "precision": 0.6545,
+      "recall": 0.6261,
+      "f1": 0.64,
+      "localization_errors": 36,
+      "cross_class_confusions": {
+        "molding_deco": 11,
+        "window": 1,
+        "door": 4
+      },
+      "background_fps": 62,
+      "sample_fp_diagnostics": [
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.755,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.704,
+          "reason": "localization (IoU=0.33)"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.667,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.613,
+          "reason": "background/context"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.58,
+          "reason": "localization (IoU=0.48)"
+        },
+        {
+          "img": "cmp_val_0001.jpg",
+          "conf": 0.364,
+          "reason": "background/context"
+        }
+      ]
+    }
+  }
+}

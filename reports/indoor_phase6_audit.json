@@ -1,0 +1,196 @@
+{
+  "task": "RoomAI Phase 6 \u2014 Audit A3 Evaluation, Fix Metric Inconsistencies, and Verify Deployment",
+  "audit_date": "2026-10-24",
+  "auditor": "Senior Computer Vision Engineer & ML Evaluation Auditor",
+  "environment": {
+    "os": "Windows 11",
+    "python": "3.10.20",
+    "pytorch": "2.11.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8,188 MiB)",
+    "ultralytics": "8.4.66",
+    "conda_env": "tf-gpu"
+  },
+  "checkpoint_verification": {
+    "baseline_a2_finetune": {
+      "path": "checkpoints/indoor_detector_a2_yolo11s_finetune_best.pt",
+      "exists": true,
+      "size_bytes": 19156442,
+      "computed_md5": "ad899be666950b695c825a2e57229a58",
+      "reported_md5_audit_json": "ad899be666950b695c825a2e57229a58",
+      "reported_md5_err_analysis_md": "3a4294ca2373fb3eaefbbf55e37a3c3c",
+      "status": "VERIFIED_INTACT",
+      "defect_identified": "Erroneous hash string documented in reports/indoor_data_error_analysis.md (3a4294ca2373fb3eaefbbf55e37a3c3c vs actual ad899be666950b695c825a2e57229a58). Actual file has not been modified."
+    },
+    "baseline_a2_pilot": {
+      "path": "checkpoints/indoor_detector_a2_yolo11s_pilot_best.pt",
+      "exists": true,
+      "size_bytes": 19155866,
+      "computed_md5": "65a789c6f2857b8cccd7ab9becde51a6",
+      "status": "VERIFIED_INTACT",
+      "role": "Parent pre-finetune pilot checkpoint used as initialization weights for both A2 finetune and A3 800px training."
+    },
+    "candidate_a3_800px": {
+      "path": "checkpoints/indoor_detector_a3_yolo11s_800px_best.pt",
+      "exists": true,
+      "size_bytes": 19173786,
+      "computed_md5": "95563016732fca2cb4e0ee15bdb9e295",
+      "reported_md5": "95563016732fca2cb4e0ee15bdb9e295",
+      "status": "VERIFIED_VALID",
+      "initialization_weights": "checkpoints/indoor_detector_a2_yolo11s_pilot_best.pt"
+    },
+    "rollback_baseline_deepfurniture": {
+      "path": "checkpoints/deepfurniture_yolo11n_finetune_best.pt",
+      "exists": true,
+      "size_bytes": 5460186,
+      "computed_md5": "64c1150d99cc32e2877ce1b9bdfad657",
+      "status": "VERIFIED_INTACT_AND_PRESERVED"
+    }
+  },
+  "evaluation_methodology_audit": {
+    "map_computation_protocol": "Standard COCO 101-point PR interpolation across confidence sweep and IoU thresholds [0.50:0.05:0.95] via Ultralytics val(conf=0.001, iou=0.70). Confirmed not a single confidence operating point.",
+    "precision_recall_f1_definition": "Extracted at max-F1 peak of the smoothed F1-confidence curve across 1,000 bins in Ultralytics DetMetrics, harmonic mean calculated as 2*P*R/(P+R+1e-6).",
+    "class_averaging_and_window_audit": {
+      "train_gt_instances": 1636,
+      "val_gt_instances": 371,
+      "test_gt_instances": 0,
+      "val_map50_a2": 0.5692,
+      "val_map50_a3": 0.5841,
+      "audit_finding": "The window class has zero ground-truth bounding boxes in the test split. Ultralytics properly omits window from ap_class_index, meaning the test mAP50 of 0.7464 (A2) and 0.7760 (A3) is the mean over the 11 classes present in ground truth. However, reports/indoor_a3_800px_eval.json explicitly output precision: 0.0, recall: 0.0, mAP50: 0.0. This is corrected to reflect window as UNEVALUABLE on the test split rather than zero performance."
+    },
+    "dataset_split_parity": "Verified identical 2,985 train, 554 val, 150 test images across data/indoor_canonical, identical letterbox preprocessing, identical seed 42."
+  },
+  "operating_point_resolution": {
+    "root_cause_of_identical_ops": "tune_indoor_thresholds.py logged res.box.mp and res.box.mr which in Ultralytics DetMetrics return the global max-F1 curve peak values rather than metrics at the evaluated threshold, and CONF_RANGE stopped at 0.15, causing both best_f1 and high_recall selectors to pick the same entry.",
+    "selection_rule": "Operating points selected strictly on the unaugmented validation split curve (1,000 threshold bins). Balanced F1 selected at max F1. High Precision selected at max Precision with Recall >= 0.55. High Recall selected at max Recall with Precision >= 0.60.",
+    "validation_operating_points": {
+      "model_a2": {
+        "balanced_f1": {
+          "conf": 0.3504,
+          "precision": 0.7447,
+          "recall": 0.6777,
+          "f1": 0.7058
+        },
+        "high_precision": {
+          "conf": 0.5886,
+          "precision": 0.8736,
+          "recall": 0.5515,
+          "f1": 0.6649
+        },
+        "high_recall": {
+          "conf": 0.1742,
+          "precision": 0.6001,
+          "recall": 0.7603,
+          "f1": 0.6681
+        }
+      },
+      "model_a3": {
+        "balanced_f1": {
+          "conf": 0.3654,
+          "precision": 0.7243,
+          "recall": 0.7027,
+          "f1": 0.7116
+        },
+        "high_precision": {
+          "conf": 0.6306,
+          "precision": 0.8576,
+          "recall": 0.5501,
+          "f1": 0.6583
+        },
+        "high_recall": {
+          "conf": 0.1922,
+          "precision": 0.6007,
+          "recall": 0.7809,
+          "f1": 0.6746
+        }
+      }
+    },
+    "reused_test_set_evaluations": {
+      "note": "Evaluated on the existing held-out test split for diagnostic comparison. Clearly labeled as a reused test split; no test information was used during threshold selection.",
+      "model_a2": {
+        "balanced_f1": {
+          "applied_conf": 0.3504,
+          "test_precision": 0.7553,
+          "test_recall": 0.6751,
+          "test_f1": 0.708
+        },
+        "high_precision": {
+          "applied_conf": 0.5886,
+          "test_precision": 0.8572,
+          "test_recall": 0.5835,
+          "test_f1": 0.6832
+        },
+        "high_recall": {
+          "applied_conf": 0.1742,
+          "test_precision": 0.6116,
+          "test_recall": 0.7448,
+          "test_f1": 0.6676
+        }
+      },
+      "model_a3": {
+        "balanced_f1": {
+          "applied_conf": 0.3654,
+          "test_precision": 0.782,
+          "test_recall": 0.7078,
+          "test_f1": 0.7384
+        },
+        "high_precision": {
+          "applied_conf": 0.6306,
+          "test_precision": 0.8744,
+          "test_recall": 0.6098,
+          "test_f1": 0.7144
+        },
+        "high_recall": {
+          "applied_conf": 0.1922,
+          "test_precision": 0.6551,
+          "test_recall": 0.7705,
+          "test_f1": 0.7036
+        }
+      }
+    },
+    "f1_discrepancy_explanation": "The overall test F1 of 0.7438 is computed from standard model.val() PR curve peak (P=0.8301, R=0.6738 across continuous curve). The operating-point F1 of 0.7498 previously reported was from a discrete evaluation at conf=0.15, iou=0.50 where lower-confidence detections boosted recall to 0.6937 with precision 0.8157. Under the rigorous validation-selected operating point (conf=0.3654), test F1 is 0.7384."
+  },
+  "fair_latency_benchmark": {
+    "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU (8,188 MiB)",
+    "protocol": "Pre-warmed GPU and cuDNN (50 warmup iterations), 30 model warmup iterations, 100 timed iterations with torch.cuda.synchronize()",
+    "a2_baseline_640px": {
+      "imgsz": 640,
+      "model_only_median_ms": 15.63,
+      "model_only_p95_ms": 22.28,
+      "model_only_fps": 64.0,
+      "pipeline_median_ms": 13.05,
+      "pipeline_p95_ms": 20.79,
+      "pipeline_fps": 76.6,
+      "peak_vram_mb": 130.09
+    },
+    "a3_candidate_800px": {
+      "imgsz": 800,
+      "model_only_median_ms": 12.26,
+      "model_only_p95_ms": 18.17,
+      "model_only_fps": 81.6,
+      "pipeline_median_ms": 13.57,
+      "pipeline_p95_ms": 17.87,
+      "pipeline_fps": 73.7,
+      "peak_vram_mb": 176.81
+    },
+    "audit_verdict_latency": "The Phase 5 reported latency (A2 at 20.84ms vs A3 at 10.87ms) was an artifact of cold-start benchmarking on A2. Under fair pre-warmed conditions, A3 (800px) incurs only +0.52ms pipeline overhead over A2 (640px) (13.57ms vs 13.05ms), both operating easily above 73 FPS with minimal VRAM footprint."
+  },
+  "application_integration_audit": {
+    "active_config_checkpoint": "checkpoints/indoor_detector_a2_yolo11s_finetune_best.pt",
+    "active_config_imgsz": 640,
+    "model_registry_primary": "indoor_a2_finetuned (YOLO11s 640x640)",
+    "candidate_status": "A3 is currently a verified candidate checkpoint on disk, NOT active in model_config.yaml or ModelRegistry.",
+    "mock_mode_and_fallbacks": "VERIFIED_FUNCTIONAL (MockObjectDetector returns valid synthetic responses; fallback to A1 and DeepFurniture intact)."
+  },
+  "test_suite_verification": {
+    "command": "python -m pytest tests/ -q",
+    "passed": 77,
+    "failed": 0,
+    "duration_sec": 26.4,
+    "status": "ALL_TESTS_PASSED"
+  },
+  "audit_decision": {
+    "recommendation": "PROMOTE_A3_TO_PRIMARY",
+    "prerequisites_satisfied": true,
+    "summary_rationale": "All evaluation and metric reporting anomalies have been resolved and documented. A3 demonstrates genuine, reproducible gains (+2.96% mAP50, +5.88% mAP50-95, +10.01% chair/stool mAP50), fair benchmarking confirms negligible latency impact (13.57ms vs 13.05ms, >73 FPS), all 77 tests pass, and A2 remains intact for zero-downtime rollback."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "benchmark_sample_count": 8,
+  "custom_vlm_status": {
+    "is_implemented": false,
+    "is_ready": false,
+    "error": "'CustomVisionLanguageModel' is not yet implemented or weights are missing.\nPlease implement your model architecture and loading logic in: C:\\Users\\apaar\\Desktop\\RoomAI\\models\\vision_language_model.py\n(Or enable 'mock_mode: true' in config/app.yaml to test the UI with simulated outputs).",
+    "true_accuracy": 0.0
+  },
+  "mock_vlm_status": {
+    "is_simulated": true,
+    "heuristic_keyword_accuracy": 0.62,
+    "visual_grounding_score": 0.0,
+    "note": "Mock VLM matches question keywords via string heuristics; zero actual visual grounding or image tokens."
+  },
+  "samples": [
+    {
+      "id": "vlm_q01",
+      "question": "What type of room is depicted in this image?",
+      "mock_answer": "Regarding your inquiry ('What type of room is depicted in this image?'): The room demonstrates balanced proportion and volume. Consider decluttering surfaces and incorporating textured textiles (wool rugs, linen drapes) for depth.",
+      "ground_truth": "Living Room with sofa seating area and coffee table.",
+      "matched_entities": [],
+      "has_overlap": false,
+      "is_visually_grounded": false
+    },
+    {
+      "id": "vlm_q02",
+      "question": "Is there a sofa or couch present in the room?",
+      "mock_answer": "Regarding your inquiry ('Is there a sofa or couch present in the room?'): The room demonstrates balanced proportion and volume. Consider decluttering surfaces and incorporating textured textiles (wool rugs, linen drapes) for depth.",
+      "ground_truth": "Yes, there is a large sectional sofa in the seating area.",
+      "matched_entities": [
+        "sofa"
+      ],
+      "has_overlap": true,
+      "is_visually_grounded": false
+    },
+    {
+      "id": "vlm_q03",
+      "question": "Where does the primary lighting in this room originate?",
+      "mock_answer": "The room appears to benefit from natural diffused daylight, likely through side windows. Adding warm accent lighting (2700K floor lamps or recessed dimmable LEDs) would enhance evening ambiance.",
+      "ground_truth": "Natural diffused daylight entering through large side windows and background openings.",
+      "matched_entities": [
+        "daylight",
+        "window"
+      ],
+      "has_overlap": true,
+      "is_visually_grounded": false
+    },
+    {
+      "id": "vlm_q04",
+      "question": "What is the primary color scheme of the walls and furnishings?",
+      "mock_answer": "The walls present a neutral palette. Pairing warm beige or muted sage with natural oak furniture will impart an inviting organic feel.",
+      "ground_truth": "Neutral earth tones, beige/light grey walls, and muted upholstery.",
+      "matched_entities": [
+        "neutral",
+        "beige",
+        "muted"
+      ],
+      "has_overlap": true,
+      "is_visually_grounded": false
+    },
+    {
+      "id": "vlm_q05",
+      "question": "How is the furniture positioned relative to the center of the room?",
+      "mock_answer": "The current spatial arrangement centers around the seating zone. To optimize flow, maintain at least 3 feet of clear walking pathway between the sofa and side tables.",
+      "ground_truth": "Centered around a low table with clear perimeter circulation corridors.",
+      "matched_entities": [
+        "pathway"
+      ],
+      "has_overlap": true,
+      "is_visually_grounded": false
+    },
+    {
+      "id": "vlm_q06",
+      "question": "What architectural building components are visible on this facade?",
+      "mock_answer": "Regarding your inquiry ('What architectural building components are visible on this facade?'): The room demonstrates balanced proportion and volume. Consider decluttering surfaces and incorporating textured textiles (wool rugs, linen drapes) for depth.",
+      "ground_truth": "Multi-story residential building facade with rectangular windows, roof cornices, and balconies.",
+      "matched_entities": [
+        "facade"
+      ],
+      "has_overlap": true,
+      "is_visually_grounded": false
+    },
+    {
+      "id": "vlm_q07",
+      "question": "Are the windows arranged in a regular grid pattern?",
+      "mock_answer": "The room appears to benefit from natural diffused daylight, likely through side windows. Adding warm accent lighting (2700K floor lamps or recessed dimmable LEDs) would enhance evening ambiance.",
+      "ground_truth": "Yes, standard symmetrical vertical and horizontal window grid across upper stories.",
+      "matched_entities": [],
+      "has_overlap": false,
+      "is_visually_grounded": false
+    }
+  ]
+}

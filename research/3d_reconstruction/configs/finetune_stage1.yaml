@@ -1,0 +1,97 @@
+# ==============================================================================
+# ROOMAI — STAGE 1 GEOMETRIC FINE-TUNING CONFIGURATION
+# Focus: Metric Depth, Dense Point Maps, Surface Normals, Camera Poses
+# ==============================================================================
+
+task_name: "roomai_worldmirror_stage1_geometric"
+tags: ["stage1", "geometry", "metric_depth", "point_map", "roomai"]
+seed: 42
+
+paths:
+  log_dir: "research/3d_reconstruction/experiments/experiment_logs/stage1"
+  ckpt_dir: "research/3d_reconstruction/checkpoints/stage1"
+  pretrained_weights: "research/3d_reconstruction/checkpoints/pretrained/model.safetensors"
+  dataset_manifest: "research/3d_reconstruction/data_manifests/indoor_train_manifest.json"
+
+model:
+  _target_: src.models.models.worldmirror.WorldMirror
+  img_size: 518
+  patch_size: 14
+  embed_dim: 1024
+  gs_dim: 256
+  enable_cam: true
+  enable_pts: true
+  enable_depth: true
+  enable_norm: true
+  enable_gs: false                  # Disabled during Stage 1 geometry training
+  enable_cond: true                 # Multi-modal prior conditioning
+  dpt_gradient_checkpoint: true
+
+wrapper:
+  _target_: training.wrapper.WorldMirrorWrapper
+  eval_modalities: ["point_map", "camera_pose", "normal", "depth_map"]
+  enable_cond: true
+  cond_sampling_strategy: "uniform" # Sample depth / camera / ray priors
+
+optimizer:
+  type: "AdamW"
+  betas: [0.9, 0.95]
+  eps: 1e-8
+  param_groups:
+    pretrained:
+      lr: 2e-5
+      weight_decay: 0.1
+    backbone:
+      lr: 1e-4
+      weight_decay: 0.1
+    heads:
+      lr: 2e-4
+      weight_decay: 0.1
+  pretrained_params: ["visual_geometry_transformer.patch_embed"]
+  new_params: ["normal_head", "depth_embed", "rays_embed", "camera_embed"]
+
+scheduler:
+  type: "WarmupCosineAnnealingLR"
+  eta_min_ratio: 0.1
+  warmup_steps: 200
+  max_steps: 10000
+
+train_criterion:
+  _target_: training.losses.container.LossContainer
+  enable_cam: true
+  enable_pts: true
+  enable_depth: true
+  enable_norm: true
+  enable_gs: false
+  losses:
+    - _target_: training.losses.camera.CameraLoss
+    - _target_: training.losses.point.PointLoss
+      gamma: 1.0
+      alpha: 0.2
+      gradient_loss_fn: "normal"
+      valid_range: 0.98
+    - _target_: training.losses.depth.DepthLoss
+      gamma: 1.0
+      alpha: 0.2
+      gradient_loss_fn: "grad"
+      valid_range: 0.98
+    - _target_: training.losses.normal.NormalLoss
+      loss_type: "AL"
+      real_weight: 1.0
+      pseudo_weight: 1.0
+      ignore_datasets: []
+  weights: [5.0, 1.0, 1.0, 1.0]     # Camera, Points, Depth, Normals
+
+trainer:
+  precision: "bf16"
+  gradient_clip_val: 1.0
+  accumulate_grad_batches: 4
+  val_check_interval: 200
+  max_epochs: 20
+  num_sanity_val_steps: 4
+
+hardware:
+  local_profile: "RTX_4060_8GB_SMOKE_TEST"
+  recommended_cloud_profile: "A100_80GB_OR_L40_48GB"
+  local_vram_warning: "Full backward pass exceeds 8GB physical VRAM (~11.9 GB); local use is strictly for smoke tests and inference verification."
+
