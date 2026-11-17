@@ -64,7 +64,7 @@ export default function RoomAILandingPage() {
               <Link href="/model" className="cta-button-primary">
                 TRY TRAINED MODEL (A3 GPU) <span>→</span>
               </Link>
-              <Link href="/explore#detect" className="cta-button-secondary">
+              <Link href="/explore#hero-experience" className="cta-button-secondary">
                 View Interactive Detector Demo
               </Link>
             </div>
